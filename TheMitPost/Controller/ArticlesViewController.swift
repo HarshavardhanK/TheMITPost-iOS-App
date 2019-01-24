@@ -19,8 +19,11 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("Bounds of the view W: \(view.bounds.width) H \(view.bounds.height)")
-        print("Frame of the view W: \(view.frame.width) H \(view.frame.height)")
+        print("Bounds of the view W: \(view.bounds.width) H: \(view.bounds.height)")
+        print("Frame of the view W: \(view.frame.width) H: \(view.frame.height)")
+        
+        articleCollectionView.dataSource = self
+        articleCollectionView.delegate = self
 
         retrieveArticles()
         
@@ -68,6 +71,8 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
+    //MARK:- UI CONFIGURATION
+    
     //MARK:- UICOLLECTIONVIEW DATASOURCE AND DELEGATE METHODS
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -103,6 +108,15 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         return UIEdgeInsets(top: ArticleCollectionViewCell.cellPadding, left: ArticleCollectionViewCell.cellPadding, bottom: ArticleCollectionViewCell.cellPadding, right: ArticleCollectionViewCell.cellPadding)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return ArticleCollectionViewCell.cellPadding * 1.60 // need to trial and test this number to suit all iOS devices (iPhone 5S and upwards). This worked good on iPhone X
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
     }
     
     
