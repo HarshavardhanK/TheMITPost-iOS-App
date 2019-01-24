@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ArticleCollectionViewCell" customModule="TheMitPost" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="280"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="280"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QBD-CT-PBv">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g7x-tq-4ES">
+                                <rect key="frame" x="0.0" y="0.0" width="350" height="227"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eho-FE-aZP">
+                                <rect key="frame" x="0.0" y="237" width="350" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2CR-zY-Hkh"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="7QE-Tm-sHD"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8Iq-BG-7co"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="AYh-V5-m3U"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="HQ5-lx-it5"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="JAy-nA-6ZY"/>
+                <constraint firstAttribute="trailing" secondItem="QBD-CT-PBv" secondAttribute="trailing" id="LvQ-Hb-mK3"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NhM-J4-rtJ"/>
+                <constraint firstAttribute="bottom" secondItem="QBD-CT-PBv" secondAttribute="bottom" constant="80" id="Pnn-g7-UK0"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="SP6-VD-3Jl"/>
+                <constraint firstAttribute="trailing" secondItem="QBD-CT-PBv" secondAttribute="trailing" id="Xnd-IP-9cx"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="a6m-1X-rcJ"/>
+                <constraint firstAttribute="bottom" secondItem="QBD-CT-PBv" secondAttribute="bottom" id="f5a-24-gmO"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="g39-qL-AAR"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hCc-Sn-hap"/>
+                <constraint firstAttribute="trailing" secondItem="QBD-CT-PBv" secondAttribute="trailing" id="hfX-n7-hv2"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="j4D-yT-g70"/>
+                <constraint firstAttribute="trailing" secondItem="QBD-CT-PBv" secondAttribute="trailing" id="kd7-4q-To0"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="nBm-QZ-FC3"/>
+                <constraint firstAttribute="trailing" secondItem="QBD-CT-PBv" secondAttribute="trailing" id="oHZ-MY-W80"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qOM-Nc-cuv"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qOU-un-hWp"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="rPG-gB-7V5"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tAA-LQ-FRD"/>
+                <constraint firstItem="QBD-CT-PBv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="vx8-RD-r2s"/>
+                <constraint firstAttribute="trailing" secondItem="QBD-CT-PBv" secondAttribute="trailing" id="xpb-Hv-9gM"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="254" height="70"/>
+            <connections>
+                <outlet property="articleImageView" destination="g7x-tq-4ES" id="Ydx-2b-Tzi"/>
+                <outlet property="titleLabel" destination="eho-FE-aZP" id="uff-yy-U86"/>
+            </connections>
+            <point key="canvasLocation" x="216" y="55.772113943028494"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -12,6 +12,8 @@ pod 'Firebase/Database'
 pod 'Firebase/Messaging'
 pod 'SDWebImage', '~> 4.0'
 pod 'MaterialComponents'
+pod 'Firebase/Core'
+pod 'SwiftyJSON'
 
   target 'TheMitPostTests' do
     inherit! :search_paths

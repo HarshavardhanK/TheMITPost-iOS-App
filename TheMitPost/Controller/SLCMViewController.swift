@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  TheMitPost
 //
 //  Created by Harshavardhan K on 14/01/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class SLCMViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
