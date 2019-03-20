@@ -8,12 +8,14 @@
 
 import UIKit
 import SDWebImage
-import MaterialComponents
 
 class ArticleCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var dateLabelView: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var titleLabelView: UILabel!
     @IBOutlet weak var articleImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var messageLabelView: UILabel!
     
     static let cellID: String = "articleCell"
     static let cellHeight: CGFloat = 350.0
@@ -22,26 +24,57 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     var article: Article? {
         
         didSet {
+            
             guard let article = article else {
                 return
             }
             
-            articleImageView.sd_setImage(with: URL(string:article.imageURLS![0]))
-            titleLabel.text = article.title!
+            articleImageView.sd_setImage(with: URL(string: article.featured_media!))
+            titleLabelView.text = article.title
+            authorLabel.text = article.author
+            dateLabelView.text = article.date
+            
+            if let message = article.message {
+                messageLabelView.text = message
+            } else {
+                print("Article has no message")
+            }
+            
         }
+        
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        clipsToBounds = false
-        articleImageView.clipsToBounds = true
+        
+        self.contentView.layer.cornerRadius = 10.0
+
+        print("Awake from nib")
+        //clipsToBounds = false
+        //articleImageView.clipsToBounds = true
+        
+        titleLabelView.lineBreakMode = .byWordWrapping
+        titleLabelView.numberOfLines = 0
+        titleLabelView.font = UIFont(name: "Optima-Bold", size: 21)
+        
+        messageLabelView.lineBreakMode = .byWordWrapping
+        messageLabelView.numberOfLines = 0
+        
+        messageLabelView.lineBreakMode = .byWordWrapping
+        messageLabelView.numberOfLines = 0
+        messageLabelView.font = UIFont(name: "Helvetica", size: 12)
+        
+        authorLabel.font = UIFont(name: "Optima", size: 16)
+        dateLabelView.font = UIFont(name: "Helvetica", size: 12)
+        
     }
+    
     
     override func prepareForReuse() {
         super.prepareForReuse()
         articleImageView.sd_cancelCurrentImageLoad()
-        titleLabel.text = nil
+        titleLabelView.text = nil
     }
 
 }

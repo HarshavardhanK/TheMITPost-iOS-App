@@ -11,13 +11,22 @@
 		BEF926D8EDB50F3D79A65B88 /* Pods_TheMitPostTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5C3EB86EA193265376DEAB /* Pods_TheMitPostTests.framework */; };
 		D60EBF3121ED0CDF00DAC538 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EBF3021ED0CDF00DAC538 /* Article.swift */; };
 		D60EBF3221ED0CDF00DAC538 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EBF3021ED0CDF00DAC538 /* Article.swift */; };
+		D61C44DB223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
+		D61C44DC223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
+		D61C44DD223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
 		D61D3A9221EE4913006DDD6B /* Trial-Test-Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61D3A9121EE4913006DDD6B /* Trial-Test-Scripts.swift */; };
 		D61D3A9521EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */; };
 		D61D3A9621EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */; };
 		D61D3A9721EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */; };
-		D61D3A9821EE494B006DDD6B /* ArticleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61D3A9421EE494B006DDD6B /* ArticleCollectionViewCell.xib */; };
-		D61D3A9921EE494B006DDD6B /* ArticleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61D3A9421EE494B006DDD6B /* ArticleCollectionViewCell.xib */; };
-		D61D3A9A21EE494B006DDD6B /* ArticleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D61D3A9421EE494B006DDD6B /* ArticleCollectionViewCell.xib */; };
+		D69B30532203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
+		D69B30542203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
+		D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
+		D69B3057220382DC00E66AE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3056220382DC00E66AE3 /* Extensions.swift */; };
+		D69B3058220382DC00E66AE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3056220382DC00E66AE3 /* Extensions.swift */; };
+		D69B3059220382DC00E66AE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3056220382DC00E66AE3 /* Extensions.swift */; };
+		D6ACFF9B2242C22B00CDFAF6 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */; };
+		D6ACFF9C2242C22B00CDFAF6 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */; };
+		D6ACFF9D2242C22C00CDFAF6 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */; };
 		D6D6A20F21ECC5A200B822F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A20E21ECC5A200B822F8 /* AppDelegate.swift */; };
 		D6D6A21121ECC5A200B822F8 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A21021ECC5A200B822F8 /* ArticlesViewController.swift */; };
 		D6D6A21321ECC5A200B822F8 /* SLCMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A21221ECC5A200B822F8 /* SLCMViewController.swift */; };
@@ -27,6 +36,9 @@
 		D6D6A22621ECC5A500B822F8 /* TheMitPostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A22521ECC5A500B822F8 /* TheMitPostTests.swift */; };
 		D6D6A23121ECC5A500B822F8 /* TheMitPostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A23021ECC5A500B822F8 /* TheMitPostUITests.swift */; };
 		D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D6A24021ECDC1800B822F8 /* GoogleService-Info.plist */; };
+		D6F8066C2204A0420041E09F /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8066B2204A0420041E09F /* ArticleViewController.swift */; };
+		D6F8066D2204A0420041E09F /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8066B2204A0420041E09F /* ArticleViewController.swift */; };
+		D6F8066E2204A0420041E09F /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8066B2204A0420041E09F /* ArticleViewController.swift */; };
 		FA3BF59BD9D7A3D5968642D7 /* Pods_TheMitPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9EA9BEB86CB805E9400C2F /* Pods_TheMitPost.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,9 +70,12 @@
 		B3D7AF3A89690FCA396B091D /* Pods-TheMitPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMitPost/Pods-TheMitPost.release.xcconfig"; sourceTree = "<group>"; };
 		C122AB422CB3AF9C1C826A80 /* Pods-TheMitPostTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.release.xcconfig"; sourceTree = "<group>"; };
 		D60EBF3021ED0CDF00DAC538 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		D61C44DA223E74DF00DF5DAA /* SLCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCM.swift; sourceTree = "<group>"; };
 		D61D3A9121EE4913006DDD6B /* Trial-Test-Scripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trial-Test-Scripts.swift"; sourceTree = "<group>"; };
 		D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
-		D61D3A9421EE494B006DDD6B /* ArticleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleCollectionViewCell.xib; sourceTree = "<group>"; };
+		D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeaderView.swift; sourceTree = "<group>"; };
+		D69B3056220382DC00E66AE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		D6D6A20B21ECC5A200B822F8 /* TheMitPost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMitPost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D6A20E21ECC5A200B822F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6D6A21021ECC5A200B822F8 /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +91,7 @@
 		D6D6A23021ECC5A500B822F8 /* TheMitPostUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMitPostUITests.swift; sourceTree = "<group>"; };
 		D6D6A23221ECC5A500B822F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6D6A24021ECDC1800B822F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D6F8066B2204A0420041E09F /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				D60EBF3021ED0CDF00DAC538 /* Article.swift */,
+				D61C44DA223E74DF00DF5DAA /* SLCM.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,7 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */,
-				D61D3A9421EE494B006DDD6B /* ArticleCollectionViewCell.xib */,
+				D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */,
+				D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -141,6 +159,7 @@
 			children = (
 				D6D6A20E21ECC5A200B822F8 /* AppDelegate.swift */,
 				D6D6A21021ECC5A200B822F8 /* ArticlesViewController.swift */,
+				D6F8066B2204A0420041E09F /* ArticleViewController.swift */,
 				D6D6A21221ECC5A200B822F8 /* SLCMViewController.swift */,
 			);
 			path = Controller;
@@ -149,6 +168,7 @@
 		D60EBF2F21ED0C8500DAC538 /* Auxiliary */ = {
 			isa = PBXGroup;
 			children = (
+				D69B3056220382DC00E66AE3 /* Extensions.swift */,
 			);
 			path = Auxiliary;
 			sourceTree = "<group>";
@@ -330,7 +350,6 @@
 			files = (
 				D6D6A21B21ECC5A400B822F8 /* LaunchScreen.storyboard in Resources */,
 				D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */,
-				D61D3A9821EE494B006DDD6B /* ArticleCollectionViewCell.xib in Resources */,
 				D6D6A21821ECC5A400B822F8 /* Assets.xcassets in Resources */,
 				D6D6A21621ECC5A200B822F8 /* Main.storyboard in Resources */,
 			);
@@ -340,7 +359,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D61D3A9921EE494B006DDD6B /* ArticleCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +366,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D61D3A9A21EE494B006DDD6B /* ArticleCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +433,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
@@ -432,6 +451,8 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
@@ -461,6 +482,11 @@
 				D60EBF3121ED0CDF00DAC538 /* Article.swift in Sources */,
 				D61D3A9221EE4913006DDD6B /* Trial-Test-Scripts.swift in Sources */,
 				D6D6A21321ECC5A200B822F8 /* SLCMViewController.swift in Sources */,
+				D69B3057220382DC00E66AE3 /* Extensions.swift in Sources */,
+				D61C44DB223E74DF00DF5DAA /* SLCM.swift in Sources */,
+				D6ACFF9B2242C22B00CDFAF6 /* ArticleTableViewCell.swift in Sources */,
+				D6F8066C2204A0420041E09F /* ArticleViewController.swift in Sources */,
+				D69B30532203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
 				D61D3A9521EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D6D6A20F21ECC5A200B822F8 /* AppDelegate.swift in Sources */,
 				D6D6A21121ECC5A200B822F8 /* ArticlesViewController.swift in Sources */,
@@ -471,8 +497,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D69B3058220382DC00E66AE3 /* Extensions.swift in Sources */,
+				D6F8066D2204A0420041E09F /* ArticleViewController.swift in Sources */,
 				D61D3A9621EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D60EBF3221ED0CDF00DAC538 /* Article.swift in Sources */,
+				D6ACFF9C2242C22B00CDFAF6 /* ArticleTableViewCell.swift in Sources */,
+				D61C44DC223E74DF00DF5DAA /* SLCM.swift in Sources */,
+				D69B30542203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
 				D6D6A22621ECC5A500B822F8 /* TheMitPostTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +514,11 @@
 			files = (
 				D6D6A23121ECC5A500B822F8 /* TheMitPostUITests.swift in Sources */,
 				D61D3A9721EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
+				D61C44DD223E74DF00DF5DAA /* SLCM.swift in Sources */,
+				D6F8066E2204A0420041E09F /* ArticleViewController.swift in Sources */,
+				D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
+				D6ACFF9D2242C22C00CDFAF6 /* ArticleTableViewCell.swift in Sources */,
+				D69B3059220382DC00E66AE3 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,6 +681,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPost/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -664,6 +701,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPost/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

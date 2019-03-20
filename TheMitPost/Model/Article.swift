@@ -10,27 +10,41 @@ import Foundation
 
 class Article {
     
-    var articleID: Int!
+    struct Content {
+        
+        var content: String
+        var isImage: Bool
+        var isHyperlink: Bool
+        
+        init(content: String, isImage: Bool, isHyperlink: Bool) {
+            self.content = content
+            self.isImage = isImage
+            self.isHyperlink = isHyperlink
+        }
+    }
+    
+    var articleID: String!
     var title: String?
     var date: String?
-    var content: Array<String>?
-    var imageURLS: Array<String>?
-    var articleLength: Int!
+    var featured_media: String?
+    var author: String
+    var message: String!
+    var content: [Content]?
     
-    init(articleID: Int, title: String, date: String, content: Array<String>, imageURLS: Array<String>?) {
+    init(articleID: String, title: String, author: String, date: String, featured_media: String, message: String, content: [Content]?) {
         
         self.articleID = articleID
         self.title = title
+        self.featured_media = featured_media
+        self.author = author
         self.date = date
-        self.content = content
+        self.message = message
         
-        if let images = imageURLS {
-            self.imageURLS = images
+        if let content = content {
+            self.content = content
+            
         }
         
-        articleLength = content.count
-        
     }
-    
     
 }

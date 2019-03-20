@@ -14,6 +14,8 @@ pod 'SDWebImage', '~> 4.0'
 pod 'MaterialComponents'
 pod 'Firebase/Core'
 pod 'SwiftyJSON'
+pod 'FoldingCell'
+pod 'Alamofire'
 
   target 'TheMitPostTests' do
     inherit! :search_paths
