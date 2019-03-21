@@ -205,9 +205,9 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "articleViewSegue" {
-            print("Going to articeView")
+            print("Going to ArticleTableViewController")
             
-            if let destinationViewController = segue.destination as? ArticleViewController {
+            if let destinationViewController = segue.destination as? ArticleTableViewController {
                 //destinationViewController.article = selectedArticle
                 let selectedCell = sender as? ArticleCollectionViewCell
                 let indexPath = self.articleCollectionView.indexPath(for: selectedCell!)

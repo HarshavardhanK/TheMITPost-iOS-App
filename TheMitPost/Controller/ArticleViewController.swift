@@ -14,6 +14,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     let API = "https://api.themitpost.com/posts/"
     
+    @IBOutlet var tableViewTopConstraint: NSLayoutConstraint!
     @IBOutlet var scrollView: UIScrollView!
     
     var article: Article?
@@ -32,6 +33,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         titleHorizontalConstraint.constant -= view.bounds.width
         authorHorizontalConstraint.constant -= view.bounds.width
+        tableViewTopConstraint.constant -= view.bounds.width
         
         if let article_ = article {
             retrieveArticle(ID: article_.articleID)
@@ -94,6 +96,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             self.authorHorizontalConstraint.constant += margin
             self.titleHorizontalConstraint.constant += margin
+            self.tableViewTopConstraint.constant += margin
             
             self.stack.layoutSubviews()
             
@@ -133,6 +136,14 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         print("hello")
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(225)
+    }
+    
+    
+    
+    
     
 
     /*

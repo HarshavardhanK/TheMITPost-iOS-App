@@ -18,6 +18,14 @@
 		D61D3A9521EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */; };
 		D61D3A9621EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */; };
 		D61D3A9721EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */; };
+		D6339E442243B675007051A1 /* ArticleHeaderViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E422243B675007051A1 /* ArticleHeaderViewTableViewCell.swift */; };
+		D6339E452243B675007051A1 /* ArticleHeaderViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6339E432243B675007051A1 /* ArticleHeaderViewTableViewCell.xib */; };
+		D6339E472243BF8A007051A1 /* ArticleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */; };
+		D6339E482243BF8A007051A1 /* ArticleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */; };
+		D6339E492243BF8A007051A1 /* ArticleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */; };
+		D6339E4B2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */; };
+		D6339E4C2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */; };
+		D6339E4D2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */; };
 		D69B30532203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
 		D69B30542203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
 		D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
@@ -73,6 +81,10 @@
 		D61C44DA223E74DF00DF5DAA /* SLCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCM.swift; sourceTree = "<group>"; };
 		D61D3A9121EE4913006DDD6B /* Trial-Test-Scripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trial-Test-Scripts.swift"; sourceTree = "<group>"; };
 		D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
+		D6339E422243B675007051A1 /* ArticleHeaderViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeaderViewTableViewCell.swift; sourceTree = "<group>"; };
+		D6339E432243B675007051A1 /* ArticleHeaderViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleHeaderViewTableViewCell.xib; sourceTree = "<group>"; };
+		D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewController.swift; sourceTree = "<group>"; };
+		D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleImageTableViewCell.swift; sourceTree = "<group>"; };
 		D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeaderView.swift; sourceTree = "<group>"; };
 		D69B3056220382DC00E66AE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
@@ -150,6 +162,9 @@
 				D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */,
 				D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */,
 				D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */,
+				D6339E422243B675007051A1 /* ArticleHeaderViewTableViewCell.swift */,
+				D6339E432243B675007051A1 /* ArticleHeaderViewTableViewCell.xib */,
+				D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +176,7 @@
 				D6D6A21021ECC5A200B822F8 /* ArticlesViewController.swift */,
 				D6F8066B2204A0420041E09F /* ArticleViewController.swift */,
 				D6D6A21221ECC5A200B822F8 /* SLCMViewController.swift */,
+				D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -350,6 +366,7 @@
 			files = (
 				D6D6A21B21ECC5A400B822F8 /* LaunchScreen.storyboard in Resources */,
 				D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */,
+				D6339E452243B675007051A1 /* ArticleHeaderViewTableViewCell.xib in Resources */,
 				D6D6A21821ECC5A400B822F8 /* Assets.xcassets in Resources */,
 				D6D6A21621ECC5A200B822F8 /* Main.storyboard in Resources */,
 			);
@@ -482,13 +499,16 @@
 				D60EBF3121ED0CDF00DAC538 /* Article.swift in Sources */,
 				D61D3A9221EE4913006DDD6B /* Trial-Test-Scripts.swift in Sources */,
 				D6D6A21321ECC5A200B822F8 /* SLCMViewController.swift in Sources */,
+				D6339E472243BF8A007051A1 /* ArticleTableViewController.swift in Sources */,
 				D69B3057220382DC00E66AE3 /* Extensions.swift in Sources */,
 				D61C44DB223E74DF00DF5DAA /* SLCM.swift in Sources */,
 				D6ACFF9B2242C22B00CDFAF6 /* ArticleTableViewCell.swift in Sources */,
+				D6339E442243B675007051A1 /* ArticleHeaderViewTableViewCell.swift in Sources */,
 				D6F8066C2204A0420041E09F /* ArticleViewController.swift in Sources */,
 				D69B30532203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
 				D61D3A9521EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D6D6A20F21ECC5A200B822F8 /* AppDelegate.swift in Sources */,
+				D6339E4B2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */,
 				D6D6A21121ECC5A200B822F8 /* ArticlesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,8 +519,10 @@
 			files = (
 				D69B3058220382DC00E66AE3 /* Extensions.swift in Sources */,
 				D6F8066D2204A0420041E09F /* ArticleViewController.swift in Sources */,
+				D6339E4C2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */,
 				D61D3A9621EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D60EBF3221ED0CDF00DAC538 /* Article.swift in Sources */,
+				D6339E482243BF8A007051A1 /* ArticleTableViewController.swift in Sources */,
 				D6ACFF9C2242C22B00CDFAF6 /* ArticleTableViewCell.swift in Sources */,
 				D61C44DC223E74DF00DF5DAA /* SLCM.swift in Sources */,
 				D69B30542203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
@@ -513,9 +535,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6D6A23121ECC5A500B822F8 /* TheMitPostUITests.swift in Sources */,
+				D6339E4D2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */,
 				D61D3A9721EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D61C44DD223E74DF00DF5DAA /* SLCM.swift in Sources */,
 				D6F8066E2204A0420041E09F /* ArticleViewController.swift in Sources */,
+				D6339E492243BF8A007051A1 /* ArticleTableViewController.swift in Sources */,
 				D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
 				D6ACFF9D2242C22C00CDFAF6 /* ArticleTableViewCell.swift in Sources */,
 				D69B3059220382DC00E66AE3 /* Extensions.swift in Sources */,
