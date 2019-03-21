@@ -245,9 +245,9 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        let transform = CATransform3DTranslate(CATransform3DIdentity, -200, -100, -10)
+        let transform = CATransform3DTranslate(CATransform3DIdentity, -20, -10, -1)
         cell.layer.transform = transform
-        cell.alpha = 0.3
+        cell.alpha = 0.0
         
         UIView.animate(withDuration: 0.9, delay: 0.1, options: .curveEaseOut, animations: {
             
