@@ -22,7 +22,6 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var titleLabelView: UILabel!
     @IBOutlet weak var authorLabelView: UILabel!
     
-    @IBOutlet weak var dateHorizontalConstraint: NSLayoutConstraint!
     @IBOutlet weak var authorHorizontalConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleHorizontalConstraint: NSLayoutConstraint!
     @IBOutlet weak var stack: UIStackView!

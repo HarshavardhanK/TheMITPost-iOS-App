@@ -36,6 +36,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         configureAppBar()
         
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
         // Do any additional setup after loading the view, typically from a nib.
         print("Bounds of the view W: \(view.bounds.width) H: \(view.bounds.height)")

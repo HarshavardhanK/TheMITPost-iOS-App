@@ -26,7 +26,7 @@ class ArticleTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        paragraph.font = UIFont(name: "Avenir-Book", size: 18)
+        paragraph.font = UIFont(name: "Avenir-Book", size: 17)
         paragraph.numberOfLines = 0
         paragraph.lineBreakMode = .byWordWrapping
        
