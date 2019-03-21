@@ -44,6 +44,9 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         
     }
     
+    @IBOutlet weak var imageVerticalConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageHorizontalConstraint: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

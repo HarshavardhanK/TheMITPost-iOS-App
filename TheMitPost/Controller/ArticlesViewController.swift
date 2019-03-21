@@ -23,16 +23,17 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     let appBar = MDCAppBar()
     let articleHeaderView = ArticleHeaderView()
     
+    var articlesShown = [Bool]()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        retrieveArticles()
-        
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        retrieveArticles()
         
         configureAppBar()
         
@@ -67,6 +68,8 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             self.parseArticleResult(result: result)
             
             self.articleCollectionView.reloadData()
+            
+            self.articlesShown = [Bool](repeating: false, count: self.articlesList.count)
             
         }
         
@@ -243,21 +246,32 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         return 0.0
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        let transform = CATransform3DTranslate(CATransform3DIdentity, -20, -10, -1)
-        cell.layer.transform = transform
-        cell.alpha = 0.0
-        
-        UIView.animate(withDuration: 0.9, delay: 0.1, options: .curveEaseOut, animations: {
+        if articlesShown[indexPath.row] == false {
             
-           // transform = CATransform3DTranslate(CATransform3DIdentity, 500, 10, 2)
-            cell.layer.transform = CATransform3DIdentity
-            cell.alpha = 1.0
+            let transform = CATransform3DTranslate(CATransform3DIdentity, -5, 50, -5)
+            cell.layer.transform = transform
+            cell.alpha = 0.0
             
-        }) { (true) in
-            print("Animation complete")
+            
+            UIView.animate(withDuration: 0.9, delay: 0.1, options: .curveEaseOut, animations: {
+                
+                // transform = CATransform3DTranslate(CATransform3DIdentity, 500, 10, 2)
+                cell.layer.transform = CATransform3DIdentity
+                cell.alpha = 1.0
+                
+            }) { (true) in
+                print("Animation complete")
+                
+            }
+            
+            articlesShown[indexPath.row] = true
+            
         }
+        
     }
     
     //MARK:- UICOLLECTIONVIEWDATASOURCE DELEGATE METHODS

@@ -124,6 +124,29 @@ class ArticleTableViewController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if(indexPath.row == 0) {
+            
+            let transform = CATransform3DTranslate(CATransform3DIdentity, -5, 50, -5)
+            cell.layer.transform = transform
+            cell.alpha = 0.0
+            
+            UIView.animate(withDuration: 0.9, delay: 0.1, options: .curveEaseOut, animations: {
+                
+                // transform = CATransform3DTranslate(CATransform3DIdentity, 500, 10, 2)
+                cell.layer.transform = CATransform3DIdentity
+                cell.alpha = 1.0
+                
+            }) { (true) in
+                print("Animation complete")
+            }
+            
+        }
+        
+    }
+    
+    
 //    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 //        return CGFloat(225)
 //    }
