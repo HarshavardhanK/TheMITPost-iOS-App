@@ -107,6 +107,7 @@ class ArticleTableViewController: UITableViewController {
             if(content[indexPath.row].isImage) {
                 
                 let imageCell = tableView.dequeueReusableCell(withIdentifier: "contentImageCell") as! ArticleImageTableViewCell
+                
                 imageCell.content = content[indexPath.row]
                 
                 return imageCell
@@ -117,8 +118,7 @@ class ArticleTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "contentCell") as! ArticleTableViewCell
         cell.content = content[indexPath.row]
-        print("hello")
-        
+
         return cell
         
         

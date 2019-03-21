@@ -124,10 +124,10 @@
             </objects>
             <point key="canvasLocation" x="1663.2" y="-685.00749625187416"/>
         </scene>
-        <!--Article Table View Controller-->
+        <!--The Staff-->
         <scene sceneID="tzr-T3-GON">
             <objects>
-                <tableViewController id="YjM-66-zzl" customClass="ArticleTableViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="The Staff" id="YjM-66-zzl" customClass="ArticleTableViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BB7-LH-vfe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -161,21 +161,24 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contentImageCell" rowHeight="225" id="5di-Ah-9w1" customClass="ArticleImageTableViewCell" customModule="TheMitPost" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="228" width="375" height="225"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5di-Ah-9w1" id="M06-Bl-o0U">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5di-Ah-9w1" id="M06-Bl-o0U">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="224.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wsi-wp-rbV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="225" id="5Wv-hJ-txa"/>
-                                                <constraint firstAttribute="width" constant="375" id="K41-yX-IKr"/>
-                                            </constraints>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wsi-wp-rbV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="224"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="width" secondItem="wsi-wp-rbV" secondAttribute="height" multiplier="375:224" id="6P5-Wg-Qiw"/>
                                         <constraint firstItem="wsi-wp-rbV" firstAttribute="leading" secondItem="M06-Bl-o0U" secondAttribute="leading" id="8Qq-us-HDm"/>
+                                        <constraint firstItem="wsi-wp-rbV" firstAttribute="centerX" secondItem="M06-Bl-o0U" secondAttribute="centerX" id="9iA-Me-nUk"/>
+                                        <constraint firstItem="wsi-wp-rbV" firstAttribute="leading" secondItem="M06-Bl-o0U" secondAttribute="leading" id="9mq-Fy-bUl"/>
+                                        <constraint firstAttribute="width" secondItem="wsi-wp-rbV" secondAttribute="width" id="exD-rf-Z0a"/>
+                                        <constraint firstAttribute="trailing" secondItem="wsi-wp-rbV" secondAttribute="trailing" id="luh-qB-FS5"/>
+                                        <constraint firstItem="wsi-wp-rbV" firstAttribute="centerY" secondItem="M06-Bl-o0U" secondAttribute="centerY" id="qrf-3D-lDJ"/>
                                         <constraint firstItem="wsi-wp-rbV" firstAttribute="top" secondItem="M06-Bl-o0U" secondAttribute="top" id="qta-0E-eEj"/>
+                                        <constraint firstItem="wsi-wp-rbV" firstAttribute="top" secondItem="M06-Bl-o0U" secondAttribute="top" id="wnU-Vv-OqW"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
