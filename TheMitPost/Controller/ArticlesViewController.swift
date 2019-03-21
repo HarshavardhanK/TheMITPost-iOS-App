@@ -207,6 +207,8 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         if segue.identifier == "articleViewSegue" {
             print("Going to ArticleTableViewController")
             
+            self.hidesBottomBarWhenPushed = true
+            
             if let destinationViewController = segue.destination as? ArticleTableViewController {
                 //destinationViewController.article = selectedArticle
                 let selectedCell = sender as? ArticleCollectionViewCell
