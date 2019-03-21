@@ -19,7 +19,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     
     static let cellID: String = "articleCell"
     static let cellHeight: CGFloat = 430.0
-    static let cellPadding: CGFloat = 2
+    static let cellPadding: CGFloat = 5 // DO NOT CHANGE THIS VALUE. WORKS PERFECTLY
     
     var article: Article? {
         

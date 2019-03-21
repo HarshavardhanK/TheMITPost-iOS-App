@@ -38,6 +38,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         configureAppBar()
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        self.tabBarController?.tabBar.isHidden = false
         
         // Do any additional setup after loading the view, typically from a nib.
         print("Bounds of the view W: \(view.bounds.width) H: \(view.bounds.height)")
@@ -139,10 +140,9 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         let tabBarIndex = tabBarController.selectedIndex
         
-        print(tabBarIndex)
-        
         if tabBarIndex == 0 {
-            self.articleCollectionView.setContentOffset(CGPoint.zero, animated: true)
+            
+            self.articleCollectionView.setContentOffset(CGPoint(x: 0, y: -ArticleHeaderView.CONSTANTS.maxHeight), animated: true)
         }
     }
     
@@ -234,7 +234,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 
-        return UIEdgeInsets(top: ArticleCollectionViewCell.cellPadding, left: ArticleCollectionViewCell.cellPadding, bottom: ArticleCollectionViewCell.cellPadding, right: ArticleCollectionViewCell.cellPadding)
+        return UIEdgeInsets(top: ArticleCollectionViewCell.cellPadding * 1.5, left: 0, bottom: 0, right: 0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
