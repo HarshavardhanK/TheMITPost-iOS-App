@@ -18,8 +18,8 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var messageLabelView: UILabel!
     
     static let cellID: String = "articleCell"
-    static let cellHeight: CGFloat = 400.0
-    static let cellPadding: CGFloat = 8
+    static let cellHeight: CGFloat = 430.0
+    static let cellPadding: CGFloat = 2
     
     var article: Article? {
         

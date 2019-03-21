@@ -78,18 +78,28 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Tap for more" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTe-Ib-L6Y">
+                                            <rect key="frame" x="252" y="303" width="100" height="79"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="0i1-gK-VMg" secondAttribute="trailing" constant="-4" id="0YB-Ld-D9J"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="cTe-Ib-L6Y" secondAttribute="bottom" id="1rq-Zg-dDd"/>
                                     <constraint firstItem="ntH-Sv-qlV" firstAttribute="leading" secondItem="Up2-8h-8yW" secondAttribute="leading" constant="13" id="6bL-Bw-S2h"/>
                                     <constraint firstAttribute="trailing" secondItem="j4h-OU-WGP" secondAttribute="trailing" constant="26" id="8S7-du-Kgo"/>
                                     <constraint firstItem="0i1-gK-VMg" firstAttribute="leading" secondItem="Up2-8h-8yW" secondAttribute="leading" constant="-5" id="CO8-me-Khs"/>
                                     <constraint firstItem="j4h-OU-WGP" firstAttribute="leading" secondItem="Up2-8h-8yW" secondAttribute="leading" constant="14" id="GTE-K1-JRY"/>
+                                    <constraint firstItem="cTe-Ib-L6Y" firstAttribute="leading" secondItem="Up2-8h-8yW" secondAttribute="leading" constant="252" id="JL9-jp-7gh"/>
                                     <constraint firstAttribute="trailing" secondItem="ntH-Sv-qlV" secondAttribute="trailing" constant="27" id="LbP-6E-5oY"/>
                                     <constraint firstItem="0i1-gK-VMg" firstAttribute="top" secondItem="Up2-8h-8yW" secondAttribute="topMargin" constant="-8" id="NwJ-rN-Q2s"/>
                                     <constraint firstItem="j4h-OU-WGP" firstAttribute="top" secondItem="0i1-gK-VMg" secondAttribute="bottom" constant="5" id="Ynw-bi-sHv"/>
                                     <constraint firstItem="ntH-Sv-qlV" firstAttribute="top" secondItem="j4h-OU-WGP" secondAttribute="bottom" constant="6" id="ZRo-3i-I8P"/>
+                                    <constraint firstAttribute="trailing" secondItem="cTe-Ib-L6Y" secondAttribute="trailing" constant="20" id="ja3-S5-78G"/>
+                                    <constraint firstItem="cTe-Ib-L6Y" firstAttribute="top" secondItem="ntH-Sv-qlV" secondAttribute="bottom" constant="5" id="q4l-55-RkG"/>
                                     <constraint firstItem="j4h-OU-WGP" firstAttribute="leading" secondItem="ntH-Sv-qlV" secondAttribute="leading" constant="1" id="sA8-NU-nwM"/>
                                 </constraints>
                                 <connections>
