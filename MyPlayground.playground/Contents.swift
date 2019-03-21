@@ -12,38 +12,39 @@ class Article {
     struct Content {
         
         var content: String
-        var isURL: Bool
+        var isImage: Bool
+        var isHyperlink: Bool
         
-        init(content: String, isURL: Bool) {
+        init(content: String, isImage: Bool, isHyperlink: Bool) {
             self.content = content
-            self.isURL = isURL
+            self.isImage = isImage
+            self.isHyperlink = isHyperlink
         }
     }
     
     var articleID: String!
     var title: String?
-   // var date: String?
-    //var content: Array<String>?
-    // var imageURLS: Array<String>?
-    var featured_image: String
-    var articleLength: Int!
+    var date: String?
+    var featured_media: String?
+    var author: String
+    var message: String!
     var content: [Content]?
     
-    init(articleID: String, title: String, featured_image: String, content: [Content]) {
+    init(articleID: String, title: String, author: String, date: String, featured_media: String, message: String, content: [Content]?) {
         
         self.articleID = articleID
         self.title = title
-       // self.date = date
-        self.featured_image = featured_image
-        self.content = content
+        self.featured_media = featured_media
+        self.author = author
+        self.date = date
+        self.message = message
+        
+        if let content = content {
+            self.content = content
+            
+        }
         
     }
-    
-    func display() {
-        print(title!)
-        print(featured_image)
-    }
-    
     
 }
 
@@ -123,7 +124,7 @@ func retrieveArticle(ID: String) {
         for i in 0..<contents.count {
             let content = contents[i]
             
-            contentsList.append(Article.Content(content: content["content"].stringValue, isURL: content["isUrl"].boolValue))
+            contentsList.append(Article.Content(content: content["content"].stringValue, isImage: content["isImage"].boolValue, isHyperlink: content["isHyperlink"].boolValue))
             
         }
     }
@@ -134,6 +135,7 @@ retrieveArticle(ID: "20442")
 
 for content in contentsList {
     print(content.content)
-    print(content.isURL)
+    print(content.isImage)
+    print(content.isHyperlink)
     print("\n")
 }

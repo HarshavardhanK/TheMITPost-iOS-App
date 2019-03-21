@@ -18,7 +18,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var messageLabelView: UILabel!
     
     static let cellID: String = "articleCell"
-    static let cellHeight: CGFloat = 350.0
+    static let cellHeight: CGFloat = 420.0
     static let cellPadding: CGFloat = 8
     
     var article: Article? {
@@ -63,7 +63,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         
         messageLabelView.lineBreakMode = .byWordWrapping
         messageLabelView.numberOfLines = 0
-        messageLabelView.font = UIFont(name: "Helvetica", size: 12)
+        messageLabelView.font = UIFont(name: "Optima", size: 15)
         
         authorLabel.font = UIFont(name: "Optima", size: 16)
         dateLabelView.font = UIFont(name: "Helvetica", size: 12)

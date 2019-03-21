@@ -7,17 +7,20 @@
 //
 
 import UIKit
-import SDWebImage
-import MaterialComponents
+import Alamofire
+import SwiftyJSON
 
 class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let API = "https://api.themitpost.com/posts/"
+    
+    @IBOutlet var scrollView: UIScrollView!
     
     var article: Article?
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabelView: UILabel!
     @IBOutlet weak var authorLabelView: UILabel!
-    @IBOutlet weak var dateLabelView: UILabel!
     
     @IBOutlet weak var dateHorizontalConstraint: NSLayoutConstraint!
     @IBOutlet weak var authorHorizontalConstraint: NSLayoutConstraint!
@@ -30,10 +33,16 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         titleHorizontalConstraint.constant -= view.bounds.width
         authorHorizontalConstraint.constant -= view.bounds.width
-        dateHorizontalConstraint.constant -= view.bounds.width
+        
+        if let article_ = article {
+            retrieveArticle(ID: article_.articleID)
+            print("Contents retrieved..!")
+        }
     }
     
-    let content = [Article.Content]()
+    
+    
+    var content = [Article.Content]()
     
     
     override func viewDidLoad() {
@@ -45,6 +54,8 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         articleTableView.dataSource = self
         articleTableView.delegate = self
+        
+        articleTableView.separatorStyle = .none
         
         animateIntoView(duration: 0.5, delay: 0.0, margin: view.bounds.width)
         
@@ -61,15 +72,12 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         titleLabelView.font = UIFont(name: "Optima", size: 22)
         authorLabelView.font = UIFont(name: "Optima", size: 16)
         
-        dateLabelView.font = UIFont(name: "Avenir", size: 13)
-        
         if let receivedArticle = article {
             
             let titleAttributedString = NSAttributedString(string: receivedArticle.title!, attributes: titleAttributes)
 
             titleLabelView.attributedText = titleAttributedString
             imageView.sd_setImage(with: URL(string: receivedArticle.featured_media!), completed: nil)
-            dateLabelView.text = receivedArticle.date
             authorLabelView.text = receivedArticle.author
             
             print("Article content yet to receive..")
@@ -87,7 +95,6 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             self.authorHorizontalConstraint.constant += margin
             self.titleHorizontalConstraint.constant += margin
-            self.dateHorizontalConstraint.constant += margin
             
             self.stack.layoutSubviews()
             
@@ -96,9 +103,36 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func retrieveArticle(ID: String) {
+        
+        Alamofire.request(API + ID, method: .get).responseJSON {
+            response in
+            
+            let data = JSON(response.result.value!)
+            let contents = data["content"]
+            
+            for i in 0..<contents.count {
+                let content = contents[i]
+                
+                self.content.append(Article.Content(content: content["content"].stringValue, isImage: content["isImage"].boolValue, isHyperlink: content["isHyperlink"].boolValue))
+                
+            }
+            
+            self.articleTableView.reloadData()
+        }
+        
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return content.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = articleTableView.dequeueReusableCell(withIdentifier: "contentCell") as! ArticleTableViewCell
+        cell.content = content[indexPath.row]
+        print("hello")
+        return cell
     }
     
 
