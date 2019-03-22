@@ -29,6 +29,7 @@ class ArticleTableViewController: UITableViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.allowsSelection = false
         
         self.navigationController?.hidesBarsOnSwipe = true
         
@@ -55,12 +56,13 @@ class ArticleTableViewController: UITableViewController {
             for i in 0..<contents.count {
                 let content = contents[i]
                 
-                let paragraph = content["content"].stringValue
-                var components = paragraph.components(separatedBy: .whitespacesAndNewlines)
+                
+                let paragraph = String(htmlEncodedString: content["content"].stringValue)
+                var components = paragraph!.components(separatedBy: .whitespacesAndNewlines)
                 components = components.filter{!$0.isEmpty}
                 self.totalWords += components.count
                 
-                self.content.append(Article.Content(content: paragraph, isImage: content["isImage"].boolValue, isHyperlink: content["isHyperlink"].boolValue))
+                self.content.append(Article.Content(content: paragraph!, isImage: content["isImage"].boolValue, isHyperlink: content["isHyperlink"].boolValue))
                 
             }
             
@@ -97,14 +99,17 @@ class ArticleTableViewController: UITableViewController {
 //    }
     
     var imagesAbove = 0
+    let offset = 2
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if(indexPath.row == 0) {
             let timeDateCell = tableView.dequeueReusableCell(withIdentifier: "timeDateCell") as! ArticleTimeDateViewCell
             
-            timeDateCell.time = "\(totalWords / 200) min read"
+            timeDateCell.time = "\(totalWords / 225) min read"
             timeDateCell.date = article?.date
+            
+            timeDateCell.selectionStyle = .none
             
             return timeDateCell
             
@@ -120,11 +125,13 @@ class ArticleTableViewController: UITableViewController {
             
         } else {
             
-            if(content[indexPath.row - 1].isImage) {
+            if(content[indexPath.row - offset].isImage) {
                 
                 let imageCell = tableView.dequeueReusableCell(withIdentifier: "contentImageCell") as! ArticleImageTableViewCell
                 
-                imageCell.content = content[indexPath.row]
+                imageCell.content = content[indexPath.row - offset]
+                
+                imageCell.selectionStyle = .none
                 
                 return imageCell
                 
@@ -133,10 +140,12 @@ class ArticleTableViewController: UITableViewController {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "contentCell") as! ArticleTableViewCell
-        cell.content = content[indexPath.row - 1]
+        cell.content = content[indexPath.row - offset - imagesAbove]
         
         //if(content[indexPath.row - 1].isImage) {
-        cell.paragraphNumber = indexPath.row - 2
+        cell.paragraphNumber = indexPath.row - 2 - imagesAbove
+        
+        imagesAbove = 0
         
         //}
         
@@ -154,7 +163,7 @@ class ArticleTableViewController: UITableViewController {
             cell.layer.transform = transform
             cell.alpha = 0.0
             
-            UIView.animate(withDuration: 0.9, delay: 0.1, options: .curveEaseOut, animations: {
+            UIView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseOut, .allowUserInteraction], animations: {
                 
                 // transform = CATransform3DTranslate(CATransform3DIdentity, 500, 10, 2)
                 cell.layer.transform = CATransform3DIdentity
@@ -164,6 +173,26 @@ class ArticleTableViewController: UITableViewController {
                 print("Animation complete")
             }
             
+        } else if(content[indexPath.row].isImage == false) {
+            cell.alpha = 0.6
+            
+            UIView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseOut, .allowUserInteraction], animations: {
+                cell.alpha = 1.0
+            }, completion: nil)
+        }
+        
+        if(content[indexPath.row].isImage) {
+            
+            let transform = CATransform3DTranslate(CATransform3DIdentity, -100, 0, -100)
+            cell.layer.transform = transform
+            //cell.alpha = 0.6
+            
+            UIView.animate(withDuration: 0.4, delay: 0.0, options:[.curveEaseOut, .allowUserInteraction], animations: {
+                cell.layer.transform = CATransform3DIdentity
+                //cell.alpha = 1.0
+                
+            }, completion: nil)
+
         }
         
     }

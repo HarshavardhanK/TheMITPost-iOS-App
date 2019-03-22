@@ -21,15 +21,6 @@ class ArticleTableViewCell: UITableViewCell {
                 
                 if p_ == 0 {
                     
-//                    let range = NSRange(location:1,length:1) // specific location. This means "range" handle 1 character at location 2
-//
-//                    let attributedString = NSMutableAttributedString(string: (content?.content)!, attributes: [NSAttributedString.Key.font:UIFont(name: "Avenir-Book", size: 30)!])
-//                    // here you change the character to red color
-//                    attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: range)
-//                    paragraph.attributedText = attributedString
-                    
-                    //xcontent?.content = "\t" + (content?.content)!
-                    
                     let range = NSRange(location:1,length:1)
                     
                     let attributedString = NSMutableAttributedString(string: "\t")
@@ -106,8 +97,8 @@ class ArticleTimeDateViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        timeLabelView.font = UIFont(name: "Avenir-Book", size: 10)
-        dateLabelView.font = UIFont(name: "Avenir-Book", size: 10)
+        timeLabelView.font = UIFont(name: "Avenir-Book", size: 15)
+        dateLabelView.font = UIFont(name: "Optima", size: 14)
         
         
         

@@ -255,7 +255,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.alpha = 0.0
             
             
-            UIView.animate(withDuration: 0.9, delay: 0.1, options: .curveEaseOut, animations: {
+            UIView.animate(withDuration: 0.9, delay: 0.1, options: [.curveEaseOut, .allowUserInteraction], animations: {
                 
                 // transform = CATransform3DTranslate(CATransform3DIdentity, 500, 10, 2)
                 cell.layer.transform = CATransform3DIdentity
