@@ -120,7 +120,7 @@ class ArticleTableViewController: UITableViewController {
             
         } else {
             
-            if(content[indexPath.row].isImage) {
+            if(content[indexPath.row - 1].isImage) {
                 
                 let imageCell = tableView.dequeueReusableCell(withIdentifier: "contentImageCell") as! ArticleImageTableViewCell
                 
@@ -133,10 +133,11 @@ class ArticleTableViewController: UITableViewController {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "contentCell") as! ArticleTableViewCell
-        cell.content = content[indexPath.row]
+        cell.content = content[indexPath.row - 1]
         
         //if(content[indexPath.row - 1].isImage) {
-            cell.paragraphNumber = indexPath.row - 2
+        cell.paragraphNumber = indexPath.row - 2
+        
         //}
         
 
