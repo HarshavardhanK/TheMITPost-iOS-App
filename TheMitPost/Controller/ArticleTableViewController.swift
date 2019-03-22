@@ -16,6 +16,8 @@ class ArticleTableViewController: UITableViewController {
     
     var article: Article?
     var content = [Article.Content]()
+    
+    var totalWords: Int = 0
 
 
     override func viewDidLoad() {
@@ -28,7 +30,7 @@ class ArticleTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        
+        self.navigationController?.hidesBarsOnSwipe = true
         
         if let article_ = article {
             print("Got \(article_.title)")
@@ -53,7 +55,12 @@ class ArticleTableViewController: UITableViewController {
             for i in 0..<contents.count {
                 let content = contents[i]
                 
-                self.content.append(Article.Content(content: content["content"].stringValue, isImage: content["isImage"].boolValue, isHyperlink: content["isHyperlink"].boolValue))
+                let paragraph = content["content"].stringValue
+                var components = paragraph.components(separatedBy: .whitespacesAndNewlines)
+                components = components.filter{!$0.isEmpty}
+                self.totalWords += components.count
+                
+                self.content.append(Article.Content(content: paragraph, isImage: content["isImage"].boolValue, isHyperlink: content["isHyperlink"].boolValue))
                 
             }
             
@@ -88,11 +95,20 @@ class ArticleTableViewController: UITableViewController {
 //
 //
 //    }
+    
+    var imagesAbove = 0
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if(indexPath.row == 0) {
+            let timeDateCell = tableView.dequeueReusableCell(withIdentifier: "timeDateCell") as! ArticleTimeDateViewCell
             
+            timeDateCell.time = "\(totalWords / 200) min read"
+            timeDateCell.date = article?.date
+            
+            return timeDateCell
+            
+        } else if indexPath.row == 1 {
             let headerView = Bundle.main.loadNibNamed("ArticleHeaderViewTableViewCell", owner: self, options: nil)?.first as! ArticleHeaderViewTableViewCell
             
             if let article_ = article {
@@ -118,6 +134,11 @@ class ArticleTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "contentCell") as! ArticleTableViewCell
         cell.content = content[indexPath.row]
+        
+        //if(content[indexPath.row - 1].isImage) {
+            cell.paragraphNumber = indexPath.row - 2
+        //}
+        
 
         return cell
         
@@ -126,7 +147,7 @@ class ArticleTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        if(indexPath.row == 0) {
+        if(indexPath.row == 1) {
             
             let transform = CATransform3DTranslate(CATransform3DIdentity, -5, 50, -5)
             cell.layer.transform = transform

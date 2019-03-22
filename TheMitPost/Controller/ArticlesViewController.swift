@@ -38,7 +38,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         configureAppBar()
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        self.tabBarController?.tabBar.isHidden = false
+        //self.tabBarController?.tabBar.isHidden = false
         
         // Do any additional setup after loading the view, typically from a nib.
         print("Bounds of the view W: \(view.bounds.width) H: \(view.bounds.height)")
@@ -209,8 +209,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         if segue.identifier == "articleViewSegue" {
             print("Going to ArticleTableViewController")
-            
-            self.hidesBottomBarWhenPushed = true
             
             if let destinationViewController = segue.destination as? ArticleTableViewController {
                 //destinationViewController.article = selectedArticle
