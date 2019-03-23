@@ -32,6 +32,28 @@
 		D69B3057220382DC00E66AE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3056220382DC00E66AE3 /* Extensions.swift */; };
 		D69B3058220382DC00E66AE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3056220382DC00E66AE3 /* Extensions.swift */; };
 		D69B3059220382DC00E66AE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3056220382DC00E66AE3 /* Extensions.swift */; };
+		D6ACF11F22469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF11E22469EC4001B8A68 /* Aileron-UltraLight.otf */; };
+		D6ACF12022469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF11E22469EC4001B8A68 /* Aileron-UltraLight.otf */; };
+		D6ACF12222469ED7001B8A68 /* Aileron-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF12122469ED7001B8A68 /* Aileron-Regular.otf */; };
+		D6ACF12322469ED7001B8A68 /* Aileron-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF12122469ED7001B8A68 /* Aileron-Regular.otf */; };
+		D6ACF12522469EE4001B8A68 /* Aileron-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF12422469EE4001B8A68 /* Aileron-SemiBold.otf */; };
+		D6ACF12622469EE4001B8A68 /* Aileron-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF12422469EE4001B8A68 /* Aileron-SemiBold.otf */; };
+		D6ACF12A22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF12722469EFE001B8A68 /* Roboto-Regular.ttf */; };
+		D6ACF12B22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF12722469EFE001B8A68 /* Roboto-Regular.ttf */; };
+		D6ACF12C22469EFF001B8A68 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF12822469EFF001B8A68 /* Roboto-Light.ttf */; };
+		D6ACF12D22469EFF001B8A68 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF12822469EFF001B8A68 /* Roboto-Light.ttf */; };
+		D6ACF12E22469EFF001B8A68 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF12922469EFF001B8A68 /* Roboto-Medium.ttf */; };
+		D6ACF12F22469EFF001B8A68 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF12922469EFF001B8A68 /* Roboto-Medium.ttf */; };
+		D6ACF13522469F24001B8A68 /* DyeLine-Regular2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF13022469F22001B8A68 /* DyeLine-Regular2.ttf */; };
+		D6ACF13622469F24001B8A68 /* DyeLine-Regular2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF13022469F22001B8A68 /* DyeLine-Regular2.ttf */; };
+		D6ACF13722469F24001B8A68 /* DyeLine-Regular4.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF13122469F23001B8A68 /* DyeLine-Regular4.ttf */; };
+		D6ACF13822469F24001B8A68 /* DyeLine-Regular4.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF13122469F23001B8A68 /* DyeLine-Regular4.ttf */; };
+		D6ACF13922469F24001B8A68 /* DyeLine-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF13222469F23001B8A68 /* DyeLine-Bold.ttf */; };
+		D6ACF13A22469F24001B8A68 /* DyeLine-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF13222469F23001B8A68 /* DyeLine-Bold.ttf */; };
+		D6ACF13B22469F24001B8A68 /* DyeLine-Regular3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF13322469F24001B8A68 /* DyeLine-Regular3.ttf */; };
+		D6ACF13C22469F24001B8A68 /* DyeLine-Regular3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF13322469F24001B8A68 /* DyeLine-Regular3.ttf */; };
+		D6ACF13D22469F24001B8A68 /* DyeLine-Regular5.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF13422469F24001B8A68 /* DyeLine-Regular5.ttf */; };
+		D6ACF13E22469F24001B8A68 /* DyeLine-Regular5.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF13422469F24001B8A68 /* DyeLine-Regular5.ttf */; };
 		D6ACFF9B2242C22B00CDFAF6 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */; };
 		D6ACFF9C2242C22B00CDFAF6 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */; };
 		D6ACFF9D2242C22C00CDFAF6 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */; };
@@ -87,6 +109,17 @@
 		D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleImageTableViewCell.swift; sourceTree = "<group>"; };
 		D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeaderView.swift; sourceTree = "<group>"; };
 		D69B3056220382DC00E66AE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D6ACF11E22469EC4001B8A68 /* Aileron-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-UltraLight.otf"; sourceTree = "<group>"; };
+		D6ACF12122469ED7001B8A68 /* Aileron-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Regular.otf"; sourceTree = "<group>"; };
+		D6ACF12422469EE4001B8A68 /* Aileron-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-SemiBold.otf"; sourceTree = "<group>"; };
+		D6ACF12722469EFE001B8A68 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		D6ACF12822469EFF001B8A68 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		D6ACF12922469EFF001B8A68 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		D6ACF13022469F22001B8A68 /* DyeLine-Regular2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DyeLine-Regular2.ttf"; sourceTree = "<group>"; };
+		D6ACF13122469F23001B8A68 /* DyeLine-Regular4.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DyeLine-Regular4.ttf"; sourceTree = "<group>"; };
+		D6ACF13222469F23001B8A68 /* DyeLine-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DyeLine-Bold.ttf"; sourceTree = "<group>"; };
+		D6ACF13322469F24001B8A68 /* DyeLine-Regular3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DyeLine-Regular3.ttf"; sourceTree = "<group>"; };
+		D6ACF13422469F24001B8A68 /* DyeLine-Regular5.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DyeLine-Regular5.ttf"; sourceTree = "<group>"; };
 		D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		D6D6A20B21ECC5A200B822F8 /* TheMitPost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMitPost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D6A20E21ECC5A200B822F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +222,24 @@
 			path = Auxiliary;
 			sourceTree = "<group>";
 		};
+		D6ACF13F2246A00A001B8A68 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D6ACF11E22469EC4001B8A68 /* Aileron-UltraLight.otf */,
+				D6ACF12422469EE4001B8A68 /* Aileron-SemiBold.otf */,
+				D6ACF12122469ED7001B8A68 /* Aileron-Regular.otf */,
+				D6ACF13222469F23001B8A68 /* DyeLine-Bold.ttf */,
+				D6ACF13022469F22001B8A68 /* DyeLine-Regular2.ttf */,
+				D6ACF13322469F24001B8A68 /* DyeLine-Regular3.ttf */,
+				D6ACF13122469F23001B8A68 /* DyeLine-Regular4.ttf */,
+				D6ACF13422469F24001B8A68 /* DyeLine-Regular5.ttf */,
+				D6ACF12822469EFF001B8A68 /* Roboto-Light.ttf */,
+				D6ACF12922469EFF001B8A68 /* Roboto-Medium.ttf */,
+				D6ACF12722469EFE001B8A68 /* Roboto-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		D6D6A20221ECC5A200B822F8 = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +265,7 @@
 		D6D6A20D21ECC5A200B822F8 /* TheMitPost */ = {
 			isa = PBXGroup;
 			children = (
+				D6ACF13F2246A00A001B8A68 /* Fonts */,
 				D61D3A9121EE4913006DDD6B /* Trial-Test-Scripts.swift */,
 				D60EBF2C21ED0C7000DAC538 /* Model */,
 				D60EBF2D21ED0C7800DAC538 /* View */,
@@ -364,10 +416,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6ACF13B22469F24001B8A68 /* DyeLine-Regular3.ttf in Resources */,
+				D6ACF13722469F24001B8A68 /* DyeLine-Regular4.ttf in Resources */,
 				D6D6A21B21ECC5A400B822F8 /* LaunchScreen.storyboard in Resources */,
+				D6ACF13922469F24001B8A68 /* DyeLine-Bold.ttf in Resources */,
+				D6ACF12522469EE4001B8A68 /* Aileron-SemiBold.otf in Resources */,
+				D6ACF12C22469EFF001B8A68 /* Roboto-Light.ttf in Resources */,
+				D6ACF13522469F24001B8A68 /* DyeLine-Regular2.ttf in Resources */,
+				D6ACF12222469ED7001B8A68 /* Aileron-Regular.otf in Resources */,
 				D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */,
+				D6ACF11F22469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
 				D6339E452243B675007051A1 /* ArticleHeaderViewTableViewCell.xib in Resources */,
+				D6ACF12A22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */,
+				D6ACF12E22469EFF001B8A68 /* Roboto-Medium.ttf in Resources */,
 				D6D6A21821ECC5A400B822F8 /* Assets.xcassets in Resources */,
+				D6ACF13D22469F24001B8A68 /* DyeLine-Regular5.ttf in Resources */,
 				D6D6A21621ECC5A200B822F8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +446,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6ACF13C22469F24001B8A68 /* DyeLine-Regular3.ttf in Resources */,
+				D6ACF13622469F24001B8A68 /* DyeLine-Regular2.ttf in Resources */,
+				D6ACF12622469EE4001B8A68 /* Aileron-SemiBold.otf in Resources */,
+				D6ACF12022469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
+				D6ACF12F22469EFF001B8A68 /* Roboto-Medium.ttf in Resources */,
+				D6ACF13E22469F24001B8A68 /* DyeLine-Regular5.ttf in Resources */,
+				D6ACF12D22469EFF001B8A68 /* Roboto-Light.ttf in Resources */,
+				D6ACF13822469F24001B8A68 /* DyeLine-Regular4.ttf in Resources */,
+				D6ACF12B22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */,
+				D6ACF12322469ED7001B8A68 /* Aileron-Regular.otf in Resources */,
+				D6ACF13A22469F24001B8A68 /* DyeLine-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +537,7 @@
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/UIImageColors/UIImageColors.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -481,6 +556,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -706,10 +782,7 @@
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarshah.apps.TheMitPost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -726,10 +799,7 @@
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarshah.apps.TheMitPost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -746,11 +816,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPostTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarsha.apps.TheMitPostTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -768,11 +834,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPostTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarsha.apps.TheMitPostTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -789,11 +851,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPostUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarsha.apps.TheMitPostUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -810,11 +868,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPostUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarsha.apps.TheMitPostUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

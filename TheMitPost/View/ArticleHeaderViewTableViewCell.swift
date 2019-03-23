@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UIImageColors
 
 class ArticleHeaderViewTableViewCell: UITableViewCell {
 
@@ -25,6 +26,17 @@ class ArticleHeaderViewTableViewCell: UITableViewCell {
             
             titleLabelView.text = article.title
             authorLabelView.text = article.author
+            
+            featuredImageView.image!.getColors {
+                colors in
+                
+                self.backgroundView?.backgroundColor = colors.background
+                self.titleLabelView.textColor = colors.primary
+                self.authorLabelView.textColor = colors.secondary
+                
+                
+            }
+            
         }
     }
     

@@ -16,6 +16,7 @@ pod 'Firebase/Core'
 pod 'SwiftyJSON'
 pod 'FoldingCell'
 pod 'Alamofire'
+pod 'UIImageColors'
 
   target 'TheMitPostTests' do
     inherit! :search_paths

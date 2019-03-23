@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Aileron-UltraLight.otf</string>
+		<string>Aileron-SemiBold.otf</string>
+		<string>Aileron-Regular.otf</string>
+		<string>DyeLine-Bold.ttf</string>
+		<string>DyeLine-Regular2.ttf</string>
+		<string>DyeLine-Regular4.ttf</string>
+		<string>DyeLine-Regular5.ttf</string>
+		<string>Roboto-Light.ttf</string>
+		<string>Roboto-Medium.ttf</string>
+		<string>Roboto-Regular.ttf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

@@ -21,11 +21,10 @@ class ArticleTableViewCell: UITableViewCell {
                 
                 if p_ == 0 {
                     
-                    let range = NSRange(location:1,length:1)
+                    let range = NSRange(location:0,length:1)
                     
-                    let attributedString = NSMutableAttributedString(string: "\t")
-                    attributedString.append(NSMutableAttributedString(string: (content?.content)!))
-                    attributedString.addAttribute(NSMutableAttributedString.Key.font, value: UIFont(name: "Helvetica-Bold", size: 32)! , range: range)
+                    let attributedString = (NSMutableAttributedString(string: (content?.content)!))
+                    attributedString.addAttribute(NSMutableAttributedString.Key.font, value: UIFont(name: "DyeLine-Regular5", size: 36)! , range: range)
                     
                     paragraph.attributedText = attributedString
 //
