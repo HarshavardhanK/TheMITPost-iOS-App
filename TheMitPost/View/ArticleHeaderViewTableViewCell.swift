@@ -25,14 +25,14 @@ class ArticleHeaderViewTableViewCell: UITableViewCell {
             featuredImageView.sd_setImage(with: URL(string: article.featured_media!), completed: nil)
             
             titleLabelView.text = article.title
-            authorLabelView.text = article.author
+            authorLabelView.text = "By " + article.author.uppercased()
             
             featuredImageView.image!.getColors {
                 colors in
                 
-                self.backgroundView?.backgroundColor = colors.background
+                //self.backgroundView?.backgroundColor = colors.background
                 self.titleLabelView.textColor = colors.primary
-                self.authorLabelView.textColor = colors.secondary
+                self.authorLabelView.textColor = colors.background
                 
                 
             }

@@ -31,7 +31,10 @@ class ArticleTableViewController: UITableViewController {
         tableView.dataSource = self
         tableView.allowsSelection = false
         
-        self.navigationController?.hidesBarsOnSwipe = true
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(goBack))
+        swipeLeft.direction = .right
+        
+        self.view.addGestureRecognizer(swipeLeft)
         
         if let article_ = article {
             print("Got \(article_.title)")
@@ -44,6 +47,12 @@ class ArticleTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    @objc func goBack() {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    var cellIsAnimated = [Bool]()
     
     func retrieveArticle(ID: String) {
         
@@ -63,6 +72,8 @@ class ArticleTableViewController: UITableViewController {
                 self.totalWords += components.count
                 
                 self.content.append(Article.Content(content: paragraph!, isImage: content["isImage"].boolValue, isHyperlink: content["isHyperlink"].boolValue))
+                
+                self.cellIsAnimated = [Bool](repeating: false, count: self.content.count)
                 
             }
             
@@ -102,6 +113,7 @@ class ArticleTableViewController: UITableViewController {
     let offset = 2
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         
         if(indexPath.row == 0) {
             let timeDateCell = tableView.dequeueReusableCell(withIdentifier: "timeDateCell") as! ArticleTimeDateViewCell
@@ -157,47 +169,55 @@ class ArticleTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        if(indexPath.row == 1) {
+        if !cellIsAnimated[indexPath.row] {
             
-            let transform = CATransform3DTranslate(CATransform3DIdentity, -50, -90, 0)
-            cell.layer.transform = transform
-            cell.alpha = 0.0
-            
-            UIView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseOut, .allowUserInteraction], animations: {
+            if(indexPath.row == 1) {
                 
-                // transform = CATransform3DTranslate(CATransform3DIdentity, 500, 10, 2)
-                cell.layer.transform = CATransform3DIdentity
-                cell.alpha = 1.0
-                
-            }) { (true) in
-                print("Animation complete")
-            }
-            
-        }
-        
-        if(indexPath.row >= 2) {
-            
-            if !content[indexPath.row - 2].isImage {
-            cell.alpha = 0.0
-            
-            UIView.animate(withDuration: 2.5, delay: 0.0, options: [.curveEaseOut, .allowUserInteraction], animations: {
-                cell.alpha = 1.0
-            }, completion: nil)
-                
-            } else if content[indexPath.row - 2].isImage {
-                
-                let transform = CATransform3DTranslate(CATransform3DIdentity, 50, -10, 0)
+                let transform = CATransform3DTranslate(CATransform3DIdentity, -50, 100, 0)
                 cell.layer.transform = transform
-                cell.alpha = 0.4
+                cell.alpha = 0.0
                 
-                UIView.animate(withDuration: 1.5, delay: 0.0, options:[.curveEaseOut, .allowUserInteraction], animations: {
+                UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveEaseOut, .allowUserInteraction], animations: {
+                    
+                    // transform = CATransform3DTranslate(CATransform3DIdentity, 500, 10, 2)
                     cell.layer.transform = CATransform3DIdentity
                     cell.alpha = 1.0
                     
-                }, completion: nil)
+                }) { (true) in
+                    print("Animation complete")
+                }
                 
             }
+            
+            if(indexPath.row >= 2) {
+                
+                if !content[indexPath.row - 2].isImage {
+                    cell.alpha = 0.3
+                    
+                    UIView.animate(withDuration: 2.5, delay: 0.0, options: [.curveEaseOut, .allowUserInteraction], animations: {
+                        cell.alpha = 1.0
+                    }, completion: nil)
+                    
+                } else if content[indexPath.row - 2].isImage {
+                    
+                    let transform = CATransform3DTranslate(CATransform3DIdentity, 50, -10, 0)
+                    cell.layer.transform = transform
+                    cell.alpha = 0.0
+                    
+                    UIView.animate(withDuration: 1.5, delay: 0.0, options:[.curveEaseOut, .allowUserInteraction], animations: {
+                        cell.layer.transform = CATransform3DIdentity
+                        cell.alpha = 1.0
+                        
+                    }, completion: nil)
+                    
+                }
+            }
+            
+            cellIsAnimated[indexPath.row] = true
+            
         }
+        
+        
     }
     
     
