@@ -159,7 +159,7 @@ class ArticleTableViewController: UITableViewController {
         
         if(indexPath.row == 1) {
             
-            let transform = CATransform3DTranslate(CATransform3DIdentity, -5, 50, -5)
+            let transform = CATransform3DTranslate(CATransform3DIdentity, -50, -90, 0)
             cell.layer.transform = transform
             cell.alpha = 0.0
             
@@ -173,28 +173,31 @@ class ArticleTableViewController: UITableViewController {
                 print("Animation complete")
             }
             
-        } else if(content[indexPath.row].isImage == false) {
-            cell.alpha = 0.6
+        }
+        
+        if(indexPath.row >= 2) {
             
-            UIView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseOut, .allowUserInteraction], animations: {
+            if !content[indexPath.row - 2].isImage {
+            cell.alpha = 0.0
+            
+            UIView.animate(withDuration: 2.5, delay: 0.0, options: [.curveEaseOut, .allowUserInteraction], animations: {
                 cell.alpha = 1.0
             }, completion: nil)
-        }
-        
-        if(content[indexPath.row].isImage) {
-            
-            let transform = CATransform3DTranslate(CATransform3DIdentity, -100, 0, -100)
-            cell.layer.transform = transform
-            //cell.alpha = 0.6
-            
-            UIView.animate(withDuration: 0.4, delay: 0.0, options:[.curveEaseOut, .allowUserInteraction], animations: {
-                cell.layer.transform = CATransform3DIdentity
-                //cell.alpha = 1.0
                 
-            }, completion: nil)
-
+            } else if content[indexPath.row - 2].isImage {
+                
+                let transform = CATransform3DTranslate(CATransform3DIdentity, 50, -10, 0)
+                cell.layer.transform = transform
+                cell.alpha = 0.4
+                
+                UIView.animate(withDuration: 1.5, delay: 0.0, options:[.curveEaseOut, .allowUserInteraction], animations: {
+                    cell.layer.transform = CATransform3DIdentity
+                    cell.alpha = 1.0
+                    
+                }, completion: nil)
+                
+            }
         }
-        
     }
     
     
