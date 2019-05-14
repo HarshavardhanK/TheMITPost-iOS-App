@@ -1,20 +1,20 @@
-/*
- Copyright 2016-present the Material Components for iOS authors. All Rights Reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
- */
+// Copyright 2016-present the Material Components for iOS authors. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 #import "MDCTabBar.h"
+
+#import <MDFInternationalization/MDFInternationalization.h>
 
 #import "MDCTabBarIndicatorTemplate.h"
 #import "MDCTabBarUnderlineIndicatorTemplate.h"
@@ -30,7 +30,7 @@ static const CGFloat kImageTitleSpecPadding = 10;
 /// Adjustment added to spec measurements to compensate for internal paddings.
 static const CGFloat kImageTitlePaddingAdjustment = -3;
 
-// Heights based on the spec: https://material.io/guidelines/components/tabs.html
+// Heights based on the spec: https://material.io/go/design-tabs
 
 /// Height for image-only tab bars, in points.
 static const CGFloat kImageOnlyBarHeight = 48;
@@ -50,6 +50,9 @@ static const CGFloat kBottomNavigationMaximumItemWidth = 168;
 /// Title-image padding for bottom navigation bars, in points.
 static const CGFloat kBottomNavigationTitleImagePadding = 3;
 
+/// Height for the bottom divider.
+static const CGFloat kBottomNavigationBarDividerHeight = 1;
+
 static MDCItemBarAlignment MDCItemBarAlignmentForTabBarAlignment(MDCTabBarAlignment alignment) {
   switch (alignment) {
     case MDCTabBarAlignmentCenter:
@@ -65,7 +68,7 @@ static MDCItemBarAlignment MDCItemBarAlignmentForTabBarAlignment(MDCTabBarAlignm
       return MDCItemBarAlignmentCenterSelected;
   }
 
-  NSCAssert(0, @"Invalid alignment value %zd", alignment);
+  NSCAssert(0, @"Invalid alignment value %ld", (long)alignment);
   return MDCItemBarAlignmentLeading;
 }
 
@@ -76,6 +79,8 @@ static MDCItemBarAlignment MDCItemBarAlignmentForTabBarAlignment(MDCTabBarAlignm
   /// Item bar responsible for displaying the actual tab bar content.
   MDCItemBar *_itemBar;
 
+  UIView *_dividerBar;
+
   // Flags tracking if properties are unset and using default values.
   BOOL _hasDefaultAlignment;
   BOOL _hasDefaultItemAppearance;
@@ -83,6 +88,9 @@ static MDCItemBarAlignment MDCItemBarAlignmentForTabBarAlignment(MDCTabBarAlignm
   // For properties which have been set, these store the new fixed values.
   MDCTabBarAlignment _alignmentOverride;
   MDCTabBarItemAppearance _itemAppearanceOverride;
+
+  UIColor *_selectedTitleColor;
+  UIColor *_unselectedTitleColor;
 }
 // Inherit UIView's tintColor logic.
 @dynamic tintColor;
@@ -92,20 +100,11 @@ static MDCItemBarAlignment MDCItemBarAlignmentForTabBarAlignment(MDCTabBarAlignm
 
 #pragma mark - Initialization
 
-+ (void)initialize {
-  [MDCTabBar appearance].selectedItemTintColor = [UIColor whiteColor];
-  [MDCTabBar appearance].unselectedItemTintColor = [UIColor colorWithWhite:1.0f alpha:0.7f];
-  [MDCTabBar appearance].inkColor = [UIColor colorWithWhite:1.0f alpha:0.7f];
-  [MDCTabBar appearance].barTintColor = nil;
-
-  id<MDCTabBarIndicatorTemplate> template = [[MDCTabBarUnderlineIndicatorTemplate alloc] init];
-  [MDCTabBar appearance].selectionIndicatorTemplate = template;
-}
-
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
   self = [super initWithCoder:aDecoder];
   if (self) {
     [self commonMDCTabBarInit];
+    [self updateItemBarStyle];
   }
   return self;
 }
@@ -119,6 +118,13 @@ static MDCItemBarAlignment MDCItemBarAlignmentForTabBarAlignment(MDCTabBarAlignm
 }
 
 - (void)commonMDCTabBarInit {
+  _bottomDividerColor = [UIColor clearColor];
+  _selectedItemTintColor = [UIColor whiteColor];
+  _unselectedItemTintColor = [UIColor colorWithWhite:1 alpha:(CGFloat)0.7];
+  _selectedTitleColor = _selectedItemTintColor;
+  _unselectedTitleColor = _unselectedItemTintColor;
+  _inkColor = [UIColor colorWithWhite:1 alpha:(CGFloat)0.7];
+
   self.clipsToBounds = YES;
   _barPosition = UIBarPositionAny;
   _hasDefaultItemAppearance = YES;
@@ -138,6 +144,14 @@ static MDCItemBarAlignment MDCItemBarAlignmentForTabBarAlignment(MDCTabBarAlignm
   _itemBar.delegate = self;
   _itemBar.alignment = MDCItemBarAlignmentForTabBarAlignment(_alignment);
   [self addSubview:_itemBar];
+
+  CGFloat dividerTop = CGRectGetMaxY(self.bounds) - kBottomNavigationBarDividerHeight;
+  _dividerBar = [[UIView alloc] initWithFrame:CGRectMake(0, dividerTop, CGRectGetWidth(self.bounds),
+                                                         kBottomNavigationBarDividerHeight)];
+  _dividerBar.autoresizingMask =
+      UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
+  _dividerBar.backgroundColor = _bottomDividerColor;
+  [self addSubview:_dividerBar];
 
   [self updateItemBarStyle];
 }
@@ -172,6 +186,52 @@ static MDCItemBarAlignment MDCItemBarAlignmentForTabBarAlignment(MDCTabBarAlignm
 
 + (CGFloat)defaultHeightForItemAppearance:(MDCTabBarItemAppearance)appearance {
   return [self defaultHeightForBarPosition:UIBarPositionAny itemAppearance:appearance];
+}
+
+- (void)setTitleColor:(nullable UIColor *)color forState:(MDCTabBarItemState)state {
+  switch (state) {
+    case MDCTabBarItemStateNormal:
+      _unselectedTitleColor = color;
+      break;
+    case MDCTabBarItemStateSelected:
+      _selectedTitleColor = color;
+      break;
+  }
+  [self updateItemBarStyle];
+}
+
+- (nullable UIColor *)titleColorForState:(MDCTabBarItemState)state {
+  switch (state) {
+    case MDCTabBarItemStateNormal:
+      return _unselectedTitleColor;
+      break;
+    case MDCTabBarItemStateSelected:
+      return _selectedTitleColor;
+      break;
+  }
+}
+
+- (void)setImageTintColor:(nullable UIColor *)color forState:(MDCTabBarItemState)state {
+  switch (state) {
+    case MDCTabBarItemStateNormal:
+      _unselectedItemTintColor = color;
+      break;
+    case MDCTabBarItemStateSelected:
+      _selectedItemTintColor = color;
+      break;
+  }
+  [self updateItemBarStyle];
+}
+
+- (nullable UIColor *)imageTintColorForState:(MDCTabBarItemState)state {
+  switch (state) {
+    case MDCTabBarItemStateNormal:
+      return _unselectedItemTintColor;
+      break;
+    case MDCTabBarItemStateSelected:
+      return _selectedItemTintColor;
+      break;
+  }
 }
 
 - (void)setDelegate:(id<MDCTabBarDelegate>)delegate {
@@ -256,6 +316,7 @@ static MDCItemBarAlignment MDCItemBarAlignmentForTabBarAlignment(MDCTabBarAlignm
   if (_selectedItemTintColor != selectedItemTintColor &&
       ![_selectedItemTintColor isEqual:selectedItemTintColor]) {
     _selectedItemTintColor = selectedItemTintColor;
+    _selectedTitleColor = selectedItemTintColor;
 
     [self updateItemBarStyle];
   }
@@ -265,6 +326,7 @@ static MDCItemBarAlignment MDCItemBarAlignmentForTabBarAlignment(MDCTabBarAlignm
   if (_unselectedItemTintColor != unselectedItemTintColor &&
       ![_unselectedItemTintColor isEqual:unselectedItemTintColor]) {
     _unselectedItemTintColor = unselectedItemTintColor;
+    _unselectedTitleColor = unselectedItemTintColor;
 
     [self updateItemBarStyle];
   }
@@ -303,6 +365,27 @@ static MDCItemBarAlignment MDCItemBarAlignmentForTabBarAlignment(MDCTabBarAlignm
   _selectionIndicatorTemplate = template;
   [self updateItemBarStyle];
 }
+
+- (void)setBottomDividerColor:(UIColor *)bottomDividerColor {
+  if (_bottomDividerColor != bottomDividerColor) {
+    _bottomDividerColor = bottomDividerColor;
+    _dividerBar.backgroundColor = _bottomDividerColor;
+  }
+}
+
+// UISemanticContentAttribute was added in iOS SDK 9.0 but is available on devices running earlier
+// version of iOS. We ignore the partial-availability warning that gets thrown on our use of this
+// symbol.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wpartial-availability"
+- (void)mdf_setSemanticContentAttribute:(UISemanticContentAttribute)semanticContentAttribute {
+  if (semanticContentAttribute == self.mdf_semanticContentAttribute) {
+    return;
+  }
+  [super mdf_setSemanticContentAttribute:semanticContentAttribute];
+  _itemBar.mdf_semanticContentAttribute = semanticContentAttribute;
+}
+#pragma clang diagnostic pop
 
 #pragma mark - MDCAccessibility
 
@@ -396,7 +479,7 @@ static MDCItemBarAlignment MDCItemBarAlignmentForTabBarAlignment(MDCTabBarAlignm
       break;
 
     default:
-      NSAssert(0, @"Invalid appearance value %zd", appearance);
+      NSAssert(0, @"Invalid appearance value %ld", (long)appearance);
       displayTitle = YES;
       break;
   }
@@ -406,7 +489,7 @@ static MDCItemBarAlignment MDCItemBarAlignmentForTabBarAlignment(MDCTabBarAlignm
   // Update default height
   CGFloat defaultHeight = [self defaultHeightForBarPosition:position itemAppearance:appearance];
   if (defaultHeight == 0) {
-    NSAssert(0, @"Missing default height for %zd", appearance);
+    NSAssert(0, @"Missing default height for %ld", (long)appearance);
     defaultHeight = kTitleOnlyBarHeight;
   }
   style.defaultHeight = defaultHeight;
@@ -549,9 +632,12 @@ static MDCItemBarAlignment MDCItemBarAlignmentForTabBarAlignment(MDCTabBarAlignm
   style.selectionIndicatorTemplate = self.selectionIndicatorTemplate;
   style.selectionIndicatorColor = self.tintColor;
   style.inkColor = _inkColor;
-  style.selectedTitleColor = (_selectedItemTintColor ? _selectedItemTintColor : self.tintColor);
-  style.titleColor = _unselectedItemTintColor;
   style.displaysUppercaseTitles = self.displaysUppercaseTitles;
+
+  style.selectedTitleColor = _selectedTitleColor ?: self.tintColor;
+  style.titleColor = _unselectedTitleColor;
+  style.selectedImageTintColor = _selectedItemTintColor ?: self.tintColor;
+  style.imageTintColor = _unselectedItemTintColor;
 
   [_itemBar applyStyle:style];
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -243,10 +243,10 @@
             </objects>
             <point key="canvasLocation" x="2828" y="-685.00749625187416"/>
         </scene>
-        <!--View Controller-->
+        <!--The Post-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SLCMViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="The Post" id="8rJ-Kc-sve" customClass="SLCMViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -259,28 +259,28 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="znw-XZ-13a">
-                                <rect key="frame" x="123" y="223" width="128" height="309"/>
+                                <rect key="frame" x="123" y="223" width="128" height="308"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MU SLcM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHH-uE-Afm">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="36"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SLCM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHH-uE-Afm">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="35"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KO4-As-ZjB">
-                                        <rect key="frame" x="0.0" y="95" width="128" height="30"/>
+                                        <rect key="frame" x="0.0" y="94" width="128" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b0c-g5-FcD">
-                                        <rect key="frame" x="0.0" y="184" width="128" height="30"/>
+                                        <rect key="frame" x="0.0" y="183" width="128" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGt-ZJ-9Rb">
-                                        <rect key="frame" x="25.5" y="273" width="77" height="36"/>
+                                        <rect key="frame" x="25.5" y="272" width="77" height="36"/>
                                         <color key="backgroundColor" red="0.75351148843765259" green="0.28786873817443848" blue="0.1913318932056427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Sign In">
@@ -289,7 +289,6 @@
                                         </state>
                                         <connections>
                                             <action selector="signInPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Qrf-Vx-HXu"/>
-                                            <segue destination="ecY-H5-kJu" kind="show" id="r3C-7Y-Gmz"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -315,19 +314,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0cV-Cl-zMr">
+                    <navigationItem key="navigationItem" title="The Post" id="0cV-Cl-zMr">
                         <barButtonItem key="backBarButtonItem" title="Home" id="O3q-QX-hdx"/>
                     </navigationItem>
                     <connections>
                         <outlet property="passwordHorizontalConstraint" destination="bJE-ZL-6Vi" id="OYa-Bx-IfV"/>
+                        <outlet property="passwordTextfield" destination="b0c-g5-FcD" id="hG3-R5-nIf"/>
+                        <outlet property="registrationTextfield" destination="KO4-As-ZjB" id="tiS-ck-5bR"/>
                         <outlet property="signInHorizontalConstraint" destination="muo-87-eNQ" id="JV2-N9-iVI"/>
                         <outlet property="stackView" destination="znw-XZ-13a" id="kJe-3r-odO"/>
                         <outlet property="usernameHorizontalConstraint" destination="4Nb-P8-uUM" id="wCo-SM-J7o"/>
+                        <segue destination="ecY-H5-kJu" kind="show" identifier="slcmDetail" id="5I4-nf-I0t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688.8" y="359.37031484257875"/>
+            <point key="canvasLocation" x="1506" y="359"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="9Jr-lz-R78">
@@ -415,7 +417,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mahe" width="2129" height="547"/>
+        <image name="mahe" width="1064.5" height="273.5"/>
         <image name="posttabicon" width="25" height="25"/>
         <image name="second" width="30" height="30"/>
     </resources>

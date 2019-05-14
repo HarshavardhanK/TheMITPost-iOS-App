@@ -17,6 +17,7 @@ pod 'SwiftyJSON'
 pod 'FoldingCell'
 pod 'Alamofire'
 pod 'UIImageColors'
+pod 'NVActivityIndicatorView'
 
   target 'TheMitPostTests' do
     inherit! :search_paths

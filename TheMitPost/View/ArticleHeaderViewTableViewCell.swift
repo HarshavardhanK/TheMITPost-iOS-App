@@ -31,8 +31,8 @@ class ArticleHeaderViewTableViewCell: UITableViewCell {
                 colors in
                 
                 //self.backgroundView?.backgroundColor = colors.background
-                self.titleLabelView.textColor = colors.primary
-                self.authorLabelView.textColor = colors.background
+                self.titleLabelView.textColor = colors?.primary ?? UIColor.black
+                self.authorLabelView.textColor = colors?.background ?? UIColor.black
                 
                 
             }

@@ -1,18 +1,16 @@
-/*
- Copyright 2016-present the Material Components for iOS authors. All Rights Reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
- */
+// Copyright 2016-present the Material Components for iOS authors. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 #import <CoreGraphics/CoreGraphics.h>
 #import <Foundation/Foundation.h>
@@ -67,10 +65,9 @@ typedef NS_ENUM(NSInteger, MDCFloatingButtonImageLocation) {
  their own background color, and also raise briefly when touched. Floating action buttons should
  only be used rarely, for the main action of a screen.
 
- @see https://material.io/guidelines/components/buttons.html#buttons-main-buttons
+ @see https://material.io/go/design-buttons#buttons-main-buttons
  */
 @interface MDCFloatingButton : MDCButton
-
 
 /**
  The mode of the floating button can either be .normal (a circle) or .expanded (a pill-shaped
@@ -146,8 +143,6 @@ typedef NS_ENUM(NSInteger, MDCFloatingButtonImageLocation) {
  @return Button with MDCFloatingButtonShapeDefault shape.
  */
 - (nonnull instancetype)init;
-
-- (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
 
 - (void)setMinimumSize:(CGSize)size NS_UNAVAILABLE;
 

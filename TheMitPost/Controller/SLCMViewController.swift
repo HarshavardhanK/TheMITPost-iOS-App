@@ -9,43 +9,41 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import NVActivityIndicatorView
 
-class SLCMViewController: UIViewController, UITextFieldDelegate {
+class SLCMViewController: UIViewController, UITextFieldDelegate, NVActivityIndicatorViewable {
     
     let SLCMAPI: String = "https://api.themitpost.com/values"
-    
-    var pass = "FHJ-CSd-5rc-f5A"
 
+    @IBOutlet weak var registrationTextfield: UITextField!
+    @IBOutlet weak var passwordTextfield: UITextField!
+    
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var passwordHorizontalConstraint: NSLayoutConstraint!
     @IBOutlet weak var usernameHorizontalConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var signInHorizontalConstraint: NSLayoutConstraint!
+    
+    
     @IBAction func signInPressed(_ sender: Any) {
         
-        animateIntoView(duration: 1.3, delay: 0.3, margin: view.bounds.width)
+        self.startActivityIndicator()
         
-        UIView.animate(withDuration: 2.5, delay: 0, usingSpringWithDamping: 1.5, initialSpringVelocity: 5, options: .curveEaseOut, animations: {
+        self.loadSLCMData() { result in
             
-            self.signInHorizontalConstraint.constant -= self.view.bounds.width
-            self.stackView.layoutSubviews()
-            
-        }) { (true) in
-            
-            print("Login successfull")
-            
-            
-            
-            Alamofire.request(self.SLCMAPI, method: .post, parameters:["regNumber": "170905022", "pass":"FHJ-CSd-5rc-f5A"], encoding: JSONEncoding.default).responseJSON { response in
-                
-                let data = JSON(response.result.value)
-                print(data)
-                
-                
+            if result {
+                 self.performSegue(withIdentifier: "slcmDetail", sender: self)
+            } else {
+                print("Wrong credentials")
             }
             
+            self.stopActivityIndicator()
         }
+        
+
     }
+    
+    var activityIndicator: NVActivityIndicatorView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -71,6 +69,109 @@ class SLCMViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        registrationTextfield.delegate = self
+        passwordTextfield.delegate = self
+        
+        if let _registration = registrationTextfield.text {
+            print(_registration)
+        }
+        
+        if let _password = passwordTextfield.text {
+            print(_password)
+        }
+        
+        registrationTextfield.keyboardType = .numberPad
+        
+    }
+    
+    func loadSLCMData(completion: @escaping (Bool) -> ()) {
+        
+        var success = false
+        
+        var registration = ""
+        var password = ""
+        
+        if let _registration = registrationTextfield.text {
+            registration = _registration
+        }
+        
+        if let _password = passwordTextfield.text {
+            password = _password
+        }
+        
+        Alamofire.request(self.SLCMAPI, method: .post, parameters:["regNumber":registration, "pass":password], encoding: JSONEncoding.default).responseJSON { response in
+            
+            
+            let data = JSON(response.result.value)
+            print(data)
+            
+            if !data["status"].boolValue {
+                
+                print(data["message"].stringValue)
+                success = false
+                
+            } else {
+        
+                print("Credentials are right..")
+                success = true
+            
+            }
+            
+            completion(success)
+            
+            
+            
+        }
+        
+       
+    }
+    
+    //MARK:- UITextFieldDelegate methods
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("text field being edited..")
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("text field ended editing..")
+        resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    //MARK:- Activty Indicator NVActivityIndicatorView
+    
+    func startActivityIndicator() {
+        
+        let frame = CGRect(x: self.view.center.x, y: self.view.center.y, width: 50.0, height: 50.0)
+        
+        activityIndicator = NVActivityIndicatorView(frame: frame)
+        activityIndicator.type = .ballZigZag
+        activityIndicator.color = UIColor.orange
+        
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        
+    }
+    
+    func stopActivityIndicator() {
+        
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
+        
+    }
+    
+    //MARK:- Perform segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "slcmDetail" {
+            print("Segueing to SLCM Detail")
+            
+            
+        }
     }
 
 
