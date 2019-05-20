@@ -114,6 +114,8 @@ class SLCMViewController: UIViewController, UITextFieldDelegate, NVActivityIndic
         
                 print("Credentials are right..")
                 success = true
+                
+                var _ = Marks(data: data["marks"][0])
             
             }
             
@@ -173,6 +175,8 @@ class SLCMViewController: UIViewController, UITextFieldDelegate, NVActivityIndic
             
         }
     }
+    
+    
 
 
 }

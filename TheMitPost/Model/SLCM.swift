@@ -27,6 +27,8 @@ class Attendance {
         attendancePercent = data["attendancePercent"].doubleValue
         
         print("Attendance Successfully initialized..")
+        
+        print(subjectCode)
 
     }
 
@@ -45,6 +47,8 @@ class Marks {
     var assignmentMarks = [Double]()
 
     init(data: JSON) {
+        
+        print(data)
 
         subjectCode = data["subjectCode"].stringValue
         subjectName = data["subjectName"].stringValue
@@ -70,6 +74,8 @@ class Marks {
 
 
         print("Marks Succesfully initialized object")
+        
+        print(subjectCode)
 
     }
 
@@ -83,19 +89,24 @@ class Subject {
     var subjectName: String = ""
     var subjectCode: String = ""
 
-    init(data: JSON) {
+    init(marks: Marks, attendance: Attendance) {
         
-        marks = Marks(data: data["marks"])
-        attendance = Attendance(data: data["attendance"])
+        self.marks = marks
+        self.attendance = attendance
         
-        if let _subjectName = marks?.subjectName {
+        if let _subjectName = self.marks?.subjectName {
             self.subjectName = _subjectName
         }
         
-        if let _subjectCode = attendance?.subjectCode {
+        if let _subjectCode = self.attendance?.subjectCode {
             self.subjectCode = _subjectCode
         }
         
+    }
+    
+    func display() {
+        print("Subject name: \(marks?.subjectName ?? "Name not available")")
+        print("Subject code: \(attendance?.subjectCode ?? "Code not available")")
     }
 
 }
@@ -107,3 +118,19 @@ class Subject {
  An array of Subject objects having all its Marks and Attendance objects initialized and filled with data
  
  */
+
+func container(data: JSON) -> [Subject] {
+    
+    var subjects: [Subject]
+    let length = data["marks"].count
+    
+    for i in 0..<length {
+        
+        let subject = Subject(marks: Marks(data: data["marks"].array![i]), attendance: Attendance(data: data["attendance"].array![i]))
+        
+        subjects.append(subject)
+    }
+    
+    return subjects
+    
+}
