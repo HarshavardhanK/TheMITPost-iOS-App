@@ -108,6 +108,23 @@ class Subject {
         print("Subject name: \(marks?.subjectName ?? "Name not available")")
         print("Subject code: \(attendance?.subjectCode ?? "Code not available")")
     }
+    
+    static func segragateMarksAndAttendance(data: JSON) -> [Subject] {
+        
+        var subjects = [Subject]()
+        let length = data["marks"].count
+        
+        for i in 0..<length {
+            
+            let subject = Subject(marks: Marks(data: data["marks"].array![i]), attendance: Attendance(data: data["attendance"].array![i]))
+            
+            subjects.append(subject)
+        }
+        
+        return subjects
+        
+    }
+    
 
 }
 
@@ -119,18 +136,4 @@ class Subject {
  
  */
 
-func container(data: JSON) -> [Subject] {
-    
-    var subjects: [Subject]
-    let length = data["marks"].count
-    
-    for i in 0..<length {
-        
-        let subject = Subject(marks: Marks(data: data["marks"].array![i]), attendance: Attendance(data: data["attendance"].array![i]))
-        
-        subjects.append(subject)
-    }
-    
-    return subjects
-    
-}
+

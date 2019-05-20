@@ -24,6 +24,8 @@ class SLCMViewController: UIViewController, UITextFieldDelegate, NVActivityIndic
     
     @IBOutlet weak var signInHorizontalConstraint: NSLayoutConstraint!
     
+    var subjects = [Subject]()
+    
     
     @IBAction func signInPressed(_ sender: Any) {
         
@@ -116,6 +118,10 @@ class SLCMViewController: UIViewController, UITextFieldDelegate, NVActivityIndic
                 success = true
                 
                 var _ = Marks(data: data["marks"][0])
+                
+                self.subjects = Subject.segragateMarksAndAttendance(data: data)
+                
+                self.subjects[0].display()
             
             }
             
