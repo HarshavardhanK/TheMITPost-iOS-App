@@ -284,7 +284,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBAction func unwindToArticlesListFromSLCM(sender: UIStoryboardSegue) {
         
-        if let _ = sender.source as? SLCMViewController {
+        if let _ = sender.source as? SLCMLoginViewController {
             print("Unwinding back to articles list")
         }
     }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subjectCell" rowHeight="410" id="KGk-i7-Jjw" customClass="SubjectCellTableViewCell" customModule="TheMitPost" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="410"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="SubjectCellTableViewCell" customModule="TheMitPost" customModuleProvider="target">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="409.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0E-Kz-S8x" customClass="RotatedView" customModule="FoldingCell">
+                        <rect key="frame" x="2" y="2" width="346" height="153"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLz-Ix-qiG">
+                        <rect key="frame" x="2" y="183" width="346" height="160"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="160" id="fpD-Oa-0nl"/>
+                            <constraint firstAttribute="width" constant="346" id="tX9-qh-RnC"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="o0E-Kz-S8x" secondAttribute="trailing" constant="2" id="Gmx-lr-vw5"/>
+                    <constraint firstItem="tLz-Ix-qiG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="183" id="QoZ-w8-JKI"/>
+                    <constraint firstItem="o0E-Kz-S8x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="XiW-X2-lyk"/>
+                    <constraint firstAttribute="trailing" secondItem="tLz-Ix-qiG" secondAttribute="trailing" constant="2" id="Yzb-7A-fd7"/>
+                    <constraint firstItem="tLz-Ix-qiG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="dx3-Fp-EbJ"/>
+                    <constraint firstAttribute="bottom" secondItem="tLz-Ix-qiG" secondAttribute="bottom" constant="66.5" id="f6d-tV-Npd"/>
+                    <constraint firstItem="o0E-Kz-S8x" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="ofo-AK-NTC"/>
+                    <constraint firstItem="tLz-Ix-qiG" firstAttribute="top" secondItem="o0E-Kz-S8x" secondAttribute="bottom" constant="28" id="vbV-FJ-2BR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="containerView" destination="tLz-Ix-qiG" id="zSq-El-0X6"/>
+                <outlet property="containerViewTop" destination="QoZ-w8-JKI" id="ZF9-To-OCg"/>
+                <outlet property="foregroundView" destination="o0E-Kz-S8x" id="545-QL-NEl"/>
+                <outlet property="foregroundViewTop" destination="ofo-AK-NTC" id="Liu-wO-eek"/>
+            </connections>
+            <point key="canvasLocation" x="134.78260869565219" y="70.3125"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -31,6 +31,10 @@ class Attendance {
         print(subjectCode)
 
     }
+    
+    func description() -> String {
+        return "Attendance :: Subject code \(subjectCode) | Subject name \(subjectName)"
+    }
 
 }
 
@@ -77,6 +81,10 @@ class Marks {
         
         print(subjectCode)
 
+    }
+    
+    func description() -> String {
+        return "MARKS :: Subject code \(subjectCode) | Subject name \(subjectName)"
     }
 
 }

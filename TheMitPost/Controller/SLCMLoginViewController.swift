@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
 
-class SLCMViewController: UIViewController, UITextFieldDelegate, NVActivityIndicatorViewable {
+class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivityIndicatorViewable {
     
     let SLCMAPI: String = "https://api.themitpost.com/values"
 
@@ -120,14 +120,13 @@ class SLCMViewController: UIViewController, UITextFieldDelegate, NVActivityIndic
                 var _ = Marks(data: data["marks"][0])
                 
                 self.subjects = Subject.segragateMarksAndAttendance(data: data)
+                print(self.subjects.count)
                 
                 self.subjects[0].display()
             
             }
             
             completion(success)
-            
-            
             
         }
         
@@ -176,7 +175,13 @@ class SLCMViewController: UIViewController, UITextFieldDelegate, NVActivityIndic
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "slcmDetail" {
+            
             print("Segueing to SLCM Detail")
+            
+            let destination = segue.destination as! SLCMTableViewController
+            destination.subjects = subjects
+            
+            print("Passed subjects..")
             
             
         }

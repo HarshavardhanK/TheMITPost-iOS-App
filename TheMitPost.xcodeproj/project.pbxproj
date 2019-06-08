@@ -14,10 +14,12 @@
 		D61C44DB223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
 		D61C44DC223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
 		D61C44DD223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
-		D61D3A9221EE4913006DDD6B /* Trial-Test-Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61D3A9121EE4913006DDD6B /* Trial-Test-Scripts.swift */; };
 		D61D3A9521EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */; };
 		D61D3A9621EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */; };
 		D61D3A9721EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */; };
+		D6313DC72292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */; };
+		D6313DC82292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */; };
+		D6313DC92292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */; };
 		D6339E442243B675007051A1 /* ArticleHeaderViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E422243B675007051A1 /* ArticleHeaderViewTableViewCell.swift */; };
 		D6339E452243B675007051A1 /* ArticleHeaderViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6339E432243B675007051A1 /* ArticleHeaderViewTableViewCell.xib */; };
 		D6339E472243BF8A007051A1 /* ArticleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */; };
@@ -26,6 +28,12 @@
 		D6339E4B2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */; };
 		D6339E4C2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */; };
 		D6339E4D2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */; };
+		D63B747A22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
+		D63B747B22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
+		D63B747C22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
+		D63B747D22999FC800673950 /* SubjectCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63B747922999FC800673950 /* SubjectCellTableViewCell.xib */; };
+		D63B747E22999FC800673950 /* SubjectCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63B747922999FC800673950 /* SubjectCellTableViewCell.xib */; };
+		D63B747F22999FC800673950 /* SubjectCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63B747922999FC800673950 /* SubjectCellTableViewCell.xib */; };
 		D69B30532203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
 		D69B30542203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
 		D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
@@ -59,7 +67,7 @@
 		D6ACFF9D2242C22C00CDFAF6 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */; };
 		D6D6A20F21ECC5A200B822F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A20E21ECC5A200B822F8 /* AppDelegate.swift */; };
 		D6D6A21121ECC5A200B822F8 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A21021ECC5A200B822F8 /* ArticlesViewController.swift */; };
-		D6D6A21321ECC5A200B822F8 /* SLCMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A21221ECC5A200B822F8 /* SLCMViewController.swift */; };
+		D6D6A21321ECC5A200B822F8 /* SLCMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A21221ECC5A200B822F8 /* SLCMLoginViewController.swift */; };
 		D6D6A21621ECC5A200B822F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D6A21421ECC5A200B822F8 /* Main.storyboard */; };
 		D6D6A21821ECC5A400B822F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6D6A21721ECC5A400B822F8 /* Assets.xcassets */; };
 		D6D6A21B21ECC5A400B822F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D6A21921ECC5A400B822F8 /* LaunchScreen.storyboard */; };
@@ -101,12 +109,14 @@
 		C122AB422CB3AF9C1C826A80 /* Pods-TheMitPostTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.release.xcconfig"; sourceTree = "<group>"; };
 		D60EBF3021ED0CDF00DAC538 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D61C44DA223E74DF00DF5DAA /* SLCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCM.swift; sourceTree = "<group>"; };
-		D61D3A9121EE4913006DDD6B /* Trial-Test-Scripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trial-Test-Scripts.swift"; sourceTree = "<group>"; };
 		D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
+		D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCMTableViewController.swift; sourceTree = "<group>"; };
 		D6339E422243B675007051A1 /* ArticleHeaderViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeaderViewTableViewCell.swift; sourceTree = "<group>"; };
 		D6339E432243B675007051A1 /* ArticleHeaderViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleHeaderViewTableViewCell.xib; sourceTree = "<group>"; };
 		D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewController.swift; sourceTree = "<group>"; };
 		D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleImageTableViewCell.swift; sourceTree = "<group>"; };
+		D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCellTableViewCell.swift; sourceTree = "<group>"; };
+		D63B747922999FC800673950 /* SubjectCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubjectCellTableViewCell.xib; sourceTree = "<group>"; };
 		D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeaderView.swift; sourceTree = "<group>"; };
 		D69B3056220382DC00E66AE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D6ACF11E22469EC4001B8A68 /* Aileron-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-UltraLight.otf"; sourceTree = "<group>"; };
@@ -124,7 +134,7 @@
 		D6D6A20B21ECC5A200B822F8 /* TheMitPost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMitPost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D6A20E21ECC5A200B822F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6D6A21021ECC5A200B822F8 /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
-		D6D6A21221ECC5A200B822F8 /* SLCMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCMViewController.swift; sourceTree = "<group>"; };
+		D6D6A21221ECC5A200B822F8 /* SLCMLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCMLoginViewController.swift; sourceTree = "<group>"; };
 		D6D6A21521ECC5A200B822F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6D6A21721ECC5A400B822F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6D6A21A21ECC5A400B822F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -198,6 +208,8 @@
 				D6339E422243B675007051A1 /* ArticleHeaderViewTableViewCell.swift */,
 				D6339E432243B675007051A1 /* ArticleHeaderViewTableViewCell.xib */,
 				D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */,
+				D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */,
+				D63B747922999FC800673950 /* SubjectCellTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -208,8 +220,9 @@
 				D6D6A20E21ECC5A200B822F8 /* AppDelegate.swift */,
 				D6D6A21021ECC5A200B822F8 /* ArticlesViewController.swift */,
 				D6F8066B2204A0420041E09F /* ArticleViewController.swift */,
-				D6D6A21221ECC5A200B822F8 /* SLCMViewController.swift */,
+				D6D6A21221ECC5A200B822F8 /* SLCMLoginViewController.swift */,
 				D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */,
+				D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -266,7 +279,6 @@
 			isa = PBXGroup;
 			children = (
 				D6ACF13F2246A00A001B8A68 /* Fonts */,
-				D61D3A9121EE4913006DDD6B /* Trial-Test-Scripts.swift */,
 				D60EBF2C21ED0C7000DAC538 /* Model */,
 				D60EBF2D21ED0C7800DAC538 /* View */,
 				D60EBF2E21ED0C7E00DAC538 /* Controller */,
@@ -428,6 +440,7 @@
 				D6ACF11F22469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
 				D6339E452243B675007051A1 /* ArticleHeaderViewTableViewCell.xib in Resources */,
 				D6ACF12A22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */,
+				D63B747D22999FC800673950 /* SubjectCellTableViewCell.xib in Resources */,
 				D6ACF12E22469EFF001B8A68 /* Roboto-Medium.ttf in Resources */,
 				D6D6A21821ECC5A400B822F8 /* Assets.xcassets in Resources */,
 				D6ACF13D22469F24001B8A68 /* DyeLine-Regular5.ttf in Resources */,
@@ -439,6 +452,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D63B747E22999FC800673950 /* SubjectCellTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +460,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D63B747F22999FC800673950 /* SubjectCellTableViewCell.xib in Resources */,
 				D6ACF13C22469F24001B8A68 /* DyeLine-Regular3.ttf in Resources */,
 				D6ACF13622469F24001B8A68 /* DyeLine-Regular2.ttf in Resources */,
 				D6ACF12622469EE4001B8A68 /* Aileron-SemiBold.otf in Resources */,
@@ -575,11 +590,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D60EBF3121ED0CDF00DAC538 /* Article.swift in Sources */,
-				D61D3A9221EE4913006DDD6B /* Trial-Test-Scripts.swift in Sources */,
-				D6D6A21321ECC5A200B822F8 /* SLCMViewController.swift in Sources */,
+				D6313DC72292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
+				D6D6A21321ECC5A200B822F8 /* SLCMLoginViewController.swift in Sources */,
 				D6339E472243BF8A007051A1 /* ArticleTableViewController.swift in Sources */,
 				D69B3057220382DC00E66AE3 /* Extensions.swift in Sources */,
 				D61C44DB223E74DF00DF5DAA /* SLCM.swift in Sources */,
+				D63B747A22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,
 				D6ACFF9B2242C22B00CDFAF6 /* ArticleTableViewCell.swift in Sources */,
 				D6339E442243B675007051A1 /* ArticleHeaderViewTableViewCell.swift in Sources */,
 				D6F8066C2204A0420041E09F /* ArticleViewController.swift in Sources */,
@@ -595,7 +611,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D63B747B22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,
 				D69B3058220382DC00E66AE3 /* Extensions.swift in Sources */,
+				D6313DC82292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
 				D6F8066D2204A0420041E09F /* ArticleViewController.swift in Sources */,
 				D6339E4C2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */,
 				D61D3A9621EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
@@ -618,7 +636,9 @@
 				D61C44DD223E74DF00DF5DAA /* SLCM.swift in Sources */,
 				D6F8066E2204A0420041E09F /* ArticleViewController.swift in Sources */,
 				D6339E492243BF8A007051A1 /* ArticleTableViewController.swift in Sources */,
+				D6313DC92292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
 				D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
+				D63B747C22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,
 				D6ACFF9D2242C22C00CDFAF6 /* ArticleTableViewCell.swift in Sources */,
 				D69B3059220382DC00E66AE3 /* Extensions.swift in Sources */,
 			);
@@ -784,7 +804,10 @@
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarshah.apps.TheMitPost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -801,7 +824,10 @@
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarshah.apps.TheMitPost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -818,7 +844,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPostTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarsha.apps.TheMitPostTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -836,7 +866,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPostTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarsha.apps.TheMitPostTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -853,7 +887,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPostUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarsha.apps.TheMitPostUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -870,7 +908,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPostUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarsha.apps.TheMitPostUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
