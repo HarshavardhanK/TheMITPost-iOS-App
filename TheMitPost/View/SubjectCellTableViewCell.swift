@@ -25,8 +25,9 @@ class SubjectCellTableViewCell: FoldingCell {
     override func awakeFromNib() {
         // Initialization code
         
-        //foregroundView.layer.cornerRadius = 15
-        //foregroundView.layer.masksToBounds = true
+        foregroundView.layer.cornerRadius = 15
+        foregroundView.layer.masksToBounds = true
+        print("Awoke from nib..")
         super.awakeFromNib()
         //
     }

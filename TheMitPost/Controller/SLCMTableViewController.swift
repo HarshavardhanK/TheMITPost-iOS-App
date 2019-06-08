@@ -25,7 +25,7 @@ class SLCMTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        self.tableView.register(UINib(nibName: "SubjectCellTableViewCell", bundle: nil), forCellReuseIdentifier: "subjectCell")
+       
     }
 
     // MARK: - Table view data source

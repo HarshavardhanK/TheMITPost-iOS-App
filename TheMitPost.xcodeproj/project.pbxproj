@@ -31,9 +31,6 @@
 		D63B747A22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
 		D63B747B22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
 		D63B747C22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
-		D63B747D22999FC800673950 /* SubjectCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63B747922999FC800673950 /* SubjectCellTableViewCell.xib */; };
-		D63B747E22999FC800673950 /* SubjectCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63B747922999FC800673950 /* SubjectCellTableViewCell.xib */; };
-		D63B747F22999FC800673950 /* SubjectCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63B747922999FC800673950 /* SubjectCellTableViewCell.xib */; };
 		D69B30532203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
 		D69B30542203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
 		D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
@@ -116,7 +113,6 @@
 		D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewController.swift; sourceTree = "<group>"; };
 		D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleImageTableViewCell.swift; sourceTree = "<group>"; };
 		D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCellTableViewCell.swift; sourceTree = "<group>"; };
-		D63B747922999FC800673950 /* SubjectCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubjectCellTableViewCell.xib; sourceTree = "<group>"; };
 		D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeaderView.swift; sourceTree = "<group>"; };
 		D69B3056220382DC00E66AE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D6ACF11E22469EC4001B8A68 /* Aileron-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-UltraLight.otf"; sourceTree = "<group>"; };
@@ -209,7 +205,6 @@
 				D6339E432243B675007051A1 /* ArticleHeaderViewTableViewCell.xib */,
 				D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */,
 				D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */,
-				D63B747922999FC800673950 /* SubjectCellTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -440,7 +435,6 @@
 				D6ACF11F22469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
 				D6339E452243B675007051A1 /* ArticleHeaderViewTableViewCell.xib in Resources */,
 				D6ACF12A22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */,
-				D63B747D22999FC800673950 /* SubjectCellTableViewCell.xib in Resources */,
 				D6ACF12E22469EFF001B8A68 /* Roboto-Medium.ttf in Resources */,
 				D6D6A21821ECC5A400B822F8 /* Assets.xcassets in Resources */,
 				D6ACF13D22469F24001B8A68 /* DyeLine-Regular5.ttf in Resources */,
@@ -452,7 +446,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D63B747E22999FC800673950 /* SubjectCellTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,7 +453,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D63B747F22999FC800673950 /* SubjectCellTableViewCell.xib in Resources */,
 				D6ACF13C22469F24001B8A68 /* DyeLine-Regular3.ttf in Resources */,
 				D6ACF13622469F24001B8A68 /* DyeLine-Regular2.ttf in Resources */,
 				D6ACF12622469EE4001B8A68 /* Aileron-SemiBold.otf in Resources */,

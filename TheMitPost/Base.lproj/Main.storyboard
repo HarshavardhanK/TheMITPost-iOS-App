@@ -356,33 +356,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="350" id="rOe-b0-RaJ" customClass="FoldingTableViewCell" customModule="TheMitPost" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subjectCell" rowHeight="350" id="rOe-b0-RaJ" customClass="SubjectCellTableViewCell" customModule="TheMitPost" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="350"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rOe-b0-RaJ" id="Oka-Da-zhi">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="349.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PsI-wB-Osw" customClass="RotatedCellView" customModule="TheMitPost" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="11" width="375" height="100"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vgg-5l-UN9" customClass="RotatedView" customModule="FoldingCell">
+                                            <rect key="frame" x="0.0" y="11" width="375" height="101"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVT-1f-TER">
-                                            <rect key="frame" x="0.0" y="140" width="375" height="75"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BV8-lz-Xxj">
+                                            <rect key="frame" x="0.0" y="154" width="375" height="136"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="PsI-wB-Osw" secondAttribute="bottom" constant="238.5" id="5JR-kH-BYi"/>
-                                        <constraint firstItem="PsI-wB-Osw" firstAttribute="top" secondItem="Oka-Da-zhi" secondAttribute="top" constant="11" id="6Z2-dS-PCc"/>
-                                        <constraint firstAttribute="trailing" secondItem="PsI-wB-Osw" secondAttribute="trailing" id="8Is-nl-3lH"/>
-                                        <constraint firstItem="SVT-1f-TER" firstAttribute="leading" secondItem="Oka-Da-zhi" secondAttribute="leading" id="dza-qo-q8d"/>
-                                        <constraint firstItem="PsI-wB-Osw" firstAttribute="leading" secondItem="Oka-Da-zhi" secondAttribute="leading" id="h3g-Fg-09K"/>
-                                        <constraint firstAttribute="bottom" secondItem="SVT-1f-TER" secondAttribute="bottom" constant="134.5" id="iZ4-JC-N48"/>
-                                        <constraint firstAttribute="trailing" secondItem="SVT-1f-TER" secondAttribute="trailing" id="uc5-LW-fnq"/>
-                                        <constraint firstItem="SVT-1f-TER" firstAttribute="top" secondItem="PsI-wB-Osw" secondAttribute="bottom" constant="29" id="wd0-oM-bM6"/>
+                                        <constraint firstItem="Vgg-5l-UN9" firstAttribute="top" secondItem="Oka-Da-zhi" secondAttribute="top" constant="11" id="0Kh-XC-I5G"/>
+                                        <constraint firstAttribute="bottom" secondItem="BV8-lz-Xxj" secondAttribute="bottom" constant="59.5" id="6B6-ES-8TM"/>
+                                        <constraint firstAttribute="trailing" secondItem="Vgg-5l-UN9" secondAttribute="trailing" id="AbC-8B-jKA"/>
+                                        <constraint firstItem="BV8-lz-Xxj" firstAttribute="leading" secondItem="Oka-Da-zhi" secondAttribute="leading" id="HKb-WQ-o5O"/>
+                                        <constraint firstItem="Vgg-5l-UN9" firstAttribute="leading" secondItem="Oka-Da-zhi" secondAttribute="leading" id="KVD-03-pAc"/>
+                                        <constraint firstItem="BV8-lz-Xxj" firstAttribute="top" secondItem="Vgg-5l-UN9" secondAttribute="bottom" constant="42" id="QSe-7C-g0I"/>
+                                        <constraint firstItem="BV8-lz-Xxj" firstAttribute="top" secondItem="Oka-Da-zhi" secondAttribute="top" constant="154" id="ldO-L6-gRX"/>
+                                        <constraint firstAttribute="trailing" secondItem="BV8-lz-Xxj" secondAttribute="trailing" id="wu4-EN-ml8"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="containerView" destination="BV8-lz-Xxj" id="x0g-ST-x2t"/>
+                                    <outlet property="containerViewTop" destination="ldO-L6-gRX" id="U4n-hO-Srn"/>
+                                    <outlet property="foregroundView" destination="Vgg-5l-UN9" id="L9f-q1-hwp"/>
+                                    <outlet property="foregroundViewTop" destination="0Kh-XC-I5G" id="nAR-k0-hDP"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
