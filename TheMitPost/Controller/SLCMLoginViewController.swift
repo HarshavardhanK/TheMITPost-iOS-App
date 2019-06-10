@@ -90,16 +90,16 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         var success = false
         
-        var registration = ""
-        var password = ""
+        var registration = "170905022"
+        var password = "FHJ-CSd-5rc-f5A" // PLEASE REMOVE THIS LATER
         
-        if let _registration = registrationTextfield.text {
-            registration = _registration
-        }
-        
-        if let _password = passwordTextfield.text {
-            password = _password
-        }
+//        if let _registration = registrationTextfield.text {
+//            registration = _registration
+//        }
+//
+//        if let _password = passwordTextfield.text {
+//            password = _password
+//        }
         
         Alamofire.request(self.SLCMAPI, method: .post, parameters:["regNumber":registration, "pass":password], encoding: JSONEncoding.default).responseJSON { response in
             

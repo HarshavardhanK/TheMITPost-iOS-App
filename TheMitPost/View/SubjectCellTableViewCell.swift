@@ -21,16 +21,25 @@ class SubjectCellTableViewCell: FoldingCell {
 //            
 //        }
 //    }
+    
+    @IBOutlet var closeNumberLabel: UILabel!
+    @IBOutlet var openNumberLabel: UILabel!
 
     override func awakeFromNib() {
         // Initialization code
         
         foregroundView.layer.cornerRadius = 15
         foregroundView.layer.masksToBounds = true
+        
         print("Awoke from nib..")
         super.awakeFromNib()
         //
     }
+    
+//    func getRandomColor() -> UIColor {
+//        //let colors : [UIColor]()
+//        //TODO: Have an array of hex light colors, and matching expanded view color. Create pairs //CREATE CLASS
+//    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
