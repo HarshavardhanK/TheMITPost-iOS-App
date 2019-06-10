@@ -1021,10 +1021,21 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <outlet property="assignment1" destination="Muq-8i-QhN" id="3D9-4V-SQo"/>
+                                    <outlet property="assignment2" destination="Wnl-2j-4dr" id="nSL-K6-ae2"/>
+                                    <outlet property="assignment3" destination="oLX-kU-vLD" id="Mdn-eE-3fp"/>
+                                    <outlet property="assignment4" destination="zhL-cB-4Gw" id="rl5-ir-nMz"/>
+                                    <outlet property="attendancePercentage" destination="viX-ot-aFf" id="8ey-xB-obg"/>
+                                    <outlet property="attendancePercentage2" destination="t9N-Vk-BBS" id="w50-fN-5Zb"/>
+                                    <outlet property="bunks" destination="S9m-E2-LmW" id="MtL-Al-Va2"/>
                                     <outlet property="containerView" destination="02p-6T-Pvg" id="eI7-zL-2mH"/>
                                     <outlet property="containerViewTop" destination="y0e-nS-KeC" id="rnZ-Z6-Bom"/>
+                                    <outlet property="credits" destination="OvX-lg-QML" id="MEf-94-xRC"/>
                                     <outlet property="foregroundView" destination="jr0-um-YWY" id="jSt-1N-TgS"/>
                                     <outlet property="foregroundViewTop" destination="bhN-3G-RYC" id="XJ7-Kx-AIj"/>
+                                    <outlet property="sessional1" destination="829-7C-u7D" id="J1d-em-anY"/>
+                                    <outlet property="sessional2" destination="mnl-1J-ok5" id="FuH-WE-4od"/>
+                                    <outlet property="subjectName" destination="4I9-UR-3JJ" id="v0Y-gq-TKt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

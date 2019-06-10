@@ -15,16 +15,44 @@ class SubjectCellTableViewCell: FoldingCell {
     
     // Use property getters and setters to
     
-//    var subject: Subject {
-//        
-//        didSet {
-//            
-//        }
-//    }
+    @IBOutlet weak var subjectName: UILabel!
+    @IBOutlet weak var credits: UILabel!
     
-//    @IBOutlet var closeNumberLabel: UILabel!
-//    @IBOutlet var openNumberLabel: UILabel!
-
+    @IBOutlet weak var assignment1: UILabel!
+    @IBOutlet weak var assignment3: UILabel!
+    @IBOutlet weak var assignment2: UILabel!
+    @IBOutlet weak var assignment4: UILabel!
+    
+    
+    @IBOutlet weak var sessional1: UILabel!
+    @IBOutlet weak var sessional2: UILabel!
+    
+  
+    @IBOutlet weak var bunks: UILabel!
+    @IBOutlet weak var attendancePercentage: UILabel!
+    @IBOutlet weak var attendancePercentage2: UILabel!
+    
+    var subject: Subject? {
+        
+        didSet {
+            
+            if let _subject = subject {
+                
+                assignment1.text = "\(_subject.marks?.assignmentMarks[0] ?? -1.0)"
+                assignment2.text = "\(_subject.marks?.assignmentMarks[1] ?? -1.0)"
+                assignment3.text = "\(_subject.marks?.assignmentMarks[2] ?? -1.0)"
+                assignment4.text = "\(_subject.marks?.assignmentMarks[3] ?? -1.0)"
+                
+                sessional1.text = "11.5"
+                sessional2.text = "12.5"
+                
+                
+            }
+            
+            
+        }
+    }
+    
     override func awakeFromNib() {
         // Initialization code
         

@@ -145,6 +145,7 @@ class SLCMTableViewController: UITableViewController {
         cell.durationsForCollapsedState = durations
 
         // Configure the cell...
+        cell.subject = subjects[indexPath.row]
 
         return cell
     }
