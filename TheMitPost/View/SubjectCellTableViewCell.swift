@@ -22,8 +22,8 @@ class SubjectCellTableViewCell: FoldingCell {
 //        }
 //    }
     
-    @IBOutlet var closeNumberLabel: UILabel!
-    @IBOutlet var openNumberLabel: UILabel!
+//    @IBOutlet var closeNumberLabel: UILabel!
+//    @IBOutlet var openNumberLabel: UILabel!
 
     override func awakeFromNib() {
         // Initialization code

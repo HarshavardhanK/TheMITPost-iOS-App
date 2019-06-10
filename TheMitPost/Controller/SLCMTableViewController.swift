@@ -13,14 +13,19 @@ import FoldingCell
 class SLCMTableViewController: UITableViewController {
     
     var subjects = [Subject]()
+    var cellsAnimated = Array<Bool>()
     
     lazy var cellHeights = (0..<subjects.count).map{_ in Cell.CellHeight.cellClose}
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.separatorStyle = .none
+        
         setup()
+        
+        
+        // SET UP ALL VARIABLES
+        cellsAnimated = Array(repeating: false, count: subjects.count)
         
     }
     
@@ -28,6 +33,9 @@ class SLCMTableViewController: UITableViewController {
     func setup() {
         
         cellHeights = Array(repeating: Cell.CellHeight.cellClose, count: subjects.count)
+        
+        tableView.backgroundColor = UIColor(patternImage: UIImage(named: "slcm_background")!)
+        tableView.separatorStyle = .none
         tableView.estimatedRowHeight = Cell.CellHeight.cellClose
         tableView.rowHeight = UITableView.automaticDimension
         
@@ -80,14 +88,19 @@ class SLCMTableViewController: UITableViewController {
         let cellIsCollapsed = cellHeights[indexPath.row] == Cell.CellHeight.cellClose
         
         if cellIsCollapsed {
+            
             cellHeights[indexPath.row] = Cell.CellHeight.cellOpen
             cell.unfold(true, animated: true, completion: nil)
+          
             duration = 0.5
+            
             
         } else {
             cellHeights[indexPath.row] = Cell.CellHeight.cellClose
             cell.unfold(false, animated: true, completion: nil)
             duration = 0.9
+            
+           
         }
         
         UIView.animate(withDuration: duration, delay: 0.0, options: .curveEaseInOut, animations: {() -> Void in
@@ -117,6 +130,10 @@ class SLCMTableViewController: UITableViewController {
             
             //
         }
+        
+        if !cellsAnimated[indexPath.row] {
+            animateCellsIntoView(cell: cell)
+        }
     }
 
     
@@ -139,6 +156,24 @@ class SLCMTableViewController: UITableViewController {
             static let cellOpen: CGFloat = 400.0
         }
         
+    }
+    
+    //MARK:- ALL ANIMATION FUNCTIONS HERE
+    func animateCellsIntoView(cell: UITableViewCell) {
+        
+        let layerTransform = CATransform3DMakeTranslation(10, 10, -5)
+        cell.layer.transform = layerTransform
+        cell.alpha = 0.2
+        
+        UIView.animate(withDuration: 0.65, delay: 0.2, options: .curveEaseIn, animations: {
+            
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1.0
+            
+        }) {    (true) in
+            
+            print("Animation completed..")
+        }
     }
 
 
