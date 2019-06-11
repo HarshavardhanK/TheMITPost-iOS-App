@@ -70,18 +70,15 @@ class SubjectCellTableViewCell: FoldingCell {
                 sessional1.text = "11.5"
                 sessional2.text = "12.5"
                 
-                attendancePercentage.text = subject?.attendance?.attendancePercent_string
-                
-                if let attendancePercentage_number = _subject.attendance?.attendancePercent {
-                    
-                    if attendancePercentage_number <= 75.0 {
-                        detailLabel.backgroundColor = UIColor.red
-                        updateView.backgroundColor = UIColor.red
-                    }
-                    
+                guard let attendance = _subject.attendance else {
+                    return
                 }
                 
+                attendancePercentage.text = attendance.attendancePercent_string
+                attendancePercentage2.text = attendance.attendancePercent_string
                 
+                detailLabel.backgroundColor = attendance.colorCodeForAttendance
+                updateView.backgroundColor = attendance.colorCodeForAttendance
                 
                 
             }
