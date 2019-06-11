@@ -15,6 +15,8 @@ class SubjectCellTableViewCell: FoldingCell {
     
     // Use property getters and setters to
     
+    let NOT_AVAILABLE = "not available"
+    
     @IBOutlet weak var subjectName: UILabel!
     @IBOutlet weak var credits: UILabel!
     
@@ -22,7 +24,6 @@ class SubjectCellTableViewCell: FoldingCell {
     @IBOutlet weak var assignment3: UILabel!
     @IBOutlet weak var assignment2: UILabel!
     @IBOutlet weak var assignment4: UILabel!
-    
     
     @IBOutlet weak var sessional1: UILabel!
     @IBOutlet weak var sessional2: UILabel!
@@ -32,19 +33,55 @@ class SubjectCellTableViewCell: FoldingCell {
     @IBOutlet weak var attendancePercentage: UILabel!
     @IBOutlet weak var attendancePercentage2: UILabel!
     
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var updateView: UIView!
+    
     var subject: Subject? {
         
         didSet {
             
             if let _subject = subject {
                 
-                assignment1.text = "\(_subject.marks?.assignmentMarks[0] ?? -1.0)"
-                assignment2.text = "\(_subject.marks?.assignmentMarks[1] ?? -1.0)"
-                assignment3.text = "\(_subject.marks?.assignmentMarks[2] ?? -1.0)"
-                assignment4.text = "\(_subject.marks?.assignmentMarks[3] ?? -1.0)"
+                if let a1 = _subject.marks?.assignmentMarks[0] {
+                    assignment1.text = a1
+                } else {
+                    assignment1.text = ERROR_CODES.NOT_AVAILABLE
+                }
+                
+                if let a2 = _subject.marks?.assignmentMarks[1] {
+                    assignment2.text = a2
+                } else {
+                    assignment2.text = ERROR_CODES.NOT_AVAILABLE
+                }
+                
+                if let a3 = _subject.marks?.assignmentMarks[2] {
+                    assignment3.text = a3
+                } else {
+                    assignment3.text = ERROR_CODES.NOT_AVAILABLE
+                }
+                
+                if let a4 = _subject.marks?.assignmentMarks[3] {
+                    assignment4.text = a4
+                } else {
+                    assignment4.text = ERROR_CODES.NOT_AVAILABLE
+                }
+                
                 
                 sessional1.text = "11.5"
                 sessional2.text = "12.5"
+                
+                attendancePercentage.text = subject?.attendance?.attendancePercent_string
+                
+                if let attendancePercentage_number = _subject.attendance?.attendancePercent {
+                    
+                    if attendancePercentage_number <= 75.0 {
+                        detailLabel.backgroundColor = UIColor.red
+                        updateView.backgroundColor = UIColor.red
+                    }
+                    
+                }
+                
+                
                 
                 
             }
@@ -63,11 +100,7 @@ class SubjectCellTableViewCell: FoldingCell {
         super.awakeFromNib()
         //
     }
-    
-//    func getRandomColor() -> UIColor {
-//        //let colors : [UIColor]()
-//        //TODO: Have an array of hex light colors, and matching expanded view color. Create pairs //CREATE CLASS
-//    }
+
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -31,6 +31,9 @@
 		D63B747A22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
 		D63B747B22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
 		D63B747C22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
+		D664F31D22AF9F62002D6E0F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664F31C22AF9F62002D6E0F /* Utilities.swift */; };
+		D664F31E22AF9F62002D6E0F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664F31C22AF9F62002D6E0F /* Utilities.swift */; };
+		D664F31F22AF9F62002D6E0F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664F31C22AF9F62002D6E0F /* Utilities.swift */; };
 		D69B30532203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
 		D69B30542203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
 		D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
@@ -113,6 +116,7 @@
 		D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewController.swift; sourceTree = "<group>"; };
 		D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleImageTableViewCell.swift; sourceTree = "<group>"; };
 		D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCellTableViewCell.swift; sourceTree = "<group>"; };
+		D664F31C22AF9F62002D6E0F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeaderView.swift; sourceTree = "<group>"; };
 		D69B3056220382DC00E66AE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D6ACF11E22469EC4001B8A68 /* Aileron-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-UltraLight.otf"; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				D69B3056220382DC00E66AE3 /* Extensions.swift */,
+				D664F31C22AF9F62002D6E0F /* Utilities.swift */,
 			);
 			path = Auxiliary;
 			sourceTree = "<group>";
@@ -587,6 +592,7 @@
 				D6339E472243BF8A007051A1 /* ArticleTableViewController.swift in Sources */,
 				D69B3057220382DC00E66AE3 /* Extensions.swift in Sources */,
 				D61C44DB223E74DF00DF5DAA /* SLCM.swift in Sources */,
+				D664F31D22AF9F62002D6E0F /* Utilities.swift in Sources */,
 				D63B747A22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,
 				D6ACFF9B2242C22B00CDFAF6 /* ArticleTableViewCell.swift in Sources */,
 				D6339E442243B675007051A1 /* ArticleHeaderViewTableViewCell.swift in Sources */,
@@ -607,6 +613,7 @@
 				D69B3058220382DC00E66AE3 /* Extensions.swift in Sources */,
 				D6313DC82292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
 				D6F8066D2204A0420041E09F /* ArticleViewController.swift in Sources */,
+				D664F31E22AF9F62002D6E0F /* Utilities.swift in Sources */,
 				D6339E4C2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */,
 				D61D3A9621EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D60EBF3221ED0CDF00DAC538 /* Article.swift in Sources */,
@@ -628,6 +635,7 @@
 				D61C44DD223E74DF00DF5DAA /* SLCM.swift in Sources */,
 				D6F8066E2204A0420041E09F /* ArticleViewController.swift in Sources */,
 				D6339E492243BF8A007051A1 /* ArticleTableViewController.swift in Sources */,
+				D664F31F22AF9F62002D6E0F /* Utilities.swift in Sources */,
 				D6313DC92292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
 				D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
 				D63B747C22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,

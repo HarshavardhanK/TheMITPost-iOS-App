@@ -22,7 +22,7 @@ class SLCMTableViewController: UITableViewController {
         
         
         setup()
-        
+        print("View loaded..")
         
         // SET UP ALL VARIABLES
         cellsAnimated = Array(repeating: false, count: subjects.count)
@@ -133,6 +133,7 @@ class SLCMTableViewController: UITableViewController {
         
         if !cellsAnimated[indexPath.row] {
             animateCellsIntoView(cell: cell)
+            cellsAnimated[indexPath.row] = true
         }
     }
 
@@ -150,11 +151,12 @@ class SLCMTableViewController: UITableViewController {
         return cell
     }
     
+    
     fileprivate struct Cell {
         
         struct CellHeight {
             static let cellClose: CGFloat = 200.0
-            static let cellOpen: CGFloat = 400.0
+            static let cellOpen: CGFloat = 500.0
         }
         
     }
@@ -175,6 +177,10 @@ class SLCMTableViewController: UITableViewController {
             
             print("Animation completed..")
         }
+    }
+    
+    func blurEffect() {
+        //TODO:- Creates a blurring effect for the other cells when one cell is tapped open
     }
 
 

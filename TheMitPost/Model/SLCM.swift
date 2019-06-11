@@ -14,16 +14,54 @@ class Attendance {
     var subjectCode = "Not available"
     var subjectName = "Not available"
 
-    var totalClassPresent = 0
-    var totalAbsent = 0
-    var attendancePercent = 0.0
+    var totalClassPresent: String?
+    var totalAbsent: String?
+    var attendancePercent: Double?
+    
+    var attendancePercent_string: String {
+        
+        get {
+            
+            if let attendance = attendancePercent {
+                return String(attendance)
+                
+            } else {
+                return ERROR_CODES.NOT_AVAILABLE
+            }
+            
+        }
+        
+    }
+    
+    var colorCodeForAttendance: UIColor {
+        
+        get {
+            
+            guard let attendance_percentage = attendancePercent else {
+                 return UIColor.white
+            }
+            
+            if attendance_percentage <= 75.0 {
+                return UIColor.red
+            }
+            
+            if attendance_percentage > 75.0 && attendance_percentage <= 85.0 {
+                return UIColor.orange
+            }
+            
+            if attendance_percentage > 85.0 {
+                return UIColor.green
+            }
+        }
+    }
+    
 
     init(data: JSON) {
 
         subjectName = data["subjectName"].stringValue
         subjectCode = data["subjectCode"].stringValue
-        totalClassPresent = data["totalClassPresent"].intValue
-        totalAbsent = data["totalAbsent"].intValue
+        totalClassPresent = data["totalClassPresent"].stringValue
+        totalAbsent = data["totalAbsent"].stringValue
         attendancePercent = data["attendancePercent"].doubleValue
         
         print("Attendance Successfully initialized..")
@@ -41,14 +79,14 @@ class Attendance {
 class Marks {
 
 
-    var subjectCode: String = " "
-    var subjectName: String = " "
+    var subjectCode: String
+    var subjectName: String
 
-    var totalSessionalMarks: Double = 0.0
-    var totalAssignmentMarks: Double = 0.0
+    var totalSessionalMarks: String
+    var totalAssignmentMarks: String
 
-    var sessionalMarks = [Double]()
-    var assignmentMarks = [Double]()
+    var sessionalMarks = [String]()
+    var assignmentMarks = [String]()
 
     init(data: JSON) {
         
@@ -60,22 +98,29 @@ class Marks {
         
         if data["assignmentStatus"].boolValue {
             
-            totalAssignmentMarks = data["totalAssignemntMarks"].doubleValue
-            assignmentMarks.append(data["assignmentMarks"]["assignment1"].doubleValue)
-            assignmentMarks.append(data["assignmentMarks"]["assignment2"].doubleValue)
-            assignmentMarks.append(data["assignmentMarks"]["assignment3"].doubleValue)
-            assignmentMarks.append(data["assignmentMarks"]["assignment4"].doubleValue)
+            totalAssignmentMarks = data["totalAssignemntMarks"].stringValue
+            assignmentMarks.append(data["assignmentMarks"]["assignment1"].stringValue)
+            assignmentMarks.append(data["assignmentMarks"]["assignment2"].stringValue)
+            assignmentMarks.append(data["assignmentMarks"]["assignment3"].stringValue)
+            assignmentMarks.append(data["assignmentMarks"]["assignment4"].stringValue)
             
+        } else {
+            
+            assignmentMarks = Array(repeating: ERROR_CODES.NOT_AVAILABLE, count: 4)
+            totalAssignmentMarks = ERROR_CODES.NOT_AVAILABLE
         }
         
         if data["sessStatus"].boolValue {
             
-            sessionalMarks.append(data["sessionalMarks"]["sessional1"].doubleValue)
-            sessionalMarks.append(data["sessionalMarks"]["sessional2"].doubleValue)
-            totalSessionalMarks = data["totalSessionalMarks"].doubleValue
+            sessionalMarks.append(data["sessionalMarks"]["sessional1"].stringValue)
+            sessionalMarks.append(data["sessionalMarks"]["sessional2"].stringValue)
+            totalSessionalMarks = data["totalSessionalMarks"].stringValue
             
+        } else {
+            
+            sessionalMarks = Array(repeating: ERROR_CODES.NOT_AVAILABLE, count: 2)
+            totalSessionalMarks = ERROR_CODES.NOT_AVAILABLE
         }
-
 
         print("Marks Succesfully initialized object")
         
@@ -84,7 +129,7 @@ class Marks {
     }
     
     func description() -> String {
-        return "MARKS :: Subject code \(subjectCode) | Subject name \(subjectName)"
+        return "MARKS :: Subject code \(String(describing: subjectCode)) | Subject name \(String(describing: subjectName))"
     }
 
 }
@@ -94,21 +139,33 @@ class Subject {
     var marks: Marks?
     var attendance: Attendance?
     
-    var subjectName: String = ""
-    var subjectCode: String = ""
+    var subjectName: String {
+        get {
+            
+            if let _marks = marks {
+                return _marks.subjectName
+            } else {
+                return ERROR_CODES.NOT_AVAILABLE
+            }
+        }
+    }
+    
+    var subjectCode: String {
+        
+        get {
+            
+            if let _marks = marks {
+                return _marks.subjectCode
+            } else {
+                return ERROR_CODES.NOT_AVAILABLE
+            }
+        }
+    }
 
     init(marks: Marks, attendance: Attendance) {
         
         self.marks = marks
         self.attendance = attendance
-        
-        if let _subjectName = self.marks?.subjectName {
-            self.subjectName = _subjectName
-        }
-        
-        if let _subjectCode = self.attendance?.subjectCode {
-            self.subjectCode = _subjectCode
-        }
         
     }
     
