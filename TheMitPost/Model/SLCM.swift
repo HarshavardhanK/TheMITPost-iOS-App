@@ -52,6 +52,8 @@ class Attendance {
             if attendance_percentage > 85.0 {
                 return UIColor.green
             }
+            
+            return UIColor.white
         }
     }
     
