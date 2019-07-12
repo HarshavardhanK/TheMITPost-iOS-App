@@ -16,6 +16,7 @@
 
 #import "MDCFlexibleHeaderView+ShiftBehavior.h"
 #import "MaterialApplication.h"
+#import "MaterialMath.h"
 #import "MaterialUIMetrics.h"
 #import "private/MDCFlexibleHeaderMinMaxHeight.h"
 #import "private/MDCFlexibleHeaderTopSafeArea.h"
@@ -310,9 +311,16 @@ static inline MDCFlexibleHeaderShiftBehavior ShiftBehaviorForCurrentAppContext(
   self.layer.shadowRadius = 4;
   self.layer.shadowOpacity = 0;
 
+  NSString *voiceOverNotification;
+  if (@available(iOS 11.0, *)) {
+    voiceOverNotification = UIAccessibilityVoiceOverStatusDidChangeNotification;
+  } else {
+    voiceOverNotification = UIAccessibilityVoiceOverStatusChanged;
+  }
+
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(fhv_updateLayout)
-                                               name:UIAccessibilityVoiceOverStatusChanged
+                                               name:voiceOverNotification
                                              object:nil];
 }
 
@@ -636,7 +644,7 @@ static inline MDCFlexibleHeaderShiftBehavior ShiftBehaviorForCurrentAppContext(
   insets.top += topInsetAdjustment;
   info.injectedTopContentInset = desiredTopInset;
   info.hasInjectedTopContentInset = YES;
-  if (!UIEdgeInsetsEqualToEdgeInsets(scrollView.contentInset, insets)) {
+  if (!MDCEdgeInsetsEqualToEdgeInsets(scrollView.contentInset, insets)) {
     scrollView.contentInset = insets;
   }
 

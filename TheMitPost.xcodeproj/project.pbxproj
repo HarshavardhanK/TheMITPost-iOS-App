@@ -43,6 +43,9 @@
 		D69B3057220382DC00E66AE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3056220382DC00E66AE3 /* Extensions.swift */; };
 		D69B3058220382DC00E66AE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3056220382DC00E66AE3 /* Extensions.swift */; };
 		D69B3059220382DC00E66AE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3056220382DC00E66AE3 /* Extensions.swift */; };
+		D6A8705E22D916B60057A30B /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8705D22D916B60057A30B /* EventTableViewCell.swift */; };
+		D6A8705F22D916B60057A30B /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8705D22D916B60057A30B /* EventTableViewCell.swift */; };
+		D6A8706022D916B60057A30B /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8705D22D916B60057A30B /* EventTableViewCell.swift */; };
 		D6ACF11F22469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF11E22469EC4001B8A68 /* Aileron-UltraLight.otf */; };
 		D6ACF12022469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF11E22469EC4001B8A68 /* Aileron-UltraLight.otf */; };
 		D6ACF12222469ED7001B8A68 /* Aileron-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF12122469ED7001B8A68 /* Aileron-Regular.otf */; };
@@ -132,6 +135,7 @@
 		D664F32622B0FA2D002D6E0F /* Notices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notices.swift; sourceTree = "<group>"; };
 		D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeaderView.swift; sourceTree = "<group>"; };
 		D69B3056220382DC00E66AE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D6A8705D22D916B60057A30B /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		D6ACF11E22469EC4001B8A68 /* Aileron-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-UltraLight.otf"; sourceTree = "<group>"; };
 		D6ACF12122469ED7001B8A68 /* Aileron-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Regular.otf"; sourceTree = "<group>"; };
 		D6ACF12422469EE4001B8A68 /* Aileron-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-SemiBold.otf"; sourceTree = "<group>"; };
@@ -220,13 +224,9 @@
 		D60EBF2D21ED0C7800DAC538 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */,
-				D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */,
-				D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */,
-				D6339E422243B675007051A1 /* ArticleHeaderViewTableViewCell.swift */,
-				D6339E432243B675007051A1 /* ArticleHeaderViewTableViewCell.xib */,
-				D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */,
+				D6A8706122D916CD0057A30B /* Article */,
 				D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */,
+				D6A8705D22D916B60057A30B /* EventTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -235,11 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				D6D6A20E21ECC5A200B822F8 /* AppDelegate.swift */,
-				D6D6A21021ECC5A200B822F8 /* ArticlesViewController.swift */,
-				D6F8066B2204A0420041E09F /* ArticleViewController.swift */,
-				D6D6A21221ECC5A200B822F8 /* SLCMLoginViewController.swift */,
-				D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */,
-				D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */,
+				D6A8706222D916EA0057A30B /* Article */,
+				D6A8706322D916FE0057A30B /* SLCM */,
 				D6F392B422D5FA3500CE50D1 /* NoticesTableViewController.swift */,
 				D6F392BC22D604DC00CE50D1 /* EventsTableViewController.swift */,
 			);
@@ -253,6 +250,38 @@
 				D664F31C22AF9F62002D6E0F /* Utilities.swift */,
 			);
 			path = Auxiliary;
+			sourceTree = "<group>";
+		};
+		D6A8706122D916CD0057A30B /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */,
+				D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */,
+				D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */,
+				D6339E422243B675007051A1 /* ArticleHeaderViewTableViewCell.swift */,
+				D6339E432243B675007051A1 /* ArticleHeaderViewTableViewCell.xib */,
+				D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */,
+			);
+			path = Article;
+			sourceTree = "<group>";
+		};
+		D6A8706222D916EA0057A30B /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				D6D6A21021ECC5A200B822F8 /* ArticlesViewController.swift */,
+				D6F8066B2204A0420041E09F /* ArticleViewController.swift */,
+				D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */,
+			);
+			path = Article;
+			sourceTree = "<group>";
+		};
+		D6A8706322D916FE0057A30B /* SLCM */ = {
+			isa = PBXGroup;
+			children = (
+				D6D6A21221ECC5A200B822F8 /* SLCMLoginViewController.swift */,
+				D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */,
+			);
+			path = SLCM;
 			sourceTree = "<group>";
 		};
 		D6ACF13F2246A00A001B8A68 /* Fonts */ = {
@@ -624,6 +653,7 @@
 				D61D3A9521EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D6D6A20F21ECC5A200B822F8 /* AppDelegate.swift in Sources */,
 				D6339E4B2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */,
+				D6A8705E22D916B60057A30B /* EventTableViewCell.swift in Sources */,
 				D6F392BD22D604DC00CE50D1 /* EventsTableViewController.swift in Sources */,
 				D6D6A21121ECC5A200B822F8 /* ArticlesViewController.swift in Sources */,
 			);
@@ -633,6 +663,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6A8705F22D916B60057A30B /* EventTableViewCell.swift in Sources */,
 				D6F392B622D5FA3500CE50D1 /* NoticesTableViewController.swift in Sources */,
 				D63B747B22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,
 				D664F32822B0FA2D002D6E0F /* Notices.swift in Sources */,
@@ -668,6 +699,7 @@
 				D664F31F22AF9F62002D6E0F /* Utilities.swift in Sources */,
 				D6313DC92292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
 				D6F392BB22D5FB5900CE50D1 /* Events.swift in Sources */,
+				D6A8706022D916B60057A30B /* EventTableViewCell.swift in Sources */,
 				D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
 				D664F32922B0FA2D002D6E0F /* Notices.swift in Sources */,
 				D63B747C22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,

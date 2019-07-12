@@ -133,7 +133,9 @@ static inline CGSize CGSizeShrinkWithInsets(CGSize size, UIEdgeInsets edgeInsets
 
 - (void)commonMDCChipViewInit {
   _minimumSize = kMDCChipMinimumSizeDefault;
+  self.rippleAllowsSelection = YES;
   self.isAccessibilityElement = YES;
+  _adjustsFontForContentSizeCategoryWhenScaledFontIsUnavailable = YES;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -275,6 +277,14 @@ static inline CGSize CGSizeShrinkWithInsets(CGSize size, UIEdgeInsets edgeInsets
   }
 }
 
+- (BOOL)rippleAllowsSelection {
+  return self.rippleView.allowsSelection;
+}
+
+- (void)setRippleAllowsSelection:(BOOL)allowsSelection {
+  self.rippleView.allowsSelection = allowsSelection;
+}
+
 #pragma mark - Dynamic Type Support
 
 - (BOOL)mdc_adjustsFontForContentSizeCategory {
@@ -296,6 +306,14 @@ static inline CGSize CGSizeShrinkWithInsets(CGSize size, UIEdgeInsets edgeInsets
   }
 
   [self updateTitleFont];
+}
+
+- (void)mdc_setLegacyFontScaling:(BOOL)legacyScaling {
+  _adjustsFontForContentSizeCategoryWhenScaledFontIsUnavailable = legacyScaling;
+}
+
+- (BOOL)mdc_legacyFontScaling {
+  return _adjustsFontForContentSizeCategoryWhenScaledFontIsUnavailable;
 }
 
 - (void)contentSizeCategoryDidChange:(__unused NSNotification *)notification {
@@ -423,7 +441,7 @@ static inline CGSize CGSizeShrinkWithInsets(CGSize size, UIEdgeInsets edgeInsets
 
 - (void)updateInkColor {
   UIColor *inkColor = [self inkColorForState:self.state];
-  self.inkView.inkColor = inkColor ? inkColor : self.inkView.defaultInkColor;
+  self.inkView.inkColor = inkColor ?: self.inkView.defaultInkColor;
 }
 
 - (void)updateRippleColor {
@@ -502,47 +520,31 @@ static inline CGSize CGSizeShrinkWithInsets(CGSize size, UIEdgeInsets edgeInsets
 }
 
 - (void)updateTitleFont {
-  UIFont *customTitleFont = _titleFont;
-
   // If we have a custom font apply it to the label.
   // If not, fall back to the Material specified font.
-  if (customTitleFont) {
-    // If we are automatically adjusting for Dynamic Type resize the font based on the text style
-    if (_mdc_adjustsFontForContentSizeCategory) {
-      self.titleLabel.font = [customTitleFont
-          mdc_fontSizedForMaterialTextStyle:kTitleTextStyle
-                       scaledForDynamicType:_mdc_adjustsFontForContentSizeCategory];
-    } else {
-      self.titleLabel.font = customTitleFont;
-    }
-  } else {
-    // TODO(#2709): Migrate to a single source of truth for fonts
-    // There is no custom font, so use the default font.
-    if (_mdc_adjustsFontForContentSizeCategory) {
-      // If we are using the default (system) font loader, retrieve the
-      // font from the UIFont preferredFont API.
-      if ([MDCTypography.fontLoader isKindOfClass:[MDCSystemFontLoader class]]) {
-        _titleLabel.font = [UIFont mdc_preferredFontForMaterialTextStyle:kTitleTextStyle];
-      } else {
-        // There is a custom font loader, retrieve the font and scale it.
-        UIFont *customTypographyFont = [MDCTypography buttonFont];
-        _titleLabel.font = [customTypographyFont
-            mdc_fontSizedForMaterialTextStyle:kTitleTextStyle
-                         scaledForDynamicType:_mdc_adjustsFontForContentSizeCategory];
-      }
-    } else {
-      // If we are using the default (system) font loader, retrieve the
-      // font from the UIFont standardFont API.
-      if ([MDCTypography.fontLoader isKindOfClass:[MDCSystemFontLoader class]]) {
-        _titleLabel.font = [UIFont mdc_standardFontForMaterialTextStyle:kTitleTextStyle];
-      } else {
-        // There is a custom font loader, retrieve the font from it.
-        _titleLabel.font = [MDCTypography buttonFont];
-      }
+  UIFont *titleFont = _titleFont ?: [[self class] defaultTitleFont];
+
+  // If we are automatically adjusting for Dynamic Type resize the font based on the text style
+  if (self.mdc_adjustsFontForContentSizeCategory) {
+    if (titleFont.mdc_scalingCurve && !self.mdc_legacyFontScaling) {
+      titleFont = [titleFont mdc_scaledFontForTraitEnvironment:self];
+    } else if (self.adjustsFontForContentSizeCategoryWhenScaledFontIsUnavailable) {
+      titleFont =
+          [titleFont mdc_fontSizedForMaterialTextStyle:kTitleTextStyle
+                                  scaledForDynamicType:_mdc_adjustsFontForContentSizeCategory];
     }
   }
+  self.titleLabel.font = titleFont;
 
   [self setNeedsLayout];
+}
+
++ (UIFont *)defaultTitleFont {
+  // TODO(#2709): Migrate to a single source of truth for fonts
+  if ([MDCTypography.fontLoader isKindOfClass:[MDCSystemFontLoader class]]) {
+    return [UIFont mdc_standardFontForMaterialTextStyle:kTitleTextStyle];
+  }
+  return [MDCTypography buttonFont];
 }
 
 - (void)updateTitleColor {

@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Alamofire
 
 class EventsTableViewController: UITableViewController {
+    
+    var events = [Events]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
