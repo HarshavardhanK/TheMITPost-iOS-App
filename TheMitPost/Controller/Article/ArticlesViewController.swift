@@ -22,6 +22,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     let appBar = MDCAppBar()
     let articleHeaderView = ArticleHeaderView()
+    let refreshControl = UIRefreshControl()
     
     var articlesShown = [Bool]()
     
@@ -46,8 +47,11 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         articleCollectionView.dataSource = self
         articleCollectionView.delegate = self
+        articleCollectionView.addSubview(refreshControl)
         
         tabBarController?.delegate = self
+        
+        refreshControl.addTarget(self, action: #selector(refreshArticles), for: .valueChanged)
         
         
         //MARK:- UINavigationBar Appearance
@@ -69,6 +73,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             self.parseArticleResult(result: result)
             
             self.articleCollectionView.reloadData()
+            self.refreshControl.endRefreshing()
             
             self.articlesShown = [Bool](repeating: false, count: self.articlesList.count)
             
@@ -105,6 +110,12 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         
         
+    }
+    
+    @objc func refreshArticles() {
+        retrieveArticles()
+        articlesShown = [Bool]()
+        print("Finished refreshing..")
     }
     
     

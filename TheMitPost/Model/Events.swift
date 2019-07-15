@@ -11,16 +11,20 @@ import SwiftyJSON
 
 class Events {
     
+    var organizer: String
     var title: String?
     var content: String?
     var imageURL: URL?
-    var date: Date?
+    var date: String?
     
     
     init(data: JSON) {
+        
+        organizer = data["clubName"].stringValue
         title = data["title"].stringValue
         content = data["content"].stringValue
         imageURL = URL(string: data["imageURL"].stringValue)
+        date = "20 MAY, 2019"
     }
     
     static func parseNotices(data: [JSON]) -> [Events] {

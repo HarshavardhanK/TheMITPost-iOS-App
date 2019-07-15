@@ -360,12 +360,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-759" y="-523"/>
+            <point key="canvasLocation" x="-3196" y="-523"/>
         </scene>
         <!--Events-->
         <scene sceneID="mM3-TH-CUQ">
             <objects>
-                <tableViewController id="QXv-j2-8r6" sceneMemberID="viewController">
+                <tableViewController id="QXv-j2-8r6" customClass="EventsTableViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IMc-Xm-Wrt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -378,45 +378,57 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="444.66666666666669"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QEB-Bd-vyc">
-                                            <rect key="frame" x="0.0" y="81" width="375" height="135"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QEB-Bd-vyc">
+                                            <rect key="frame" x="16" y="93" width="343" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="343" id="1in-MK-e15"/>
+                                                <constraint firstAttribute="height" constant="200" id="u0A-GL-vHb"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Post Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFa-Ps-b9M">
-                                            <rect key="frame" x="16" y="11" width="343" height="45"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="20 May, 7PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onN-UG-phE">
+                                            <rect key="frame" x="16" y="253" width="170" height="40"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Post Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFa-Ps-b9M">
+                                            <rect key="frame" x="16" y="25" width="343" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="Bsy-Sw-cNb"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="28"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A description of the said event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGw-JA-0ub">
-                                            <rect key="frame" x="16" y="244" width="343" height="80"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A description of the said event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGw-JA-0ub">
+                                            <rect key="frame" x="16" y="335" width="343" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OGI-Z2-IFq">
-                                            <rect key="frame" x="16" y="170" width="170" height="46"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20 May, 7PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onN-UG-phE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </view>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="TFa-Ps-b9M" firstAttribute="leading" secondItem="onN-UG-phE" secondAttribute="leading" id="9w1-5v-PEd"/>
+                                        <constraint firstItem="TFa-Ps-b9M" firstAttribute="top" secondItem="rm3-JJ-ZIH" secondAttribute="topMargin" constant="14" id="EgL-ew-Iym"/>
+                                        <constraint firstItem="QEB-Bd-vyc" firstAttribute="leading" secondItem="onN-UG-phE" secondAttribute="trailing" constant="-170" id="LtM-m5-9mR"/>
+                                        <constraint firstAttribute="bottom" secondItem="NGw-JA-0ub" secondAttribute="bottom" constant="89.666666666666686" id="Nwq-0S-Vi1"/>
+                                        <constraint firstAttribute="trailing" secondItem="NGw-JA-0ub" secondAttribute="trailing" constant="16" id="OqJ-GI-XNa"/>
+                                        <constraint firstItem="QEB-Bd-vyc" firstAttribute="top" secondItem="TFa-Ps-b9M" secondAttribute="bottom" constant="8" id="PKH-9S-bff"/>
+                                        <constraint firstItem="NGw-JA-0ub" firstAttribute="top" secondItem="QEB-Bd-vyc" secondAttribute="bottom" constant="42" id="foK-ER-hxv"/>
+                                        <constraint firstItem="NGw-JA-0ub" firstAttribute="top" secondItem="onN-UG-phE" secondAttribute="bottom" constant="42" id="h7l-nF-dHT"/>
+                                        <constraint firstItem="TFa-Ps-b9M" firstAttribute="trailing" secondItem="NGw-JA-0ub" secondAttribute="trailing" id="n2W-oH-CNc"/>
+                                        <constraint firstItem="NGw-JA-0ub" firstAttribute="leading" secondItem="rm3-JJ-ZIH" secondAttribute="leading" constant="16" id="n6R-Ma-kvM"/>
+                                        <constraint firstItem="QEB-Bd-vyc" firstAttribute="leading" secondItem="onN-UG-phE" secondAttribute="trailing" constant="-170" id="rWP-NA-11a"/>
+                                        <constraint firstItem="TFa-Ps-b9M" firstAttribute="leading" secondItem="NGw-JA-0ub" secondAttribute="leading" id="vtK-Jm-TVz"/>
+                                        <constraint firstItem="TFa-Ps-b9M" firstAttribute="centerX" secondItem="QEB-Bd-vyc" secondAttribute="centerX" id="ycU-6V-3oA"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="descriptionLabel" destination="NGw-JA-0ub" id="wlc-pu-AIH"/>
-                                    <outlet property="eventImageView" destination="QEB-Bd-vyc" id="iGe-RA-RgV"/>
-                                    <outlet property="organizerNameLabel" destination="TFa-Ps-b9M" id="oLK-pr-pPw"/>
-                                    <outlet property="timeLabel" destination="onN-UG-phE" id="JeP-aI-sEG"/>
+                                    <outlet property="descriptionLabel" destination="NGw-JA-0ub" id="ueT-qW-Vu1"/>
+                                    <outlet property="eventImageView" destination="QEB-Bd-vyc" id="Vnh-iw-kUL"/>
+                                    <outlet property="organizerNameLabel" destination="TFa-Ps-b9M" id="4lj-qf-Rr5"/>
+                                    <outlet property="timeLabel" destination="onN-UG-phE" id="eE8-IW-K0l"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="657" id="dgJ-EK-YoO">

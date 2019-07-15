@@ -62,7 +62,7 @@ class ArticleTableViewController: UITableViewController {
             let data = JSON(response.result.value!)
             let contents = data["content"]
             
-            for i in 0..<contents.count {
+            for i in 0...contents.count {
                 let content = contents[i]
                 
                 
@@ -109,7 +109,6 @@ class ArticleTableViewController: UITableViewController {
 //
 //    }
     
-    var imagesAbove = 0
     let offset = 2
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -152,16 +151,12 @@ class ArticleTableViewController: UITableViewController {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "contentCell") as! ArticleTableViewCell
-        cell.content = content[indexPath.row - offset - imagesAbove]
+        cell.content = content[indexPath.row - offset]
         
-        //if(content[indexPath.row - 1].isImage) {
-        cell.paragraphNumber = indexPath.row - 2 - imagesAbove
+        print(content[indexPath.row - offset])
         
-        imagesAbove = 0
+        cell.paragraphNumber = indexPath.row - 2
         
-        //}
-        
-
         return cell
         
         
