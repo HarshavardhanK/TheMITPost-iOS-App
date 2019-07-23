@@ -10,7 +10,12 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class EventsTableViewController: UITableViewController {
+class EventsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    
+    
+    
+    @IBOutlet weak var eventsCollectionView: UICollectionView!
     
     let EVENTS_API = "https://api.themitpost.com/events"
     
@@ -21,15 +26,8 @@ class EventsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 450
-        
-        self.refreshControl?.addTarget(self, action: #selector(refreshEvents), for: .valueChanged)
+        eventsCollectionView.delegate = self
+        eventsCollectionView.dataSource = self
         
         
         retrieveEvents()
@@ -37,25 +35,26 @@ class EventsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return events.count
     }
-
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventTableViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as! EventViewCell
         
         cell.event = events[indexPath.row]
-
+        
         return cell
+        
+        
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: EventViewCell.cellPadding, left: EventViewCell.cellPadding, bottom: EventViewCell.cellPadding, right: EventViewCell.cellPadding)
+    }
+    
     
     
     //MARK:- RETRIEVE EVENT DATA FROM API
@@ -79,7 +78,7 @@ class EventsTableViewController: UITableViewController {
                 }
             }
             
-            self.tableView.reloadData()
+            self.eventsCollectionView.reloadData()
         }
         
     }
