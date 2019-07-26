@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B1E5A1E6508EC8ED1EC79B4E /* Pods_TheMitPostUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DC9436172A9B75A537E0EF /* Pods_TheMitPostUITests.framework */; };
-		BEF926D8EDB50F3D79A65B88 /* Pods_TheMitPostTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5C3EB86EA193265376DEAB /* Pods_TheMitPostTests.framework */; };
+		87E84E2ABD9FB5AC15BB4EA4 /* Pods_TheMitPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D94F710E8379A982CC731F /* Pods_TheMitPost.framework */; };
+		CE7C3EE6A015DB8882680AB4 /* Pods_TheMitPostTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3C3FF38A701842972BB0E2 /* Pods_TheMitPostTests.framework */; };
 		D60EBF3121ED0CDF00DAC538 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EBF3021ED0CDF00DAC538 /* Article.swift */; };
 		D60EBF3221ED0CDF00DAC538 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EBF3021ED0CDF00DAC538 /* Article.swift */; };
 		D61C44DB223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
@@ -80,9 +80,6 @@
 		D6D6A22621ECC5A500B822F8 /* TheMitPostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A22521ECC5A500B822F8 /* TheMitPostTests.swift */; };
 		D6D6A23121ECC5A500B822F8 /* TheMitPostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A23021ECC5A500B822F8 /* TheMitPostUITests.swift */; };
 		D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D6A24021ECDC1800B822F8 /* GoogleService-Info.plist */; };
-		D6EE553922EAD63B0055AE74 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6EE553822EAD63A0055AE74 /* credentials.plist */; };
-		D6EE553A22EAD63B0055AE74 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6EE553822EAD63A0055AE74 /* credentials.plist */; };
-		D6EE553B22EAD63B0055AE74 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6EE553822EAD63A0055AE74 /* credentials.plist */; };
 		D6EE553D22EAD73C0055AE74 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE553C22EAD73C0055AE74 /* SignInViewController.swift */; };
 		D6EE553E22EAD73C0055AE74 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE553C22EAD73C0055AE74 /* SignInViewController.swift */; };
 		D6EE553F22EAD73C0055AE74 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE553C22EAD73C0055AE74 /* SignInViewController.swift */; };
@@ -98,7 +95,7 @@
 		D6F8066C2204A0420041E09F /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8066B2204A0420041E09F /* ArticleViewController.swift */; };
 		D6F8066D2204A0420041E09F /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8066B2204A0420041E09F /* ArticleViewController.swift */; };
 		D6F8066E2204A0420041E09F /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8066B2204A0420041E09F /* ArticleViewController.swift */; };
-		FA3BF59BD9D7A3D5968642D7 /* Pods_TheMitPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9EA9BEB86CB805E9400C2F /* Pods_TheMitPost.framework */; };
+		F67BDD8DB42CFEE944067F47 /* Pods_TheMitPostUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359155BB7CD815DF0B320243 /* Pods_TheMitPostUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,15 +116,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E5C3EB86EA193265376DEAB /* Pods_TheMitPostTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPostTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1AE8A8A683B2383FFFF9EB5C /* Pods-TheMitPostTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.debug.xcconfig"; sourceTree = "<group>"; };
-		43538FB88670C4191BCA62D2 /* Pods-TheMitPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheMitPost/Pods-TheMitPost.debug.xcconfig"; sourceTree = "<group>"; };
-		4E67F2C84E1DDC8E07A1795B /* Pods-TheMitPostUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheMitPostUITests/Pods-TheMitPostUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		5C9EA9BEB86CB805E9400C2F /* Pods_TheMitPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		70DC9436172A9B75A537E0EF /* Pods_TheMitPostUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPostUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		83409E6AA454CF1D0F4508D0 /* Pods-TheMitPostUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMitPostUITests/Pods-TheMitPostUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B3D7AF3A89690FCA396B091D /* Pods-TheMitPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMitPost/Pods-TheMitPost.release.xcconfig"; sourceTree = "<group>"; };
-		C122AB422CB3AF9C1C826A80 /* Pods-TheMitPostTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.release.xcconfig"; sourceTree = "<group>"; };
+		09D94F710E8379A982CC731F /* Pods_TheMitPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BE48C3FB4D837912884BE7C /* Pods-TheMitPostUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostUITests.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPostUITests/Pods-TheMitPostUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		359155BB7CD815DF0B320243 /* Pods_TheMitPostUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPostUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		60EDF865FEA4E1ECE8FFD3F6 /* Pods-TheMitPostUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostUITests.release.xcconfig"; path = "Target Support Files/Pods-TheMitPostUITests/Pods-TheMitPostUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7E2306B4848936AD5721E720 /* Pods-TheMitPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.release.xcconfig"; path = "Target Support Files/Pods-TheMitPost/Pods-TheMitPost.release.xcconfig"; sourceTree = "<group>"; };
+		9C014F93135C4F169933BC93 /* Pods-TheMitPostTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.release.xcconfig"; path = "Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.release.xcconfig"; sourceTree = "<group>"; };
 		D60EBF3021ED0CDF00DAC538 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D61C44DA223E74DF00DF5DAA /* SLCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCM.swift; sourceTree = "<group>"; };
 		D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -169,12 +163,14 @@
 		D6D6A23021ECC5A500B822F8 /* TheMitPostUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMitPostUITests.swift; sourceTree = "<group>"; };
 		D6D6A23221ECC5A500B822F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6D6A24021ECDC1800B822F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D6EE553822EAD63A0055AE74 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		D6EE553C22EAD73C0055AE74 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D6F392B422D5FA3500CE50D1 /* NoticesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesTableViewController.swift; sourceTree = "<group>"; };
 		D6F392B822D5FB5900CE50D1 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		D6F392BC22D604DC00CE50D1 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		D6F8066B2204A0420041E09F /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		DF3C3FF38A701842972BB0E2 /* Pods_TheMitPostTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPostTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9A086BF6FE6B1F570EEBF18 /* Pods-TheMitPostTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA32331F311C2F93D493D109 /* Pods-TheMitPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPost/Pods-TheMitPost.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA3BF59BD9D7A3D5968642D7 /* Pods_TheMitPost.framework in Frameworks */,
+				87E84E2ABD9FB5AC15BB4EA4 /* Pods_TheMitPost.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEF926D8EDB50F3D79A65B88 /* Pods_TheMitPostTests.framework in Frameworks */,
+				CE7C3EE6A015DB8882680AB4 /* Pods_TheMitPostTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,24 +194,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1E5A1E6508EC8ED1EC79B4E /* Pods_TheMitPostUITests.framework in Frameworks */,
+				F67BDD8DB42CFEE944067F47 /* Pods_TheMitPostUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D0D1E24DDED0C4828EFD7CA /* Pods */ = {
+		4992BD0CCB4966B08E118742 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				43538FB88670C4191BCA62D2 /* Pods-TheMitPost.debug.xcconfig */,
-				B3D7AF3A89690FCA396B091D /* Pods-TheMitPost.release.xcconfig */,
-				1AE8A8A683B2383FFFF9EB5C /* Pods-TheMitPostTests.debug.xcconfig */,
-				C122AB422CB3AF9C1C826A80 /* Pods-TheMitPostTests.release.xcconfig */,
-				4E67F2C84E1DDC8E07A1795B /* Pods-TheMitPostUITests.debug.xcconfig */,
-				83409E6AA454CF1D0F4508D0 /* Pods-TheMitPostUITests.release.xcconfig */,
+				09D94F710E8379A982CC731F /* Pods_TheMitPost.framework */,
+				DF3C3FF38A701842972BB0E2 /* Pods_TheMitPostTests.framework */,
+				359155BB7CD815DF0B320243 /* Pods_TheMitPostUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6739CD553BEF26033D670CBE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FA32331F311C2F93D493D109 /* Pods-TheMitPost.debug.xcconfig */,
+				7E2306B4848936AD5721E720 /* Pods-TheMitPost.release.xcconfig */,
+				F9A086BF6FE6B1F570EEBF18 /* Pods-TheMitPostTests.debug.xcconfig */,
+				9C014F93135C4F169933BC93 /* Pods-TheMitPostTests.release.xcconfig */,
+				1BE48C3FB4D837912884BE7C /* Pods-TheMitPostUITests.debug.xcconfig */,
+				60EDF865FEA4E1ECE8FFD3F6 /* Pods-TheMitPostUITests.release.xcconfig */,
 			);
 			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		D60EBF2C21ED0C7000DAC538 /* Model */ = {
@@ -318,8 +325,8 @@
 				D6D6A22421ECC5A500B822F8 /* TheMitPostTests */,
 				D6D6A22F21ECC5A500B822F8 /* TheMitPostUITests */,
 				D6D6A20C21ECC5A200B822F8 /* Products */,
-				3D0D1E24DDED0C4828EFD7CA /* Pods */,
-				DBA9F26F08024820046B97FE /* Frameworks */,
+				6739CD553BEF26033D670CBE /* Pods */,
+				4992BD0CCB4966B08E118742 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -345,7 +352,6 @@
 				D6D6A21721ECC5A400B822F8 /* Assets.xcassets */,
 				D6D6A21921ECC5A400B822F8 /* LaunchScreen.storyboard */,
 				D6D6A21C21ECC5A400B822F8 /* Info.plist */,
-				D6EE553822EAD63A0055AE74 /* credentials.plist */,
 				D6D6A24021ECDC1800B822F8 /* GoogleService-Info.plist */,
 			);
 			path = TheMitPost;
@@ -369,16 +375,6 @@
 			path = TheMitPostUITests;
 			sourceTree = "<group>";
 		};
-		DBA9F26F08024820046B97FE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5C9EA9BEB86CB805E9400C2F /* Pods_TheMitPost.framework */,
-				0E5C3EB86EA193265376DEAB /* Pods_TheMitPostTests.framework */,
-				70DC9436172A9B75A537E0EF /* Pods_TheMitPostUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -386,11 +382,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6D6A23521ECC5A500B822F8 /* Build configuration list for PBXNativeTarget "TheMitPost" */;
 			buildPhases = (
-				13140C133FA03F1D657B489D /* [CP] Check Pods Manifest.lock */,
+				9AA054CD7AF145BD0F6F456C /* [CP] Check Pods Manifest.lock */,
 				D6D6A20721ECC5A200B822F8 /* Sources */,
 				D6D6A20821ECC5A200B822F8 /* Frameworks */,
 				D6D6A20921ECC5A200B822F8 /* Resources */,
-				B0AC184F7AE45E0D2A5B2866 /* [CP] Embed Pods Frameworks */,
+				2E1268545713D3835FAC70BB /* [CP] Embed Pods Frameworks */,
+				64203DA7A19A75FB7B982D7C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -405,7 +402,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6D6A23821ECC5A500B822F8 /* Build configuration list for PBXNativeTarget "TheMitPostTests" */;
 			buildPhases = (
-				5F476C092A349902765EA33B /* [CP] Check Pods Manifest.lock */,
+				A347064C3E7595B97DAC2F0B /* [CP] Check Pods Manifest.lock */,
 				D6D6A21D21ECC5A500B822F8 /* Sources */,
 				D6D6A21E21ECC5A500B822F8 /* Frameworks */,
 				D6D6A21F21ECC5A500B822F8 /* Resources */,
@@ -424,7 +421,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6D6A23B21ECC5A500B822F8 /* Build configuration list for PBXNativeTarget "TheMitPostUITests" */;
 			buildPhases = (
-				4BBAAAB7A6C21D0FD1E2AC74 /* [CP] Check Pods Manifest.lock */,
+				1BF1A2AA0EF29A886A67C053 /* [CP] Check Pods Manifest.lock */,
 				D6D6A22821ECC5A500B822F8 /* Sources */,
 				D6D6A22921ECC5A500B822F8 /* Frameworks */,
 				D6D6A22A21ECC5A500B822F8 /* Resources */,
@@ -497,7 +494,6 @@
 				D6ACF12222469ED7001B8A68 /* Aileron-Regular.otf in Resources */,
 				D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */,
 				D6ACF11F22469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
-				D6EE553922EAD63B0055AE74 /* credentials.plist in Resources */,
 				D6339E452243B675007051A1 /* ArticleHeaderViewTableViewCell.xib in Resources */,
 				D6ACF12A22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */,
 				D6ACF12E22469EFF001B8A68 /* Roboto-Medium.ttf in Resources */,
@@ -511,7 +507,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6EE553A22EAD63B0055AE74 /* credentials.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,7 +515,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6ACF13C22469F24001B8A68 /* DyeLine-Regular3.ttf in Resources */,
-				D6EE553B22EAD63B0055AE74 /* credentials.plist in Resources */,
 				D6ACF13622469F24001B8A68 /* DyeLine-Regular2.ttf in Resources */,
 				D6ACF12622469EE4001B8A68 /* Aileron-SemiBold.otf in Resources */,
 				D6ACF12022469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
@@ -537,34 +531,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		13140C133FA03F1D657B489D /* [CP] Check Pods Manifest.lock */ = {
+		1BF1A2AA0EF29A886A67C053 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TheMitPost-checkManifestLockResult.txt",
+			outputFileListPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4BBAAAB7A6C21D0FD1E2AC74 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-TheMitPostUITests-checkManifestLockResult.txt",
 			);
@@ -573,72 +553,82 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5F476C092A349902765EA33B /* [CP] Check Pods Manifest.lock */ = {
+		2E1268545713D3835FAC70BB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64203DA7A19A75FB7B982D7C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9AA054CD7AF145BD0F6F456C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TheMitPostTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-TheMitPost-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B0AC184F7AE45E0D2A5B2866 /* [CP] Embed Pods Frameworks */ = {
+		A347064C3E7595B97DAC2F0B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
-				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
-				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
-				"${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework",
-				"${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework",
-				"${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework",
-				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/UIImageColors/UIImageColors.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionAnimator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionInterchange.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionTransitioning.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageColors.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"$(DERIVED_FILE_DIR)/Pods-TheMitPostTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -877,7 +867,7 @@
 		};
 		D6D6A23621ECC5A500B822F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43538FB88670C4191BCA62D2 /* Pods-TheMitPost.debug.xcconfig */;
+			baseConfigurationReference = FA32331F311C2F93D493D109 /* Pods-TheMitPost.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -897,7 +887,7 @@
 		};
 		D6D6A23721ECC5A500B822F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3D7AF3A89690FCA396B091D /* Pods-TheMitPost.release.xcconfig */;
+			baseConfigurationReference = 7E2306B4848936AD5721E720 /* Pods-TheMitPost.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -917,7 +907,7 @@
 		};
 		D6D6A23921ECC5A500B822F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AE8A8A683B2383FFFF9EB5C /* Pods-TheMitPostTests.debug.xcconfig */;
+			baseConfigurationReference = F9A086BF6FE6B1F570EEBF18 /* Pods-TheMitPostTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -939,7 +929,7 @@
 		};
 		D6D6A23A21ECC5A500B822F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C122AB422CB3AF9C1C826A80 /* Pods-TheMitPostTests.release.xcconfig */;
+			baseConfigurationReference = 9C014F93135C4F169933BC93 /* Pods-TheMitPostTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -961,7 +951,7 @@
 		};
 		D6D6A23C21ECC5A500B822F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E67F2C84E1DDC8E07A1795B /* Pods-TheMitPostUITests.debug.xcconfig */;
+			baseConfigurationReference = 1BE48C3FB4D837912884BE7C /* Pods-TheMitPostUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -982,7 +972,7 @@
 		};
 		D6D6A23D21ECC5A500B822F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 83409E6AA454CF1D0F4508D0 /* Pods-TheMitPostUITests.release.xcconfig */;
+			baseConfigurationReference = 60EDF865FEA4E1ECE8FFD3F6 /* Pods-TheMitPostUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

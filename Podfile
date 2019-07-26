@@ -6,9 +6,9 @@ target 'TheMitPost' do
   use_frameworks!
 
   # Pods for TheMitPost
-pod 'Firebase/Analytics'
-pod 'Firebase/Auth'
-pod 'Firebase/Database'
+
+pod 'FirebaseUI/Auth'
+pod 'FirebaseUI/Google'
 pod 'Firebase/Messaging'
 pod 'SDWebImage', '~> 4.0'
 pod 'MaterialComponents'
@@ -18,7 +18,6 @@ pod 'FoldingCell'
 pod 'Alamofire'
 pod 'UIImageColors'
 pod 'NVActivityIndicatorView'
-pod 'Google/SignIn'
 
   target 'TheMitPostTests' do
     inherit! :search_paths
