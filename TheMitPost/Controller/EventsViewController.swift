@@ -13,8 +13,6 @@ import Alamofire
 class EventsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
-    
-    
     @IBOutlet weak var eventsCollectionView: UICollectionView!
     
     let EVENTS_API = "https://api.themitpost.com/events"
@@ -28,7 +26,6 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
 
         eventsCollectionView.delegate = self
         eventsCollectionView.dataSource = self
-        
         
         retrieveEvents()
     }
@@ -47,15 +44,25 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         return cell
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as! EventViewCell
+        
+        
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return CGFloat(35)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        return UIEdgeInsets(top: EventViewCell.cellPadding, left: EventViewCell.cellPadding, bottom: EventViewCell.cellPadding, right: EventViewCell.cellPadding)
+        return UIEdgeInsets(top: EventViewCell.cellPadding + 20, left: EventViewCell.cellPadding + 20, bottom: EventViewCell.cellPadding + 20, right: EventViewCell.cellPadding + 20)
     }
-    
-    
+
     
     //MARK:- RETRIEVE EVENT DATA FROM API
     func retrieveEvents() {

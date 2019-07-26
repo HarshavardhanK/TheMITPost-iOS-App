@@ -17,7 +17,7 @@ class EventViewCell: UICollectionViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    static let cellPadding: CGFloat = 15.0
+    static let cellPadding: CGFloat = 22.0
     
     var event: Events! {
         
@@ -37,7 +37,7 @@ class EventViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        shadowLayer?.elevation = .cardResting
+        shadowLayer?.elevation = .cardPickedUp
         
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale

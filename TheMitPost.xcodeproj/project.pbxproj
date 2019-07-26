@@ -80,6 +80,12 @@
 		D6D6A22621ECC5A500B822F8 /* TheMitPostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A22521ECC5A500B822F8 /* TheMitPostTests.swift */; };
 		D6D6A23121ECC5A500B822F8 /* TheMitPostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A23021ECC5A500B822F8 /* TheMitPostUITests.swift */; };
 		D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D6A24021ECDC1800B822F8 /* GoogleService-Info.plist */; };
+		D6EE553922EAD63B0055AE74 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6EE553822EAD63A0055AE74 /* credentials.plist */; };
+		D6EE553A22EAD63B0055AE74 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6EE553822EAD63A0055AE74 /* credentials.plist */; };
+		D6EE553B22EAD63B0055AE74 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6EE553822EAD63A0055AE74 /* credentials.plist */; };
+		D6EE553D22EAD73C0055AE74 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE553C22EAD73C0055AE74 /* SignInViewController.swift */; };
+		D6EE553E22EAD73C0055AE74 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE553C22EAD73C0055AE74 /* SignInViewController.swift */; };
+		D6EE553F22EAD73C0055AE74 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE553C22EAD73C0055AE74 /* SignInViewController.swift */; };
 		D6F392B522D5FA3500CE50D1 /* NoticesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F392B422D5FA3500CE50D1 /* NoticesTableViewController.swift */; };
 		D6F392B622D5FA3500CE50D1 /* NoticesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F392B422D5FA3500CE50D1 /* NoticesTableViewController.swift */; };
 		D6F392B722D5FA3500CE50D1 /* NoticesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F392B422D5FA3500CE50D1 /* NoticesTableViewController.swift */; };
@@ -163,6 +169,8 @@
 		D6D6A23021ECC5A500B822F8 /* TheMitPostUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMitPostUITests.swift; sourceTree = "<group>"; };
 		D6D6A23221ECC5A500B822F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6D6A24021ECDC1800B822F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D6EE553822EAD63A0055AE74 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		D6EE553C22EAD73C0055AE74 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D6F392B422D5FA3500CE50D1 /* NoticesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesTableViewController.swift; sourceTree = "<group>"; };
 		D6F392B822D5FB5900CE50D1 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		D6F392BC22D604DC00CE50D1 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +247,7 @@
 				D6A8706322D916FE0057A30B /* SLCM */,
 				D6F392B422D5FA3500CE50D1 /* NoticesTableViewController.swift */,
 				D6F392BC22D604DC00CE50D1 /* EventsViewController.swift */,
+				D6EE553C22EAD73C0055AE74 /* SignInViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -336,6 +345,7 @@
 				D6D6A21721ECC5A400B822F8 /* Assets.xcassets */,
 				D6D6A21921ECC5A400B822F8 /* LaunchScreen.storyboard */,
 				D6D6A21C21ECC5A400B822F8 /* Info.plist */,
+				D6EE553822EAD63A0055AE74 /* credentials.plist */,
 				D6D6A24021ECDC1800B822F8 /* GoogleService-Info.plist */,
 			);
 			path = TheMitPost;
@@ -487,6 +497,7 @@
 				D6ACF12222469ED7001B8A68 /* Aileron-Regular.otf in Resources */,
 				D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */,
 				D6ACF11F22469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
+				D6EE553922EAD63B0055AE74 /* credentials.plist in Resources */,
 				D6339E452243B675007051A1 /* ArticleHeaderViewTableViewCell.xib in Resources */,
 				D6ACF12A22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */,
 				D6ACF12E22469EFF001B8A68 /* Roboto-Medium.ttf in Resources */,
@@ -500,6 +511,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6EE553A22EAD63B0055AE74 /* credentials.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6ACF13C22469F24001B8A68 /* DyeLine-Regular3.ttf in Resources */,
+				D6EE553B22EAD63B0055AE74 /* credentials.plist in Resources */,
 				D6ACF13622469F24001B8A68 /* DyeLine-Regular2.ttf in Resources */,
 				D6ACF12622469EE4001B8A68 /* Aileron-SemiBold.otf in Resources */,
 				D6ACF12022469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
@@ -635,6 +648,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6EE553D22EAD73C0055AE74 /* SignInViewController.swift in Sources */,
 				D6F392B922D5FB5900CE50D1 /* Events.swift in Sources */,
 				D6F392B522D5FA3500CE50D1 /* NoticesTableViewController.swift in Sources */,
 				D60EBF3121ED0CDF00DAC538 /* Article.swift in Sources */,
@@ -672,6 +686,7 @@
 				D6F392BE22D604DC00CE50D1 /* EventsViewController.swift in Sources */,
 				D6F8066D2204A0420041E09F /* ArticleViewController.swift in Sources */,
 				D664F31E22AF9F62002D6E0F /* Utilities.swift in Sources */,
+				D6EE553E22EAD73C0055AE74 /* SignInViewController.swift in Sources */,
 				D6339E4C2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */,
 				D61D3A9621EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D60EBF3221ED0CDF00DAC538 /* Article.swift in Sources */,
@@ -702,6 +717,7 @@
 				D6A8706022D916B60057A30B /* EventViewCell.swift in Sources */,
 				D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
 				D664F32922B0FA2D002D6E0F /* Notices.swift in Sources */,
+				D6EE553F22EAD73C0055AE74 /* SignInViewController.swift in Sources */,
 				D63B747C22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,
 				D6ACFF9D2242C22C00CDFAF6 /* ArticleTableViewCell.swift in Sources */,
 				D69B3059220382DC00E66AE3 /* Extensions.swift in Sources */,

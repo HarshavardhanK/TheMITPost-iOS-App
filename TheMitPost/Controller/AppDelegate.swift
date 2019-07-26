@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+// GOOGLE SIGN IN CLIENT ID 825514938042-40oun2icmtm0tlpofbtql3ubjreitrlf.apps.googleusercontent.com
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
