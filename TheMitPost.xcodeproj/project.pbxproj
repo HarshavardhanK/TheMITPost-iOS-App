@@ -221,7 +221,6 @@
 				1BE48C3FB4D837912884BE7C /* Pods-TheMitPostUITests.debug.xcconfig */,
 				60EDF865FEA4E1ECE8FFD3F6 /* Pods-TheMitPostUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

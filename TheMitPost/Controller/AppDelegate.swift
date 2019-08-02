@@ -8,20 +8,79 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
-// GOOGLE SIGN IN CLIENT ID 825514938042-40oun2icmtm0tlpofbtql3ubjreitrlf.apps.googleusercontent.com
+
+// Google Cloud client ID 1006288901885-r5qf169g9ht0mmmbj2v0o3gs5it713b5.apps.googleusercontent.com
+
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    
 
     var window: UIWindow?
+    var storyBoard: UIStoryboard!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        
+        self.storyBoard =  UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        if Auth.auth().currentUser != nil {
+            self.window?.rootViewController = self.storyBoard.instantiateViewController(withIdentifier: "tabView")
+            print("User already logged in")
+            
+        } else {
+            self.window?.rootViewController = self.storyBoard.instantiateViewController(withIdentifier: "loginView")
+        }
+        
+        
         return true
     }
+    
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
+        -> Bool {
+            return GIDSignIn.sharedInstance().handle(url,
+                                                     sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+                                                     annotation: [:])
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        // ...
+        if let error = error {
+            // ...
+            return
+        }
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        
+        // ...
+        
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if let error = error {
+                // ...
+                return
+            }
+            
+            print("Signed into Firebase")
+        }
+            
+        
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
+    }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -44,11 +44,6 @@ PODS:
     - GoogleUtilities/Reachability (~> 6.2)
     - GoogleUtilities/UserDefaults (~> 6.2)
     - Protobuf (~> 3.1)
-  - FirebaseUI/Auth (4.1.1):
-    - Firebase/Auth
-  - FirebaseUI/Google (4.1.1):
-    - FirebaseUI/Auth
-    - GoogleSignIn (~> 4.0)
   - FoldingCell (5.0.1)
   - GoogleAppMeasurement (6.0.4):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
@@ -705,11 +700,11 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Firebase/Auth
   - Firebase/Core
   - Firebase/Messaging
-  - FirebaseUI/Auth
-  - FirebaseUI/Google
   - FoldingCell
+  - GoogleSignIn
   - MaterialComponents
   - NVActivityIndicatorView
   - SDWebImage (~> 4.0)
@@ -727,7 +722,6 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseInstanceID
     - FirebaseMessaging
-    - FirebaseUI
     - FoldingCell
     - GoogleAppMeasurement
     - GoogleSignIn
@@ -757,7 +751,6 @@ SPEC CHECKSUMS:
   FirebaseCore: aecf02fb2274ec361b9bebeac112f5daa18273bd
   FirebaseInstanceID: 662b8108a09fe9ed01aafdedba100fde8536b0f6
   FirebaseMessaging: 6bb0bdaf64c55fef7a219b7bb1e94e94a0855ced
-  FirebaseUI: 5ebebe2c096c71f20abd1d43d0388958373bdaa0
   FoldingCell: 9197b915a415af9e52a857964066797af6a51c2b
   GoogleAppMeasurement: 183bd916af7f80deb67c01888368f1108d641832
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
@@ -777,6 +770,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   UIImageColors: d2ef3b0877d203cbb06489eeb78ea8b7788caabe
 
-PODFILE CHECKSUM: dea097e033524b492703fb7dac2ea44b3ddaed49
+PODFILE CHECKSUM: f0be3b3c97074d5132c5a04144ccfb12e0d313af
 
 COCOAPODS: 1.7.5

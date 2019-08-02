@@ -7,8 +7,8 @@ target 'TheMitPost' do
 
   # Pods for TheMitPost
 
-pod 'FirebaseUI/Auth'
-pod 'FirebaseUI/Google'
+pod 'Firebase/Auth'
+pod 'GoogleSignIn'
 pod 'Firebase/Messaging'
 pod 'SDWebImage', '~> 4.0'
 pod 'MaterialComponents'

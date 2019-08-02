@@ -342,25 +342,44 @@
             </objects>
             <point key="canvasLocation" x="1663" y="358"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="Tso-Fd-cuH">
             <objects>
-                <viewController id="0Yu-So-FjW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Yu-So-FjW" customClass="SignInViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2SD-4X-GTQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post_login" translatesAutoresizingMaskIntoConstraints="NO" id="SU8-JO-57V">
+                                <rect key="frame" x="67" y="202" width="240" height="240"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRb-Ru-qAs" customClass="GIDSignInButton">
+                                <rect key="frame" x="112" y="583" width="150" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94760888814926147" green="0.40464368462562561" blue="0.22638320922851562" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SU8-JO-57V" firstAttribute="top" secondItem="F41-ml-B2x" secondAttribute="top" constant="158" id="8DE-nR-979"/>
+                            <constraint firstItem="iRb-Ru-qAs" firstAttribute="top" secondItem="F41-ml-B2x" secondAttribute="top" constant="539" id="8Dv-Cv-TNW"/>
+                            <constraint firstItem="SU8-JO-57V" firstAttribute="leading" secondItem="F41-ml-B2x" secondAttribute="leading" constant="67" id="L6e-ZV-p8g"/>
+                            <constraint firstItem="F41-ml-B2x" firstAttribute="bottom" secondItem="SU8-JO-57V" secondAttribute="bottom" constant="336" id="M7O-Kn-jc6"/>
+                            <constraint firstItem="F41-ml-B2x" firstAttribute="trailing" secondItem="iRb-Ru-qAs" secondAttribute="trailing" constant="113" id="PKo-SG-tdV"/>
+                            <constraint firstItem="F41-ml-B2x" firstAttribute="bottom" secondItem="iRb-Ru-qAs" secondAttribute="bottom" constant="145" id="blK-Tl-ddi"/>
+                            <constraint firstItem="F41-ml-B2x" firstAttribute="trailing" secondItem="SU8-JO-57V" secondAttribute="trailing" constant="68" id="gLY-7j-jwL"/>
+                            <constraint firstItem="iRb-Ru-qAs" firstAttribute="leading" secondItem="F41-ml-B2x" secondAttribute="leading" constant="112" id="qIk-Wl-IZA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="F41-ml-B2x"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYC-Vz-UvF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4089" y="-505"/>
+            <point key="canvasLocation" x="-4090.4000000000001" y="-505.41871921182269"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -738,7 +757,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="560" height="49"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LE2-5w-1gA">
-                                                                    <rect key="frame" x="14" y="10" width="38" height="29"/>
+                                                                    <rect key="frame" x="14" y="13.666666666666657" width="16" height="22"/>
                                                                     <state key="normal" image="burger"/>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DETAILED CARD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4m-Eu-uO1">
@@ -1207,6 +1226,7 @@
         <image name="burger" width="38" height="29"/>
         <image name="image" width="340.5" height="165"/>
         <image name="mahe" width="1064.5" height="273.5"/>
+        <image name="post_login" width="1503" height="1508"/>
         <image name="posttabicon" width="25" height="25"/>
         <image name="second" width="30" height="30"/>
     </resources>
