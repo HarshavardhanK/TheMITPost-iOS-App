@@ -70,6 +70,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 return
             }
             
+            if Auth.auth().currentUser != nil {
+                
+                self.window?.rootViewController = self.storyBoard.instantiateViewController(withIdentifier: "tabView")
+            }
+            
             print("Signed into Firebase")
         }
             

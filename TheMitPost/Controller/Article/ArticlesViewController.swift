@@ -53,7 +53,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         retrieveArticles()
         
-        configureAppBar()
+        //configureAppBar()
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         //self.tabBarController?.tabBar.isHidden = false
@@ -141,7 +141,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         return .lightContent
     }
     
-    func configureAppBar() {
+    /*func configureAppBar() {
         
         self.addChild(appBar.headerViewController)
         
@@ -162,9 +162,9 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         appBar.addSubviewsToParent()
         
         
-    }
+    }*/
     
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+    /*func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
         let tabBarIndex = tabBarController.selectedIndex
         
@@ -172,7 +172,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             self.articleCollectionView.setContentOffset(CGPoint(x: 0, y: -ArticleHeaderView.CONSTANTS.maxHeight), animated: true)
         }
-    }
+    }*/
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let headerView = appBar.headerViewController.headerView
