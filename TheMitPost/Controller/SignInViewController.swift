@@ -18,6 +18,12 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
         
+        if Auth.auth().currentUser != nil {
+            
+            self.present((self.storyboard?.instantiateViewController(withIdentifier: "tabView"))!, animated: true, completion: {
+                print("Logged in")
+            })
+        }
         
     }
     

@@ -133,6 +133,11 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="ke7-UP-UWa">
                         <barButtonItem key="backBarButtonItem" title="Articles" id="RR0-F8-uEx"/>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="JcB-BK-Ffv">
+                            <connections>
+                                <action selector="tempLogout:" destination="9pv-A4-QxB" id="oWi-Ge-D5h"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="articleCollectionView" destination="pY6-Rt-GSX" id="hSa-ps-UvW"/>
@@ -757,7 +762,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="560" height="49"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LE2-5w-1gA">
-                                                                    <rect key="frame" x="14" y="13.666666666666657" width="16" height="22"/>
+                                                                    <rect key="frame" x="14" y="10" width="38" height="29"/>
                                                                     <state key="normal" image="burger"/>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DETAILED CARD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4m-Eu-uO1">

@@ -12,6 +12,9 @@ import Alamofire
 import SwiftyJSON
 import MaterialComponents.MaterialAppBar
 import SDWebImage
+import GoogleSignIn
+import FirebaseAuth
+import Firebase
 
 class ArticlesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate {
     
@@ -23,6 +26,20 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     let appBar = MDCAppBar()
     let articleHeaderView = ArticleHeaderView()
     let refreshControl = UIRefreshControl()
+    
+    let window: UIWindow? = nil
+    let _storyboard_ = UIStoryboard(name: "Main", bundle: Bundle.main)
+    
+    @IBAction func tempLogout(_ sender: Any) {
+        
+        GIDSignIn.sharedInstance()?.signOut()
+        try! Auth.auth().signOut()
+        
+        self.present(_storyboard_.instantiateViewController(withIdentifier: "loginView"), animated: true) {
+            print("Successfully logged out and presenting login")
+        }
+        
+    }
     
     var articlesShown = [Bool]()
     
