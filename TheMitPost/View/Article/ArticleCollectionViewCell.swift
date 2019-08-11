@@ -58,7 +58,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         //articleImageView.clipsToBounds = true
         
         titleLabelView.lineBreakMode = .byWordWrapping
-        titleLabelView.numberOfLines = 0
+        titleLabelView.numberOfLines = 3
         titleLabelView.font = UIFont(name: "Optima-Bold", size: 21)
         
         messageLabelView.lineBreakMode = .byWordWrapping

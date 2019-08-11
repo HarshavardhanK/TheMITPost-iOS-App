@@ -19,8 +19,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     var events = [Events]()
     
-    //let refreshControl = UIRefreshControl()
-
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -16,6 +16,10 @@ class EventViewCell: UICollectionViewCell {
     @IBOutlet weak var eventImageView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var registerButton: UIButton!
+    
+    @IBAction func registerAction(_ sender: Any) {
+    }
     
     static let cellPadding: CGFloat = 22.0
     
@@ -29,6 +33,13 @@ class EventViewCell: UICollectionViewCell {
             eventImageView.sd_setImage(with: event.imageURL!)
             
             print("set event cell")
+            
+            registerButton.backgroundColor = .white
+            
+            if event.formLink == nil {
+                print("no form link")
+            
+            }
             
         }
     }
@@ -58,6 +69,8 @@ class EventViewCell: UICollectionViewCell {
         
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
+        
+        registerButton.layer.cornerRadius = 8
         
         
     }

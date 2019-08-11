@@ -38,6 +38,7 @@ class Article {
         self.featured_media = featured_media
         self.author = author
         self.date = date
+        
         self.message = message
         
         if let content = content {
@@ -46,5 +47,7 @@ class Article {
         }
         
     }
+    
+    
     
 }

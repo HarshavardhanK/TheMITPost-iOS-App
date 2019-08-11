@@ -66,6 +66,8 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         articleCollectionView.delegate = self
         articleCollectionView.addSubview(refreshControl)
         
+        
+        
         tabBarController?.delegate = self
         
         refreshControl.addTarget(self, action: #selector(refreshArticles), for: .valueChanged)

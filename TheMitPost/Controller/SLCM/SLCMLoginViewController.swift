@@ -24,6 +24,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     @IBOutlet weak var signInHorizontalConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var signInButton: UIButton!
+    
     var subjects = [Subject]()
     
     
@@ -82,7 +84,11 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             print(_password)
         }
         
+        signInButton.layer.cornerRadius = 5
+        
         registrationTextfield.keyboardType = .numberPad
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
     }
     
@@ -140,10 +146,12 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         print("text field ended editing..")
+        print("Text field has text \(textField.text)")
         resignFirstResponder()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //textField.resignFirstResponder()
         self.view.endEditing(true)
         return true
     }
