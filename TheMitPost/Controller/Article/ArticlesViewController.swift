@@ -133,7 +133,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @objc func refreshArticles() {
         retrieveArticles()
-        articlesShown = [Bool]()
+        articlesShown = [Bool](repeating: false, count: self.articlesList.count)
         print("Finished refreshing..")
     }
     
@@ -240,14 +240,14 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         if segue.identifier == "articleViewSegue" {
             print("Going to ArticleTableViewController")
             
-            if let destinationViewController = segue.destination as? ArticleTableViewController {
+            if let destinationViewController = segue.destination as? ArticleWebViewController {
                 //destinationViewController.article = selectedArticle
                 let selectedCell = sender as? ArticleCollectionViewCell
                 let indexPath = self.articleCollectionView.indexPath(for: selectedCell!)
                 
                 let selectedArticle = articlesList[(indexPath?.row)!]
                 
-                destinationViewController.article = selectedArticle
+                destinationViewController.POST_ID = selectedArticle.articleID
                 //print("Sending article \(selectedArticle!.title) to articleView..")
             }
         }
@@ -262,12 +262,12 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 
-        return UIEdgeInsets(top: ArticleCollectionViewCell.cellPadding * 1.5, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: ArticleCollectionViewCell.cellPadding, left: 0, bottom: 0, right: 0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
 
-        return ArticleCollectionViewCell.cellPadding * 1.60 // need to trial and test this number to suit all iOS devices (iPhone 5S and upwards). This worked good on iPhone X
+        return ArticleCollectionViewCell.cellPadding  // need to trial and test this number to suit all iOS devices (iPhone 5S and upwards). This worked good on iPhone X
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

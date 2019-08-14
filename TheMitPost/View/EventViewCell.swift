@@ -12,6 +12,7 @@ import MaterialComponents
 
 class EventViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var organizerNameLabel: UILabel!
     @IBOutlet weak var eventImageView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
@@ -19,9 +20,10 @@ class EventViewCell: UICollectionViewCell {
     @IBOutlet weak var registerButton: UIButton!
     
     @IBAction func registerAction(_ sender: Any) {
+        print("button tapped")
     }
     
-    static let cellPadding: CGFloat = 22.0
+    static let cellPadding: CGFloat = 15.0
     
     var event: Events! {
         
@@ -29,15 +31,19 @@ class EventViewCell: UICollectionViewCell {
             
             descriptionLabel.text = event.content
             organizerNameLabel.text = event.organizer
-            timeLabel.text = event.date
+            
+            //timeLabel.text = event.date
+            titleLabel.text = event.title
             eventImageView.sd_setImage(with: event.imageURL!)
             
             print("set event cell")
             
-            registerButton.backgroundColor = .white
+            registerButton.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "event_bg2"))
+            
             
             if event.formLink == nil {
                 print("no form link")
+                registerButton.backgroundColor = .white
             
             }
             
@@ -52,14 +58,23 @@ class EventViewCell: UICollectionViewCell {
         
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
-        layer.cornerRadius = 12.0
-        layer.shadowRadius = 15.0
+        layer.cornerRadius = 5.0
+        layer.shadowRadius = 10.0
+        //layer.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "event_bg3")).cgColor
         
         clipsToBounds = false
         eventImageView.clipsToBounds = true
+        eventImageView.layer.masksToBounds = true
+        eventImageView.layer.cornerRadius = 5
+        eventImageView.layer.borderWidth = 0.5
+        eventImageView.layer.shadowRadius = 6.6
+        eventImageView.clipsToBounds = true
         
-        organizerNameLabel.font = MDCTypography.headlineFont()
-        organizerNameLabel.alpha = MDCTypography.headlineFontOpacity()
+        organizerNameLabel.font = MDCTypography.body1Font()
+        organizerNameLabel.alpha = MDCTypography.body1FontOpacity()
+        
+        titleLabel.font = MDCTypography.titleFont()
+        titleLabel.alpha = MDCTypography.titleFontOpacity()
         
         timeLabel.font = MDCTypography.captionFont()
         timeLabel.alpha = MDCTypography.captionFontOpacity()
@@ -70,7 +85,9 @@ class EventViewCell: UICollectionViewCell {
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
         
-        registerButton.layer.cornerRadius = 8
+        registerButton.layer.cornerRadius = 5
+        titleLabel.layer.cornerRadius = 5.0
+        titleLabel.layer.shadowRadius = 10.0
         
         
     }
