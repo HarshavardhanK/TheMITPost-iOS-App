@@ -36,7 +36,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="articleCell" id="Up2-8h-8yW" customClass="ArticleCollectionViewCell" customModule="TheMitPost" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="articleCell" id="Up2-8h-8yW" customClass="ArticleCollectionViewCell" customModule="TheMitPost" customModuleProvider="target">
                                 <rect key="frame" x="1.6666666666666667" y="0.0" width="372" height="343"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -130,6 +130,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="articleCollectionView" destination="pY6-Rt-GSX" id="hSa-ps-UvW"/>
+                        <outlet property="logoutSigninBarButton" destination="JcB-BK-Ffv" id="1ee-A2-UgK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

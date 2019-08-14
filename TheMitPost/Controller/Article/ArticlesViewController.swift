@@ -41,6 +41,9 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
+    @IBOutlet weak var logoutSigninBarButton: UIBarButtonItem!
+    
+    
     var articlesShown = [Bool]()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +53,10 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Auth.auth().currentUser == nil {
+            logoutSigninBarButton.title = "Sign In"
+        }
         
         retrieveArticles()
         
