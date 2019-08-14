@@ -125,20 +125,16 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             let article = Article(articleID: data["_id"].stringValue, title: String(htmlEncodedString: data["title"].stringValue)!,author: data["author"]["name"].stringValue, date: date, featured_media: data["featured_media"].stringValue, message: data["message"].stringValue, content: nil)
             
-            print(article.message)
             
             articlesList.append(article)
         
-        }
-        
-        for article in self.articlesList {
-            print(article.title!)
         }
         
         
     }
     
     @objc func refreshArticles() {
+        articlesList = [Article]()
         retrieveArticles()
         articlesShown = [Bool](repeating: false, count: self.articlesList.count)
         print("Finished refreshing..")
@@ -149,39 +145,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    /*func configureAppBar() {
-        
-        self.addChild(appBar.headerViewController)
-        
-        //appBar.navigationBar.title = nil
-        
-        appBar.navigationBar.backgroundColor = .clear
-        
-        let headerView = appBar.headerViewController.headerView
-        headerView.backgroundColor = .clear
-        headerView.maximumHeight = ArticleHeaderView.CONSTANTS.maxHeight
-        headerView.minimumHeight = ArticleHeaderView.CONSTANTS.minHeight
-        
-        
-        articleHeaderView.frame = headerView.bounds
-        headerView.insertSubview(articleHeaderView, at: 0)
-        headerView.trackingScrollView = self.articleCollectionView
-        
-        appBar.addSubviewsToParent()
-        
-        
-    }*/
-    
-    /*func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        
-        let tabBarIndex = tabBarController.selectedIndex
-        
-        if tabBarIndex == 0 {
-            
-            self.articleCollectionView.setContentOffset(CGPoint(x: 0, y: -ArticleHeaderView.CONSTANTS.maxHeight), animated: true)
-        }
-    }*/
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let headerView = appBar.headerViewController.headerView

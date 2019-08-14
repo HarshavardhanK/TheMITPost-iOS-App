@@ -19,6 +19,10 @@ class EventViewCell: UICollectionViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton!
     
+    @IBAction func shareAction(_ sender: Any) {
+        print("Share button tapped")
+    }
+    
     @IBAction func registerAction(_ sender: Any) {
         print("button tapped")
     }
@@ -65,9 +69,6 @@ class EventViewCell: UICollectionViewCell {
         clipsToBounds = false
         eventImageView.clipsToBounds = true
         eventImageView.layer.masksToBounds = true
-        eventImageView.layer.cornerRadius = 5
-        eventImageView.layer.borderWidth = 0.5
-        eventImageView.layer.shadowRadius = 6.6
         eventImageView.clipsToBounds = true
         
         organizerNameLabel.font = MDCTypography.body1Font()

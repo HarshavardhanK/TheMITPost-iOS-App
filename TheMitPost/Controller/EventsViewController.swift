@@ -18,6 +18,7 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
     let EVENTS_API = "https://api.themitpost.com/events"
     
     var events = [Events]()
+    var eventShown = [Bool]()
     
     let refreshControl = UIRefreshControl()
     
@@ -26,8 +27,12 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
 
         eventsCollectionView.delegate = self
         eventsCollectionView.dataSource = self
+        eventsCollectionView.addSubview(refreshControl)
         
         retrieveEvents()
+        
+        refreshControl.addTarget(self, action: #selector(refreshEvents), for: .valueChanged)
+        
     }
 
     // MARK: - Table view data source
@@ -38,6 +43,7 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as! EventViewCell
         
         cell.event = events[indexPath.row]
@@ -46,21 +52,78 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as! EventViewCell
-        
-        
-        
+        if eventShown[indexPath.row] == false {
+            
+            let transform = CATransform3DTranslate(CATransform3DIdentity, -5, 80, 0)
+            cell.layer.transform = transform
+            cell.alpha = 0.5
+            
+            
+            UIView.animate(withDuration: 0.5, delay: 0.1, options: [.curveEaseOut, .allowUserInteraction], animations: {
+                
+                cell.layer.transform = CATransform3DIdentity
+                cell.alpha = 1.0
+                
+            }) { (true) in
+                print("Animation complete")
+                
+            }
+            
+            eventShown[indexPath.row] = true
+            
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return CGFloat(35)
+        return CGFloat(30)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         return UIEdgeInsets(top: EventViewCell.cellPadding + 20, left: EventViewCell.cellPadding + 20, bottom: EventViewCell.cellPadding + 20, right: EventViewCell.cellPadding + 20)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        
+        if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0{
+            changeTabBar(hidden: true, animated: true)
+            
+        } else {
+            changeTabBar(hidden: false, animated: true)
+        }
+        
+    }
+    
+    @objc func changeTabBar(hidden:Bool, animated: Bool) {
+        
+        guard let tabBar = self.tabBarController?.tabBar else { return; }
+        
+        if tabBar.isHidden == hidden {
+            return
+        }
+        
+        let frame = tabBar.frame
+        
+        let offset = hidden ? frame.size.height : -frame.size.height
+        let duration:TimeInterval = (animated ? 0.5 : 0.0)
+        tabBar.isHidden = false
+        
+        UIView.animate(withDuration: duration, animations: {
+            
+            tabBar.frame = frame.offsetBy(dx: 0, dy: offset)
+            
+        }, completion: { (true) in
+            
+            tabBar.isHidden = hidden
+        })
+    }
+    
+    @objc func hideTabBar(_ sender: UITapGestureRecognizer? = nil) {
+        print("hide tab bar")
+        changeTabBar(hidden: false, animated: true)
     }
 
     
@@ -85,13 +148,17 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
                 }
             }
             
+            self.eventShown = [Bool](repeatElement(false, count: self.events.count + 1))
+            
             self.eventsCollectionView.reloadData()
         }
         
     }
     
     @objc func refreshEvents() {
+        events = [Events]()
         retrieveEvents()
+        print("Finished refreshing..")
     }
 
 }
