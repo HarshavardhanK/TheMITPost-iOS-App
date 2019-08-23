@@ -20,6 +20,8 @@ class SLCMTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //self.navigationController?.title = "SLCM Without The Hassle"
+        self.tabBarController?.tabBar.isHidden = true
         
         setup()
         print("View loaded..")

@@ -126,6 +126,7 @@
 		7E2306B4848936AD5721E720 /* Pods-TheMitPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.release.xcconfig"; path = "Target Support Files/Pods-TheMitPost/Pods-TheMitPost.release.xcconfig"; sourceTree = "<group>"; };
 		9C014F93135C4F169933BC93 /* Pods-TheMitPostTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.release.xcconfig"; path = "Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.release.xcconfig"; sourceTree = "<group>"; };
 		D60EBF3021ED0CDF00DAC538 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		D60F6BB12310713300279DA2 /* PostPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D61C44DA223E74DF00DF5DAA /* SLCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCM.swift; sourceTree = "<group>"; };
 		D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCMTableViewController.swift; sourceTree = "<group>"; };
@@ -325,6 +326,7 @@
 		D6D6A20221ECC5A200B822F8 = {
 			isa = PBXGroup;
 			children = (
+				D60F6BB12310713300279DA2 /* PostPlayground.playground */,
 				D6D6A20D21ECC5A200B822F8 /* TheMitPost */,
 				D6D6A22421ECC5A500B822F8 /* TheMitPostTests */,
 				D6D6A22F21ECC5A500B822F8 /* TheMitPostUITests */,

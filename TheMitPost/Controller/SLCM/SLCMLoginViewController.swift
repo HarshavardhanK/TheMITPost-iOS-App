@@ -96,8 +96,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         var success = false
         
-        var registration = "170905022"
-        var password = "FHJ-CSd-5rc-f5A" // PLEASE REMOVE THIS LATER
+        let registration = "170905022"
+        let password = "FHJ-CSd-5rc-f5A" // PLEASE REMOVE THIS LATER
         
 //        if let _registration = registrationTextfield.text {
 //            registration = _registration
@@ -109,7 +109,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         Alamofire.request(self.SLCMAPI, method: .post, parameters:["regNumber":registration, "pass":password], encoding: JSONEncoding.default).responseJSON { response in
             
-            
+            print("calling post request")
             let data = JSON(response.result.value)
             print(data)
             
@@ -123,12 +123,16 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                 print("Credentials are right..")
                 success = true
                 
-                var _ = Marks(data: data["marks"][0])
+                guard let _subjects = groupData(data: data["academicDetails"][0]) else {
+                    print("Failing to group")
+                    return
+                }
                 
-                self.subjects = Subject.segragateMarksAndAttendance(data: data)
                 print(self.subjects.count)
                 
-                self.subjects[0].display()
+                _subjects[0].display()
+                
+                self.subjects = _subjects
             
             }
             
