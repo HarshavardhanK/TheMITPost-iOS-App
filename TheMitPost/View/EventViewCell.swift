@@ -42,7 +42,7 @@ class EventViewCell: UICollectionViewCell {
             
             print("set event cell")
             
-            registerButton.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "event_bg2"))
+           // registerButton.backgroundColor = UIColor.init(red: 100.0, green: 70.0, blue: 28.0, alpha: 1.0)   //UIColor(patternImage: UIImage(imageLiteralResourceName: "event_bg2"))
             
             
             if event.formLink == nil {
@@ -53,6 +53,8 @@ class EventViewCell: UICollectionViewCell {
             
         }
     }
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

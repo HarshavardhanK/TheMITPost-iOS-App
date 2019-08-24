@@ -28,26 +28,21 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     var subjects = [Subject]()
     
+    var activityIndicator: NVActivityIndicatorView!
+    
+    var result = false
     
     @IBAction func signInPressed(_ sender: Any) {
         
-        self.startActivityIndicator()
-        
-        self.loadSLCMData() { result in
+        loadSLCMData { (result) in
             
             if result {
-                 self.performSegue(withIdentifier: "slcmDetail", sender: self)
-            } else {
-                print("Wrong credentials")
+              self.performSegue(withIdentifier: "slcmDetail", sender: self)
             }
             
-            self.stopActivityIndicator()
         }
-        
-
     }
     
-    var activityIndicator: NVActivityIndicatorView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -111,7 +106,6 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             
             print("calling post request")
             let data = JSON(response.result.value)
-            print(data)
             
             if !data["status"].boolValue {
                 
@@ -135,6 +129,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                 self.subjects = _subjects
             
             }
+            
+            print("Completed POST request")
             
             completion(success)
             
@@ -187,20 +183,20 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "slcmDetail" {
-            
+                
+            print("Passed subjects..")
+                
             print("Segueing to SLCM Detail")
             
+            
             let destination = segue.destination as! SLCMTableViewController
-            destination.subjects = subjects
-            
-            print("Passed subjects..")
-            
-            
+            destination.subjects = self.subjects
+                
+                
         }
+        
     }
     
-    
-
 
 }
 

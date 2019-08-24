@@ -62,7 +62,7 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
             cell.alpha = 0.5
             
             
-            UIView.animate(withDuration: 0.5, delay: 0.1, options: [.curveEaseOut, .allowUserInteraction], animations: {
+            UIView.animate(withDuration: 0.8, delay: 0.1, options: [.curveEaseOut, .allowUserInteraction], animations: {
                 
                 cell.layer.transform = CATransform3DIdentity
                 cell.alpha = 1.0

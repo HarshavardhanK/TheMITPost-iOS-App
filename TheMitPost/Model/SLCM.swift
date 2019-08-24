@@ -20,31 +20,58 @@ class Attendance {
         
         if let _data = data {
             
-            print(_data)
-            
             totalClasses = _data["totalClasses"].stringValue
             classesAbsent = _data["classesAbsent"].stringValue
-            classesPresent = _data["classesPresent"].stringValue
+            classesPresent = _data["classesAttended"].stringValue
+            
+            print(totalClasses)
             
         }
         
     }
     
     var attendancePercent: Int {
-        return 80
+        
+        guard let _totClasses = totalClasses else {
+            print("problem with _totalClassses")
+          return -1
+        }
+        
+        guard let _classesPresent = classesPresent else {
+            print("problem with classsesPresent")
+            return -1
+        }
+        
+        guard let classesPresentInt = Int(_classesPresent) else {
+            print("problem with classsesPresentInt")
+            return -1
+        }
+        
+        guard let totalClassesInt = Int(_totClasses) else {
+            print("problem with totalClasssesInt")
+            return -1
+        }
+        
+        return classesPresentInt / totalClassesInt * 100
+        
     }
     
     var attendancePercentString: String {
+        
+        if attendancePercent == -1 {
+            return "NA"
+        }
+        
         return String(attendancePercent)
     }
     
     var colorCode: UIColor {
         
         if attendancePercent < 75 {
-            return UIColor.red
+            return UIColor(patternImage: UIImage(named: "red_background_1")!)
         }
         
-        return UIColor.green
+        return UIColor(patternImage: UIImage(named: "green_gradient")!)
     }
 
     
@@ -109,7 +136,6 @@ func groupData(data: JSON) -> [Subject]? {
     var subjects = [Subject]()
     
     print(data["attendance"].count)
-   // print(data["attendance"])
     
     for i in 0..<data["attendance"].count {
         
@@ -117,19 +143,18 @@ func groupData(data: JSON) -> [Subject]? {
             subjects.append(Subject(marks: data["attendance"].arrayValue[i], attendance: data["marks"].arrayValue[i]))
             
         } else if data["attendanceStatus"].boolValue {
-            print("Attendance exists")
-            print(data["attendance"].arrayValue[i])
             subjects.append(Subject(marks: nil, attendance: data["attendance"].arrayValue[i]))
             
         } else if data["marksStatus"].boolValue {
             subjects.append(Subject(marks: data["marks"].arrayValue[i], attendance: nil))
             
         } else {
-            //subjects?.append(Subject(marks: nil, attendance: nil))
             return nil
         }
         
     }
+    
+    print("Returning grouped subjects data")
     
     return subjects
 }
