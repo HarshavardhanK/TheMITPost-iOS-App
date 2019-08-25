@@ -41,6 +41,9 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
+    @IBOutlet weak var logoutSigninBarButton: UIBarButtonItem!
+    
+    
     var articlesShown = [Bool]()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +53,10 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Auth.auth().currentUser == nil {
+            logoutSigninBarButton.title = "Sign In"
+        }
         
         retrieveArticles()
         
@@ -118,22 +125,18 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             let article = Article(articleID: data["_id"].stringValue, title: String(htmlEncodedString: data["title"].stringValue)!,author: data["author"]["name"].stringValue, date: date, featured_media: data["featured_media"].stringValue, message: data["message"].stringValue, content: nil)
             
-            print(article.message)
             
             articlesList.append(article)
         
-        }
-        
-        for article in self.articlesList {
-            print(article.title!)
         }
         
         
     }
     
     @objc func refreshArticles() {
+        articlesList = [Article]()
         retrieveArticles()
-        articlesShown = [Bool]()
+        articlesShown = [Bool](repeating: false, count: self.articlesList.count)
         print("Finished refreshing..")
     }
     
@@ -142,39 +145,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    /*func configureAppBar() {
-        
-        self.addChild(appBar.headerViewController)
-        
-        //appBar.navigationBar.title = nil
-        
-        appBar.navigationBar.backgroundColor = .clear
-        
-        let headerView = appBar.headerViewController.headerView
-        headerView.backgroundColor = .clear
-        headerView.maximumHeight = ArticleHeaderView.CONSTANTS.maxHeight
-        headerView.minimumHeight = ArticleHeaderView.CONSTANTS.minHeight
-        
-        
-        articleHeaderView.frame = headerView.bounds
-        headerView.insertSubview(articleHeaderView, at: 0)
-        headerView.trackingScrollView = self.articleCollectionView
-        
-        appBar.addSubviewsToParent()
-        
-        
-    }*/
-    
-    /*func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        
-        let tabBarIndex = tabBarController.selectedIndex
-        
-        if tabBarIndex == 0 {
-            
-            self.articleCollectionView.setContentOffset(CGPoint(x: 0, y: -ArticleHeaderView.CONSTANTS.maxHeight), animated: true)
-        }
-    }*/
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let headerView = appBar.headerViewController.headerView
@@ -240,14 +210,14 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         if segue.identifier == "articleViewSegue" {
             print("Going to ArticleTableViewController")
             
-            if let destinationViewController = segue.destination as? ArticleTableViewController {
+            if let destinationViewController = segue.destination as? ArticleWebViewController {
                 //destinationViewController.article = selectedArticle
                 let selectedCell = sender as? ArticleCollectionViewCell
                 let indexPath = self.articleCollectionView.indexPath(for: selectedCell!)
                 
                 let selectedArticle = articlesList[(indexPath?.row)!]
                 
-                destinationViewController.article = selectedArticle
+                destinationViewController.POST_ID = selectedArticle.articleID
                 //print("Sending article \(selectedArticle!.title) to articleView..")
             }
         }
@@ -262,12 +232,12 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 
-        return UIEdgeInsets(top: ArticleCollectionViewCell.cellPadding * 1.5, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: ArticleCollectionViewCell.cellPadding, left: 0, bottom: 0, right: 0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
 
-        return ArticleCollectionViewCell.cellPadding * 1.60 // need to trial and test this number to suit all iOS devices (iPhone 5S and upwards). This worked good on iPhone X
+        return ArticleCollectionViewCell.cellPadding  // need to trial and test this number to suit all iOS devices (iPhone 5S and upwards). This worked good on iPhone X
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

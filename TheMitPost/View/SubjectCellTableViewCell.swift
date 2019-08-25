@@ -42,25 +42,27 @@ class SubjectCellTableViewCell: FoldingCell {
             
             if let _subject = subject {
                 
-                if let a1 = _subject.marks?.assignmentMarks[0] {
+                subjectName.text = _subject.subjectName
+                
+                if let a1 = _subject._marks?.assignmentMarks?[0] {
                     assignment1.text = a1
                 } else {
                     assignment1.text = ERROR_CODES.NOT_AVAILABLE
                 }
                 
-                if let a2 = _subject.marks?.assignmentMarks[1] {
+                if let a2 = _subject._marks?.assignmentMarks?[1] {
                     assignment2.text = a2
                 } else {
                     assignment2.text = ERROR_CODES.NOT_AVAILABLE
                 }
                 
-                if let a3 = _subject.marks?.assignmentMarks[2] {
+                if let a3 = _subject._marks?.assignmentMarks?[2] {
                     assignment3.text = a3
                 } else {
                     assignment3.text = ERROR_CODES.NOT_AVAILABLE
                 }
                 
-                if let a4 = _subject.marks?.assignmentMarks[3] {
+                if let a4 = _subject._marks?.assignmentMarks?[3] {
                     assignment4.text = a4
                 } else {
                     assignment4.text = ERROR_CODES.NOT_AVAILABLE
@@ -70,15 +72,17 @@ class SubjectCellTableViewCell: FoldingCell {
                 sessional1.text = "11.5"
                 sessional2.text = "12.5"
                 
-                guard let attendance = _subject.attendance else {
+                guard let attendance = _subject._attendance else {
                     return
                 }
                 
-                attendancePercentage.text = attendance.attendancePercent_string
-                attendancePercentage2.text = attendance.attendancePercent_string
+                bunks.text = attendance.classesAbsent
                 
-                detailLabel.backgroundColor = attendance.colorCodeForAttendance
-                updateView.backgroundColor = attendance.colorCodeForAttendance
+                attendancePercentage.text = attendance.attendancePercentString
+                attendancePercentage2.text = attendance.attendancePercentString
+                
+                detailLabel.backgroundColor = attendance.colorCode
+                updateView.backgroundColor = attendance.colorCode
                 
                 
             }

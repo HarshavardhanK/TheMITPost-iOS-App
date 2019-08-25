@@ -32,6 +32,8 @@ class Events {
         } else {
             formLink = nil
         }*/
+        
+        formLink = "bakwas" // handle this
     }
     
     static func parseNotices(data: [JSON]) -> [Events] {

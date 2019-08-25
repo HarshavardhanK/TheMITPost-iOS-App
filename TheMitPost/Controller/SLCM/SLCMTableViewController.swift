@@ -20,9 +20,12 @@ class SLCMTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //self.navigationController?.title = "SLCM Without The Hassle"
+        //self.tabBarController?.tabBar.isHidden = true
         
         setup()
         print("View loaded..")
+        print(subjects.count)
         
         // SET UP ALL VARIABLES
         cellsAnimated = Array(repeating: false, count: subjects.count)
@@ -34,7 +37,7 @@ class SLCMTableViewController: UITableViewController {
         
         cellHeights = Array(repeating: Cell.CellHeight.cellClose, count: subjects.count)
         
-        tableView.backgroundColor = UIColor(patternImage: UIImage(named: "slcm_background")!)
+        tableView.backgroundColor = UIColor(patternImage: UIImage(named: "slcm_background_2")!)
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = Cell.CellHeight.cellClose
         tableView.rowHeight = UITableView.automaticDimension
@@ -103,7 +106,7 @@ class SLCMTableViewController: UITableViewController {
            
         }
         
-        UIView.animate(withDuration: duration, delay: 0.0, options: .curveEaseInOut, animations: {() -> Void in
+        UIView.animate(withDuration: duration, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: {() -> Void in
             tableView.beginUpdates()
             tableView.endUpdates()
             

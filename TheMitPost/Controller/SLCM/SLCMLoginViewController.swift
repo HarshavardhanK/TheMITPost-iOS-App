@@ -28,26 +28,21 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     var subjects = [Subject]()
     
+    var activityIndicator: NVActivityIndicatorView!
+    
+    var result = false
     
     @IBAction func signInPressed(_ sender: Any) {
         
-        self.startActivityIndicator()
-        
-        self.loadSLCMData() { result in
+        loadSLCMData { (result) in
             
             if result {
-                 self.performSegue(withIdentifier: "slcmDetail", sender: self)
-            } else {
-                print("Wrong credentials")
+              self.performSegue(withIdentifier: "slcmDetail", sender: self)
             }
             
-            self.stopActivityIndicator()
         }
-        
-
     }
     
-    var activityIndicator: NVActivityIndicatorView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -96,8 +91,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         var success = false
         
-        var registration = "170905022"
-        var password = "FHJ-CSd-5rc-f5A" // PLEASE REMOVE THIS LATER
+        let registration = "170905022"
+        let password = "FHJ-CSd-5rc-f5A" // PLEASE REMOVE THIS LATER
         
 //        if let _registration = registrationTextfield.text {
 //            registration = _registration
@@ -109,9 +104,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         Alamofire.request(self.SLCMAPI, method: .post, parameters:["regNumber":registration, "pass":password], encoding: JSONEncoding.default).responseJSON { response in
             
-            
+            print("calling post request")
             let data = JSON(response.result.value)
-            print(data)
             
             if !data["status"].boolValue {
                 
@@ -123,14 +117,20 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                 print("Credentials are right..")
                 success = true
                 
-                var _ = Marks(data: data["marks"][0])
+                guard let _subjects = groupData(data: data["academicDetails"][0]) else {
+                    print("Failing to group")
+                    return
+                }
                 
-                self.subjects = Subject.segragateMarksAndAttendance(data: data)
                 print(self.subjects.count)
                 
-                self.subjects[0].display()
+                _subjects[0].display()
+                
+                self.subjects = _subjects
             
             }
+            
+            print("Completed POST request")
             
             completion(success)
             
@@ -183,20 +183,20 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "slcmDetail" {
-            
+                
+            print("Passed subjects..")
+                
             print("Segueing to SLCM Detail")
             
+            
             let destination = segue.destination as! SLCMTableViewController
-            destination.subjects = subjects
-            
-            print("Passed subjects..")
-            
-            
+            destination.subjects = self.subjects
+                
+                
         }
+        
     }
     
-    
-
 
 }
 

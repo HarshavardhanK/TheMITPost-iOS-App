@@ -31,6 +31,9 @@
 		D63B747A22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
 		D63B747B22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
 		D63B747C22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
+		D662420C23015E9F00261081 /* ArticleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662420B23015E9F00261081 /* ArticleWebViewController.swift */; };
+		D662420D23015E9F00261081 /* ArticleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662420B23015E9F00261081 /* ArticleWebViewController.swift */; };
+		D662420E23015E9F00261081 /* ArticleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662420B23015E9F00261081 /* ArticleWebViewController.swift */; };
 		D664F31D22AF9F62002D6E0F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664F31C22AF9F62002D6E0F /* Utilities.swift */; };
 		D664F31E22AF9F62002D6E0F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664F31C22AF9F62002D6E0F /* Utilities.swift */; };
 		D664F31F22AF9F62002D6E0F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664F31C22AF9F62002D6E0F /* Utilities.swift */; };
@@ -123,6 +126,7 @@
 		7E2306B4848936AD5721E720 /* Pods-TheMitPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.release.xcconfig"; path = "Target Support Files/Pods-TheMitPost/Pods-TheMitPost.release.xcconfig"; sourceTree = "<group>"; };
 		9C014F93135C4F169933BC93 /* Pods-TheMitPostTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.release.xcconfig"; path = "Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.release.xcconfig"; sourceTree = "<group>"; };
 		D60EBF3021ED0CDF00DAC538 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		D60F6BB12310713300279DA2 /* PostPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D61C44DA223E74DF00DF5DAA /* SLCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCM.swift; sourceTree = "<group>"; };
 		D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCMTableViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 		D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewController.swift; sourceTree = "<group>"; };
 		D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleImageTableViewCell.swift; sourceTree = "<group>"; };
 		D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCellTableViewCell.swift; sourceTree = "<group>"; };
+		D662420B23015E9F00261081 /* ArticleWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWebViewController.swift; sourceTree = "<group>"; };
 		D664F31C22AF9F62002D6E0F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D664F32622B0FA2D002D6E0F /* Notices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notices.swift; sourceTree = "<group>"; };
 		D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeaderView.swift; sourceTree = "<group>"; };
@@ -286,6 +291,7 @@
 				D6D6A21021ECC5A200B822F8 /* ArticlesViewController.swift */,
 				D6F8066B2204A0420041E09F /* ArticleViewController.swift */,
 				D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */,
+				D662420B23015E9F00261081 /* ArticleWebViewController.swift */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -320,6 +326,7 @@
 		D6D6A20221ECC5A200B822F8 = {
 			isa = PBXGroup;
 			children = (
+				D60F6BB12310713300279DA2 /* PostPlayground.playground */,
 				D6D6A20D21ECC5A200B822F8 /* TheMitPost */,
 				D6D6A22421ECC5A500B822F8 /* TheMitPostTests */,
 				D6D6A22F21ECC5A500B822F8 /* TheMitPostUITests */,
@@ -655,6 +662,7 @@
 				D69B30532203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
 				D61D3A9521EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D6D6A20F21ECC5A200B822F8 /* AppDelegate.swift in Sources */,
+				D662420C23015E9F00261081 /* ArticleWebViewController.swift in Sources */,
 				D6339E4B2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */,
 				D6A8705E22D916B60057A30B /* EventViewCell.swift in Sources */,
 				D6F392BD22D604DC00CE50D1 /* EventsViewController.swift in Sources */,
@@ -684,6 +692,7 @@
 				D6F392BA22D5FB5900CE50D1 /* Events.swift in Sources */,
 				D61C44DC223E74DF00DF5DAA /* SLCM.swift in Sources */,
 				D69B30542203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
+				D662420D23015E9F00261081 /* ArticleWebViewController.swift in Sources */,
 				D6D6A22621ECC5A500B822F8 /* TheMitPostTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -706,6 +715,7 @@
 				D6A8706022D916B60057A30B /* EventViewCell.swift in Sources */,
 				D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
 				D664F32922B0FA2D002D6E0F /* Notices.swift in Sources */,
+				D662420E23015E9F00261081 /* ArticleWebViewController.swift in Sources */,
 				D6EE553F22EAD73C0055AE74 /* SignInViewController.swift in Sources */,
 				D63B747C22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,
 				D6ACFF9D2242C22C00CDFAF6 /* ArticleTableViewCell.swift in Sources */,

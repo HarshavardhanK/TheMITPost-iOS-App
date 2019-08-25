@@ -12,13 +12,13 @@ import SDWebImage
 class ArticleCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var dateLabelView: UILabel!
-    @IBOutlet weak var authorLabel: UILabel!
+   // @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var titleLabelView: UILabel!
     @IBOutlet weak var articleImageView: UIImageView!
     @IBOutlet weak var messageLabelView: UILabel!
     
     static let cellID: String = "articleCell"
-    static let cellHeight: CGFloat = 430.0
+    static let cellHeight: CGFloat = 400.0
     static let cellPadding: CGFloat = 5 // DO NOT CHANGE THIS VALUE. WORKS PERFECTLY
     
     var article: Article? {
@@ -31,7 +31,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             
             articleImageView.sd_setImage(with: URL(string: article.featured_media!))
             titleLabelView.text = article.title
-            authorLabel.text = article.author
+           // authorLabel.text = article.author
             dateLabelView.text = article.date
             
             if let message = article.message {
@@ -68,8 +68,8 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         messageLabelView.numberOfLines = 0
         messageLabelView.font = UIFont(name: "Optima", size: 15)
         
-        authorLabel.font = UIFont(name: "Optima", size: 16)
-        dateLabelView.font = UIFont(name: "Helvetica", size: 12)
+       // authorLabel.font = UIFont(name: "Optima", size: 16)
+        dateLabelView.font = UIFont(name: "Helvetica", size: 14)
         
     }
     
