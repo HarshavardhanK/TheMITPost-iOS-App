@@ -18,6 +18,7 @@ pod 'FoldingCell'
 pod 'Alamofire'
 pod 'UIImageColors'
 pod 'NVActivityIndicatorView'
+pod 'RAMAnimatedTabBarController'
 
   target 'TheMitPostTests' do
     inherit! :search_paths

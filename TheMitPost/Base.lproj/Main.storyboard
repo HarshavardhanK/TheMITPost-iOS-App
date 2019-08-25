@@ -314,10 +314,10 @@
             </objects>
             <point key="canvasLocation" x="-4090.4000000000001" y="-505.41871921182269"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Animated Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="tabView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" customClass="RAMAnimatedTabBarController" customModule="RAMAnimatedTabBarController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -326,7 +326,7 @@
                     <connections>
                         <segue destination="Rxo-Ql-Xq0" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="aQZ-65-8Kf" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="Fdt-M8-NKm" kind="relationship" relationship="viewControllers" id="hP6-z7-vKH"/>
+                        <segue destination="TZY-zf-xbF" kind="relationship" relationship="viewControllers" id="hP6-z7-vKH"/>
                         <segue destination="igL-gd-Npa" kind="relationship" relationship="viewControllers" id="AzQ-lO-iBR"/>
                     </connections>
                 </tabBarController>
@@ -538,7 +538,7 @@
             </objects>
             <point key="canvasLocation" x="1666.4000000000001" y="-2353.4482758620688"/>
         </scene>
-        <!--Notices-->
+        <!--Notice-->
         <scene sceneID="O4U-C3-s4y">
             <objects>
                 <tableViewController id="Fdt-M8-NKm" customClass="Notice" sceneMemberID="viewController">
@@ -561,17 +561,21 @@
                             <outlet property="delegate" destination="Fdt-M8-NKm" id="oM0-Pd-moi"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Notices" id="PuX-oG-DB1"/>
+                    <navigationItem key="navigationItem" id="TeU-Wm-aOs"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VP8-9I-BGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="724" y="-1405"/>
+            <point key="canvasLocation" x="1666.4000000000001" y="-1405.4187192118227"/>
         </scene>
         <!--The Post-->
         <scene sceneID="hbg-OF-Qkx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rxo-Ql-Xq0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="The Post" image="posttabicon" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="The Post" image="posttabicon" id="acW-dT-cKf" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <connections>
+                            <outlet property="animation" destination="Vd1-FQ-aZp" id="iZQ-ZV-foI"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="eik-JB-7OV">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
@@ -588,6 +592,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LWo-ck-u3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Vd1-FQ-aZp" customClass="RAMLeftRotationAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
             <point key="canvasLocation" x="724" y="-523"/>
         </scene>
@@ -595,7 +600,11 @@
         <scene sceneID="Bul-0a-9x7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aQZ-65-8Kf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="SLCM" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="SLCM" image="graduation" id="cPa-gy-q4n" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <connections>
+                            <outlet property="animation" destination="Hhz-ef-d3l" id="i3d-IZ-uYE"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="tEs-5X-FWA">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
@@ -611,6 +620,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRx-BL-2WQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Hhz-ef-d3l" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
             <point key="canvasLocation" x="724" y="358"/>
         </scene>
@@ -808,7 +818,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="335" height="49"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LE2-5w-1gA">
-                                                                    <rect key="frame" x="14" y="10" width="38" height="29"/>
+                                                                    <rect key="frame" x="14" y="13.666666666666657" width="16" height="22"/>
                                                                     <state key="normal" image="burger"/>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DETAILED CARD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4m-Eu-uO1">
@@ -1281,11 +1291,15 @@
             </objects>
             <point key="canvasLocation" x="2493.5999999999999" y="357.63546798029557"/>
         </scene>
-        <!--Item-->
+        <!--Events-->
         <scene sceneID="NW1-Qb-yU4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="igL-gd-Npa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="n7M-LS-4v6"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="event_tab_bar" id="n7M-LS-4v6" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <connections>
+                            <outlet property="animation" destination="oNO-LM-SN1" id="QxL-Ll-sQn"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="sA6-U0-IrR">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
@@ -1301,21 +1315,60 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfr-KM-kct" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="oNO-LM-SN1" customClass="RAMFumeAnimation" customModule="RAMAnimatedTabBarController">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                            <real key="value" value="0.59999999999999998"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="724" y="-2353.4482758620688"/>
+        </scene>
+        <!--Notices-->
+        <scene sceneID="qcd-L7-MxY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TZY-zf-xbF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notices" image="megaphone" id="PuX-oG-DB1" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <connections>
+                            <outlet property="animation" destination="LtU-tI-XBj" id="nDP-ga-HzR"/>
+                        </connections>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dua-NC-bJK">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Fdt-M8-NKm" kind="relationship" relationship="rootViewController" id="JoR-uC-WSC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wMj-AA-YoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="LtU-tI-XBj" customClass="RAMFlipTopTransitionItemAnimations" customModule="RAMAnimatedTabBarController">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                            <real key="value" value="0.80000000000000004"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="724" y="-1405.4187192118227"/>
         </scene>
     </scenes>
     <resources>
         <image name="burger" width="38" height="29"/>
         <image name="calendar" width="64" height="64"/>
         <image name="club" width="64" height="64"/>
+        <image name="event_tab_bar" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="graduation" width="21.333333969116211" height="21.333333969116211"/>
         <image name="image" width="340.5" height="165"/>
         <image name="mahe" width="1064.5" height="273.5"/>
+        <image name="megaphone" width="21.333333969116211" height="21.333333969116211"/>
         <image name="next" width="32" height="32"/>
         <image name="post_login" width="1503" height="1508"/>
         <image name="posttabicon" width="25" height="25"/>
         <image name="route" width="64" height="64"/>
-        <image name="second" width="30" height="30"/>
         <image name="share" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>

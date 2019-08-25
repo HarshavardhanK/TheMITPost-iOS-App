@@ -692,6 +692,7 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.7.0)
   - NVActivityIndicatorView/Presenter (4.7.0)
   - Protobuf (3.9.0)
+  - RAMAnimatedTabBarController (5.0.1)
   - SDWebImage (4.4.7):
     - SDWebImage/Core (= 4.4.7)
   - SDWebImage/Core (4.4.7)
@@ -707,6 +708,7 @@ DEPENDENCIES:
   - GoogleSignIn
   - MaterialComponents
   - NVActivityIndicatorView
+  - RAMAnimatedTabBarController
   - SDWebImage (~> 4.0)
   - SwiftyJSON
   - UIImageColors
@@ -737,6 +739,7 @@ SPEC REPOS:
     - nanopb
     - NVActivityIndicatorView
     - Protobuf
+    - RAMAnimatedTabBarController
     - SDWebImage
     - SwiftyJSON
     - UIImageColors
@@ -766,10 +769,11 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
+  RAMAnimatedTabBarController: ec36fba2fa4679fd36db55098e3477fe9bd79f52
   SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   UIImageColors: d2ef3b0877d203cbb06489eeb78ea8b7788caabe
 
-PODFILE CHECKSUM: f0be3b3c97074d5132c5a04144ccfb12e0d313af
+PODFILE CHECKSUM: f3c04b2b2b97e546b3142e310527d83df6828ccf
 
 COCOAPODS: 1.7.5
