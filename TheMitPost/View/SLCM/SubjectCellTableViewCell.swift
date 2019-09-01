@@ -15,10 +15,7 @@ class SubjectCellTableViewCell: FoldingCell {
     
     // Use property getters and setters to
     
-    let NOT_AVAILABLE = "not available"
-    
     @IBOutlet weak var subjectName: UILabel!
-    
     
     @IBOutlet weak var absent: UILabel!
     @IBOutlet weak var total: UILabel!
@@ -111,12 +108,11 @@ class SubjectCellTableViewCell: FoldingCell {
     override func awakeFromNib() {
         // Initialization code
         
+        super.awakeFromNib()
+        
         foregroundView.layer.cornerRadius = 15
         foregroundView.layer.masksToBounds = true
         
-        print("Awoke from nib..")
-        super.awakeFromNib()
-        //
     }
 
 

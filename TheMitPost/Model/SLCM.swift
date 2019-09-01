@@ -9,7 +9,6 @@
 import Foundation
 import SwiftyJSON
 
-
 class Attendance {
     
     var totalClasses: String?
@@ -24,9 +23,9 @@ class Attendance {
             classesAbsent = _data["classesAbsent"].stringValue
             classesPresent = _data["classesAttended"].stringValue
             
-            print("Total classes \(totalClasses!)")
-            print("Classes present \(classesPresent!)")
-            print("Classes absent \(classesAbsent!)")
+           // print("Total classes \(totalClasses!)")
+          //  print("Classes present \(classesPresent!)")
+          //  print("Classes absent \(classesAbsent!)")
             
         }
         
@@ -54,11 +53,11 @@ class Attendance {
             return -1
         }
         
-        print("Classes present int convert \(classesPresentInt)")
+       // print("Classes present int convert \(classesPresentInt)")
         
         let percent: Int = Int((Double(classesPresentInt) / Double(totalClassesInt)) * 100)
         
-        print("Percent \(percent)")
+      //  print("Percent \(percent)")
         
         return percent
         
@@ -133,8 +132,8 @@ class Subject {
     }
     
     func display() {
-        print("Subject name \(subjectName)")
-        print("Total classes \(_attendance?.totalClasses)")
+        print("Subject name \(subjectName!)")
+        print("Total classes \(_attendance?.totalClasses!)")
     }
     
 }
