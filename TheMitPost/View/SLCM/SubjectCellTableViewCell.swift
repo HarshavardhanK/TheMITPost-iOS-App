@@ -18,7 +18,11 @@ class SubjectCellTableViewCell: FoldingCell {
     let NOT_AVAILABLE = "not available"
     
     @IBOutlet weak var subjectName: UILabel!
-    @IBOutlet weak var credits: UILabel!
+    
+    
+    @IBOutlet weak var absent: UILabel!
+    @IBOutlet weak var total: UILabel!
+    @IBOutlet weak var present: UILabel!
     
     @IBOutlet weak var assignment1: UILabel!
     @IBOutlet weak var assignment3: UILabel!
@@ -28,7 +32,7 @@ class SubjectCellTableViewCell: FoldingCell {
     @IBOutlet weak var sessional1: UILabel!
     @IBOutlet weak var sessional2: UILabel!
     
-  
+    @IBOutlet weak var totalClasses: UILabel!
     @IBOutlet weak var bunks: UILabel!
     @IBOutlet weak var attendancePercentage: UILabel!
     @IBOutlet weak var attendancePercentage2: UILabel!
@@ -68,15 +72,28 @@ class SubjectCellTableViewCell: FoldingCell {
                     assignment4.text = ERROR_CODES.NOT_AVAILABLE
                 }
                 
+                if let s1 = _subject._marks?.sessionalMarks?[0] {
+                    sessional1.text = s1
+                } else {
+                    sessional1.text = ERROR_CODES.NOT_AVAILABLE
+                }
                 
-                sessional1.text = "11.5"
-                sessional2.text = "12.5"
+                if let s2 = _subject._marks?.sessionalMarks?[0] {
+                    sessional2.text = s2
+                } else {
+                    sessional2.text = ERROR_CODES.NOT_AVAILABLE
+                }
+                
                 
                 guard let attendance = _subject._attendance else {
                     return
                 }
                 
                 bunks.text = attendance.classesAbsent
+                absent.text = attendance.classesAbsent
+                
+                present.text = attendance.classesPresent
+                totalClasses.text = attendance.totalClasses
                 
                 attendancePercentage.text = attendance.attendancePercentString
                 attendancePercentage2.text = attendance.attendancePercentString

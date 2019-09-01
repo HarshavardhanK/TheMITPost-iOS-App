@@ -24,7 +24,9 @@ class Attendance {
             classesAbsent = _data["classesAbsent"].stringValue
             classesPresent = _data["classesAttended"].stringValue
             
-            print(totalClasses)
+            print("Total classes \(totalClasses!)")
+            print("Classes present \(classesPresent!)")
+            print("Classes absent \(classesAbsent!)")
             
         }
         
@@ -52,7 +54,13 @@ class Attendance {
             return -1
         }
         
-        return classesPresentInt / totalClassesInt * 100
+        print("Classes present int convert \(classesPresentInt)")
+        
+        let percent: Int = Int((Double(classesPresentInt) / Double(totalClassesInt)) * 100)
+        
+        print("Percent \(percent)")
+        
+        return percent
         
     }
     
