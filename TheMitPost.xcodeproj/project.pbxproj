@@ -243,9 +243,10 @@
 		D60EBF2D21ED0C7800DAC538 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D67A7E4E231C3DBC009754D4 /* Notice */,
 				D6A8706122D916CD0057A30B /* Article */,
-				D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */,
-				D6A8705D22D916B60057A30B /* EventViewCell.swift */,
+				D67A7E4C231C3DA6009754D4 /* SLCM */,
+				D67A7E4D231C3DB3009754D4 /* Event */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -270,6 +271,29 @@
 				D664F31C22AF9F62002D6E0F /* Utilities.swift */,
 			);
 			path = Auxiliary;
+			sourceTree = "<group>";
+		};
+		D67A7E4C231C3DA6009754D4 /* SLCM */ = {
+			isa = PBXGroup;
+			children = (
+				D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */,
+			);
+			path = SLCM;
+			sourceTree = "<group>";
+		};
+		D67A7E4D231C3DB3009754D4 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				D6A8705D22D916B60057A30B /* EventViewCell.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		D67A7E4E231C3DBC009754D4 /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Notice;
 			sourceTree = "<group>";
 		};
 		D6A8706122D916CD0057A30B /* Article */ = {
