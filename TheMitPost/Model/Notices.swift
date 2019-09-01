@@ -23,17 +23,17 @@ class Notice {
         imageURL = URL(string: data["imageURL"].stringValue)
     }
     
-    static func parseNotices(data: [JSON]) -> [Notice] {
+}
+
+func parseNotices(data: [JSON]) -> [Notice] {
+    
+    var _notices = [Notice]()
+    
+    for notices in data {
         
-        var _notices = [Notice]()
-        
-        for notices in data {
-            
-            let notice = Notice(data: notices)
-            _notices.append(notice)
-        }
-        
-        return _notices
+        let notice = Notice(data: notices)
+        _notices.append(notice)
     }
     
+    return _notices
 }
