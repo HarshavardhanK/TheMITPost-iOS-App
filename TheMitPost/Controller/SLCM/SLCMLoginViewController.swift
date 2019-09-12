@@ -26,18 +26,27 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     @IBOutlet weak var signInButton: UIButton!
     
-    var subjects = [Subject]()
+    //var activityIndicator: NVActivityIndicatorView!
+    @IBOutlet var activityIndicator: NVActivityIndicatorView!
     
-    var activityIndicator: NVActivityIndicatorView!
+    var subjects = [Subject]()
     
     var result = false
     
     @IBAction func signInPressed(_ sender: Any) {
         
+        startActivityIndicator()
+        
         loadSLCMData { (result) in
             
             if result {
-              self.performSegue(withIdentifier: "slcmDetail", sender: self)
+                self.stopActivityIndicator()
+                
+                self.performSegue(withIdentifier: "slcmDetail", sender: self)
+                
+            } else {
+                print("Invalid credentials")
+                self.stopActivityIndicator()
             }
             
         }
@@ -46,6 +55,30 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+    }
+    
+    //MARK:- Activty Indicator NVActivityIndicatorView
+    
+    func startActivityIndicator() {
+        
+        let types = [NVActivityIndicatorType.ballScaleRippleMultiple, NVActivityIndicatorType.ballBeat, NVActivityIndicatorType.ballScale, NVActivityIndicatorType.ballPulseSync]
+        
+        let index: Int = Int(arc4random()) % 4
+        
+        activityIndicator.type = types[index]
+        
+        activityIndicator.color = UIColor.orange
+        
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        
+    }
+    
+    func stopActivityIndicator() {
+        
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
         
     }
     
@@ -91,23 +124,20 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         var success = false
         
-        let registration = "170905022"
-        let password = "FHJ-CSd-5rc-f5A" // PLEASE REMOVE THIS LATER
-        
-//        if let _registration = registrationTextfield.text {
-//            registration = _registration
-//        }
-//
-//        if let _password = passwordTextfield.text {
-//            password = _password
-//        }
+        guard let registration = registrationTextfield.text else {
+            return
+        }
+
+        guard let password = passwordTextfield.text else {
+            return
+        }
         
         Alamofire.request(self.SLCMAPI, method: .post, parameters:["regNumber":registration, "pass":password], encoding: JSONEncoding.default).responseJSON { response in
             
             print("calling post request")
             let data = JSON(response.result.value)
             
-            if !data["status"].boolValue {
+            if data["message"].stringValue == "Invalid Credentials" {
                 
                 print(data["message"].stringValue)
                 success = false
@@ -156,27 +186,6 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         return true
     }
     
-    //MARK:- Activty Indicator NVActivityIndicatorView
-    
-    func startActivityIndicator() {
-        
-        let frame = CGRect(x: self.view.center.x, y: self.view.center.y, width: 50.0, height: 50.0)
-        
-        activityIndicator = NVActivityIndicatorView(frame: frame)
-        activityIndicator.type = .ballZigZag
-        activityIndicator.color = UIColor.orange
-        
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-        
-    }
-    
-    func stopActivityIndicator() {
-        
-        activityIndicator.stopAnimating()
-        activityIndicator.removeFromSuperview()
-        
-    }
     
     //MARK:- Perform segues
     

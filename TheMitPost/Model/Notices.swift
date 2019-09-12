@@ -13,14 +13,66 @@ class Notice {
     
     var title: String?
     var content: String?
-    var imageURL: URL?
+    var url: String?
     var date: Date?
     
     
     init(data: JSON) {
         title = data["title"].stringValue
         content = data["content"].stringValue
-        imageURL = URL(string: data["imageURL"].stringValue)
+        url = data["imageURL"].stringValue
+    }
+    
+    var getComponentURL: URL? {
+        
+        guard let url_ = url else {
+            return nil
+        }
+        
+        return URL(string: url_)
+    }
+    
+    var isImage: Bool {
+        
+        guard let url_ = url else {
+            return false
+        }
+        
+        print(url_)
+        
+        if url_.contains("jpeg") || url_.contains("jpg") || url_.contains("png") {
+            return true
+            
+        }
+        
+        return false
+    }
+    
+    var isPDF: Bool {
+        
+        guard let url_ = url else {
+            return false
+        }
+        
+        if url_.contains("pdf") {
+            return true
+        }
+        
+        return false
+        
+    }
+    
+    var hasURL: Bool {
+        
+        guard let url_ = url else {
+            return false
+        }
+        
+        if url_ == "" {
+            return false
+        }
+        
+        return true
     }
     
 }
@@ -30,6 +82,8 @@ func parseNotices(data: [JSON]) -> [Notice] {
     var _notices = [Notice]()
     
     for notices in data {
+        
+        print(notices["title"])
         
         let notice = Notice(data: notices)
         _notices.append(notice)
