@@ -40,6 +40,12 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         passwordTextfield.text = nil
         registrationTextfield.text = nil
         
+        if resetInvalidLock() {
+            
+            UserDefaults.standard.set(nil, forKey: "time-of-invalid")
+            UserDefaults.standard.set(0, forKey: "invalid-attempts")
+        }
+        
         if count < 2 {
             
             startActivityIndicator()
@@ -60,6 +66,10 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                     UserDefaults.standard.set(self.count, forKey: "invalid-attempts")
                     
                     self.stopActivityIndicator()
+                    
+                    if self.count == 2 {
+                        UserDefaults.standard.set(Date(), forKey: "time-of-invalid")
+                    }
                 }
                 
             }
@@ -92,6 +102,21 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         count = UserDefaults.standard.integer(forKey: "invalid-attempts")
         print("User default \(count)")
         
+        if(resetInvalidLock()) {
+            
+            if count >= 2 {
+                
+                UserDefaults.standard.set(0, forKey: "invalid-attempts")
+                print("reset count to 0")
+                
+            } else {
+                print("Invalid lock count less than 2")
+            }
+           
+        } else {
+            print("Invalid lock active")
+        }
+        
         registrationTextfield.delegate = self
         passwordTextfield.delegate = self
         
@@ -109,6 +134,24 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
+    }
+    
+    func resetInvalidLock() -> Bool {
+        
+        let now = Date()
+        guard let invalidDate = UserDefaults.standard.object(forKey: "time-of-invalid") else {
+            return true
+        }
+        
+        let diff = now.timeIntervalSince(invalidDate as! Date)
+        
+        let minutes = diff
+        
+        if(minutes >= 20) {
+            return true
+        }
+        
+        return false
     }
     
     func showAlertForInvalidCredentials() {
@@ -176,7 +219,15 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         Alamofire.request(self.SLCMAPI, method: .post, parameters:["regNumber":registration, "pass":password], encoding: JSONEncoding.default).responseJSON { response in
             
             print("calling post request")
-            let data = JSON(response.result.value)
+            
+            guard let resultValue = response.result.value else {
+                completion(false)
+                //sendinf false would mean invalid login. Change it
+                //code to send error alert
+                return
+            }
+            
+            let data = JSON(resultValue)
             
             if data["message"].stringValue == "Invalid Credentials" {
                 
