@@ -12,6 +12,8 @@ struct ERROR_CODES {
     
     static let NOT_AVAILABLE = "NA"
     static let CANNOT_BE_ACCESSSED = "Cannot be accessed"
+    static let INVALID_ATTEMPT = "invalid-attempts"
+    static let TIME_OF_INVALID = "time-of-invalid"
     
 }
 

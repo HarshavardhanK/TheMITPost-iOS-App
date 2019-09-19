@@ -42,9 +42,12 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         if resetInvalidLock() {
             
-            UserDefaults.standard.set(nil, forKey: "time-of-invalid")
-            UserDefaults.standard.set(0, forKey: "invalid-attempts")
+            UserDefaults.standard.set(nil, forKey: ERROR_CODES.TIME_OF_INVALID)
+            UserDefaults.standard.set(0, forKey: ERROR_CODES.INVALID_ATTEMPT)
         }
+        
+        count = UserDefaults.standard.integer(forKey: ERROR_CODES.INVALID_ATTEMPT)
+       
         
         if count < 2 {
             
@@ -53,22 +56,23 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             loadSLCMData { (result) in
                 
                 if result {
+                    
                     self.stopActivityIndicator()
                     
                     self.performSegue(withIdentifier: "slcmDetail", sender: self)
                     
                 } else {
-                    print("Invalid credentials")
-                    self.showAlertForInvalidCredentials()
                     
+                    self.showAlertForInvalidCredentials()
+                   
                     self.count += 1
-                    print("Invalid login count at \(self.count)")
-                    UserDefaults.standard.set(self.count, forKey: "invalid-attempts")
+                    
+                    UserDefaults.standard.set(self.count, forKey: ERROR_CODES.INVALID_ATTEMPT)
                     
                     self.stopActivityIndicator()
                     
                     if self.count == 2 {
-                        UserDefaults.standard.set(Date(), forKey: "time-of-invalid")
+                        UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
                     }
                 }
                 
@@ -97,25 +101,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        count = UserDefaults.standard.integer(forKey: "invalid-attempts")
-        print("User default \(count)")
-        
-        if(resetInvalidLock()) {
-            
-            if count >= 2 {
-                
-                UserDefaults.standard.set(0, forKey: "invalid-attempts")
-                print("reset count to 0")
-                
-            } else {
-                print("Invalid lock count less than 2")
-            }
-           
-        } else {
-            print("Invalid lock active")
-        }
+        // Do any additional setup after loading the view, typically from a nib
         
         registrationTextfield.delegate = self
         passwordTextfield.delegate = self
@@ -139,15 +125,23 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     func resetInvalidLock() -> Bool {
         
         let now = Date()
-        guard let invalidDate = UserDefaults.standard.object(forKey: "time-of-invalid") else {
-            return true
+        guard let invalidDate = UserDefaults.standard.object(forKey: ERROR_CODES.TIME_OF_INVALID) else {
+            print("No date object found")
+            
+//            if count < 2 {
+//                return true
+//            }
+            
+            return false
         }
         
         let diff = now.timeIntervalSince(invalidDate as! Date)
         
         let minutes = diff
+        print(diff) // it is in seconds. make it minutes
         
         if(minutes >= 20) {
+            print("lock lifted")
             return true
         }
         
@@ -268,7 +262,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         print("text field ended editing..")
-        print("Text field has text \(textField.text)")
+        print("Text field has text \(textField.text ?? "NA")")
         resignFirstResponder()
     }
     
