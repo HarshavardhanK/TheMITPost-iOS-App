@@ -29,7 +29,6 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
             
         self.present(alert, animated: true, completion: nil)
         
-        
     }
     
     

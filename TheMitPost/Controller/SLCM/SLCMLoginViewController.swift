@@ -33,29 +33,93 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     var result = false
     
+    var count: Int = 0 // counting invalid attempts
+    
     @IBAction func signInPressed(_ sender: Any) {
         
-        startActivityIndicator()
+        passwordTextfield.text = nil
+        registrationTextfield.text = nil
         
-        loadSLCMData { (result) in
+        if count < 2 {
             
-            if result {
-                self.stopActivityIndicator()
+            startActivityIndicator()
+            
+            loadSLCMData { (result) in
                 
-                self.performSegue(withIdentifier: "slcmDetail", sender: self)
+                if result {
+                    self.stopActivityIndicator()
+                    
+                    self.performSegue(withIdentifier: "slcmDetail", sender: self)
+                    
+                } else {
+                    print("Invalid credentials")
+                    self.showAlertForInvalidCredentials()
+                    
+                    self.count += 1
+                    print("Invalid login count at \(self.count)")
+                    UserDefaults.standard.set(self.count, forKey: "invalid-attempts")
+                    
+                    self.stopActivityIndicator()
+                }
                 
-            } else {
-                print("Invalid credentials")
-                self.stopActivityIndicator()
             }
             
+        } else {
+            
+            let moreInvalidAttempts = UIAlertController(title: "Too many failed logins", message: "You have exhausted the limit for failed logins. Try again after 20 minutes", preferredStyle: .alert)
+            
+            moreInvalidAttempts.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                //start timer
+            }))
+            
+            self.present(moreInvalidAttempts, animated: true, completion: nil)
+            
         }
+        
+        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        count = UserDefaults.standard.integer(forKey: "invalid-attempts")
+        print("User default \(count)")
+        
+        registrationTextfield.delegate = self
+        passwordTextfield.delegate = self
+        
+        if let _registration = registrationTextfield.text {
+            print(_registration)
+        }
+        
+        if let _password = passwordTextfield.text {
+            print(_password)
+        }
+        
+        signInButton.layer.cornerRadius = 5
+        
+        registrationTextfield.keyboardType = .numberPad
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        
+    }
+    
+    func showAlertForInvalidCredentials() {
+        
+        let invalidAlert = UIAlertController(title: "Invalid credentials", message: "Check your registration/password, and try again", preferredStyle: .alert)
+        
+        invalidAlert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { (action) in
+            //add code to limit the number of invalid attempts
+        }))
+        
+        self.present(invalidAlert, animated: true, completion: nil)
     }
     
     //MARK:- Activty Indicator NVActivityIndicatorView
@@ -96,29 +160,6 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         }
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        registrationTextfield.delegate = self
-        passwordTextfield.delegate = self
-        
-        if let _registration = registrationTextfield.text {
-            print(_registration)
-        }
-        
-        if let _password = passwordTextfield.text {
-            print(_password)
-        }
-        
-        signInButton.layer.cornerRadius = 5
-        
-        registrationTextfield.keyboardType = .numberPad
-        
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
-        
-    }
     
     func loadSLCMData(completion: @escaping (Bool) -> ()) {
         
