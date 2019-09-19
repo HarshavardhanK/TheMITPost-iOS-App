@@ -11,12 +11,6 @@
 		CE7C3EE6A015DB8882680AB4 /* Pods_TheMitPostTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3C3FF38A701842972BB0E2 /* Pods_TheMitPostTests.framework */; };
 		D60EBF3121ED0CDF00DAC538 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EBF3021ED0CDF00DAC538 /* Article.swift */; };
 		D60EBF3221ED0CDF00DAC538 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EBF3021ED0CDF00DAC538 /* Article.swift */; };
-		D619943B2329550C005836C9 /* NoticeTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = D619943A2329550C005836C9 /* NoticeTableViewCells.swift */; };
-		D619943C2329550C005836C9 /* NoticeTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = D619943A2329550C005836C9 /* NoticeTableViewCells.swift */; };
-		D619943D2329550C005836C9 /* NoticeTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = D619943A2329550C005836C9 /* NoticeTableViewCells.swift */; };
-		D6199447232BD2F7005836C9 /* NoticesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6199446232BD2F7005836C9 /* NoticesViewController.swift */; };
-		D6199448232BD2F7005836C9 /* NoticesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6199446232BD2F7005836C9 /* NoticesViewController.swift */; };
-		D6199449232BD2F7005836C9 /* NoticesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6199446232BD2F7005836C9 /* NoticesViewController.swift */; };
 		D61C44DB223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
 		D61C44DC223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
 		D61C44DD223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
@@ -101,6 +95,12 @@
 		D6F8066C2204A0420041E09F /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8066B2204A0420041E09F /* ArticleViewController.swift */; };
 		D6F8066D2204A0420041E09F /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8066B2204A0420041E09F /* ArticleViewController.swift */; };
 		D6F8066E2204A0420041E09F /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8066B2204A0420041E09F /* ArticleViewController.swift */; };
+		D6FA299423326B2E00703DE7 /* NoticeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299323326B2E00703DE7 /* NoticeCollectionViewCell.swift */; };
+		D6FA299523326B2E00703DE7 /* NoticeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299323326B2E00703DE7 /* NoticeCollectionViewCell.swift */; };
+		D6FA299623326B2E00703DE7 /* NoticeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299323326B2E00703DE7 /* NoticeCollectionViewCell.swift */; };
+		D6FA299823326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */; };
+		D6FA299923326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */; };
+		D6FA299A23326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */; };
 		F67BDD8DB42CFEE944067F47 /* Pods_TheMitPostUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359155BB7CD815DF0B320243 /* Pods_TheMitPostUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -130,8 +130,6 @@
 		9C014F93135C4F169933BC93 /* Pods-TheMitPostTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.release.xcconfig"; path = "Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.release.xcconfig"; sourceTree = "<group>"; };
 		D60EBF3021ED0CDF00DAC538 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D60F6BB12310713300279DA2 /* PostPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		D619943A2329550C005836C9 /* NoticeTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCells.swift; sourceTree = "<group>"; };
-		D6199446232BD2F7005836C9 /* NoticesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesViewController.swift; sourceTree = "<group>"; };
 		D61C44DA223E74DF00DF5DAA /* SLCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCM.swift; sourceTree = "<group>"; };
 		D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCMTableViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +175,8 @@
 		D6F392B822D5FB5900CE50D1 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		D6F392BC22D604DC00CE50D1 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		D6F8066B2204A0420041E09F /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		D6FA299323326B2E00703DE7 /* NoticeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCollectionViewCell.swift; sourceTree = "<group>"; };
+		D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesCollectionViewController.swift; sourceTree = "<group>"; };
 		DF3C3FF38A701842972BB0E2 /* Pods_TheMitPostTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPostTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A086BF6FE6B1F570EEBF18 /* Pods-TheMitPostTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FA32331F311C2F93D493D109 /* Pods-TheMitPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPost/Pods-TheMitPost.debug.xcconfig"; sourceTree = "<group>"; };
@@ -263,7 +263,7 @@
 				D6A8706322D916FE0057A30B /* SLCM */,
 				D6F392BC22D604DC00CE50D1 /* EventsViewController.swift */,
 				D6EE553C22EAD73C0055AE74 /* SignInViewController.swift */,
-				D6199446232BD2F7005836C9 /* NoticesViewController.swift */,
+				D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -296,7 +296,7 @@
 		D67A7E4E231C3DBC009754D4 /* Notice */ = {
 			isa = PBXGroup;
 			children = (
-				D619943A2329550C005836C9 /* NoticeTableViewCells.swift */,
+				D6FA299323326B2E00703DE7 /* NoticeCollectionViewCell.swift */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -675,7 +675,6 @@
 			files = (
 				D6EE553D22EAD73C0055AE74 /* SignInViewController.swift in Sources */,
 				D6F392B922D5FB5900CE50D1 /* Events.swift in Sources */,
-				D619943B2329550C005836C9 /* NoticeTableViewCells.swift in Sources */,
 				D60EBF3121ED0CDF00DAC538 /* Article.swift in Sources */,
 				D6313DC72292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
 				D6D6A21321ECC5A200B822F8 /* SLCMLoginViewController.swift in Sources */,
@@ -689,12 +688,13 @@
 				D6339E442243B675007051A1 /* ArticleHeaderViewTableViewCell.swift in Sources */,
 				D6F8066C2204A0420041E09F /* ArticleViewController.swift in Sources */,
 				D69B30532203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
+				D6FA299823326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */,
 				D61D3A9521EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D6D6A20F21ECC5A200B822F8 /* AppDelegate.swift in Sources */,
 				D662420C23015E9F00261081 /* ArticleWebViewController.swift in Sources */,
 				D6339E4B2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */,
+				D6FA299423326B2E00703DE7 /* NoticeCollectionViewCell.swift in Sources */,
 				D6A8705E22D916B60057A30B /* EventViewCell.swift in Sources */,
-				D6199447232BD2F7005836C9 /* NoticesViewController.swift in Sources */,
 				D6F392BD22D604DC00CE50D1 /* EventsViewController.swift in Sources */,
 				D6D6A21121ECC5A200B822F8 /* ArticlesViewController.swift in Sources */,
 			);
@@ -706,12 +706,12 @@
 			files = (
 				D6A8705F22D916B60057A30B /* EventViewCell.swift in Sources */,
 				D63B747B22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,
-				D6199448232BD2F7005836C9 /* NoticesViewController.swift in Sources */,
 				D664F32822B0FA2D002D6E0F /* Notices.swift in Sources */,
 				D69B3058220382DC00E66AE3 /* Extensions.swift in Sources */,
 				D6313DC82292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
 				D6F392BE22D604DC00CE50D1 /* EventsViewController.swift in Sources */,
 				D6F8066D2204A0420041E09F /* ArticleViewController.swift in Sources */,
+				D6FA299923326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */,
 				D664F31E22AF9F62002D6E0F /* Utilities.swift in Sources */,
 				D6EE553E22EAD73C0055AE74 /* SignInViewController.swift in Sources */,
 				D6339E4C2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */,
@@ -720,8 +720,8 @@
 				D6339E482243BF8A007051A1 /* ArticleTableViewController.swift in Sources */,
 				D6ACFF9C2242C22B00CDFAF6 /* ArticleTableViewCell.swift in Sources */,
 				D6F392BA22D5FB5900CE50D1 /* Events.swift in Sources */,
+				D6FA299523326B2E00703DE7 /* NoticeCollectionViewCell.swift in Sources */,
 				D61C44DC223E74DF00DF5DAA /* SLCM.swift in Sources */,
-				D619943C2329550C005836C9 /* NoticeTableViewCells.swift in Sources */,
 				D69B30542203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
 				D662420D23015E9F00261081 /* ArticleWebViewController.swift in Sources */,
 				D6D6A22621ECC5A500B822F8 /* TheMitPostTests.swift in Sources */,
@@ -732,6 +732,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6FA299A23326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */,
 				D6D6A23121ECC5A500B822F8 /* TheMitPostUITests.swift in Sources */,
 				D6339E4D2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */,
 				D61D3A9721EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
@@ -741,14 +742,13 @@
 				D6339E492243BF8A007051A1 /* ArticleTableViewController.swift in Sources */,
 				D664F31F22AF9F62002D6E0F /* Utilities.swift in Sources */,
 				D6313DC92292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
-				D619943D2329550C005836C9 /* NoticeTableViewCells.swift in Sources */,
-				D6199449232BD2F7005836C9 /* NoticesViewController.swift in Sources */,
 				D6F392BB22D5FB5900CE50D1 /* Events.swift in Sources */,
 				D6A8706022D916B60057A30B /* EventViewCell.swift in Sources */,
 				D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
 				D664F32922B0FA2D002D6E0F /* Notices.swift in Sources */,
 				D662420E23015E9F00261081 /* ArticleWebViewController.swift in Sources */,
 				D6EE553F22EAD73C0055AE74 /* SignInViewController.swift in Sources */,
+				D6FA299623326B2E00703DE7 /* NoticeCollectionViewCell.swift in Sources */,
 				D63B747C22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,
 				D6ACFF9D2242C22C00CDFAF6 /* ArticleTableViewCell.swift in Sources */,
 				D69B3059220382DC00E66AE3 /* Extensions.swift in Sources */,

@@ -69,7 +69,7 @@ class EventViewCell: UICollectionViewCell {
         //layer.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "event_bg3")).cgColor
         
         clipsToBounds = false
-        eventImageView.clipsToBounds = true
+        
         eventImageView.layer.masksToBounds = true
         eventImageView.clipsToBounds = true
         

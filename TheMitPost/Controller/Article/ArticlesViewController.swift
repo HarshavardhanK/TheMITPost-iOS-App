@@ -25,7 +25,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     let appBar = MDCAppBar()
     let articleHeaderView = ArticleHeaderView()
-    let refreshControl = UIRefreshControl()
+    //let refreshControl = UIRefreshControl()
     
     let window: UIWindow? = nil
     let _storyboard_ = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -58,7 +58,18 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             logoutSigninBarButton.title = "Sign In"
         }
         
-        retrieveArticles()
+        retrieveArticles { (success) in
+            
+            if !success {
+                
+                let emptyImageView = UIImageView(image: UIImage(named: "post-empty"))
+                emptyImageView.frame = CGRect(origin: self.view.center, size: CGSize(width: 300, height: 237))
+                emptyImageView.center = self.view.center
+                
+                self.view.addSubview(emptyImageView)
+            }
+            
+        }
         
         //configureAppBar()
         
@@ -73,14 +84,10 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         articleCollectionView.delegate = self
         articleCollectionView.addSubview(refreshControl)
         
-        
-        
         tabBarController?.delegate = self
         
-        refreshControl.addTarget(self, action: #selector(refreshArticles), for: .valueChanged)
+       // refreshControl.addTarget(self, action: #selector(refreshArticles), for: .valueChanged)
         
-        
-        //MARK:- UINavigationBar Appearance
         
     }
     
@@ -89,23 +96,33 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     var selectedArticle: Article?
     
-    private func retrieveArticles() {
+    private func retrieveArticles(completion: @escaping (Bool) -> ()) {
         
-        Alamofire.request(API, method: .get).responseJSON { response in
+        Alamofire.request(API, method: .get).responseJSON { response_ in
             
-            let result = JSON(response.result.value!)
+            guard let resultValue = response_.result.value else {
+                completion(false)
+                return
+            }
             //print(result.count)
             
-            self.parseArticleResult(result: result)
+            self.parseArticleResult(result: JSON(resultValue))
             
             self.articleCollectionView.reloadData()
-            self.refreshControl.endRefreshing()
+            //self.refreshControl.endRefreshing()
             
             self.articlesShown = [Bool](repeating: false, count: self.articlesList.count)
             
+            print("Retrieved articles!")
+            
+            if(self.articlesList.count == 0) {
+                completion(false)
+                
+            } else {
+                completion(true)
+            }
+            
         }
-        
-        print("Retrieved articles!")
         
     }
     
@@ -135,9 +152,17 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @objc func refreshArticles() {
         articlesList = [Article]()
-        retrieveArticles()
-        articlesShown = [Bool](repeating: false, count: self.articlesList.count)
-        print("Finished refreshing..")
+        
+        retrieveArticles{ (sucess) in
+            
+            if(sucess) {
+            
+                self.articlesShown = [Bool](repeating: false, count: self.articlesList.count)
+                print("Finished refreshing..")
+                
+            }
+        }
+        
     }
     
     
@@ -145,34 +170,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let headerView = appBar.headerViewController.headerView
-        
-        if scrollView == headerView.trackingScrollView {
-            headerView.trackingScrollDidScroll()
-        }
-    }
-    
-     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
-        let headerView = appBar.headerViewController.headerView
-        
-        if scrollView == headerView.trackingScrollView {
-            headerView.trackingScrollDidEndDraggingWillDecelerate(decelerate)
-        }
-        
-    }
-    
-     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
-        let headerView = appBar.headerViewController.headerView
-        
-        if scrollView == headerView.trackingScrollView {
-            headerView.trackingScrollWillEndDragging(withVelocity: velocity, targetContentOffset: targetContentOffset)
-        }
-        
-    }
+
     
     //MARK:- UICOLLECTIONVIEW DATASOURCE AND DELEGATE METHODS
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -194,15 +192,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         } else {
             fatalError("Missing cell for indexPath: \(indexPath)")
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //TODO:- Write code to segue to presentArticleView
-        
-        /*
-         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"YourStoryBoardName" bundle:[NSBundle mainBundle]];
-         YourViewControllerFromStoryBoard *viewController = [sb instantiateViewControllerWithIdentifier:@"YourViewControllerIdentifierInYourStoryBoard"];
-         */
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -232,19 +221,13 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 
-        return UIEdgeInsets(top: ArticleCollectionViewCell.cellPadding, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: ArticleCollectionViewCell.cellPadding + 15, left: 30.0, bottom: 30.0, right: 30.0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
 
-        return ArticleCollectionViewCell.cellPadding  // need to trial and test this number to suit all iOS devices (iPhone 5S and upwards). This worked good on iPhone X
+        return ArticleCollectionViewCell.cellPadding + 10  // need to trial and test this number to suit all iOS devices (iPhone 5S and upwards). This worked good on iPhone X
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
-    }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
@@ -268,6 +251,16 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             articlesShown[indexPath.row] = true
             
+        }
+        
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
+        let tabBarIndex = tabBarController.selectedIndex
+        
+        if tabBarIndex == 0 {
+            self.articleCollectionView.setContentOffset(CGPoint.zero, animated: true)
         }
         
     }

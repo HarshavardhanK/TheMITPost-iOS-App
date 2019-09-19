@@ -29,7 +29,17 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         eventsCollectionView.dataSource = self
         eventsCollectionView.addSubview(refreshControl)
         
-        retrieveEvents()
+        retrieveEvents { (success) in
+            
+            if !success {
+                
+                let emptyImageView = UIImageView(image: UIImage(named: "post-empty"))
+                emptyImageView.frame = CGRect(origin: self.view.bounds.origin, size: CGSize(width: 300, height: 237))
+                
+                self.view.addSubview(emptyImageView)
+            }
+            
+        }
         
         refreshControl.addTarget(self, action: #selector(refreshEvents), for: .valueChanged)
         
@@ -88,12 +98,17 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     
     //MARK:- RETRIEVE EVENT DATA FROM API
-    func retrieveEvents() {
+    func retrieveEvents(completion: @escaping (Bool) -> ()) {
         
         Alamofire.request(EVENTS_API, method: .get).responseJSON {
             response_ in
             
-            let response = JSON(response_.result.value!)
+            guard let resultValue = response_.result.value else {
+                completion(false)
+                return
+            }
+            
+            let response = JSON(resultValue)
             
             if(response["status"].stringValue != "OK") {
                 //TODO:- UPDATE BACKGROUND IMAGE TO CONVEY THERE WAS AN ERROR GETTING EVENTS
@@ -108,6 +123,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
                 }
             }
             
+            completion(true)
+            
             self.eventShown = [Bool](repeatElement(false, count: self.events.count + 1))
             
             self.eventsCollectionView.reloadData()
@@ -116,8 +133,16 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     @objc func refreshEvents() {
+        
         events = [Events]()
-        retrieveEvents()
+        retrieveEvents { (success) in
+            
+            if !success {
+                
+            }
+            
+        }
+        
         print("Finished refreshing..")
     }
 

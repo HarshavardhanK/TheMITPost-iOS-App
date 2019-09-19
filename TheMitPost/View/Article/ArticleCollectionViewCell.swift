@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import MaterialComponents
 
 class ArticleCollectionViewCell: UICollectionViewCell {
 
@@ -51,6 +52,18 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
+        shadowLayer?.elevation = .cardPickedUp
+        
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.cornerRadius = 5.0
+        layer.shadowRadius = 10.0
+        //layer.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "event_bg3")).cgColor
+        
+        clipsToBounds = false
+        
+        articleImageView.clipsToBounds = true
+        
         self.contentView.layer.cornerRadius = 10.0
 
         print("Awake from nib")
@@ -71,6 +84,15 @@ class ArticleCollectionViewCell: UICollectionViewCell {
        // authorLabel.font = UIFont(name: "Optima", size: 16)
         dateLabelView.font = UIFont(name: "Helvetica", size: 14)
         
+    }
+
+    
+    override class var layerClass: AnyClass {
+        return MDCShadowLayer.self
+    }
+    
+    var shadowLayer: MDCShadowLayer? {
+        return self.layer as? MDCShadowLayer
     }
     
     

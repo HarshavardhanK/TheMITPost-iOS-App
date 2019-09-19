@@ -2,18 +2,22 @@
 //  NoticeCollectionViewCell.swift
 //  TheMitPost
 //
-//  Created by Harshavardhan K on 11/09/19.
+//  Created by Harshavardhan K on 18/09/19.
 //  Copyright © 2019 Harshavardhan K. All rights reserved.
 //
 
 import UIKit
 import MaterialComponents
 
-class NoticeImageTableViewCell: UITableViewCell {
+class NoticeImageCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var noticeImageView: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var content: UILabel!
+    
+    static let height: CGFloat = 365.0
+    static let width: CGFloat = 350.0
     
     var url: URL? {
         
@@ -30,7 +34,7 @@ class NoticeImageTableViewCell: UITableViewCell {
         didSet {
             
             if let title_ = titleText {
-                title.text = title_
+                titleLabel.text = title_
             }
         }
     }
@@ -40,7 +44,7 @@ class NoticeImageTableViewCell: UITableViewCell {
         didSet {
             
             if let content_ = contentText {
-                content.text = content_
+                contentLabel.text = content_
             }
         }
     }
@@ -49,7 +53,15 @@ class NoticeImageTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        shadowLayer?.elevation = .cardResting
+        shadowLayer?.elevation = .cardPickedUp
+        
+        /*layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.cornerRadius = 20.0
+        layer.shadowRadius = 12.0
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowOpacity = 0.7
+        //layer.shadowColor = UIColor.gray.cgColor*/
         
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
@@ -62,11 +74,11 @@ class NoticeImageTableViewCell: UITableViewCell {
         noticeImageView.layer.masksToBounds = true
         noticeImageView.clipsToBounds = true
         
-        title.font = MDCTypography.titleFont()
-        title.alpha = MDCTypography.titleFontOpacity()
+        titleLabel.font = MDCTypography.titleFont()
+        titleLabel.alpha = MDCTypography.titleFontOpacity()
         
-        content.font = MDCTypography.body1Font()
-        content.alpha = MDCTypography.body1FontOpacity()
+        contentLabel.font = MDCTypography.body1Font()
+        contentLabel.alpha = MDCTypography.body1FontOpacity()
     }
     
     override class var layerClass: AnyClass {
@@ -76,38 +88,23 @@ class NoticeImageTableViewCell: UITableViewCell {
     var shadowLayer: MDCShadowLayer? {
         return self.layer as? MDCShadowLayer
     }
-    
 }
 
-class NoticePDFTableViewCell: UITableViewCell {
+class NoticeTextCollectionViewCell: UICollectionViewCell {
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-         shadowLayer?.elevation = .cardResting
-    }
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
-    override class var layerClass: AnyClass {
-        return MDCShadowLayer.self
-    }
-    
-    var shadowLayer: MDCShadowLayer? {
-        return self.layer as? MDCShadowLayer
-    }
-    
-}
-
-class NoticeTextTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var content: UILabel!
-    @IBOutlet weak var title: UILabel!
+    static let height: CGFloat = 120.0
+    static let width: CGFloat = 350.0
     
     var titleText: String? {
         
         didSet {
             
             if let title_ = titleText {
-                title.text = title_
+                titleLabel.text = title_
             }
         }
     }
@@ -117,7 +114,7 @@ class NoticeTextTableViewCell: UITableViewCell {
         didSet {
             
             if let content_ = contentText {
-                content.text = content_
+                contentLabel.text = content_
             }
         }
     }
@@ -126,20 +123,27 @@ class NoticeTextTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         
-        shadowLayer?.elevation = .cardResting
+        shadowLayer?.elevation = .cardPickedUp
         
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
         layer.cornerRadius = 5.0
         layer.shadowRadius = 10.0
         
+        /*layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.cornerRadius = 20.0
+        layer.shadowRadius = 12.0
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowOpacity = 0.7*/
+        
         clipsToBounds = false
         
-        title.font = MDCTypography.titleFont()
-        title.alpha = MDCTypography.titleFontOpacity()
+        titleLabel.font = MDCTypography.titleFont()
+        titleLabel.alpha = MDCTypography.titleFontOpacity()
         
-        content.font = MDCTypography.body1Font()
-        content.alpha = MDCTypography.body1FontOpacity()
+        contentLabel.font = MDCTypography.body1Font()
+        contentLabel.alpha = MDCTypography.body1FontOpacity()
         
     }
     
@@ -150,5 +154,9 @@ class NoticeTextTableViewCell: UITableViewCell {
     var shadowLayer: MDCShadowLayer? {
         return self.layer as? MDCShadowLayer
     }
+    
+}
+
+class NoticePDFCollectionViewCell: UICollectionViewCell {
     
 }
