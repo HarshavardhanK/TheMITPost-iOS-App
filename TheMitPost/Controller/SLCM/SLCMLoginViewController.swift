@@ -13,7 +13,7 @@ import NVActivityIndicatorView
 
 class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivityIndicatorViewable {
     
-    let SLCMAPI: String = "https://api.themitpost.com/values"
+    let SLCMAPI: String = "https://app.themitpost.com/values"
 
     @IBOutlet weak var registrationTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!

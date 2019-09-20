@@ -19,6 +19,8 @@
 #import "MDCSnackbarMessageView.h"
 
 #import "MaterialAnimationTiming.h"
+#import "MaterialMath.h"
+#import "MaterialShadowLayer.h"
 #import "MaterialTypography.h"
 #import "private/MDCSnackbarMessageViewInternal.h"
 #import "private/MDCSnackbarOverlayView.h"
@@ -42,17 +44,6 @@ static inline UIColor *MDCRGBAColor(uint8_t r, uint8_t g, uint8_t b, float a) {
  The thickness of the Snackbar border.
  */
 static const CGFloat kBorderWidth = 0;
-
-/**
- Shadow coloring.
- */
-static const CGFloat kShadowAlpha = (CGFloat)0.24;
-
-static const CGSize kShadowOffset = (CGSize){0.0, 2.0};
-static const CGSize kLegacyShadowOffset = (CGSize){0.0, 1.0};
-
-static const CGFloat kShadowSpread = 4;
-static const CGFloat kLegacyShadowSpread = 1;
 
 /**
  The radius of the corners.
@@ -202,6 +193,9 @@ static const MDCFontTextStyle kButtonTextStyle = MDCFontTextStyleButton;
   BOOL _mdc_adjustsFontForContentSizeCategory;
 }
 
+@synthesize mdc_overrideBaseElevation = _mdc_overrideBaseElevation;
+@synthesize mdc_elevationDidChangeBlock = _mdc_elevationDidChangeBlock;
+
 - (instancetype)initWithFrame:(CGRect)frame {
   return [self initWithMessage:nil
                 dismissHandler:nil
@@ -225,23 +219,23 @@ static const MDCFontTextStyle kButtonTextStyle = MDCFontTextStyleButton;
     _buttonTitleColors[@(UIControlStateHighlighted)] =
         [manager buttonTitleColorForState:UIControlStateHighlighted] ?: UIColor.whiteColor;
     _mdc_adjustsFontForContentSizeCategory = manager.mdc_adjustsFontForContentSizeCategory;
+    _adjustsFontForContentSizeCategoryWhenScaledFontIsUnavailable =
+        manager.adjustsFontForContentSizeCategoryWhenScaledFontIsUnavailable;
     _messageFont = manager.messageFont;
     _buttonFont = manager.buttonFont;
     _message = message;
     _dismissalHandler = [handler copy];
-
+    _mdc_overrideBaseElevation = manager.mdc_overrideBaseElevation;
+    _traitCollectionDidChangeBlock = manager.traitCollectionDidChangeBlockForMessageView;
+    _mdc_elevationDidChangeBlock = manager.mdc_elevationDidChangeBlockForMessageView;
     self.backgroundColor = _snackbarMessageViewBackgroundColor;
-    self.layer.shadowColor = _snackbarMessageViewShadowColor.CGColor;
-    self.layer.shadowOpacity = (float)kShadowAlpha;
     if (MDCSnackbarMessage.usesLegacySnackbar) {
       self.layer.cornerRadius = kLegacyCornerRadius;
-      self.layer.shadowOffset = kLegacyShadowOffset;
-      self.layer.shadowRadius = kLegacyShadowSpread;
     } else {
       self.layer.cornerRadius = kCornerRadius;
-      self.layer.shadowOffset = kShadowOffset;
-      self.layer.shadowRadius = kShadowSpread;
     }
+    _elevation = manager.messageElevation;
+    [(MDCShadowLayer *)self.layer setElevation:_elevation];
 
     _anchoredToScreenBottom = YES;
 
@@ -416,6 +410,27 @@ static const MDCFontTextStyle kButtonTextStyle = MDCFontTextStyleButton;
   }
 }
 
++ (Class)layerClass {
+  return [MDCShadowLayer class];
+}
+
+- (void)setElevation:(MDCShadowElevation)elevation {
+  BOOL elevationChanged = !MDCCGFloatEqual(_elevation, elevation);
+  _elevation = elevation;
+  [(MDCShadowLayer *)self.layer setElevation:_elevation];
+  if (elevationChanged) {
+    [self mdc_elevationDidChange];
+  }
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+  [super traitCollectionDidChange:previousTraitCollection];
+
+  if (self.traitCollectionDidChangeBlock) {
+    self.traitCollectionDidChangeBlock(self, previousTraitCollection);
+  }
+}
+
 #pragma mark - Subclass overrides
 
 + (BOOL)requiresConstraintBasedLayout {
@@ -512,9 +527,13 @@ static const MDCFontTextStyle kButtonTextStyle = MDCFontTextStyleButton;
   if (_messageFont) {
     // If we are automatically adjusting for Dynamic Type resize the font based on the text style
     if (_mdc_adjustsFontForContentSizeCategory) {
-      _label.font =
-          [_messageFont mdc_fontSizedForMaterialTextStyle:kMessageTextStyle
-                                     scaledForDynamicType:_mdc_adjustsFontForContentSizeCategory];
+      if (_messageFont.mdc_scalingCurve) {
+        _label.font = [_messageFont mdc_scaledFontForTraitEnvironment:self];
+      } else if (_adjustsFontForContentSizeCategoryWhenScaledFontIsUnavailable) {
+        _label.font =
+            [_messageFont mdc_fontSizedForMaterialTextStyle:kMessageTextStyle
+                                       scaledForDynamicType:_mdc_adjustsFontForContentSizeCategory];
+      }
     } else {
       _label.font = _messageFont;
     }
@@ -563,13 +582,16 @@ static const MDCFontTextStyle kButtonTextStyle = MDCFontTextStyleButton;
   // If we have a custom font apply it to the label.
   // If not, fall back to the Material specified font.
   if (_buttonFont) {
+    finalButtonFont = _buttonFont;
     // If we are automatically adjusting for Dynamic Type resize the font based on the text style
     if (_mdc_adjustsFontForContentSizeCategory) {
-      finalButtonFont =
-          [_buttonFont mdc_fontSizedForMaterialTextStyle:kButtonTextStyle
-                                    scaledForDynamicType:_mdc_adjustsFontForContentSizeCategory];
-    } else {
-      finalButtonFont = _buttonFont;
+      if (_buttonFont.mdc_scalingCurve) {
+        finalButtonFont = [_buttonFont mdc_scaledFontForTraitEnvironment:self];
+      } else if (_adjustsFontForContentSizeCategoryWhenScaledFontIsUnavailable) {
+        finalButtonFont =
+            [_buttonFont mdc_fontSizedForMaterialTextStyle:kButtonTextStyle
+                                      scaledForDynamicType:_mdc_adjustsFontForContentSizeCategory];
+      }
     }
   } else {
     // TODO(#2709): Migrate to a single source of truth for fonts
@@ -910,6 +932,7 @@ static const MDCFontTextStyle kButtonTextStyle = MDCFontTextStyleButton;
                    cornerRadius:MDCSnackbarMessage.usesLegacySnackbar ? kLegacyCornerRadius
                                                                       : kCornerRadius];
   self.layer.shadowPath = path.CGPath;
+  self.layer.shadowColor = self.snackbarMessageViewShadowColor.CGColor;
 }
 
 #pragma mark - Sizing
@@ -1113,6 +1136,12 @@ static const MDCFontTextStyle kButtonTextStyle = MDCFontTextStyleButton;
 - (void)contentSizeCategoryDidChange:(__unused NSNotification *)notification {
   [self updateMessageFont];
   [self updateButtonFont];
+}
+
+#pragma mark - Elevation
+
+- (CGFloat)mdc_currentElevation {
+  return self.elevation;
 }
 
 @end

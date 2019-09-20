@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Yu-So-FjW">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +24,7 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="ArticlesViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pY6-Rt-GSX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rCt-Yy-5zS">
@@ -110,15 +108,9 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="The Post" largeTitleDisplayMode="always" id="ke7-UP-UWa">
                         <barButtonItem key="backBarButtonItem" title="Articles" id="RR0-F8-uEx"/>
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="JcB-BK-Ffv">
-                            <connections>
-                                <action selector="tempLogout:" destination="9pv-A4-QxB" id="oWi-Ge-D5h"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="articleCollectionView" destination="pY6-Rt-GSX" id="hSa-ps-UvW"/>
-                        <outlet property="logoutSigninBarButton" destination="JcB-BK-Ffv" id="1ee-A2-UgK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -130,11 +122,11 @@
             <objects>
                 <viewController title="Writing" id="bI4-qh-96K" customClass="ArticleWebViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OC9-tn-UMV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qY1-K1-Gas">
-                                <rect key="frame" x="0.0" y="140" width="375" height="589"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -164,18 +156,18 @@
             <objects>
                 <viewController title="The Post" id="8rJ-Kc-sve" customClass="SLCMLoginViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mahe" translatesAutoresizingMaskIntoConstraints="NO" id="QOD-wt-RAi">
-                                <rect key="frame" x="16" y="161" width="343" height="101"/>
+                                <rect key="frame" x="16" y="21" width="343" height="101"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="101" id="sPi-g1-8ER"/>
                                     <constraint firstAttribute="width" constant="343" id="yrB-dU-box"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="znw-XZ-13a">
-                                <rect key="frame" x="123" y="279" width="128" height="269"/>
+                                <rect key="frame" x="123" y="139" width="128" height="269"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SLCM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHH-uE-Afm">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="53"/>
@@ -184,15 +176,13 @@
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="shadowColor" red="0.99215686270000003" green="0.64705882349999999" blue="0.058823529409999999" alpha="0.81514084509999996" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KO4-As-ZjB">
-                                        <rect key="frame" x="0.0" y="93" width="128" height="30"/>
-                                        <nil key="textColor"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KO4-As-ZjB">
+                                        <rect key="frame" x="0.0" y="93" width="128" height="26"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b0c-g5-FcD">
-                                        <rect key="frame" x="0.0" y="163" width="128" height="30"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="159" width="128" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
@@ -221,7 +211,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your data is secured by state-of-the-art AES-256 encryption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9L-Ia-2VT">
-                                <rect key="frame" x="16" y="647" width="343" height="40"/>
+                                <rect key="frame" x="16" y="507" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="23d-cK-nh9"/>
                                 </constraints>
@@ -230,7 +220,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wC3-SO-iqr" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
-                                <rect key="frame" x="162" y="589" width="50" height="50"/>
+                                <rect key="frame" x="162" y="449" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="u5S-gN-aeR"/>
@@ -238,7 +228,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wC3-SO-iqr" firstAttribute="top" secondItem="znw-XZ-13a" secondAttribute="bottom" constant="41" id="DBg-c2-2d9"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="znw-XZ-13a" secondAttribute="trailing" constant="124" id="Df3-kM-a7x"/>
@@ -275,53 +266,6 @@
             </objects>
             <point key="canvasLocation" x="1666" y="358"/>
         </scene>
-        <!--Sign In View Controller-->
-        <scene sceneID="Tso-Fd-cuH">
-            <objects>
-                <viewController storyboardIdentifier="loginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Yu-So-FjW" customClass="SignInViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2SD-4X-GTQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post_login" translatesAutoresizingMaskIntoConstraints="NO" id="SU8-JO-57V">
-                                <rect key="frame" x="67" y="202" width="240" height="240"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRb-Ru-qAs" customClass="GIDSignInButton">
-                                <rect key="frame" x="112" y="583" width="150" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aw7-B0-ZbT">
-                                <rect key="frame" x="150" y="711" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Skip">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="skipSignIn:" destination="0Yu-So-FjW" eventType="touchUpInside" id="yH5-j8-Rz8"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.94760888814926147" green="0.40464368462562561" blue="0.22638320922851562" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="SU8-JO-57V" firstAttribute="top" secondItem="F41-ml-B2x" secondAttribute="top" constant="158" id="8DE-nR-979"/>
-                            <constraint firstItem="SU8-JO-57V" firstAttribute="leading" secondItem="F41-ml-B2x" secondAttribute="leading" constant="67" id="L6e-ZV-p8g"/>
-                            <constraint firstItem="F41-ml-B2x" firstAttribute="bottom" secondItem="SU8-JO-57V" secondAttribute="bottom" constant="336" id="M7O-Kn-jc6"/>
-                            <constraint firstItem="F41-ml-B2x" firstAttribute="trailing" secondItem="iRb-Ru-qAs" secondAttribute="trailing" constant="113" id="PKo-SG-tdV"/>
-                            <constraint firstItem="iRb-Ru-qAs" firstAttribute="leading" secondItem="F41-ml-B2x" secondAttribute="leading" constant="112" id="Rc5-5n-BJU"/>
-                            <constraint firstItem="iRb-Ru-qAs" firstAttribute="top" secondItem="SU8-JO-57V" secondAttribute="bottom" constant="141" id="Tkv-Q7-erd"/>
-                            <constraint firstItem="F41-ml-B2x" firstAttribute="bottom" secondItem="iRb-Ru-qAs" secondAttribute="bottom" constant="145" id="czE-pE-cWD"/>
-                            <constraint firstItem="F41-ml-B2x" firstAttribute="trailing" secondItem="SU8-JO-57V" secondAttribute="trailing" constant="68" id="gLY-7j-jwL"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="F41-ml-B2x"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tYC-Vz-UvF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4090.4000000000001" y="-505.41871921182269"/>
-        </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -340,18 +284,18 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3196" y="-523"/>
+            <point key="canvasLocation" x="-2340" y="-1023"/>
         </scene>
         <!--Events-->
         <scene sceneID="qHd-Cs-Qjr">
             <objects>
                 <viewController id="zfk-cU-lyp" customClass="EventsViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fGo-xN-PKy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tIV-aL-d78">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e5f-Km-pem">
                                     <size key="itemSize" width="365" height="450"/>
@@ -408,7 +352,6 @@
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="bottom" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="m6t-T7-bRR">
                                                     <rect key="frame" x="20" y="289" width="325" height="140.66666666666666"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="1O3-27-Ub1">
                                                             <rect key="frame" x="0.0" y="0.0" width="325" height="46.666666666666664"/>
@@ -561,10 +504,11 @@
                         </connections>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="eik-JB-7OV">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="eik-JB-7OV">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.95810431241989136" green="0.55556952953338623" blue="0.16379335522651672" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="0.0"/>
                             <color key="textColor" red="0.93360137939999999" green="0.53003525730000001" blue="0.1598373055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -590,10 +534,14 @@
                         </connections>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="tEs-5X-FWA">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="tEs-5X-FWA">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.95110839605331421" green="0.6100042462348938" blue="0.280234694480896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -613,7 +561,7 @@
             <objects>
                 <tableViewController title="SLCM" id="vFB-Dx-17J" customClass="SLCMTableViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="668" sectionHeaderHeight="28" sectionFooterHeight="28" id="D01-bf-tgI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="951"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="917"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1320,7 +1268,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" largeTitles="YES" id="dua-NC-bJK">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.95810431241989136" green="0.61723464727401733" blue="0.280234694480896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1343,11 +1291,11 @@
             <objects>
                 <viewController id="BQ0-Aw-iTp" customClass="NoticesCollectionViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rw9-vT-pMT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PT8-7R-pXp">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zNj-gC-0oj">
                                     <size key="itemSize" width="350" height="365"/>
@@ -2802,7 +2750,6 @@ AABtAAAAAAAAAAAAAAAAAAEs0w
         <image name="mahe" width="1064.5" height="273.5"/>
         <image name="megaphone" width="21.333333969116211" height="21.333333969116211"/>
         <image name="next" width="32" height="32"/>
-        <image name="post_login" width="1503" height="1508"/>
         <image name="posttabicon" width="25" height="25"/>
         <image name="route" width="64" height="64"/>
         <image name="share" width="64" height="64"/>

@@ -17,6 +17,7 @@
 #import "MDCFlexibleHeaderView+ShiftBehavior.h"
 #import "MaterialApplication.h"
 #import "MaterialMath.h"
+#import "MaterialShadowElevations.h"
 #import "MaterialUIMetrics.h"
 #import "private/MDCFlexibleHeaderMinMaxHeight.h"
 #import "private/MDCFlexibleHeaderTopSafeArea.h"
@@ -208,6 +209,8 @@ static inline MDCFlexibleHeaderShiftBehavior ShiftBehaviorForCurrentAppContext(
 @dynamic minMaxHeightIncludesSafeArea;
 
 // MDCFlexibleHeader properties
+@synthesize mdc_overrideBaseElevation = _mdc_overrideBaseElevation;
+@synthesize mdc_elevationDidChangeBlock = _mdc_elevationDidChangeBlock;
 @synthesize trackingScrollViewIsBeingScrubbed = _trackingScrollViewIsBeingScrubbed;
 @synthesize scrollPhase = _scrollPhase;
 @synthesize scrollPhaseValue = _scrollPhaseValue;
@@ -291,6 +294,8 @@ static inline MDCFlexibleHeaderShiftBehavior ShiftBehaviorForCurrentAppContext(
   _customShadowLayer.hidden = YES;
   [self.layer addSublayer:_customShadowLayer];
 
+  _shadowColor = UIColor.blackColor;
+
   _topSafeAreaGuide = [[UIView alloc] init];
   _topSafeAreaGuide.frame = CGRectMake(0, 0, 0, [_topSafeArea topSafeAreaInset]);
   [self addSubview:_topSafeAreaGuide];
@@ -322,6 +327,8 @@ static inline MDCFlexibleHeaderShiftBehavior ShiftBehaviorForCurrentAppContext(
                                            selector:@selector(fhv_updateLayout)
                                                name:voiceOverNotification
                                              object:nil];
+
+  _mdc_overrideBaseElevation = -1;
 }
 
 - (void)setVisibleShadowOpacity:(float)visibleShadowOpacity {
@@ -362,6 +369,11 @@ static inline MDCFlexibleHeaderShiftBehavior ShiftBehaviorForCurrentAppContext(
   [self fhv_setShadowLayer:shadowLayer intensityDidChangeBlock:block];
 }
 
+- (void)setShadowColor:(UIColor *)shadowColor {
+  _shadowColor = [shadowColor copy];
+  [self fhv_updateShadowColor];
+}
+
 #pragma mark - UIView
 
 - (CGSize)sizeThatFits:(CGSize)size {
@@ -371,6 +383,7 @@ static inline MDCFlexibleHeaderShiftBehavior ShiftBehaviorForCurrentAppContext(
 - (void)layoutSubviews {
   [super layoutSubviews];
 
+  [self fhv_updateShadowColor];
   [self fhv_updateShadowPath];
   [CATransaction begin];
   BOOL disableActions = [CATransaction disableActions];
@@ -669,6 +682,12 @@ static inline MDCFlexibleHeaderShiftBehavior ShiftBehaviorForCurrentAppContext(
   UIBezierPath *path =
       [UIBezierPath bezierPathWithRect:CGRectInset(self.bounds, -self.layer.shadowRadius, 0)];
   self.layer.shadowPath = [path CGPath];
+}
+
+- (void)fhv_updateShadowColor {
+  _defaultShadowLayer.shadowColor = self.shadowColor.CGColor;
+  _customShadowLayer.shadowColor = self.shadowColor.CGColor;
+  _shadowLayer.shadowColor = self.shadowColor.CGColor;
 }
 
 #pragma mark Typically-used values
@@ -1257,6 +1276,16 @@ static inline MDCFlexibleHeaderShiftBehavior ShiftBehaviorForCurrentAppContext(
   }
 
   [self fhv_updateLayout];
+}
+
+#pragma mark TraitCollection
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+  [super traitCollectionDidChange:previousTraitCollection];
+
+  if (self.traitCollectionDidChangeBlock) {
+    self.traitCollectionDidChangeBlock(self, previousTraitCollection);
+  }
 }
 
 #pragma mark KVO
@@ -1864,6 +1893,21 @@ static BOOL isRunningiOS10_3OrAbove() {
   // Translucent content means that the status bar shifter should not use snapshotting. Otherwise,
   // stale visual content under the status bar region may be snapshotted.
   _statusBarShifter.snapshottingEnabled = !contentIsTranslucent;
+}
+
+#pragma mark - MDCElevation
+
+- (void)setElevation:(MDCShadowElevation)elevation {
+  if (MDCCGFloatEqual(elevation, _elevation)) {
+    return;
+  }
+
+  _elevation = elevation;
+  [self mdc_elevationDidChange];
+}
+
+- (CGFloat)mdc_currentElevation {
+  return self.elevation;
 }
 
 @end

@@ -18,7 +18,7 @@ import Firebase
 
 class ArticlesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate {
     
-    let API = "https://api.themitpost.com/posts";
+    let API = "https://app.themitpost.com/posts";
     var articlesList = [Article]()
     
     @IBOutlet var articleCollectionView: UICollectionView!
@@ -29,17 +29,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     let window: UIWindow? = nil
     let _storyboard_ = UIStoryboard(name: "Main", bundle: Bundle.main)
-    
-    @IBAction func tempLogout(_ sender: Any) {
-        
-        GIDSignIn.sharedInstance()?.signOut()
-        try! Auth.auth().signOut()
-        
-        self.present(_storyboard_.instantiateViewController(withIdentifier: "loginView"), animated: true) {
-            print("Successfully logged out and presenting login")
-        }
-        
-    }
     
     @IBOutlet weak var logoutSigninBarButton: UIBarButtonItem!
     
@@ -67,6 +56,12 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 emptyImageView.center = self.view.center
                 
                 self.view.addSubview(emptyImageView)
+            }
+            
+            if #available(iOS 13.0, *) {
+                self.view.backgroundColor = .systemBackground
+            } else {
+                // Fallback on earlier versions
             }
             
         }

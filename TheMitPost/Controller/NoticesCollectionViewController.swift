@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class NoticesCollectionViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    let API = "https://api.themitpost.com/notices"
+    let API = "https://app.themitpost.com/notices"
     
     @IBOutlet weak var noticesCollectionView: UICollectionView!
     

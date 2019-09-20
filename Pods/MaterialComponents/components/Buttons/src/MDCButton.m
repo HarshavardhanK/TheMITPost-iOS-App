@@ -101,6 +101,8 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
 
 @implementation MDCButton
 
+@synthesize mdc_overrideBaseElevation = _mdc_overrideBaseElevation;
+@synthesize mdc_elevationDidChangeBlock = _mdc_elevationDidChangeBlock;
 @dynamic layer;
 
 + (Class)layerClass {
@@ -146,7 +148,6 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
 - (void)commonMDCButtonInit {
   _disabledAlpha = MDCButtonDisabledAlpha;
   _enabledAlpha = self.alpha;
-  _shouldRaiseOnTouch = YES;
   _uppercaseTitle = YES;
   _userElevations = [NSMutableDictionary dictionary];
   _nontransformedTitles = [NSMutableDictionary dictionary];
@@ -156,6 +157,7 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
   _fonts = [NSMutableDictionary dictionary];
   _accessibilityTraitsIncludesButton = YES;
   _adjustsFontForContentSizeCategoryWhenScaledFontIsUnavailable = YES;
+  _mdc_overrideBaseElevation = -1;
 
   if (!_backgroundColors) {
     // _backgroundColors may have already been initialized by setting the backgroundColor setter.
@@ -166,11 +168,6 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
   // Disable default highlight state.
   self.adjustsImageWhenHighlighted = NO;
   self.showsTouchWhenHighlighted = NO;
-
-  // Default content insets
-  self.contentEdgeInsets = [self defaultContentEdgeInsets];
-  _minimumSize = CGSizeZero;
-  _maximumSize = CGSizeZero;
 
   self.layer.cornerRadius = MDCButtonDefaultCornerRadius;
   if (!self.layer.shapeGenerator) {
@@ -203,6 +200,19 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
 
   _rippleView = [[MDCStatefulRippleView alloc] initWithFrame:self.bounds];
   _rippleView.rippleColor = [UIColor colorWithWhite:1 alpha:(CGFloat)0.12];
+
+  // Default content insets
+  // The default contentEdgeInsets are set here (instead of above, as they were previously) because
+  // of a UIButton bug introduced in the iOS 13 betas that is unresolved as of Xcode 11 beta 4
+  // (b/136088498) wherein setting self.contentEdgeInsets before accessing self.imageView causes the
+  // imageView's bounds.origin to be set to { -(i.left + i.right), -(i.top + i.bottom) }
+  // This causes images created by using imageWithHorizontallyFlippedOrientation to not display.
+  // Images that have not been created this way seem to be fine.
+  // This behavior can also be seen in vanilla UIButtons by setting contentEdgeInsets to non-zero
+  // inset values and then setting an image created with imageWithHorizontallyFlippedOrientation.
+  self.contentEdgeInsets = [self defaultContentEdgeInsets];
+  _minimumSize = CGSizeZero;
+  _maximumSize = CGSizeZero;
 
   // Uppercase all titles
   if (_uppercaseTitle) {
@@ -239,6 +249,10 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
 
 - (void)layoutSubviews {
   [super layoutSubviews];
+
+  [self updateShadowColor];
+  [self updateBackgroundColor];
+  [self updateBorderColor];
   if (!self.layer.shapeGenerator) {
     self.layer.shadowPath = [self boundingPath].CGPath;
   }
@@ -312,6 +326,18 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
     superSize.width = MIN(self.maximumSize.width, superSize.width);
   }
   return superSize;
+}
+
+- (CGSize)intrinsicContentSize {
+  return [self sizeThatFits:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+  [super traitCollectionDidChange:previousTraitCollection];
+
+  if (self.traitCollectionDidChangeBlock) {
+    self.traitCollectionDidChangeBlock(self, previousTraitCollection);
+  }
 }
 
 #pragma mark - UIResponder
@@ -561,13 +587,14 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
 
 - (void)animateButtonToHeightForState:(UIControlState)state {
   CGFloat newElevation = [self elevationForState:state];
-  if (self.layer.elevation == newElevation) {
+  if (MDCCGFloatEqual(self.layer.elevation, newElevation)) {
     return;
   }
   [CATransaction begin];
   [CATransaction setAnimationDuration:MDCButtonAnimationDuration];
   self.layer.elevation = newElevation;
   [CATransaction commit];
+  [self mdc_elevationDidChange];
 }
 
 #pragma mark - BackgroundColor
@@ -650,6 +677,7 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
     return;
   }
   self.layer.elevation = newElevation;
+  [self mdc_elevationDidChange];
 
   // The elevation of the normal state controls whether this button is flat or not, and flat buttons
   // have different background color requirements than raised buttons.
@@ -764,6 +792,12 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
     _fonts[@(storageState)] = font;
     [self updateTitleFont];
   }
+}
+
+#pragma mark - MaterialElevation
+
+- (CGFloat)mdc_currentElevation {
+  return [self elevationForState:self.state];
 }
 
 #pragma mark - Private methods
@@ -958,35 +992,7 @@ static NSAttributedString *uppercaseAttributedString(NSAttributedString *string)
   [self sizeToFit];
 }
 
-- (BOOL)mdc_legacyFontScaling {
-  return self.adjustsFontForContentSizeCategoryWhenScaledFontIsUnavailable;
-}
-
-- (void)mdc_setLegacyFontScaling:(BOOL)mdc_legacyFontScaling {
-  self.adjustsFontForContentSizeCategoryWhenScaledFontIsUnavailable = mdc_legacyFontScaling;
-}
-
 #pragma mark - Deprecations
-
-- (void)setCustomTitleColor:(UIColor *)customTitleColor {
-  [self setTitleColor:customTitleColor forState:UIControlStateNormal];
-}
-
-- (UIColor *)customTitleColor {
-  return [self titleColorForState:UIControlStateNormal];
-}
-
-- (BOOL)shouldCapitalizeTitle {
-  return [self isUppercaseTitle];
-}
-
-- (void)setShouldCapitalizeTitle:(BOOL)shouldCapitalizeTitle {
-  [self setUppercaseTitle:shouldCapitalizeTitle];
-}
-
-- (UIColor *)underlyingColor {
-  return [self underlyingColorHint];
-}
 
 - (void)setUnderlyingColor:(UIColor *)underlyingColor {
   [self setUnderlyingColorHint:underlyingColor];

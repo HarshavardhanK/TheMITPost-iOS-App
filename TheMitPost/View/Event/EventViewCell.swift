@@ -92,6 +92,21 @@ class EventViewCell: UICollectionViewCell {
         titleLabel.layer.cornerRadius = 5.0
         titleLabel.layer.shadowRadius = 10.0
         
+        //darkMode()
+        
+    }
+    
+    func darkMode() {
+        
+        if #available(iOS 13.0, *) {
+            backgroundColor = .systemBackground
+            titleLabel.backgroundColor = .systemBackground
+            timeLabel.backgroundColor = .systemBackground
+            descriptionLabel.backgroundColor = .systemBackground
+            organizerNameLabel.backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+        }
         
     }
     

@@ -12,7 +12,7 @@ import SafariServices
 
 class ArticleWebViewController: UIViewController, WKNavigationDelegate {
     
-    let API = "https://api.themitpost.com/posts/render/"
+    let API = "https://app.themitpost.com/posts/render/"
     var POST_ID: String?
 
     @IBOutlet weak var articleWebView: WKWebView!

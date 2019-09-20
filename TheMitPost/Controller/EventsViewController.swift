@@ -15,7 +15,7 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @IBOutlet weak var eventsCollectionView: UICollectionView!
     
-    let EVENTS_API = "https://api.themitpost.com/events"
+    let EVENTS_API = "https://app.themitpost.com/events"
     
     var events = [Events]()
     var eventShown = [Bool]()
@@ -39,6 +39,12 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
                 self.view.addSubview(emptyImageView)
             }
             
+        }
+        
+        if #available(iOS 13.0, *) {
+            self.view.backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
         }
         
         refreshControl.addTarget(self, action: #selector(refreshEvents), for: .valueChanged)

@@ -83,9 +83,6 @@
 		D6D6A22621ECC5A500B822F8 /* TheMitPostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A22521ECC5A500B822F8 /* TheMitPostTests.swift */; };
 		D6D6A23121ECC5A500B822F8 /* TheMitPostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A23021ECC5A500B822F8 /* TheMitPostUITests.swift */; };
 		D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D6A24021ECDC1800B822F8 /* GoogleService-Info.plist */; };
-		D6EE553D22EAD73C0055AE74 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE553C22EAD73C0055AE74 /* SignInViewController.swift */; };
-		D6EE553E22EAD73C0055AE74 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE553C22EAD73C0055AE74 /* SignInViewController.swift */; };
-		D6EE553F22EAD73C0055AE74 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE553C22EAD73C0055AE74 /* SignInViewController.swift */; };
 		D6F392B922D5FB5900CE50D1 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F392B822D5FB5900CE50D1 /* Events.swift */; };
 		D6F392BA22D5FB5900CE50D1 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F392B822D5FB5900CE50D1 /* Events.swift */; };
 		D6F392BB22D5FB5900CE50D1 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F392B822D5FB5900CE50D1 /* Events.swift */; };
@@ -171,7 +168,6 @@
 		D6D6A23021ECC5A500B822F8 /* TheMitPostUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMitPostUITests.swift; sourceTree = "<group>"; };
 		D6D6A23221ECC5A500B822F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6D6A24021ECDC1800B822F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D6EE553C22EAD73C0055AE74 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D6F392B822D5FB5900CE50D1 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		D6F392BC22D604DC00CE50D1 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		D6F8066B2204A0420041E09F /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
@@ -262,7 +258,6 @@
 				D6A8706222D916EA0057A30B /* Article */,
 				D6A8706322D916FE0057A30B /* SLCM */,
 				D6F392BC22D604DC00CE50D1 /* EventsViewController.swift */,
-				D6EE553C22EAD73C0055AE74 /* SignInViewController.swift */,
 				D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */,
 			);
 			path = Controller;
@@ -673,7 +668,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6EE553D22EAD73C0055AE74 /* SignInViewController.swift in Sources */,
 				D6F392B922D5FB5900CE50D1 /* Events.swift in Sources */,
 				D60EBF3121ED0CDF00DAC538 /* Article.swift in Sources */,
 				D6313DC72292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
@@ -713,7 +707,6 @@
 				D6F8066D2204A0420041E09F /* ArticleViewController.swift in Sources */,
 				D6FA299923326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */,
 				D664F31E22AF9F62002D6E0F /* Utilities.swift in Sources */,
-				D6EE553E22EAD73C0055AE74 /* SignInViewController.swift in Sources */,
 				D6339E4C2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */,
 				D61D3A9621EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D60EBF3221ED0CDF00DAC538 /* Article.swift in Sources */,
@@ -747,7 +740,6 @@
 				D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
 				D664F32922B0FA2D002D6E0F /* Notices.swift in Sources */,
 				D662420E23015E9F00261081 /* ArticleWebViewController.swift in Sources */,
-				D6EE553F22EAD73C0055AE74 /* SignInViewController.swift in Sources */,
 				D6FA299623326B2E00703DE7 /* NoticeCollectionViewCell.swift in Sources */,
 				D63B747C22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,
 				D6ACFF9D2242C22C00CDFAF6 /* ArticleTableViewCell.swift in Sources */,

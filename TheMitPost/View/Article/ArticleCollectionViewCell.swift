@@ -84,6 +84,24 @@ class ArticleCollectionViewCell: UICollectionViewCell {
        // authorLabel.font = UIFont(name: "Optima", size: 16)
         dateLabelView.font = UIFont(name: "Helvetica", size: 14)
         
+        darkMode()
+        
+    }
+    
+    func darkMode() {
+        
+        if #available(iOS 13.0, *) {
+            
+            backgroundColor = .systemBackground
+            
+            dateLabelView.backgroundColor = .systemBackground
+            titleLabelView.backgroundColor = .systemBackground
+            titleLabelView.backgroundColor = .systemBackground
+            
+        } else {
+            // Fallback on earlier versions
+        }
+        
     }
 
     
