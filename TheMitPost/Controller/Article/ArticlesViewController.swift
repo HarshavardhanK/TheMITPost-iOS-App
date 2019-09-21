@@ -43,7 +43,15 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if traitCollection.userInterfaceStyle == .dark {
+            self.navigationController?.navigationBar.barTintColor = .black
+        }
         
+        if #available(iOS 13.0, *) {
+            self.view.backgroundColor = .systemBackground
+            articleCollectionView.backgroundColor = .systemBackground
+        }
+    
         retrieveArticles { (success) in
             
             if !success {
@@ -53,12 +61,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 emptyImageView.center = self.view.center
                 
                 self.view.addSubview(emptyImageView)
-            }
-            
-            if #available(iOS 13.0, *) {
-                self.view.backgroundColor = .systemBackground
-            } else {
-                // Fallback on earlier versions
             }
             
         }
@@ -162,6 +164,22 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     /*override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }*/
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        let style = traitCollection.userInterfaceStyle
+        
+        if style == .dark {
+            print("dark mode detected")
+            self.navigationController?.navigationBar.barTintColor = .black
+        }
+        
+        if style == .light {
+            print("light mode detected")
+            self.navigationController?.navigationBar.barTintColor = .systemOrange
+        }
+    }
 
     
     //MARK:- UICOLLECTIONVIEW DATASOURCE AND DELEGATE METHODS

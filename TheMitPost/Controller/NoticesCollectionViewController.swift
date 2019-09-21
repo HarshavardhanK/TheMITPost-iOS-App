@@ -24,10 +24,36 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
 
         // Do any additional setup after loading the view.
         
+        if traitCollection.userInterfaceStyle == .dark {
+            self.navigationController?.navigationBar.barTintColor = .black
+        }
+        
+        if #available(iOS 13, *) {
+            noticesCollectionView.backgroundColor = .systemBackground
+            self.view.backgroundColor = .systemBackground
+            
+        }
+        
         noticesCollectionView.delegate = self
         noticesCollectionView.dataSource = self
         
         retrieveNotices()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        let style = traitCollection.userInterfaceStyle
+        
+        if style == .dark {
+            print("dark mode detected")
+            self.navigationController?.navigationBar.barTintColor = .black
+        }
+        
+        if style == .light {
+            print("light mode detected")
+            self.navigationController?.navigationBar.barTintColor = .systemOrange
+        }
     }
     
     func retrieveNotices() {

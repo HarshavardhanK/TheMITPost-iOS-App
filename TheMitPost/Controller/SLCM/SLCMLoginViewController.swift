@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
+import Lottie
 
 class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivityIndicatorViewable {
     
@@ -29,6 +30,9 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     //var activityIndicator: NVActivityIndicatorView!
     @IBOutlet var activityIndicator: NVActivityIndicatorView!
     
+   // @IBOutlet weak var lottieAnimationView: AnimationView!
+    let animationView = AnimationView()
+    
     var subjects = [Subject]()
     
     var result = false
@@ -37,10 +41,41 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     @IBAction func signInPressed(_ sender: Any) {
         
+        self.startActivityIndicator()
+        
+        signInButton.isEnabled = false
+        
+        loadSLCMData { (result) in
+        
+        if result {
+            
+            self.stopActivityIndicator()
+            
+            self.performSegue(withIdentifier: "slcmDetail", sender: self)
+            
+        } else {
+            
+            self.showAlertForInvalidCredentials()
+           
+            self.count += 1
+            
+            UserDefaults.standard.set(self.count, forKey: ERROR_CODES.INVALID_ATTEMPT)
+            
+            self.stopActivityIndicator()
+            
+//            if self.count == 2 {
+//                UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
+//            }
+          }
+        }
+        
         passwordTextfield.text = nil
         registrationTextfield.text = nil
         
-        if resetInvalidLock() {
+        signInButton.isEnabled = true
+    }
+        
+       /* if resetInvalidLock() {
             
             UserDefaults.standard.set(nil, forKey: ERROR_CODES.TIME_OF_INVALID)
             UserDefaults.standard.set(0, forKey: ERROR_CODES.INVALID_ATTEMPT)
@@ -88,10 +123,10 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             
             self.present(moreInvalidAttempts, animated: true, completion: nil)
             
-        }
+        }*/
         
         
-    }
+    //}
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,8 +138,14 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib
         
+        if traitCollection.userInterfaceStyle == .dark {
+            self.navigationController?.navigationBar.barTintColor = .black
+        }
+        
         registrationTextfield.delegate = self
         passwordTextfield.delegate = self
+        
+        self.view.backgroundColor = .systemBackground
         
         if let _registration = registrationTextfield.text {
             print(_registration)
@@ -120,6 +161,22 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        let style = traitCollection.userInterfaceStyle
+        
+        if style == .dark {
+            print("dark mode detected")
+            self.navigationController?.navigationBar.barTintColor = .black
+        }
+        
+        if style == .light {
+            print("light mode detected")
+            self.navigationController?.navigationBar.barTintColor = .systemOrange
+        }
     }
     
     func resetInvalidLock() -> Bool {
@@ -210,11 +267,15 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             return
         }
         
+        print("registration is \(registration)")
+        print("passwrod is \(password)")
+        
         Alamofire.request(self.SLCMAPI, method: .post, parameters:["regNumber":registration, "pass":password], encoding: JSONEncoding.default).responseJSON { response in
             
             print("calling post request")
             
             guard let resultValue = response.result.value else {
+                print("Failing in website")
                 completion(false)
                 //sendinf false would mean invalid login. Change it
                 //code to send error alert
@@ -222,10 +283,12 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             }
             
             let data = JSON(resultValue)
+            print(data)
             
             if data["message"].stringValue == "Invalid Credentials" {
                 
                 print(data["message"].stringValue)
+                print("Actually invalid")
                 success = false
                 
             } else {

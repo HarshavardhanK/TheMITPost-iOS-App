@@ -31,6 +31,11 @@
 		D63B747A22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
 		D63B747B22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
 		D63B747C22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
+		D64008FB2336A5DE0086064E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D64008FA2336A5DD0086064E /* Assets.xcassets */; };
+		D64008FC2336A5DE0086064E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D64008FA2336A5DD0086064E /* Assets.xcassets */; };
+		D64008FD2336A5DE0086064E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D64008FA2336A5DD0086064E /* Assets.xcassets */; };
+		D64009002336A8820086064E /* running-astro.json in Resources */ = {isa = PBXBuildFile; fileRef = D64008FF2336A8810086064E /* running-astro.json */; };
+		D64009012336A8820086064E /* running-astro.json in Resources */ = {isa = PBXBuildFile; fileRef = D64008FF2336A8810086064E /* running-astro.json */; };
 		D662420C23015E9F00261081 /* ArticleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662420B23015E9F00261081 /* ArticleWebViewController.swift */; };
 		D662420D23015E9F00261081 /* ArticleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662420B23015E9F00261081 /* ArticleWebViewController.swift */; };
 		D662420E23015E9F00261081 /* ArticleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662420B23015E9F00261081 /* ArticleWebViewController.swift */; };
@@ -78,7 +83,6 @@
 		D6D6A21121ECC5A200B822F8 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A21021ECC5A200B822F8 /* ArticlesViewController.swift */; };
 		D6D6A21321ECC5A200B822F8 /* SLCMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A21221ECC5A200B822F8 /* SLCMLoginViewController.swift */; };
 		D6D6A21621ECC5A200B822F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D6A21421ECC5A200B822F8 /* Main.storyboard */; };
-		D6D6A21821ECC5A400B822F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6D6A21721ECC5A400B822F8 /* Assets.xcassets */; };
 		D6D6A21B21ECC5A400B822F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D6A21921ECC5A400B822F8 /* LaunchScreen.storyboard */; };
 		D6D6A22621ECC5A500B822F8 /* TheMitPostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A22521ECC5A500B822F8 /* TheMitPostTests.swift */; };
 		D6D6A23121ECC5A500B822F8 /* TheMitPostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A23021ECC5A500B822F8 /* TheMitPostUITests.swift */; };
@@ -135,6 +139,8 @@
 		D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewController.swift; sourceTree = "<group>"; };
 		D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleImageTableViewCell.swift; sourceTree = "<group>"; };
 		D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCellTableViewCell.swift; sourceTree = "<group>"; };
+		D64008FA2336A5DD0086064E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D64008FF2336A8810086064E /* running-astro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "running-astro.json"; sourceTree = "<group>"; };
 		D662420B23015E9F00261081 /* ArticleWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWebViewController.swift; sourceTree = "<group>"; };
 		D664F31C22AF9F62002D6E0F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D664F32622B0FA2D002D6E0F /* Notices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notices.swift; sourceTree = "<group>"; };
@@ -158,7 +164,6 @@
 		D6D6A21021ECC5A200B822F8 /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		D6D6A21221ECC5A200B822F8 /* SLCMLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCMLoginViewController.swift; sourceTree = "<group>"; };
 		D6D6A21521ECC5A200B822F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D6D6A21721ECC5A400B822F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6D6A21A21ECC5A400B822F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6D6A21C21ECC5A400B822F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6D6A22121ECC5A500B822F8 /* TheMitPostTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMitPostTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,6 +277,14 @@
 			path = Auxiliary;
 			sourceTree = "<group>";
 		};
+		D64008FE2336A86E0086064E /* Lottie Animations */ = {
+			isa = PBXGroup;
+			children = (
+				D64008FF2336A8810086064E /* running-astro.json */,
+			);
+			path = "Lottie Animations";
+			sourceTree = "<group>";
+		};
 		D67A7E4C231C3DA6009754D4 /* SLCM */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,15 +386,16 @@
 		D6D6A20D21ECC5A200B822F8 /* TheMitPost */ = {
 			isa = PBXGroup;
 			children = (
+				D64008FE2336A86E0086064E /* Lottie Animations */,
 				D6ACF13F2246A00A001B8A68 /* Fonts */,
 				D60EBF2C21ED0C7000DAC538 /* Model */,
 				D60EBF2D21ED0C7800DAC538 /* View */,
 				D60EBF2E21ED0C7E00DAC538 /* Controller */,
 				D60EBF2F21ED0C8500DAC538 /* Auxiliary */,
 				D6D6A21421ECC5A200B822F8 /* Main.storyboard */,
-				D6D6A21721ECC5A400B822F8 /* Assets.xcassets */,
 				D6D6A21921ECC5A400B822F8 /* LaunchScreen.storyboard */,
 				D6D6A21C21ECC5A400B822F8 /* Info.plist */,
+				D64008FA2336A5DD0086064E /* Assets.xcassets */,
 				D6D6A24021ECDC1800B822F8 /* GoogleService-Info.plist */,
 			);
 			path = TheMitPost;
@@ -524,11 +538,12 @@
 				D6ACF12222469ED7001B8A68 /* Aileron-Regular.otf in Resources */,
 				D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */,
 				D6ACF11F22469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
+				D64009002336A8820086064E /* running-astro.json in Resources */,
 				D6339E452243B675007051A1 /* ArticleHeaderViewTableViewCell.xib in Resources */,
 				D6ACF12A22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */,
 				D6ACF12E22469EFF001B8A68 /* Roboto-Medium.ttf in Resources */,
-				D6D6A21821ECC5A400B822F8 /* Assets.xcassets in Resources */,
 				D6ACF13D22469F24001B8A68 /* DyeLine-Regular5.ttf in Resources */,
+				D64008FB2336A5DE0086064E /* Assets.xcassets in Resources */,
 				D6D6A21621ECC5A200B822F8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,6 +552,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D64009012336A8820086064E /* running-astro.json in Resources */,
+				D64008FC2336A5DE0086064E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +571,7 @@
 				D6ACF13822469F24001B8A68 /* DyeLine-Regular4.ttf in Resources */,
 				D6ACF12B22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */,
 				D6ACF12322469ED7001B8A68 /* Aileron-Regular.otf in Resources */,
+				D64008FD2336A5DE0086064E /* Assets.xcassets in Resources */,
 				D6ACF13A22469F24001B8A68 /* DyeLine-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

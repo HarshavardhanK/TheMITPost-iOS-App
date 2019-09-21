@@ -105,6 +105,13 @@ class SubjectCellTableViewCell: FoldingCell {
         }
     }
     
+//    func mode() {
+//
+//        if traitCollection.userInterfaceStyle == .dark {
+//            backgroundColor = .sys
+//        }
+//    }
+    
     override func awakeFromNib() {
         // Initialization code
         
@@ -112,6 +119,8 @@ class SubjectCellTableViewCell: FoldingCell {
         
         foregroundView.layer.cornerRadius = 15
         foregroundView.layer.masksToBounds = true
+        
+        backgroundColor = .systemBackground
         
     }
 

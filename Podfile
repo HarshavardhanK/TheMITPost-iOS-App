@@ -19,6 +19,7 @@ pod 'Alamofire'
 pod 'UIImageColors'
 pod 'NVActivityIndicatorView'
 pod 'RAMAnimatedTabBarController'
+pod 'lottie-ios'
 
   target 'TheMitPostTests' do
     inherit! :search_paths

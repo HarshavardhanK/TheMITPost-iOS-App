@@ -92,7 +92,7 @@ class EventViewCell: UICollectionViewCell {
         titleLabel.layer.cornerRadius = 5.0
         titleLabel.layer.shadowRadius = 10.0
         
-        //darkMode()
+        darkMode()
         
     }
     

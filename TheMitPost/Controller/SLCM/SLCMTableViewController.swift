@@ -23,6 +23,12 @@ class SLCMTableViewController: UITableViewController {
         //self.navigationController?.title = "SLCM Without The Hassle"
         //self.tabBarController?.tabBar.isHidden = true
         
+        if traitCollection.userInterfaceStyle == .dark {
+            self.navigationController?.navigationBar.barTintColor = .black
+        }
+        
+        
+        
         setup()
         print("View loaded..")
         print(subjects.count)
@@ -32,12 +38,33 @@ class SLCMTableViewController: UITableViewController {
         
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        let style = traitCollection.userInterfaceStyle
+        
+        if style == .dark {
+            print("dark mode detected")
+            self.navigationController?.navigationBar.barTintColor = .black
+        }
+        
+        if style == .light {
+            print("light mode detected")
+            self.navigationController?.navigationBar.barTintColor = .systemOrange
+        }
+    }
+    
     //MARK:- HELPERS
     func setup() {
         
         cellHeights = Array(repeating: Cell.CellHeight.cellClose, count: subjects.count)
         
-        tableView.backgroundColor = UIColor(patternImage: UIImage(named: "slcm_background_2")!)
+        if traitCollection.userInterfaceStyle == .dark {
+            tableView.backgroundColor = .black
+        } else {
+            tableView.backgroundColor = UIColor(patternImage: UIImage(named: "slcm_background_2")!)
+        }
+    
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = Cell.CellHeight.cellClose
         tableView.rowHeight = UITableView.automaticDimension

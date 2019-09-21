@@ -20,10 +20,15 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         if let id = POST_ID {
             
-            let url = URL(string: API + id)!
+            var urlString = API + id
+            
+            if traitCollection.userInterfaceStyle == .dark {
+                urlString += "/dark"
+            }
+            
+            let url = URL(string: urlString)!
             
             articleWebView.load(URLRequest(url: url))
             

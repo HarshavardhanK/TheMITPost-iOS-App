@@ -24,6 +24,10 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if traitCollection.userInterfaceStyle == .dark {
+            self.navigationController?.navigationBar.barTintColor = .black
+        }
 
         eventsCollectionView.delegate = self
         eventsCollectionView.dataSource = self
@@ -43,12 +47,30 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         if #available(iOS 13.0, *) {
             self.view.backgroundColor = .systemBackground
+            self.eventsCollectionView.backgroundColor = .systemBackground
+            
         } else {
             // Fallback on earlier versions
         }
         
         refreshControl.addTarget(self, action: #selector(refreshEvents), for: .valueChanged)
         
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        let style = traitCollection.userInterfaceStyle
+        
+        if style == .dark {
+            print("dark mode detected")
+            self.navigationController?.navigationBar.barTintColor = .black
+        }
+        
+        if style == .light {
+            print("light mode detected")
+            self.navigationController?.navigationBar.barTintColor = .systemOrange
+        }
     }
 
     // MARK: - Table view data source
