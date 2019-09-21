@@ -43,9 +43,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if Auth.auth().currentUser == nil {
-            logoutSigninBarButton.title = "Sign In"
-        }
         
         retrieveArticles { (success) in
             
@@ -162,9 +159,9 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     
     //MARK:- Configue UI
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+    /*override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }*/
 
     
     //MARK:- UICOLLECTIONVIEW DATASOURCE AND DELEGATE METHODS

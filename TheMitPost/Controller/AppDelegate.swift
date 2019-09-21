@@ -37,10 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {//}, GIDSignInDelegate {
             
         } else {
             self.window?.rootViewController = self.storyBoard.instantiateViewController(withIdentifier: "loginView")
-        }
+        }*/
         
         
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]*/
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         
         return true
     }
