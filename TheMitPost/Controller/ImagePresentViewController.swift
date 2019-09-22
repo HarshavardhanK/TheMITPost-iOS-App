@@ -21,6 +21,7 @@ class ImagePresentViewController: UIViewController {
         imageView.sd_setImage(with: image_url!, completed: nil)
 
         // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.barTintColor = .black
     }
     
 

@@ -22,12 +22,20 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     let refreshControl = UIRefreshControl()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupNavigationBar()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if traitCollection.userInterfaceStyle == .dark {
-            self.navigationController?.navigationBar.barTintColor = .darkGray
-        }
+        //setupNavigationBar()
 
         eventsCollectionView.delegate = self
         eventsCollectionView.dataSource = self
@@ -57,6 +65,25 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         
     }
     
+    func setupNavigationBar() {
+        
+        if traitCollection.userInterfaceStyle == .dark {
+            self.navigationController?.navigationBar.barTintColor = .black
+            
+        } else {
+            self.navigationController?.navigationBar.barTintColor = .white
+        }
+        
+        let images = ["crown", "crown1", "confetti", "dancing"]
+        let choice = images[Int(arc4random() % 4)]
+        
+        let crownImageView = UIImageView(frame: CGRect(x: 0, y: 2, width: 27, height: 30))
+        crownImageView.contentMode = .scaleAspectFit
+        crownImageView.image = UIImage(named: choice)
+        self.navigationItem.titleView = crownImageView
+        
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
@@ -64,12 +91,12 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         if style == .dark {
             print("dark mode detected")
-            self.navigationController?.navigationBar.barTintColor = .darkGray
+            self.navigationController?.navigationBar.barTintColor = .black
         }
         
         if style == .light {
             print("light mode detected")
-            self.navigationController?.navigationBar.barTintColor = .systemOrange
+            self.navigationController?.navigationBar.barTintColor = .white
         }
     }
     
