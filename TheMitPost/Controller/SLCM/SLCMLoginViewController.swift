@@ -63,12 +63,13 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
 //                UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
 //            }
           }
+            
+            self.signInButton.isEnabled = true
         }
         
         passwordTextfield.text = nil
         registrationTextfield.text = nil
         
-        signInButton.isEnabled = true
     }
         
        /* if resetInvalidLock() {

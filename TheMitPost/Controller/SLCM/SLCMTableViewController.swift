@@ -27,8 +27,10 @@ class SLCMTableViewController: UITableViewController {
             self.navigationController?.navigationBar.barTintColor = .black
         }
         
-        
-        
+//        if #available(iOS 13, *) {
+//            self.view.backgroundColor = .systemBackground
+//        }
+
         setup()
         print("View loaded..")
         print(subjects.count)
@@ -46,11 +48,16 @@ class SLCMTableViewController: UITableViewController {
         if style == .dark {
             print("dark mode detected")
             self.navigationController?.navigationBar.barTintColor = .black
+            //self.tabBarController?.tabBar.barTintColor = .darkGray
+            self.view.backgroundColor = .black
+            
         }
         
         if style == .light {
             print("light mode detected")
             self.navigationController?.navigationBar.barTintColor = .systemOrange
+            self.view.backgroundColor = .white
+            
         }
     }
     
@@ -62,10 +69,11 @@ class SLCMTableViewController: UITableViewController {
         if traitCollection.userInterfaceStyle == .dark {
             tableView.backgroundColor = .black
         } else {
-            tableView.backgroundColor = UIColor(patternImage: UIImage(named: "slcm_background_2")!)
+            //tableView.backgroundColor = UIColor(patternImage: UIImage(named: "slcm_background_2")!)
         }
     
-        tableView.separatorStyle = .none
+       // tableView.separatorStyle = .none
+        tableView.separatorColor = .lightGray
         tableView.estimatedRowHeight = Cell.CellHeight.cellClose
         tableView.rowHeight = UITableView.automaticDimension
         
@@ -133,7 +141,7 @@ class SLCMTableViewController: UITableViewController {
            
         }
         
-        UIView.animate(withDuration: duration, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: {() -> Void in
+        UIView.animate(withDuration: duration, delay: 0.0, options: .allowUserInteraction, animations: {() -> Void in
             tableView.beginUpdates()
             tableView.endUpdates()
             

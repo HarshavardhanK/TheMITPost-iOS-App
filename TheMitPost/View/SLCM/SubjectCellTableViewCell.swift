@@ -38,18 +38,60 @@ class SubjectCellTableViewCell: FoldingCell {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var updateView: UIView!
     
+    @IBOutlet weak var line: UIView!
+    
+    
     func mode() {
+        
+         backgroundColor = .systemBackground
 
         if traitCollection.userInterfaceStyle == .dark {
-            backgroundColor = .darkGray
-            
+           
             subjectName.backgroundColor = .darkGray
             absent.backgroundColor = .darkGray
             present.backgroundColor = .darkGray
             slcmForegroundView.backgroundColor = .darkGray
             
+            attendancePercentage.backgroundColor = .darkGray
+            attendancePercentage2.backgroundColor = .darkGray
+            
+            absent.textColor = .label
+            present.textColor = .label
+            
+            attendancePercentage.textColor = .label
+            attendancePercentage2.textColor = .label
+            
+            totalClasses.textColor = .label
+            bunks.textColor = .label
+            
+        } else {
+            
+            subjectName.backgroundColor = .white
+            absent.backgroundColor = .white
+            present.backgroundColor = .white
+            slcmForegroundView.backgroundColor = .white
+            
+            attendancePercentage.backgroundColor = .white
+            attendancePercentage2.backgroundColor = .white
+            
+            absent.textColor = .label
+            present.textColor = .label
+            
+            attendancePercentage.textColor = .label
+            attendancePercentage2.textColor = .label
+            
+            totalClasses.textColor = .label
+            bunks.textColor = .label
             
         }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        mode()
+        
+        
     }
     
     var subject: Subject? {
@@ -131,7 +173,7 @@ class SubjectCellTableViewCell: FoldingCell {
         foregroundView.layer.cornerRadius = 15
         foregroundView.layer.masksToBounds = true
         
-        backgroundColor = .systemBackground
+        //backgroundColor = .systemBackground
         
     }
 
