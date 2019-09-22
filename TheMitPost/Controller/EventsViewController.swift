@@ -72,6 +72,7 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
             self.navigationController?.navigationBar.barTintColor = .systemOrange
         }
     }
+    
 
     // MARK: - Table view data source
 

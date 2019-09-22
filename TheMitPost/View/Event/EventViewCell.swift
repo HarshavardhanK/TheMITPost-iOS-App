@@ -21,6 +21,7 @@ class EventViewCell: UICollectionViewCell {
     
     @IBAction func shareAction(_ sender: Any) {
         print("Share button tapped")
+        shareEvent()
     }
     
     @IBAction func registerAction(_ sender: Any) {
@@ -41,9 +42,6 @@ class EventViewCell: UICollectionViewCell {
             eventImageView.sd_setImage(with: event.imageURL!)
             
             print("set event cell")
-            
-           // registerButton.backgroundColor = UIColor.init(red: 100.0, green: 70.0, blue: 28.0, alpha: 1.0)   //UIColor(patternImage: UIImage(imageLiteralResourceName: "event_bg2"))
-            
             
             if event.formLink == nil {
                 print("no form link")
@@ -66,8 +64,7 @@ class EventViewCell: UICollectionViewCell {
         layer.rasterizationScale = UIScreen.main.scale
         layer.cornerRadius = 5.0
         layer.shadowRadius = 10.0
-        //layer.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "event_bg3")).cgColor
-        
+       
         clipsToBounds = false
         
         eventImageView.layer.masksToBounds = true
@@ -113,6 +110,16 @@ class EventViewCell: UICollectionViewCell {
         }
         
     }
+    
+    func shareEvent() {
+        
+        let items = [titleLabel.text, descriptionLabel.text, event.formLink]
+        
+        let shareActivityController = UIActivityViewController(activityItems: items as [Any], applicationActivities: nil)
+           //present(shareActivityController, animated: true)
+        self.window?.rootViewController?.present(shareActivityController, animated: true)
+        
+       }
     
     override func prepareForReuse() {
         super.prepareForReuse()
