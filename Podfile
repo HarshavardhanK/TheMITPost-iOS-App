@@ -7,8 +7,6 @@ target 'TheMitPost' do
 
   # Pods for TheMitPost
 
-pod 'Firebase/Auth'
-pod 'GoogleSignIn'
 pod 'Firebase/Messaging'
 pod 'SDWebImage', '~> 4.0'
 pod 'MaterialComponents'
@@ -16,10 +14,8 @@ pod 'Firebase/Core'
 pod 'SwiftyJSON'
 pod 'FoldingCell'
 pod 'Alamofire'
-pod 'UIImageColors'
 pod 'NVActivityIndicatorView'
 pod 'RAMAnimatedTabBarController'
-pod 'lottie-ios'
 
   target 'TheMitPostTests' do
     inherit! :search_paths

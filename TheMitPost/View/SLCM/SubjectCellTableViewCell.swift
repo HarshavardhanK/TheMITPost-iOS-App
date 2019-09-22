@@ -17,6 +17,7 @@ class SubjectCellTableViewCell: FoldingCell {
     
     @IBOutlet weak var subjectName: UILabel!
     
+    @IBOutlet weak var slcmForegroundView: RotatedView!
     @IBOutlet weak var absent: UILabel!
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var present: UILabel!
@@ -36,6 +37,20 @@ class SubjectCellTableViewCell: FoldingCell {
     
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var updateView: UIView!
+    
+    func mode() {
+
+        if traitCollection.userInterfaceStyle == .dark {
+            backgroundColor = .darkGray
+            
+            subjectName.backgroundColor = .darkGray
+            absent.backgroundColor = .darkGray
+            present.backgroundColor = .darkGray
+            slcmForegroundView.backgroundColor = .darkGray
+            
+            
+        }
+    }
     
     var subject: Subject? {
         
@@ -105,17 +120,13 @@ class SubjectCellTableViewCell: FoldingCell {
         }
     }
     
-//    func mode() {
-//
-//        if traitCollection.userInterfaceStyle == .dark {
-//            backgroundColor = .sys
-//        }
-//    }
     
     override func awakeFromNib() {
         // Initialization code
         
         super.awakeFromNib()
+        
+        mode()
         
         foregroundView.layer.cornerRadius = 15
         foregroundView.layer.masksToBounds = true

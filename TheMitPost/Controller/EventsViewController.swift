@@ -26,7 +26,7 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.viewDidLoad()
         
         if traitCollection.userInterfaceStyle == .dark {
-            self.navigationController?.navigationBar.barTintColor = .black
+            self.navigationController?.navigationBar.barTintColor = .darkGray
         }
 
         eventsCollectionView.delegate = self
@@ -64,7 +64,7 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         if style == .dark {
             print("dark mode detected")
-            self.navigationController?.navigationBar.barTintColor = .black
+            self.navigationController?.navigationBar.barTintColor = .darkGray
         }
         
         if style == .light {

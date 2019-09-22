@@ -94,6 +94,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             
             backgroundColor = .systemBackground
             
+            layer.shadowColor = UIColor.lightGray.cgColor
             dateLabelView.backgroundColor = .systemBackground
             titleLabelView.backgroundColor = .systemBackground
             titleLabelView.backgroundColor = .systemBackground

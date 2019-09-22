@@ -100,12 +100,16 @@ class EventViewCell: UICollectionViewCell {
         
         if #available(iOS 13.0, *) {
             backgroundColor = .systemBackground
+            
+            layer.shadowColor = UIColor.lightGray.cgColor
             titleLabel.backgroundColor = .systemBackground
             timeLabel.backgroundColor = .systemBackground
             descriptionLabel.backgroundColor = .systemBackground
             organizerNameLabel.backgroundColor = .systemBackground
-        } else {
-            // Fallback on earlier versions
+            
+            titleLabel.textColor = .label
+            organizerNameLabel.textColor = .secondaryLabel
+            
         }
         
     }

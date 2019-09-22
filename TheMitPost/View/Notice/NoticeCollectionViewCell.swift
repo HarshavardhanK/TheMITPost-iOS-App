@@ -64,6 +64,7 @@ class NoticeImageCollectionViewCell: UICollectionViewCell {
         //layer.shadowColor = UIColor.gray.cgColor*/
         
         layer.shouldRasterize = true
+        layer.shadowColor = UIColor.lightGray.cgColor
         layer.rasterizationScale = UIScreen.main.scale
         layer.cornerRadius = 5.0
         layer.shadowRadius = 10.0
@@ -126,6 +127,7 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
         shadowLayer?.elevation = .cardPickedUp
         
         layer.shouldRasterize = true
+        layer.shadowColor = UIColor.lightGray.cgColor
         layer.rasterizationScale = UIScreen.main.scale
         layer.cornerRadius = 5.0
         layer.shadowRadius = 10.0

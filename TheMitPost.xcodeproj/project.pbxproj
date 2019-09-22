@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		87E84E2ABD9FB5AC15BB4EA4 /* Pods_TheMitPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D94F710E8379A982CC731F /* Pods_TheMitPost.framework */; };
-		CE7C3EE6A015DB8882680AB4 /* Pods_TheMitPostTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3C3FF38A701842972BB0E2 /* Pods_TheMitPostTests.framework */; };
+		80CB3CCC342210443F249579 /* Pods_TheMitPostUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A3AAB49294BE8113C51BC34 /* Pods_TheMitPostUITests.framework */; };
+		B32E3401F43CF8FCD75AA820 /* Pods_TheMitPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F49C92F799F85FDBA2D42C5 /* Pods_TheMitPost.framework */; };
+		BFECD38BC2BB41954A7767C9 /* Pods_TheMitPostTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8D4843B407BC33BF7CC027 /* Pods_TheMitPostTests.framework */; };
 		D60EBF3121ED0CDF00DAC538 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EBF3021ED0CDF00DAC538 /* Article.swift */; };
 		D60EBF3221ED0CDF00DAC538 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EBF3021ED0CDF00DAC538 /* Article.swift */; };
 		D61C44DB223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
@@ -20,14 +21,6 @@
 		D6313DC72292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */; };
 		D6313DC82292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */; };
 		D6313DC92292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */; };
-		D6339E442243B675007051A1 /* ArticleHeaderViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E422243B675007051A1 /* ArticleHeaderViewTableViewCell.swift */; };
-		D6339E452243B675007051A1 /* ArticleHeaderViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6339E432243B675007051A1 /* ArticleHeaderViewTableViewCell.xib */; };
-		D6339E472243BF8A007051A1 /* ArticleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */; };
-		D6339E482243BF8A007051A1 /* ArticleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */; };
-		D6339E492243BF8A007051A1 /* ArticleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */; };
-		D6339E4B2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */; };
-		D6339E4C2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */; };
-		D6339E4D2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */; };
 		D63B747A22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
 		D63B747B22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
 		D63B747C22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */; };
@@ -45,9 +38,6 @@
 		D664F32722B0FA2D002D6E0F /* Notices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664F32622B0FA2D002D6E0F /* Notices.swift */; };
 		D664F32822B0FA2D002D6E0F /* Notices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664F32622B0FA2D002D6E0F /* Notices.swift */; };
 		D664F32922B0FA2D002D6E0F /* Notices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664F32622B0FA2D002D6E0F /* Notices.swift */; };
-		D69B30532203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
-		D69B30542203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
-		D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */; };
 		D69B3057220382DC00E66AE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3056220382DC00E66AE3 /* Extensions.swift */; };
 		D69B3058220382DC00E66AE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3056220382DC00E66AE3 /* Extensions.swift */; };
 		D69B3059220382DC00E66AE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3056220382DC00E66AE3 /* Extensions.swift */; };
@@ -76,9 +66,6 @@
 		D6ACF13C22469F24001B8A68 /* DyeLine-Regular3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF13322469F24001B8A68 /* DyeLine-Regular3.ttf */; };
 		D6ACF13D22469F24001B8A68 /* DyeLine-Regular5.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF13422469F24001B8A68 /* DyeLine-Regular5.ttf */; };
 		D6ACF13E22469F24001B8A68 /* DyeLine-Regular5.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ACF13422469F24001B8A68 /* DyeLine-Regular5.ttf */; };
-		D6ACFF9B2242C22B00CDFAF6 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */; };
-		D6ACFF9C2242C22B00CDFAF6 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */; };
-		D6ACFF9D2242C22C00CDFAF6 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */; };
 		D6D6A20F21ECC5A200B822F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A20E21ECC5A200B822F8 /* AppDelegate.swift */; };
 		D6D6A21121ECC5A200B822F8 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A21021ECC5A200B822F8 /* ArticlesViewController.swift */; };
 		D6D6A21321ECC5A200B822F8 /* SLCMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A21221ECC5A200B822F8 /* SLCMLoginViewController.swift */; };
@@ -93,16 +80,12 @@
 		D6F392BD22D604DC00CE50D1 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F392BC22D604DC00CE50D1 /* EventsViewController.swift */; };
 		D6F392BE22D604DC00CE50D1 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F392BC22D604DC00CE50D1 /* EventsViewController.swift */; };
 		D6F392BF22D604DC00CE50D1 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F392BC22D604DC00CE50D1 /* EventsViewController.swift */; };
-		D6F8066C2204A0420041E09F /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8066B2204A0420041E09F /* ArticleViewController.swift */; };
-		D6F8066D2204A0420041E09F /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8066B2204A0420041E09F /* ArticleViewController.swift */; };
-		D6F8066E2204A0420041E09F /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8066B2204A0420041E09F /* ArticleViewController.swift */; };
 		D6FA299423326B2E00703DE7 /* NoticeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299323326B2E00703DE7 /* NoticeCollectionViewCell.swift */; };
 		D6FA299523326B2E00703DE7 /* NoticeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299323326B2E00703DE7 /* NoticeCollectionViewCell.swift */; };
 		D6FA299623326B2E00703DE7 /* NoticeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299323326B2E00703DE7 /* NoticeCollectionViewCell.swift */; };
 		D6FA299823326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */; };
 		D6FA299923326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */; };
 		D6FA299A23326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */; };
-		F67BDD8DB42CFEE944067F47 /* Pods_TheMitPostUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359155BB7CD815DF0B320243 /* Pods_TheMitPostUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,28 +106,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09D94F710E8379A982CC731F /* Pods_TheMitPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1BE48C3FB4D837912884BE7C /* Pods-TheMitPostUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostUITests.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPostUITests/Pods-TheMitPostUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		359155BB7CD815DF0B320243 /* Pods_TheMitPostUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPostUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		60EDF865FEA4E1ECE8FFD3F6 /* Pods-TheMitPostUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostUITests.release.xcconfig"; path = "Target Support Files/Pods-TheMitPostUITests/Pods-TheMitPostUITests.release.xcconfig"; sourceTree = "<group>"; };
-		7E2306B4848936AD5721E720 /* Pods-TheMitPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.release.xcconfig"; path = "Target Support Files/Pods-TheMitPost/Pods-TheMitPost.release.xcconfig"; sourceTree = "<group>"; };
-		9C014F93135C4F169933BC93 /* Pods-TheMitPostTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.release.xcconfig"; path = "Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.release.xcconfig"; sourceTree = "<group>"; };
+		1F49C92F799F85FDBA2D42C5 /* Pods_TheMitPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A3AAB49294BE8113C51BC34 /* Pods_TheMitPostUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPostUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F2EBEE688A7630827E3E39D /* Pods-TheMitPostUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostUITests.release.xcconfig"; path = "Target Support Files/Pods-TheMitPostUITests/Pods-TheMitPostUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3FCCA74F8792056F2B37DDCC /* Pods-TheMitPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPost/Pods-TheMitPost.debug.xcconfig"; sourceTree = "<group>"; };
+		4501688696CD89640AC66713 /* Pods-TheMitPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.release.xcconfig"; path = "Target Support Files/Pods-TheMitPost/Pods-TheMitPost.release.xcconfig"; sourceTree = "<group>"; };
+		B4B9C9E30A31DD5CBED541E3 /* Pods-TheMitPostTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.release.xcconfig"; path = "Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.release.xcconfig"; sourceTree = "<group>"; };
+		BD8D4843B407BC33BF7CC027 /* Pods_TheMitPostTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPostTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60EBF3021ED0CDF00DAC538 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D60F6BB12310713300279DA2 /* PostPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D61C44DA223E74DF00DF5DAA /* SLCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCM.swift; sourceTree = "<group>"; };
 		D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCMTableViewController.swift; sourceTree = "<group>"; };
-		D6339E422243B675007051A1 /* ArticleHeaderViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeaderViewTableViewCell.swift; sourceTree = "<group>"; };
-		D6339E432243B675007051A1 /* ArticleHeaderViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleHeaderViewTableViewCell.xib; sourceTree = "<group>"; };
-		D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewController.swift; sourceTree = "<group>"; };
-		D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleImageTableViewCell.swift; sourceTree = "<group>"; };
 		D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCellTableViewCell.swift; sourceTree = "<group>"; };
 		D64008FA2336A5DD0086064E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D64008FF2336A8810086064E /* running-astro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "running-astro.json"; sourceTree = "<group>"; };
 		D662420B23015E9F00261081 /* ArticleWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWebViewController.swift; sourceTree = "<group>"; };
 		D664F31C22AF9F62002D6E0F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D664F32622B0FA2D002D6E0F /* Notices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notices.swift; sourceTree = "<group>"; };
-		D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeaderView.swift; sourceTree = "<group>"; };
 		D69B3056220382DC00E66AE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D6A8705D22D916B60057A30B /* EventViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewCell.swift; sourceTree = "<group>"; };
 		D6ACF11E22469EC4001B8A68 /* Aileron-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-UltraLight.otf"; sourceTree = "<group>"; };
@@ -158,7 +137,6 @@
 		D6ACF13222469F23001B8A68 /* DyeLine-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DyeLine-Bold.ttf"; sourceTree = "<group>"; };
 		D6ACF13322469F24001B8A68 /* DyeLine-Regular3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DyeLine-Regular3.ttf"; sourceTree = "<group>"; };
 		D6ACF13422469F24001B8A68 /* DyeLine-Regular5.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DyeLine-Regular5.ttf"; sourceTree = "<group>"; };
-		D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		D6D6A20B21ECC5A200B822F8 /* TheMitPost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMitPost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D6A20E21ECC5A200B822F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6D6A21021ECC5A200B822F8 /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
@@ -175,12 +153,10 @@
 		D6D6A24021ECDC1800B822F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6F392B822D5FB5900CE50D1 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		D6F392BC22D604DC00CE50D1 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
-		D6F8066B2204A0420041E09F /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		D6FA299323326B2E00703DE7 /* NoticeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesCollectionViewController.swift; sourceTree = "<group>"; };
-		DF3C3FF38A701842972BB0E2 /* Pods_TheMitPostTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPostTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9A086BF6FE6B1F570EEBF18 /* Pods-TheMitPostTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.debug.xcconfig"; sourceTree = "<group>"; };
-		FA32331F311C2F93D493D109 /* Pods-TheMitPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPost/Pods-TheMitPost.debug.xcconfig"; sourceTree = "<group>"; };
+		DF73B991674F5D8217DCAF2B /* Pods-TheMitPostUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostUITests.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPostUITests/Pods-TheMitPostUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EEFF7D38B14FFA56DDD70927 /* Pods-TheMitPostTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,7 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87E84E2ABD9FB5AC15BB4EA4 /* Pods_TheMitPost.framework in Frameworks */,
+				B32E3401F43CF8FCD75AA820 /* Pods_TheMitPost.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,7 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE7C3EE6A015DB8882680AB4 /* Pods_TheMitPostTests.framework in Frameworks */,
+				BFECD38BC2BB41954A7767C9 /* Pods_TheMitPostTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,19 +180,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F67BDD8DB42CFEE944067F47 /* Pods_TheMitPostUITests.framework in Frameworks */,
+				80CB3CCC342210443F249579 /* Pods_TheMitPostUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4992BD0CCB4966B08E118742 /* Frameworks */ = {
+		43BA2565DD86BB89B0C91970 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				09D94F710E8379A982CC731F /* Pods_TheMitPost.framework */,
-				DF3C3FF38A701842972BB0E2 /* Pods_TheMitPostTests.framework */,
-				359155BB7CD815DF0B320243 /* Pods_TheMitPostUITests.framework */,
+				1F49C92F799F85FDBA2D42C5 /* Pods_TheMitPost.framework */,
+				BD8D4843B407BC33BF7CC027 /* Pods_TheMitPostTests.framework */,
+				2A3AAB49294BE8113C51BC34 /* Pods_TheMitPostUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -224,12 +200,12 @@
 		6739CD553BEF26033D670CBE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FA32331F311C2F93D493D109 /* Pods-TheMitPost.debug.xcconfig */,
-				7E2306B4848936AD5721E720 /* Pods-TheMitPost.release.xcconfig */,
-				F9A086BF6FE6B1F570EEBF18 /* Pods-TheMitPostTests.debug.xcconfig */,
-				9C014F93135C4F169933BC93 /* Pods-TheMitPostTests.release.xcconfig */,
-				1BE48C3FB4D837912884BE7C /* Pods-TheMitPostUITests.debug.xcconfig */,
-				60EDF865FEA4E1ECE8FFD3F6 /* Pods-TheMitPostUITests.release.xcconfig */,
+				3FCCA74F8792056F2B37DDCC /* Pods-TheMitPost.debug.xcconfig */,
+				4501688696CD89640AC66713 /* Pods-TheMitPost.release.xcconfig */,
+				EEFF7D38B14FFA56DDD70927 /* Pods-TheMitPostTests.debug.xcconfig */,
+				B4B9C9E30A31DD5CBED541E3 /* Pods-TheMitPostTests.release.xcconfig */,
+				DF73B991674F5D8217DCAF2B /* Pods-TheMitPostUITests.debug.xcconfig */,
+				3F2EBEE688A7630827E3E39D /* Pods-TheMitPostUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -313,11 +289,6 @@
 			isa = PBXGroup;
 			children = (
 				D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */,
-				D69B30522203775A00E66AE3 /* ArticleHeaderView.swift */,
-				D6ACFF9A2242C22B00CDFAF6 /* ArticleTableViewCell.swift */,
-				D6339E422243B675007051A1 /* ArticleHeaderViewTableViewCell.swift */,
-				D6339E432243B675007051A1 /* ArticleHeaderViewTableViewCell.xib */,
-				D6339E4A2243CEBD007051A1 /* ArticleImageTableViewCell.swift */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -326,8 +297,6 @@
 			isa = PBXGroup;
 			children = (
 				D6D6A21021ECC5A200B822F8 /* ArticlesViewController.swift */,
-				D6F8066B2204A0420041E09F /* ArticleViewController.swift */,
-				D6339E462243BF8A007051A1 /* ArticleTableViewController.swift */,
 				D662420B23015E9F00261081 /* ArticleWebViewController.swift */,
 			);
 			path = Article;
@@ -369,7 +338,7 @@
 				D6D6A22F21ECC5A500B822F8 /* TheMitPostUITests */,
 				D6D6A20C21ECC5A200B822F8 /* Products */,
 				6739CD553BEF26033D670CBE /* Pods */,
-				4992BD0CCB4966B08E118742 /* Frameworks */,
+				43BA2565DD86BB89B0C91970 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -426,12 +395,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6D6A23521ECC5A500B822F8 /* Build configuration list for PBXNativeTarget "TheMitPost" */;
 			buildPhases = (
-				9AA054CD7AF145BD0F6F456C /* [CP] Check Pods Manifest.lock */,
+				A4FCE3BFEE826B354168889D /* [CP] Check Pods Manifest.lock */,
 				D6D6A20721ECC5A200B822F8 /* Sources */,
 				D6D6A20821ECC5A200B822F8 /* Frameworks */,
 				D6D6A20921ECC5A200B822F8 /* Resources */,
-				2E1268545713D3835FAC70BB /* [CP] Embed Pods Frameworks */,
-				64203DA7A19A75FB7B982D7C /* [CP] Copy Pods Resources */,
+				2EDE8A4F53D47DD33F0813AB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -446,7 +414,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6D6A23821ECC5A500B822F8 /* Build configuration list for PBXNativeTarget "TheMitPostTests" */;
 			buildPhases = (
-				A347064C3E7595B97DAC2F0B /* [CP] Check Pods Manifest.lock */,
+				9CE71377CE4E6071E74CD781 /* [CP] Check Pods Manifest.lock */,
 				D6D6A21D21ECC5A500B822F8 /* Sources */,
 				D6D6A21E21ECC5A500B822F8 /* Frameworks */,
 				D6D6A21F21ECC5A500B822F8 /* Resources */,
@@ -465,7 +433,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6D6A23B21ECC5A500B822F8 /* Build configuration list for PBXNativeTarget "TheMitPostUITests" */;
 			buildPhases = (
-				1BF1A2AA0EF29A886A67C053 /* [CP] Check Pods Manifest.lock */,
+				163C40A679195586FAEC8360 /* [CP] Check Pods Manifest.lock */,
 				D6D6A22821ECC5A500B822F8 /* Sources */,
 				D6D6A22921ECC5A500B822F8 /* Frameworks */,
 				D6D6A22A21ECC5A500B822F8 /* Resources */,
@@ -539,7 +507,6 @@
 				D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */,
 				D6ACF11F22469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
 				D64009002336A8820086064E /* running-astro.json in Resources */,
-				D6339E452243B675007051A1 /* ArticleHeaderViewTableViewCell.xib in Resources */,
 				D6ACF12A22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */,
 				D6ACF12E22469EFF001B8A68 /* Roboto-Medium.ttf in Resources */,
 				D6ACF13D22469F24001B8A68 /* DyeLine-Regular5.ttf in Resources */,
@@ -579,7 +546,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1BF1A2AA0EF29A886A67C053 /* [CP] Check Pods Manifest.lock */ = {
+		163C40A679195586FAEC8360 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -601,7 +568,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2E1268545713D3835FAC70BB /* [CP] Embed Pods Frameworks */ = {
+		2EDE8A4F53D47DD33F0813AB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -618,46 +585,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		64203DA7A19A75FB7B982D7C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9AA054CD7AF145BD0F6F456C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TheMitPost-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A347064C3E7595B97DAC2F0B /* [CP] Check Pods Manifest.lock */ = {
+		9CE71377CE4E6071E74CD781 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -679,6 +607,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A4FCE3BFEE826B354168889D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TheMitPost-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -690,21 +640,15 @@
 				D60EBF3121ED0CDF00DAC538 /* Article.swift in Sources */,
 				D6313DC72292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
 				D6D6A21321ECC5A200B822F8 /* SLCMLoginViewController.swift in Sources */,
-				D6339E472243BF8A007051A1 /* ArticleTableViewController.swift in Sources */,
 				D69B3057220382DC00E66AE3 /* Extensions.swift in Sources */,
 				D61C44DB223E74DF00DF5DAA /* SLCM.swift in Sources */,
 				D664F31D22AF9F62002D6E0F /* Utilities.swift in Sources */,
 				D63B747A22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,
-				D6ACFF9B2242C22B00CDFAF6 /* ArticleTableViewCell.swift in Sources */,
 				D664F32722B0FA2D002D6E0F /* Notices.swift in Sources */,
-				D6339E442243B675007051A1 /* ArticleHeaderViewTableViewCell.swift in Sources */,
-				D6F8066C2204A0420041E09F /* ArticleViewController.swift in Sources */,
-				D69B30532203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
 				D6FA299823326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */,
 				D61D3A9521EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D6D6A20F21ECC5A200B822F8 /* AppDelegate.swift in Sources */,
 				D662420C23015E9F00261081 /* ArticleWebViewController.swift in Sources */,
-				D6339E4B2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */,
 				D6FA299423326B2E00703DE7 /* NoticeCollectionViewCell.swift in Sources */,
 				D6A8705E22D916B60057A30B /* EventViewCell.swift in Sources */,
 				D6F392BD22D604DC00CE50D1 /* EventsViewController.swift in Sources */,
@@ -722,18 +666,13 @@
 				D69B3058220382DC00E66AE3 /* Extensions.swift in Sources */,
 				D6313DC82292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
 				D6F392BE22D604DC00CE50D1 /* EventsViewController.swift in Sources */,
-				D6F8066D2204A0420041E09F /* ArticleViewController.swift in Sources */,
 				D6FA299923326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */,
 				D664F31E22AF9F62002D6E0F /* Utilities.swift in Sources */,
-				D6339E4C2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */,
 				D61D3A9621EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D60EBF3221ED0CDF00DAC538 /* Article.swift in Sources */,
-				D6339E482243BF8A007051A1 /* ArticleTableViewController.swift in Sources */,
-				D6ACFF9C2242C22B00CDFAF6 /* ArticleTableViewCell.swift in Sources */,
 				D6F392BA22D5FB5900CE50D1 /* Events.swift in Sources */,
 				D6FA299523326B2E00703DE7 /* NoticeCollectionViewCell.swift in Sources */,
 				D61C44DC223E74DF00DF5DAA /* SLCM.swift in Sources */,
-				D69B30542203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
 				D662420D23015E9F00261081 /* ArticleWebViewController.swift in Sources */,
 				D6D6A22621ECC5A500B822F8 /* TheMitPostTests.swift in Sources */,
 			);
@@ -745,22 +684,17 @@
 			files = (
 				D6FA299A23326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */,
 				D6D6A23121ECC5A500B822F8 /* TheMitPostUITests.swift in Sources */,
-				D6339E4D2243CEBD007051A1 /* ArticleImageTableViewCell.swift in Sources */,
 				D61D3A9721EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D61C44DD223E74DF00DF5DAA /* SLCM.swift in Sources */,
-				D6F8066E2204A0420041E09F /* ArticleViewController.swift in Sources */,
 				D6F392BF22D604DC00CE50D1 /* EventsViewController.swift in Sources */,
-				D6339E492243BF8A007051A1 /* ArticleTableViewController.swift in Sources */,
 				D664F31F22AF9F62002D6E0F /* Utilities.swift in Sources */,
 				D6313DC92292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
 				D6F392BB22D5FB5900CE50D1 /* Events.swift in Sources */,
 				D6A8706022D916B60057A30B /* EventViewCell.swift in Sources */,
-				D69B30552203775A00E66AE3 /* ArticleHeaderView.swift in Sources */,
 				D664F32922B0FA2D002D6E0F /* Notices.swift in Sources */,
 				D662420E23015E9F00261081 /* ArticleWebViewController.swift in Sources */,
 				D6FA299623326B2E00703DE7 /* NoticeCollectionViewCell.swift in Sources */,
 				D63B747C22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,
-				D6ACFF9D2242C22C00CDFAF6 /* ArticleTableViewCell.swift in Sources */,
 				D69B3059220382DC00E66AE3 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -918,7 +852,7 @@
 		};
 		D6D6A23621ECC5A500B822F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA32331F311C2F93D493D109 /* Pods-TheMitPost.debug.xcconfig */;
+			baseConfigurationReference = 3FCCA74F8792056F2B37DDCC /* Pods-TheMitPost.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -938,7 +872,7 @@
 		};
 		D6D6A23721ECC5A500B822F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E2306B4848936AD5721E720 /* Pods-TheMitPost.release.xcconfig */;
+			baseConfigurationReference = 4501688696CD89640AC66713 /* Pods-TheMitPost.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -958,7 +892,7 @@
 		};
 		D6D6A23921ECC5A500B822F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9A086BF6FE6B1F570EEBF18 /* Pods-TheMitPostTests.debug.xcconfig */;
+			baseConfigurationReference = EEFF7D38B14FFA56DDD70927 /* Pods-TheMitPostTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -980,7 +914,7 @@
 		};
 		D6D6A23A21ECC5A500B822F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C014F93135C4F169933BC93 /* Pods-TheMitPostTests.release.xcconfig */;
+			baseConfigurationReference = B4B9C9E30A31DD5CBED541E3 /* Pods-TheMitPostTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1002,7 +936,7 @@
 		};
 		D6D6A23C21ECC5A500B822F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1BE48C3FB4D837912884BE7C /* Pods-TheMitPostUITests.debug.xcconfig */;
+			baseConfigurationReference = DF73B991674F5D8217DCAF2B /* Pods-TheMitPostUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1023,7 +957,7 @@
 		};
 		D6D6A23D21ECC5A500B822F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60EDF865FEA4E1ECE8FFD3F6 /* Pods-TheMitPostUITests.release.xcconfig */;
+			baseConfigurationReference = 3F2EBEE688A7630827E3E39D /* Pods-TheMitPostUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

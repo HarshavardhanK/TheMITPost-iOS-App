@@ -12,9 +12,7 @@ import Alamofire
 import SwiftyJSON
 import MaterialComponents.MaterialAppBar
 import SDWebImage
-import GoogleSignIn
-import FirebaseAuth
-import Firebase
+
 
 class ArticlesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate {
     
@@ -23,8 +21,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet var articleCollectionView: UICollectionView!
     
-    let appBar = MDCAppBar()
-    let articleHeaderView = ArticleHeaderView()
     //let refreshControl = UIRefreshControl()
     
     let window: UIWindow? = nil
@@ -44,7 +40,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         super.viewDidLoad()
         
         if traitCollection.userInterfaceStyle == .dark {
-            self.navigationController?.navigationBar.barTintColor = .black
+            self.navigationController?.navigationBar.barTintColor = .darkGray
         }
         
         if #available(iOS 13.0, *) {
@@ -172,7 +168,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         if style == .dark {
             print("dark mode detected")
-            self.navigationController?.navigationBar.barTintColor = .black
+            self.navigationController?.navigationBar.barTintColor = .darkGray
         }
         
         if style == .light {
@@ -280,7 +276,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     //MARK:- UNWIND SEGUES
     @IBAction func unwindToArticlesListFromArticle(sender: UIStoryboardSegue) {
         
-        if let _ = sender.source as? ArticleViewController {
+        if let _ = sender.source as? ArticlesViewController {
             print("Unwinding back to articles list")
         }
     }

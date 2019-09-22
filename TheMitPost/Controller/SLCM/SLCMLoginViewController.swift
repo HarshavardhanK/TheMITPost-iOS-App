@@ -10,7 +10,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
-import Lottie
 
 class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivityIndicatorViewable {
     
@@ -29,9 +28,6 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     //var activityIndicator: NVActivityIndicatorView!
     @IBOutlet var activityIndicator: NVActivityIndicatorView!
-    
-   // @IBOutlet weak var lottieAnimationView: AnimationView!
-    let animationView = AnimationView()
     
     var subjects = [Subject]()
     
@@ -139,13 +135,16 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         // Do any additional setup after loading the view, typically from a nib
         
         if traitCollection.userInterfaceStyle == .dark {
-            self.navigationController?.navigationBar.barTintColor = .black
+            self.navigationController?.navigationBar.barTintColor = .darkGray
         }
+        
+        //signInButton.backgroundColor = UIColor(patternImage: UIImage(named: "slcm_signin")!)
         
         registrationTextfield.delegate = self
         passwordTextfield.delegate = self
         
         self.view.backgroundColor = .systemBackground
+        
         
         if let _registration = registrationTextfield.text {
             print(_registration)
@@ -156,6 +155,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         }
         
         signInButton.layer.cornerRadius = 5
+        signInButton.backgroundColor = .systemBackground
         
         registrationTextfield.keyboardType = .numberPad
         
@@ -170,12 +170,16 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         if style == .dark {
             print("dark mode detected")
-            self.navigationController?.navigationBar.barTintColor = .black
+            self.navigationController?.navigationBar.barTintColor = .darkGray
+            registrationTextfield.backgroundColor = .gray
+            passwordTextfield.backgroundColor = .gray
         }
         
         if style == .light {
             print("light mode detected")
             self.navigationController?.navigationBar.barTintColor = .systemOrange
+            registrationTextfield.backgroundColor = .white
+            passwordTextfield.backgroundColor = .white
         }
     }
     
@@ -259,13 +263,16 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         var success = false
         
-        guard let registration = registrationTextfield.text else {
+        /*guard let registration = registrationTextfield.text else {
             return
         }
 
         guard let password = passwordTextfield.text else {
             return
-        }
+        }*/
+        
+        let registration = "170905054"
+        let password = "tropicofleo110."
         
         print("registration is \(registration)")
         print("passwrod is \(password)")

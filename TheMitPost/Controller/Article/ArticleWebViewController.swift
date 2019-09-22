@@ -40,6 +40,30 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate {
         // Do any additional setup after loading the view.
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+         var urlString = API + POST_ID!
+        
+        if traitCollection.userInterfaceStyle == .dark {
+            
+            self.navigationController?.navigationBar.barTintColor = .darkGray
+            
+            if traitCollection.userInterfaceStyle == .dark {
+                urlString += "/dark"
+            }
+            
+            let url = URL(string: urlString)!
+            
+            articleWebView.load(URLRequest(url: url))
+            
+        } else {
+            self.navigationController?.navigationBar.barTintColor = .systemOrange
+            articleWebView.load(URLRequest(url: URL(string: urlString)!))
+            
+        }
+    }
+    
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
         print("navigation function")
