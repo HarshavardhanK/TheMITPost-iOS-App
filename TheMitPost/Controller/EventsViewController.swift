@@ -174,5 +174,18 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         print("Finished refreshing..")
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "detailEvent" {
+            
+            if let destinationViewController = segue.destination as? ImagePresentViewController {
+                
+                let path = self.eventsCollectionView.indexPath(for: (sender as? EventViewCell)!)
+                
+                destinationViewController.image_url = events[(path?.row)!].imageURL
+            }
+        }
+    }
 
 }

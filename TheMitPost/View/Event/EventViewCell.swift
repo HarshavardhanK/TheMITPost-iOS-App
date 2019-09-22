@@ -28,6 +28,8 @@ class EventViewCell: UICollectionViewCell {
         print("button tapped")
     }
     
+    
+    
     static let cellPadding: CGFloat = 15.0
     
     var event: Events! {
@@ -90,6 +92,8 @@ class EventViewCell: UICollectionViewCell {
         titleLabel.layer.shadowRadius = 10.0
         
         darkMode()
+        
+        eventImageView.isUserInteractionEnabled = true
         
     }
     

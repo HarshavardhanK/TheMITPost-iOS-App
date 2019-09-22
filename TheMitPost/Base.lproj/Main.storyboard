@@ -334,6 +334,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mJI-Yf-CAx">
                                                     <rect key="frame" x="0.0" y="98" width="365" height="180"/>
                                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="180" id="1Ws-LA-e6i"/>
                                                         <constraint firstAttribute="width" constant="365" id="e7i-vB-gtX"/>
@@ -494,6 +495,7 @@
                                             <outlet property="registerButton" destination="7fu-v8-pYn" id="cZ9-fI-0eQ"/>
                                             <outlet property="timeLabel" destination="Xrl-nX-4pL" id="kXI-j9-ZdE"/>
                                             <outlet property="titleLabel" destination="YeK-Po-NDO" id="YiY-i9-KKr"/>
+                                            <segue destination="NF4-vc-DK0" kind="show" identifier="detailEvent" id="xU1-wR-som"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -516,6 +518,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZ1-Zc-CIW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1665" y="-2353"/>
+        </scene>
+        <!--Image Present View Controller-->
+        <scene sceneID="bcy-ze-SNC">
+            <objects>
+                <viewController id="NF4-vc-DK0" customClass="ImagePresentViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DAb-pG-l1u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="piz-eR-Sxl">
+                                <rect key="frame" x="17" y="50" width="341" height="541"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slcm-card-image" translatesAutoresizingMaskIntoConstraints="NO" id="Ab9-EW-CtS">
+                                        <rect key="frame" x="20" y="20" width="301" height="501"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ab9-EW-CtS" secondAttribute="trailing" constant="20" id="G6H-JE-4TA"/>
+                                    <constraint firstItem="Ab9-EW-CtS" firstAttribute="centerX" secondItem="piz-eR-Sxl" secondAttribute="centerX" id="Psh-DI-Ahv"/>
+                                    <constraint firstItem="Ab9-EW-CtS" firstAttribute="top" secondItem="HsU-HU-sde" secondAttribute="top" constant="20" id="RAv-cy-zBJ"/>
+                                    <constraint firstItem="Ab9-EW-CtS" firstAttribute="centerY" secondItem="piz-eR-Sxl" secondAttribute="centerY" id="anx-AV-pS5"/>
+                                    <constraint firstItem="Ab9-EW-CtS" firstAttribute="leading" secondItem="HsU-HU-sde" secondAttribute="leading" constant="20" id="fGf-VY-NAz"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ab9-EW-CtS" secondAttribute="bottom" constant="20" id="oOs-6E-XUQ"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Efe-p0-jkM"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="HsU-HU-sde"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="piz-eR-Sxl" firstAttribute="centerY" secondItem="DAb-pG-l1u" secondAttribute="centerY" id="6hq-G0-Xac"/>
+                            <constraint firstItem="piz-eR-Sxl" firstAttribute="top" secondItem="ieh-fC-sLs" secondAttribute="top" constant="50" id="NtJ-FH-n4u"/>
+                            <constraint firstItem="piz-eR-Sxl" firstAttribute="centerX" secondItem="DAb-pG-l1u" secondAttribute="centerX" id="b9O-Wq-UWE"/>
+                            <constraint firstItem="piz-eR-Sxl" firstAttribute="leading" secondItem="ieh-fC-sLs" secondAttribute="leading" constant="17" id="gu4-Zg-zeS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ieh-fC-sLs"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Txk-C9-NPH"/>
+                    <connections>
+                        <outlet property="imageView" destination="Ab9-EW-CtS" id="QG4-UA-88p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4z9-mH-sDL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2462" y="-2353"/>
         </scene>
         <!--The Post-->
         <scene sceneID="hbg-OF-Qkx">
