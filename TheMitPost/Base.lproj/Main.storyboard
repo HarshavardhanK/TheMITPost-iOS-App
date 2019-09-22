@@ -833,8 +833,8 @@
                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SyS-kf-BfY" userLabel="RightView">
                                                             <rect key="frame" x="221" y="117" width="104" height="40"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="SAFE?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTb-Ns-9yx">
-                                                                    <rect key="frame" x="73" y="0.0" width="31" height="11.666666666666666"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTb-Ns-9yx">
+                                                                    <rect key="frame" x="73" y="0.0" width="31" height="0.0"/>
                                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="10"/>
                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -902,7 +902,6 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ASSIGNMENTS 1-2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGi-ik-g1S">
                                                                             <rect key="frame" x="0.0" y="7.9999999999999991" width="135" height="11.666666666666664"/>
                                                                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="10"/>
-                                                                            <color key="textColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="0.49546030410000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Muq-8i-QhN">
@@ -937,7 +936,6 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ASSIGNMENTS 3-4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvY-eA-Wm8">
                                                                             <rect key="frame" x="0.0" y="7.9999999999999991" width="145" height="11.666666666666664"/>
                                                                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="10"/>
-                                                                            <color key="textColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="0.49546030410000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLX-kU-vLD">
@@ -1079,7 +1077,6 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SESSIONAL 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUy-0k-i8B">
                                                                             <rect key="frame" x="0.0" y="7.9999999999999991" width="134" height="11.666666666666664"/>
                                                                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="10"/>
-                                                                            <color key="textColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="0.49546030410000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="829-7C-u7D">
@@ -1105,7 +1102,6 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SESSIONAL 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIT-lt-zvH">
                                                                             <rect key="frame" x="0.0" y="7.9999999999999991" width="144" height="11.666666666666664"/>
                                                                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="10"/>
-                                                                            <color key="textColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="0.49546030410000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnl-1J-ok5">
@@ -1153,7 +1149,6 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR INFORMATION IS ENCRYPTED AND SECURE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCl-F1-nY9">
                                                             <rect key="frame" x="0.0" y="18" width="335" height="11.666666666666664"/>
                                                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="10"/>
-                                                            <color key="textColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="0.49546030410000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -1219,6 +1214,7 @@
                                     <outlet property="assignment4" destination="zhL-cB-4Gw" id="rl5-ir-nMz"/>
                                     <outlet property="attendancePercentage" destination="viX-ot-aFf" id="8ey-xB-obg"/>
                                     <outlet property="attendancePercentage2" destination="t9N-Vk-BBS" id="w50-fN-5Zb"/>
+                                    <outlet property="bottomContainerView" destination="cag-2I-gdL" id="ebi-if-cus"/>
                                     <outlet property="bunks" destination="S9m-E2-LmW" id="MtL-Al-Va2"/>
                                     <outlet property="containerView" destination="02p-6T-Pvg" id="eI7-zL-2mH"/>
                                     <outlet property="containerViewTop" destination="y0e-nS-KeC" id="rnZ-Z6-Bom"/>
@@ -1227,12 +1223,15 @@
                                     <outlet property="foregroundViewTop" destination="bhN-3G-RYC" id="XJ7-Kx-AIj"/>
                                     <outlet property="line" destination="Vnw-uF-tlh" id="eIY-Wh-4i7"/>
                                     <outlet property="present" destination="6Qx-Hf-CfI" id="G2c-g6-pYZ"/>
+                                    <outlet property="secondContainerView" destination="Ivw-6X-cgr" id="Vt6-P1-UoS"/>
                                     <outlet property="sessional1" destination="829-7C-u7D" id="J1d-em-anY"/>
                                     <outlet property="sessional2" destination="mnl-1J-ok5" id="FuH-WE-4od"/>
                                     <outlet property="slcmForegroundView" destination="jr0-um-YWY" id="MqY-ls-k2K"/>
                                     <outlet property="subjectName" destination="4I9-UR-3JJ" id="v0Y-gq-TKt"/>
+                                    <outlet property="thirdContainerView" destination="MYy-lO-gnB" id="5ZE-5t-nN7"/>
                                     <outlet property="total" destination="hAF-7Y-eds" id="3rf-Zd-eLX"/>
                                     <outlet property="totalClasses" destination="OvX-lg-QML" id="cMF-9V-F9N"/>
+                                    <outlet property="totalContainerView" destination="02p-6T-Pvg" id="NOX-hT-QLO"/>
                                     <outlet property="updateView" destination="V5k-Xp-pqL" id="Z1c-NR-VLW"/>
                                 </connections>
                             </tableViewCell>

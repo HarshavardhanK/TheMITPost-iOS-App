@@ -86,24 +86,35 @@ class Attendance {
 
 class Marks {
     
-    var sessionalMarks: [String]?
-    var assignmentMarks: [String]?
+    var sessionalMarks: [String]? = nil
+    var assignmentMarks: [String]? = nil
     
-    init(data: JSON?) {
+    init(data_: JSON?) {
         
-        guard let _data_ = data else {
-            
-            sessionalMarks = nil
-            assignmentMarks = nil
-            //above is quite implicit
-            
+        guard let data = data_ else {
             return
         }
         
-        print(_data_)
+        if data["status"].boolValue {
+            
+            if data["is_lab"].boolValue != true {
+                
+                sessionalMarks = [String](repeating: "NA", count: 2)
+                assignmentMarks = [String](repeating: "NA", count: 4)
+                
+                sessionalMarks?[0] = data["sessional"]["_one"].stringValue
+                sessionalMarks?[1] = data["sessional"]["_two"].stringValue
+                
+                assignmentMarks?[0] = data["assignment"]["_one"].stringValue
+                assignmentMarks?[1] = data["assignment"]["_two"].stringValue
+                assignmentMarks?[2] = data["assignment"]["_three"].stringValue
+                assignmentMarks?[3] = data["assignment"]["_four"].stringValue
+                
+            }
+            
+        }
         
-        //set up code to handle assignment marks and sessional marks
-        
+        print(data)
         
     }
     
@@ -118,7 +129,7 @@ class Subject {
     
     init(marks: JSON?, attendance: JSON?) {
         
-        _marks = Marks(data: marks)
+        _marks = Marks(data_: marks)
         _attendance = Attendance(data: attendance)
         
         if let _marks_ = marks {
@@ -146,8 +157,8 @@ func groupData(data: JSON) -> [Subject]? {
     
     for i in 0..<data["attendance"].count {
         
-        if data["marksStatus"].boolValue && data["attendance"].boolValue {
-            subjects.append(Subject(marks: data["attendance"].arrayValue[i], attendance: data["marks"].arrayValue[i]))
+        if data["marksStatus"].boolValue && data["attendanceStatus"].boolValue {
+            subjects.append(Subject(marks: data["internalMarks"].arrayValue[i], attendance: data["attendance"].arrayValue[i]))
             
         } else if data["attendanceStatus"].boolValue {
             subjects.append(Subject(marks: nil, attendance: data["attendance"].arrayValue[i]))

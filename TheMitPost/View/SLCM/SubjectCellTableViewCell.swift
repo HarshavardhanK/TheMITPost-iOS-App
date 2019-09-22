@@ -22,6 +22,14 @@ class SubjectCellTableViewCell: FoldingCell {
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var present: UILabel!
     
+    
+    @IBOutlet weak var totalContainerView: UIView!
+    @IBOutlet weak var secondContainerView: RotatedView!
+    
+    @IBOutlet weak var thirdContainerView: RotatedView!
+    
+    @IBOutlet weak var bottomContainerView: RotatedView!
+    
     @IBOutlet weak var assignment1: UILabel!
     @IBOutlet weak var assignment3: UILabel!
     @IBOutlet weak var assignment2: UILabel!
@@ -53,7 +61,6 @@ class SubjectCellTableViewCell: FoldingCell {
             slcmForegroundView.backgroundColor = .darkGray
             
             attendancePercentage.backgroundColor = .darkGray
-            attendancePercentage2.backgroundColor = .darkGray
             
             absent.textColor = .label
             present.textColor = .label
@@ -63,6 +70,27 @@ class SubjectCellTableViewCell: FoldingCell {
             
             totalClasses.textColor = .label
             bunks.textColor = .label
+            
+            totalContainerView.backgroundColor = .darkGray
+            secondContainerView.backgroundColor = .darkGray
+            thirdContainerView.backgroundColor = .darkGray
+            bottomContainerView.backgroundColor = .darkGray
+            
+            assignment1.backgroundColor = .darkGray
+            assignment2.backgroundColor = .darkGray
+            assignment3.backgroundColor = .darkGray
+            assignment4.backgroundColor = .darkGray
+            
+            sessional1.backgroundColor = .darkGray
+            sessional2.backgroundColor = .darkGray
+            
+            assignment1.textColor = .secondaryLabel
+            assignment2.textColor = .secondaryLabel
+            assignment3.textColor = .secondaryLabel
+            assignment4.textColor = .secondaryLabel
+            
+            sessional1.textColor = .secondaryLabel
+            sessional2.textColor = .secondaryLabel
             
         } else {
             
@@ -72,7 +100,6 @@ class SubjectCellTableViewCell: FoldingCell {
             slcmForegroundView.backgroundColor = .white
             
             attendancePercentage.backgroundColor = .white
-            attendancePercentage2.backgroundColor = .white
             
             absent.textColor = .label
             present.textColor = .label
@@ -82,6 +109,28 @@ class SubjectCellTableViewCell: FoldingCell {
             
             totalClasses.textColor = .label
             bunks.textColor = .label
+            
+            totalContainerView.backgroundColor = .darkGray
+            
+            secondContainerView.backgroundColor = .white
+            thirdContainerView.backgroundColor = .white
+            bottomContainerView.backgroundColor = .white
+            
+            assignment1.backgroundColor = .white
+            assignment2.backgroundColor = .white
+            assignment3.backgroundColor = .white
+            assignment4.backgroundColor = .white
+            
+            sessional1.backgroundColor = .white
+            sessional2.backgroundColor = .white
+            
+            assignment1.textColor = .secondaryLabel
+            assignment2.textColor = .secondaryLabel
+            assignment3.textColor = .secondaryLabel
+            assignment4.textColor = .secondaryLabel
+            
+            sessional1.textColor = .secondaryLabel
+            sessional2.textColor = .secondaryLabel
             
         }
     }
@@ -132,7 +181,7 @@ class SubjectCellTableViewCell: FoldingCell {
                     sessional1.text = ERROR_CODES.NOT_AVAILABLE
                 }
                 
-                if let s2 = _subject._marks?.sessionalMarks?[0] {
+                if let s2 = _subject._marks?.sessionalMarks?[1] {
                     sessional2.text = s2
                 } else {
                     sessional2.text = ERROR_CODES.NOT_AVAILABLE
@@ -148,6 +197,7 @@ class SubjectCellTableViewCell: FoldingCell {
                 
                 present.text = attendance.classesPresent
                 totalClasses.text = attendance.totalClasses
+                total.text = attendance.totalClasses
                 
                 attendancePercentage.text = attendance.attendancePercentString
                 attendancePercentage2.text = attendance.attendancePercentString
