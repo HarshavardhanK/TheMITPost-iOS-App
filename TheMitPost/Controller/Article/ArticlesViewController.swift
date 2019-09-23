@@ -36,17 +36,12 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
+    //MARK: VIEW DID LOAD
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if traitCollection.userInterfaceStyle == .dark {
-            self.navigationController?.navigationBar.barTintColor = .darkGray
-        }
-        
-        if #available(iOS 13.0, *) {
-            self.view.backgroundColor = .systemBackground
-            articleCollectionView.backgroundColor = .systemBackground
-        }
+        mode()
     
         retrieveArticles { (success) in
             
@@ -161,20 +156,34 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         return .default
     }*/
     
+    func mode() {
+        
+        if #available(iOS 13.0, *) {
+            
+            if traitCollection.userInterfaceStyle == .dark {
+                
+                print("dark mode detected")
+                self.navigationController?.navigationBar.barTintColor = .background
+
+                self.view.backgroundColor = .background
+                articleCollectionView.backgroundColor = .background
+                
+            } else {
+                
+                print("light mode detected")
+                self.navigationController?.navigationBar.barTintColor = .systemOrange
+                
+                self.view.backgroundColor = .white
+                articleCollectionView.backgroundColor = .white
+                
+            }
+        }
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
-        let style = traitCollection.userInterfaceStyle
-        
-        if style == .dark {
-            print("dark mode detected")
-            self.navigationController?.navigationBar.barTintColor = .darkGray
-        }
-        
-        if style == .light {
-            print("light mode detected")
-            self.navigationController?.navigationBar.barTintColor = .systemOrange
-        }
+       mode()
     }
 
     

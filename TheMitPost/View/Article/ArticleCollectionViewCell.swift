@@ -32,7 +32,6 @@ class ArticleCollectionViewCell: UICollectionViewCell {
             
             articleImageView.sd_setImage(with: URL(string: article.featured_media!))
             titleLabelView.text = article.title
-           // authorLabel.text = article.author
             dateLabelView.text = article.date
             
             if let message = article.message {
@@ -52,13 +51,14 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
+        mode()
+        
         shadowLayer?.elevation = .cardPickedUp
         
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
         layer.cornerRadius = 5.0
         layer.shadowRadius = 10.0
-        //layer.backgroundColor = UIColor(patternImage: UIImage(imageLiteralResourceName: "event_bg3")).cgColor
         
         clipsToBounds = false
         
@@ -66,10 +66,6 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         
         self.contentView.layer.cornerRadius = 10.0
 
-        print("Awake from nib")
-        //clipsToBounds = false
-        //articleImageView.clipsToBounds = true
-        
         titleLabelView.lineBreakMode = .byWordWrapping
         titleLabelView.numberOfLines = 3
         titleLabelView.font = UIFont(name: "Optima-Bold", size: 21)
@@ -80,27 +76,39 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         messageLabelView.lineBreakMode = .byWordWrapping
         messageLabelView.numberOfLines = 0
         messageLabelView.font = UIFont(name: "Optima", size: 15)
-        
-       // authorLabel.font = UIFont(name: "Optima", size: 16)
+    
         dateLabelView.font = UIFont(name: "Helvetica", size: 14)
-        
-        darkMode()
         
     }
     
-    func darkMode() {
+    func mode() {
         
         if #available(iOS 13.0, *) {
             
-            backgroundColor = .systemBackground
-            
-            layer.shadowColor = UIColor.lightGray.cgColor
-            dateLabelView.backgroundColor = .systemBackground
-            titleLabelView.backgroundColor = .systemBackground
-            titleLabelView.backgroundColor = .systemBackground
-            
-        } else {
-            // Fallback on earlier versions
+            if traitCollection.userInterfaceStyle == .dark {
+                
+                backgroundColor = UIColor.foreground
+                
+                dateLabelView.backgroundColor = UIColor.foreground
+                titleLabelView.backgroundColor = UIColor.foreground
+                
+                messageLabelView.textColor = .secondaryLabel
+                dateLabelView.textColor = .tertiaryLabel
+                titleLabelView.textColor = .label
+                
+            } else {
+                
+                backgroundColor = UIColor.white
+                
+                dateLabelView.backgroundColor = UIColor.white
+                titleLabelView.backgroundColor = UIColor.white
+                
+                messageLabelView.textColor = .secondaryLabel
+                dateLabelView.textColor = .tertiaryLabel
+                titleLabelView.textColor = .label
+                
+            }
+        
         }
         
     }

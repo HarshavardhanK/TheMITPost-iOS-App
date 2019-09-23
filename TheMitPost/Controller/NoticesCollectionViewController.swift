@@ -23,16 +23,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        if traitCollection.userInterfaceStyle == .dark {
-            self.navigationController?.navigationBar.barTintColor = .darkGray
-        }
-        
-        if #available(iOS 13, *) {
-            noticesCollectionView.backgroundColor = .systemBackground
-            self.view.backgroundColor = .systemBackground
-            
-        }
+        mode()
         
         noticesCollectionView.delegate = self
         noticesCollectionView.dataSource = self
@@ -40,21 +31,36 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         retrieveNotices()
     }
     
+    func mode() {
+        
+        if #available(iOS 13.0, *) {
+            
+            if traitCollection.userInterfaceStyle == .dark {
+                
+                print("dark mode detected")
+                self.navigationController?.navigationBar.barTintColor = .darkGray
+
+                self.view.backgroundColor = UIColor.background
+                noticesCollectionView.backgroundColor = UIColor.background
+                
+            } else {
+                
+                print("light mode detected")
+                self.navigationController?.navigationBar.barTintColor = .systemOrange
+                
+                self.view.backgroundColor = .white
+                noticesCollectionView.backgroundColor = .white
+                
+            }
+        }
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
-        let style = traitCollection.userInterfaceStyle
-        
-        if style == .dark {
-            print("dark mode detected")
-            self.navigationController?.navigationBar.barTintColor = .darkGray
-        }
-        
-        if style == .light {
-            print("light mode detected")
-            self.navigationController?.navigationBar.barTintColor = .systemOrange
-        }
+       mode()
     }
+
     
     func retrieveNotices() {
         

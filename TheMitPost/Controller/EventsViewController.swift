@@ -26,16 +26,12 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         return .lightContent
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        setupNavigationBar()
-    }
+    //MARK: VIEW DID LOAD
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //setupNavigationBar()
+        mode()
 
         eventsCollectionView.delegate = self
         eventsCollectionView.dataSource = self
@@ -53,59 +49,71 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
             
         }
         
-        if #available(iOS 13.0, *) {
-            self.view.backgroundColor = .systemBackground
-            self.eventsCollectionView.backgroundColor = .systemBackground
-            
-        } else {
-            // Fallback on earlier versions
-        }
-        
         refreshControl.addTarget(self, action: #selector(refreshEvents), for: .valueChanged)
         
     }
     
-    func setupNavigationBar() {
+    //MARK: SET UP NAVIGATION BAR
+    
+//    func setupNavigationBar() {
+//
+//        if traitCollection.userInterfaceStyle == .dark {
+//            self.navigationController?.navigationBar.barTintColor = .black
+//
+//        } else {
+//            self.navigationController?.navigationBar.barTintColor = .white
+//        }
+//
+//        let images = ["crown", "crown1", "confetti", "dancing"]
+//        let choice = images[Int(arc4random() % 4)]
+//
+//        let crownImageView = UIImageView(frame: CGRect(x: 0, y: 2, width: 27, height: 30))
+//        crownImageView.contentMode = .scaleAspectFit
+//        crownImageView.image = UIImage(named: choice)
+//        self.navigationItem.titleView = crownImageView
+//
+//    }
+    
+    //MARK:- DARK MODE CHECK
+    
+    func mode() {
         
-        if traitCollection.userInterfaceStyle == .dark {
-            self.navigationController?.navigationBar.barTintColor = .black
+        if #available(iOS 13.0, *) {
             
-        } else {
-            self.navigationController?.navigationBar.barTintColor = .white
+            if traitCollection.userInterfaceStyle == .dark {
+                
+                print("dark mode detected")
+                self.navigationController?.navigationBar.barTintColor = .black
+
+                self.view.backgroundColor = UIColor.background
+                eventsCollectionView.backgroundColor = UIColor.background
+                
+            } else {
+                
+                print("light mode detected")
+                self.navigationController?.navigationBar.barTintColor = .white
+                
+                self.view.backgroundColor = .white
+                eventsCollectionView.backgroundColor = .white
+                
+            }
         }
-        
-        let images = ["crown", "crown1", "confetti", "dancing"]
-        let choice = images[Int(arc4random() % 4)]
-        
-        let crownImageView = UIImageView(frame: CGRect(x: 0, y: 2, width: 27, height: 30))
-        crownImageView.contentMode = .scaleAspectFit
-        crownImageView.image = UIImage(named: choice)
-        self.navigationItem.titleView = crownImageView
-        
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
-        let style = traitCollection.userInterfaceStyle
-        
-        if style == .dark {
-            print("dark mode detected")
-            self.navigationController?.navigationBar.barTintColor = .black
-        }
-        
-        if style == .light {
-            print("light mode detected")
-            self.navigationController?.navigationBar.barTintColor = .white
-        }
+       mode()
     }
     
 
-    // MARK: - Table view data source
+    // MARK: - TABLE VIEW COUNT
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return events.count
     }
+    
+    //MARK: TABLE VIEW RETURN CELL
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -117,6 +125,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         return cell
         
     }
+    
+    //MARK: TABLE VIEW ANIMATION
     
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -143,6 +153,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+    //MARK: TABLE VIEW CELL RESIZES / PADDING / ETC
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return CGFloat(30)
     }
@@ -153,7 +165,7 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
 
     
-    //MARK:- RETRIEVE EVENT DATA FROM API
+    //MARK:- API CALL
     func retrieveEvents(completion: @escaping (Bool) -> ()) {
         
         Alamofire.request(EVENTS_API, method: .get).responseJSON {
@@ -188,6 +200,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         
     }
     
+    //MARK: REFRESH
+    
     @objc func refreshEvents() {
         
         events = [Events]()
@@ -201,6 +215,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         print("Finished refreshing..")
     }
+    
+    //MARK: DETAIL IMAGE SEGUE
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

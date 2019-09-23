@@ -60,12 +60,14 @@ class EventViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
+        mode()
+        
         shadowLayer?.elevation = .cardPickedUp
         
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
-        layer.cornerRadius = 5.0
-        layer.shadowRadius = 10.0
+        layer.cornerRadius = 8.0
+        layer.shadowRadius = 7.5
        
         clipsToBounds = false
         
@@ -91,25 +93,43 @@ class EventViewCell: UICollectionViewCell {
         titleLabel.layer.cornerRadius = 5.0
         titleLabel.layer.shadowRadius = 10.0
         
-        darkMode()
-        
         eventImageView.isUserInteractionEnabled = true
         
     }
     
-    func darkMode() {
+    func mode() {
         
         if #available(iOS 13.0, *) {
-            backgroundColor = .systemBackground
             
-            layer.shadowColor = UIColor.lightGray.cgColor
-            titleLabel.backgroundColor = .systemBackground
-            timeLabel.backgroundColor = .systemBackground
-            descriptionLabel.backgroundColor = .systemBackground
-            organizerNameLabel.backgroundColor = .systemBackground
+            if traitCollection.userInterfaceStyle == .dark {
+                
+                backgroundColor = UIColor.foreground
+                
+                titleLabel.backgroundColor = UIColor.foreground
+                timeLabel.backgroundColor = UIColor.foreground
+                
+                descriptionLabel.backgroundColor = UIColor.foreground
+                organizerNameLabel.backgroundColor = UIColor.foreground
+                
+                titleLabel.textColor = .label
+                organizerNameLabel.textColor = .secondaryLabel
+                
+                
+            } else {
+                
+                backgroundColor = .white
+                
+                titleLabel.backgroundColor = UIColor.white
+                timeLabel.backgroundColor = UIColor.white
+                
+                descriptionLabel.backgroundColor = UIColor.white
+                organizerNameLabel.backgroundColor = UIColor.white
+                
+                titleLabel.textColor = .label
+                organizerNameLabel.textColor = .secondaryLabel
+                
+            }
             
-            titleLabel.textColor = .label
-            organizerNameLabel.textColor = .secondaryLabel
             
         }
         
