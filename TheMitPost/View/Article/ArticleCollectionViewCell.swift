@@ -112,6 +112,12 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         }
         
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        mode()
+    }
 
     
     override class var layerClass: AnyClass {

@@ -135,6 +135,12 @@ class EventViewCell: UICollectionViewCell {
         
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        mode()
+    }
+    
     func shareEvent() {
         
         let items = [titleLabel.text, descriptionLabel.text, event.formLink]
