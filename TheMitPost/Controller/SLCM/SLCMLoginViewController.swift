@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import LocalAuthentication
+
 import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
@@ -26,6 +28,9 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     @IBOutlet weak var signInButton: UIButton!
     
+    @IBOutlet weak var biometricLabel: UILabel!
+    
+    
     //var activityIndicator: NVActivityIndicatorView!
     @IBOutlet var activityIndicator: NVActivityIndicatorView!
     
@@ -35,95 +40,153 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     var count: Int = 0 // counting invalid attempts
     
+    func authenticateWithBiometric(completion: @escaping (Bool) -> ())  {
+        
+        let context = LAContext()
+        var error: NSError?
+
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Identify yourself!"
+
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
+                [weak self] success, authenticationError in
+
+                DispatchQueue.main.async {
+
+                    if success {
+                        completion(true)
+                    } else {
+                        //invalid authentication error
+                        
+                        completion(false)
+                    }
+                }
+                
+               
+            }
+        } else {
+            // no biometry
+            
+        }
+        
+        
+    }
+    
     @IBAction func signInPressed(_ sender: Any) {
         
         self.startActivityIndicator()
         
         signInButton.isEnabled = false
         
-        loadSLCMData { (result) in
-        
-        if result {
+        if checkForBiometric() {
             
-            self.stopActivityIndicator()
-            
-            self.performSegue(withIdentifier: "slcmDetail", sender: self)
-            
-        } else {
-            
-            self.showAlertForInvalidCredentials()
-           
-            self.count += 1
-            
-            UserDefaults.standard.set(self.count, forKey: ERROR_CODES.INVALID_ATTEMPT)
-            
-            self.stopActivityIndicator()
-            
-//            if self.count == 2 {
-//                UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
-//            }
-          }
-            
-            self.signInButton.isEnabled = true
-        }
-        
-        passwordTextfield.text = nil
-        registrationTextfield.text = nil
-        
-    }
-        
-       /* if resetInvalidLock() {
-            
-            UserDefaults.standard.set(nil, forKey: ERROR_CODES.TIME_OF_INVALID)
-            UserDefaults.standard.set(0, forKey: ERROR_CODES.INVALID_ATTEMPT)
-        }
-        
-        count = UserDefaults.standard.integer(forKey: ERROR_CODES.INVALID_ATTEMPT)
-       
-        
-        if count < 2 {
-            
-            startActivityIndicator()
-            
-            loadSLCMData { (result) in
+            authenticateWithBiometric { (success) in
                 
-                if result {
+                if success {
                     
-                    self.stopActivityIndicator()
-                    
-                    self.performSegue(withIdentifier: "slcmDetail", sender: self)
-                    
-                } else {
-                    
-                    self.showAlertForInvalidCredentials()
-                   
-                    self.count += 1
-                    
-                    UserDefaults.standard.set(self.count, forKey: ERROR_CODES.INVALID_ATTEMPT)
-                    
-                    self.stopActivityIndicator()
-                    
-                    if self.count == 2 {
-                        UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
+                    guard let registration = UserDefaults.standard.string(forKey: "registration") else {
+                        return
                     }
+                    
+                    guard let password = UserDefaults.standard.string(forKey: "password") else {
+                        return
+                    }
+                    
+                    self.loadSLCMData (registration: registration, password: password) { (result) in
+                            
+                            if result {
+                                
+                                self.stopActivityIndicator()
+                                
+                                self.performSegue(withIdentifier: "slcmDetail", sender: self)
+                                
+                            } else {
+                                
+                                self.showAlertForInvalidCredentials()
+                               
+                                self.count += 1
+                                
+                                UserDefaults.standard.set(self.count, forKey: ERROR_CODES.INVALID_ATTEMPT)
+                                
+                                self.stopActivityIndicator()
+                                
+                    //            if self.count == 2 {
+                    //                UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
+                    //            }
+                              }
+                                
+                                self.signInButton.isEnabled = true
+                            }
+                            
+                    self.passwordTextfield.text = nil
+                    self.registrationTextfield.text = nil
+                    
                 }
                 
             }
             
         } else {
             
-            let moreInvalidAttempts = UIAlertController(title: "Too many failed logins", message: "You have exhausted the limit for failed logins. Try again after 20 minutes", preferredStyle: .alert)
+            guard let registration = registrationTextfield.text else {
+                return
+            }
+
+            guard let password = passwordTextfield.text else {
+                return
+            }
             
-            moreInvalidAttempts.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                //start timer
-            }))
+            self.passwordTextfield.text = nil
+            self.registrationTextfield.text = nil
             
-            self.present(moreInvalidAttempts, animated: true, completion: nil)
+            loadSLCMData (registration: registration, password: password){ (result) in
+                    
+                    if result {
+                        
+                        self.stopActivityIndicator()
+                        
+                        print("Storing \(registration)")
+                        print("Storing \(password)")
+                        
+                        UserDefaults.standard.set(registration, forKey: "registration")
+                        UserDefaults.standard.set(password, forKey: "password")
+                        
+                        self.performSegue(withIdentifier: "slcmDetail", sender: self)
+                        
+                    } else {
+                        
+                        self.showAlertForInvalidCredentials()
+                       
+                        self.count += 1
+                        
+                        UserDefaults.standard.set(self.count, forKey: ERROR_CODES.INVALID_ATTEMPT)
+                        
+                        self.stopActivityIndicator()
+                        
+            //            if self.count == 2 {
+            //                UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
+            //            }
+                      }
+                        
+                        self.signInButton.isEnabled = true
+                    }
             
-        }*/
+            UserDefaults.standard.set(true, forKey: "userSaved")
+        }
+    }
+
+    
+    func checkForBiometric() -> Bool {
         
+        let isUserSaved = UserDefaults.standard.bool(forKey: "userSaved")
         
-    //}
+        if isUserSaved {
+            
+            return true
+        }
+        
+        return false
+        
+    }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,69 +194,78 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
     }
     
+    var passwordFound = true
+    var registrationFound = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib
         
-        if traitCollection.userInterfaceStyle == .dark {
-            self.navigationController?.navigationBar.barTintColor = .darkGray
-        }
-        
-        //signInButton.backgroundColor = UIColor(patternImage: UIImage(named: "slcm_signin")!)
+        mode()
         
         registrationTextfield.delegate = self
         passwordTextfield.delegate = self
         
-        self.view.backgroundColor = .systemBackground
-        
-        
-        if let _registration = registrationTextfield.text {
-            print(_registration)
-        }
-        
-        if let _password = passwordTextfield.text {
-            print(_password)
-        }
-        
-        signInButton.layer.cornerRadius = 5
-        signInButton.backgroundColor = .systemBackground
+        signInButton.layer.cornerRadius = 4
         
         registrationTextfield.keyboardType = .numberPad
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
+        if checkForBiometric() {
+            print("biometric is enabled")
+            biometricLabel.text = "Face ID is enabled"
+            biometricLabel.textColor = .tertiaryLabel
+            
+        } else {
+            print("biometric is disabled")
+        }
+        
+        guard let registration = UserDefaults.standard.string(forKey: "registration") else {
+            registrationFound = false
+            passwordFound = false
+            return
+        }
+        
+        guard let password = UserDefaults.standard.string(forKey: "password") else {
+            passwordFound = false
+            return
+        }
+        
+        registrationTextfield.text = registration
+        passwordTextfield.text = password
+        
+        registrationTextfield.isEnabled = false
+        passwordTextfield.isEnabled = false
+        
+    }
+    
+    //MARK: UI THEME
+    func mode() {
+        
+        if traitCollection.userInterfaceStyle == .dark {
+            self.navigationController?.navigationBar.barTintColor = .background
+            self.view.backgroundColor = .background
+            signInButton.backgroundColor = .background
+            
+        } else {
+            self.navigationController?.navigationBar.barTintColor = .systemOrange
+            self.view.backgroundColor = .white
+            signInButton.backgroundColor = .white
+        }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
-        let style = traitCollection.userInterfaceStyle
-        
-        if style == .dark {
-            print("dark mode detected")
-            self.navigationController?.navigationBar.barTintColor = .darkGray
-            registrationTextfield.backgroundColor = .gray
-            passwordTextfield.backgroundColor = .gray
-        }
-        
-        if style == .light {
-            print("light mode detected")
-            self.navigationController?.navigationBar.barTintColor = .systemOrange
-            registrationTextfield.backgroundColor = .white
-            passwordTextfield.backgroundColor = .white
-        }
+       mode()
     }
     
     func resetInvalidLock() -> Bool {
         
         let now = Date()
+        
         guard let invalidDate = UserDefaults.standard.object(forKey: ERROR_CODES.TIME_OF_INVALID) else {
             print("No date object found")
-            
-//            if count < 2 {
-//                return true
-//            }
-            
             return false
         }
         
@@ -260,23 +332,12 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     }
     
     
-    func loadSLCMData(completion: @escaping (Bool) -> ()) {
+    func loadSLCMData(registration: String, password: String, completion: @escaping (Bool) -> ()) {
         
         var success = false
         
-        /*guard let registration = registrationTextfield.text else {
-            return
-        }
-
-        guard let password = passwordTextfield.text else {
-            return
-        }*/
-        
-        let registration = "170905054"
-        let password = "tropicofleo110."
-        
         print("registration is \(registration)")
-        print("passwrod is \(password)")
+        print("password is \(password)")
         
         Alamofire.request(self.SLCMAPI, method: .post, parameters:["regNumber":registration, "pass":password], encoding: JSONEncoding.default).responseJSON { response in
             
@@ -363,6 +424,99 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
     }
     
+    @IBAction func unwindFromSLCM(sender: UIStoryboardSegue) {
+        
+        if let _ = sender.source as? SLCMTableViewController {
+            print("Unwinding back to SLCM login")
+        }
+    }
+    
 
 }
+
+
+
+/*loadSLCMData { (result) in
+        
+        if result {
+            
+            self.stopActivityIndicator()
+            
+            self.performSegue(withIdentifier: "slcmDetail", sender: self)
+            
+        } else {
+            
+            self.showAlertForInvalidCredentials()
+           
+            self.count += 1
+            
+            UserDefaults.standard.set(self.count, forKey: ERROR_CODES.INVALID_ATTEMPT)
+            
+            self.stopActivityIndicator()
+            
+//            if self.count == 2 {
+//                UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
+//            }
+          }
+            
+            self.signInButton.isEnabled = true
+        }
+        
+        passwordTextfield.text = nil
+        registrationTextfield.text = nil
+        
+    }
+        
+       /* if resetInvalidLock() {
+            
+            UserDefaults.standard.set(nil, forKey: ERROR_CODES.TIME_OF_INVALID)
+            UserDefaults.standard.set(0, forKey: ERROR_CODES.INVALID_ATTEMPT)
+        }
+        
+        count = UserDefaults.standard.integer(forKey: ERROR_CODES.INVALID_ATTEMPT)
+       
+        
+        if count < 2 {
+            
+            startActivityIndicator()
+            
+            loadSLCMData { (result) in
+                
+                if result {
+                    
+                    self.stopActivityIndicator()
+                    
+                    self.performSegue(withIdentifier: "slcmDetail", sender: self)
+                    
+                } else {
+                    
+                    self.showAlertForInvalidCredentials()
+                   
+                    self.count += 1
+                    
+                    UserDefaults.standard.set(self.count, forKey: ERROR_CODES.INVALID_ATTEMPT)
+                    
+                    self.stopActivityIndicator()
+                    
+                    if self.count == 2 {
+                        UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
+                    }
+                }
+                
+            }
+            
+        } else {
+            
+            let moreInvalidAttempts = UIAlertController(title: "Too many failed logins", message: "You have exhausted the limit for failed logins. Try again after 20 minutes", preferredStyle: .alert)
+            
+            moreInvalidAttempts.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                //start timer
+            }))
+            
+            self.present(moreInvalidAttempts, animated: true, completion: nil)
+            
+        }*/
+        
+        
+    //}*/
 

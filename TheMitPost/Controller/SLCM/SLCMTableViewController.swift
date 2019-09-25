@@ -20,16 +20,7 @@ class SLCMTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.navigationController?.title = "SLCM Without The Hassle"
-        //self.tabBarController?.tabBar.isHidden = true
-        
-        if traitCollection.userInterfaceStyle == .dark {
-            self.navigationController?.navigationBar.barTintColor = .black
-        }
-        
-//        if #available(iOS 13, *) {
-//            self.view.backgroundColor = .systemBackground
-//        }
+        mode()
 
         setup()
         print("View loaded..")
@@ -40,25 +31,26 @@ class SLCMTableViewController: UITableViewController {
         
     }
     
+    //MARK: UI THEME
+    func mode() {
+        
+        if traitCollection.userInterfaceStyle == .dark {
+            
+            self.navigationController?.navigationBar.barTintColor = .background
+            
+            self.view.backgroundColor = .background
+            
+        } else {
+            self.navigationController?.navigationBar.barTintColor = .systemOrange
+            
+            self.view.backgroundColor = .white
+        }
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
-        let style = traitCollection.userInterfaceStyle
-        
-        if style == .dark {
-            print("dark mode detected")
-            self.navigationController?.navigationBar.barTintColor = .black
-            //self.tabBarController?.tabBar.barTintColor = .darkGray
-            self.view.backgroundColor = .black
-            
-        }
-        
-        if style == .light {
-            print("light mode detected")
-            self.navigationController?.navigationBar.barTintColor = .systemOrange
-            self.view.backgroundColor = .white
-            
-        }
+       mode()
     }
     
     //MARK:- HELPERS
@@ -77,23 +69,23 @@ class SLCMTableViewController: UITableViewController {
         tableView.estimatedRowHeight = Cell.CellHeight.cellClose
         tableView.rowHeight = UITableView.automaticDimension
         
-        if #available(iOS 10.0, *) {
-            tableView.refreshControl = UIRefreshControl()
-            tableView.refreshControl?.addTarget(self, action: #selector(refreshHandler), for: .valueChanged)
-        }
+//        if #available(iOS 10.0, *) {
+//            tableView.refreshControl = UIRefreshControl()
+//            tableView.refreshControl?.addTarget(self, action: #selector(refreshHandler), for: .valueChanged)
+//        }
     }
     
-    @objc func refreshHandler() {
-        
-        let deadlineTime = DispatchTime.now() + .seconds(1)
-        
-        DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: { [weak self] in
-            if #available(iOS 10.0, *) {
-                self?.tableView.refreshControl?.endRefreshing()
-            }
-            self?.tableView.reloadData()
-        })
-    }
+//    @objc func refreshHandler() {
+//
+//        let deadlineTime = DispatchTime.now() + .seconds(1)
+//
+//        DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: { [weak self] in
+//            if #available(iOS 10.0, *) {
+//                self?.tableView.refreshControl?.endRefreshing()
+//            }
+//            self?.tableView.reloadData()
+//        })
+//    }
 
     // MARK: - Table view data source
 
