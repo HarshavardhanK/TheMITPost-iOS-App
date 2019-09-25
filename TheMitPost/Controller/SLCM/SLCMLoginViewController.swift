@@ -20,19 +20,28 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     @IBOutlet weak var registrationTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     
-    @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var passwordHorizontalConstraint: NSLayoutConstraint!
-    @IBOutlet weak var usernameHorizontalConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var signInHorizontalConstraint: NSLayoutConstraint!
+     @IBOutlet weak var biometricLabel: UILabel!
     
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
     
-    @IBOutlet weak var biometricLabel: UILabel!
-    
-    
-    //var activityIndicator: NVActivityIndicatorView!
     @IBOutlet var activityIndicator: NVActivityIndicatorView!
+    
+    @IBAction func logoutAction(_ sender: Any) {
+        
+        UserDefaults.standard.set(false, forKey: "userSaved")
+        UserDefaults.standard.set(nil, forKey: "registration")
+        UserDefaults.standard.set(nil, forKey: "password")
+        
+        registrationTextfield.text = nil
+        passwordTextfield.text = nil
+        
+        registrationTextfield.isEnabled = true
+        passwordTextfield.isEnabled = true
+        
+        biometricLabel.text = nil
+    }
+    
     
     var subjects = [Subject]()
     
@@ -116,10 +125,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                               }
                                 
                                 self.signInButton.isEnabled = true
-                            }
-                            
-                    self.passwordTextfield.text = nil
-                    self.registrationTextfield.text = nil
+                        }
                     
                 }
                 
@@ -191,6 +197,32 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if checkForBiometric() {
+            print("biometric is enabled")
+            biometricLabel.text = "Face ID is enabled"
+            biometricLabel.textColor = .tertiaryLabel
+            
+        } else {
+            print("biometric is disabled")
+        }
+        
+        guard let registration = UserDefaults.standard.string(forKey: "registration") else {
+            registrationFound = false
+            passwordFound = false
+            return
+        }
+        
+        guard let password = UserDefaults.standard.string(forKey: "password") else {
+            passwordFound = false
+            return
+        }
+        
+        registrationTextfield.text = registration
+        passwordTextfield.text = password
+        
+        registrationTextfield.isEnabled = false
+        passwordTextfield.isEnabled = false
         
     }
     
@@ -316,21 +348,6 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         activityIndicator.removeFromSuperview()
         
     }
-    
-    func animateIntoView(duration: Double, delay: Double, margin: CGFloat) {
-        
-        UIView.animate(withDuration: duration, delay: delay, options: [.curveEaseOut], animations: {
-            
-            self.passwordHorizontalConstraint.constant -= margin
-            self.usernameHorizontalConstraint.constant -= margin
-            
-            self.stackView.layoutSubviews()
-            
-        }) { (true) in
-            print("Animation successfull")
-        }
-    }
-    
     
     func loadSLCMData(registration: String, password: String, completion: @escaping (Bool) -> ()) {
         

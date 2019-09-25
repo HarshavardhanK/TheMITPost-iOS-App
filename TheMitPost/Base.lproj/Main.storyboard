@@ -219,7 +219,7 @@
                                     <constraint firstAttribute="height" constant="70" id="HXj-c4-ZKY"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qb6-i4-QVk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qb6-i4-QVk">
                                 <rect key="frame" x="116" y="411" width="145" height="14.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14.33" id="0Eh-SJ-5Bv"/>
@@ -275,11 +275,15 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="O3q-QX-hdx"/>
                         <barButtonItem key="rightBarButtonItem" title="Log out" id="hGl-VU-4La">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="logoutAction:" destination="8rJ-Kc-sve" id="4Ur-uA-Zth"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="wC3-SO-iqr" id="ejT-ny-Pa1"/>
                         <outlet property="biometricLabel" destination="Qb6-i4-QVk" id="ZOs-DL-2jS"/>
+                        <outlet property="logoutButton" destination="hGl-VU-4La" id="1d0-IW-Ea5"/>
                         <outlet property="passwordTextfield" destination="b0c-g5-FcD" id="hG3-R5-nIf"/>
                         <outlet property="registrationTextfield" destination="KO4-As-ZjB" id="tiS-ck-5bR"/>
                         <outlet property="signInButton" destination="xGt-ZJ-9Rb" id="sVa-3M-z15"/>
