@@ -33,6 +33,9 @@
 		D6400903233781500086064E /* ImagePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6400902233781500086064E /* ImagePresentViewController.swift */; };
 		D6400904233781500086064E /* ImagePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6400902233781500086064E /* ImagePresentViewController.swift */; };
 		D6400905233781500086064E /* ImagePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6400902233781500086064E /* ImagePresentViewController.swift */; };
+		D64B590A233D10A00096CF74 /* PDFLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64B5909233D10A00096CF74 /* PDFLoadViewController.swift */; };
+		D64B590B233D10A00096CF74 /* PDFLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64B5909233D10A00096CF74 /* PDFLoadViewController.swift */; };
+		D64B590C233D10A00096CF74 /* PDFLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64B5909233D10A00096CF74 /* PDFLoadViewController.swift */; };
 		D662420C23015E9F00261081 /* ArticleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662420B23015E9F00261081 /* ArticleWebViewController.swift */; };
 		D662420D23015E9F00261081 /* ArticleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662420B23015E9F00261081 /* ArticleWebViewController.swift */; };
 		D662420E23015E9F00261081 /* ArticleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662420B23015E9F00261081 /* ArticleWebViewController.swift */; };
@@ -127,6 +130,7 @@
 		D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCellTableViewCell.swift; sourceTree = "<group>"; };
 		D64008FA2336A5DD0086064E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6400902233781500086064E /* ImagePresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresentViewController.swift; sourceTree = "<group>"; };
+		D64B5909233D10A00096CF74 /* PDFLoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFLoadViewController.swift; sourceTree = "<group>"; };
 		D662420B23015E9F00261081 /* ArticleWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWebViewController.swift; sourceTree = "<group>"; };
 		D664F31C22AF9F62002D6E0F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D664F32622B0FA2D002D6E0F /* Notices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notices.swift; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 				D6F392BC22D604DC00CE50D1 /* EventsViewController.swift */,
 				D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */,
 				D6400902233781500086064E /* ImagePresentViewController.swift */,
+				D64B5909233D10A00096CF74 /* PDFLoadViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -641,6 +646,7 @@
 				D6D6A21321ECC5A200B822F8 /* SLCMLoginViewController.swift in Sources */,
 				D69B3057220382DC00E66AE3 /* Extensions.swift in Sources */,
 				D61C44DB223E74DF00DF5DAA /* SLCM.swift in Sources */,
+				D64B590A233D10A00096CF74 /* PDFLoadViewController.swift in Sources */,
 				D664F31D22AF9F62002D6E0F /* Utilities.swift in Sources */,
 				D63B747A22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,
 				D664F32722B0FA2D002D6E0F /* Notices.swift in Sources */,
@@ -677,6 +683,7 @@
 				D61C44DC223E74DF00DF5DAA /* SLCM.swift in Sources */,
 				D662420D23015E9F00261081 /* ArticleWebViewController.swift in Sources */,
 				D6D6A22621ECC5A500B822F8 /* TheMitPostTests.swift in Sources */,
+				D64B590B233D10A00096CF74 /* PDFLoadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,6 +699,7 @@
 				D6F392BF22D604DC00CE50D1 /* EventsViewController.swift in Sources */,
 				D664F31F22AF9F62002D6E0F /* Utilities.swift in Sources */,
 				D6313DC92292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
+				D64B590C233D10A00096CF74 /* PDFLoadViewController.swift in Sources */,
 				D6F392BB22D5FB5900CE50D1 /* Events.swift in Sources */,
 				D6400905233781500086064E /* ImagePresentViewController.swift in Sources */,
 				D6A8706022D916B60057A30B /* EventViewCell.swift in Sources */,

@@ -73,6 +73,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
        mode()
     }
 
+    //MARK: API CALL
     
     func retrieveNotices() {
         
@@ -94,9 +95,13 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                 
                 print("Successfully loaded data")
             }
+            
+            print("\(self.notices.count) notices retrieved")
         }
         
     }
+    
+    //MARK: COLLECTION VIEW DELEGATE
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return notices.count
@@ -127,7 +132,15 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             } else {
                 
                 //TODO PDF CELL
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pdfCell", for: indexPath) as! NoticeImageCollectionViewCell
+                print("PDF CELL FOUND")
+                
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "textCell", for: indexPath) as! NoticeTextCollectionViewCell
+                
+                cell.url = notice.getComponentURL
+                cell.titleText = notice.title
+                cell.contentText = notice.content
+                
+                cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: NoticeTextCollectionViewCell.width, height: NoticeTextCollectionViewCell.height)
                 
                 return cell
                 
@@ -142,6 +155,8 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             cell.contentText = notice.content
             
             cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: NoticeTextCollectionViewCell.width, height: NoticeTextCollectionViewCell.height)
+            
+            cell.isUserInteractionEnabled = false
             
             return cell
             
@@ -162,11 +177,11 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let cellType = sender as? NoticeImageCollectionViewCell else {
-            return
-        }
-        
         if segue.identifier == "detailNotice" {
+            
+            guard let cellType = sender as? NoticeImageCollectionViewCell else {
+                return
+            }
             
             if let destinationViewController = segue.destination as? ImagePresentViewController {
                 
@@ -179,7 +194,26 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                 }
                 
             }
+            
+        } else if segue.identifier == "pdfViewer" {
+            
+            guard let cellType = sender as? NoticeTextCollectionViewCell else {
+                return
+            }
+            
+            if let destinationViewController = segue.destination as? PDFLoadViewController {
+                
+                let path = self.noticesCollectionView.indexPath(for: cellType)
+                
+                if let path_ = path {
+                    
+                    print("This is PDF")
+                    destinationViewController.url = notices[path_.row].getComponentURL
+                    
+                }
+            }
         }
+        
     }
     
 

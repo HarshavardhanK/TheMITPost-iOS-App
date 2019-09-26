@@ -58,27 +58,6 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         
     }
     
-    //MARK: SET UP NAVIGATION BAR
-    
-//    func setupNavigationBar() {
-//
-//        if traitCollection.userInterfaceStyle == .dark {
-//            self.navigationController?.navigationBar.barTintColor = .black
-//
-//        } else {
-//            self.navigationController?.navigationBar.barTintColor = .white
-//        }
-//
-//        let images = ["crown", "crown1", "confetti", "dancing"]
-//        let choice = images[Int(arc4random() % 4)]
-//
-//        let crownImageView = UIImageView(frame: CGRect(x: 0, y: 2, width: 27, height: 30))
-//        crownImageView.contentMode = .scaleAspectFit
-//        crownImageView.image = UIImage(named: choice)
-//        self.navigationItem.titleView = crownImageView
-//
-//    }
-    
     //MARK:- DARK MODE CHECK
     
     func mode() {

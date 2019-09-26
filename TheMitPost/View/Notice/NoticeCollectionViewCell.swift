@@ -91,6 +91,8 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
     static let height: CGFloat = 120.0
     static let width: CGFloat = 350.0
     
+    var isPDF: Bool = false
+    
     var titleText: String? {
         
         didSet {
@@ -109,6 +111,18 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
                 contentLabel.text = content_
             }
         }
+    }
+    
+    var url: URL? {
+        
+        didSet {
+            
+            if let _ = url {
+                isPDF = true
+            }
+            
+        }
+        
     }
     
     override func awakeFromNib() {
@@ -142,31 +156,3 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
     
 }
 
-class NoticePDFCollectionViewCell: UICollectionViewCell {
-    
-    //set up PDF cell
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        shadowLayer?.elevation = .cardPickedUp
-               
-        layer.shouldRasterize = true
-        layer.rasterizationScale = UIScreen.main.scale
-        layer.cornerRadius = 7.5
-        layer.shadowRadius = 5.0
-               
-        clipsToBounds = false
-    }
-    
-    override class var layerClass: AnyClass {
-        return MDCShadowLayer.self
-    }
-    
-    var shadowLayer: MDCShadowLayer? {
-        return self.layer as? MDCShadowLayer
-    }
-    
-    
-    
-}
