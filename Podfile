@@ -17,6 +17,7 @@ pod 'Alamofire'
 pod 'NVActivityIndicatorView'
 pod 'RAMAnimatedTabBarController'
 pod 'Locksmith'
+pod 'FittedSheets'
 
   target 'TheMitPostTests' do
     inherit! :search_paths

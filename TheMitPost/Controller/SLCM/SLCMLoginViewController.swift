@@ -11,8 +11,11 @@ import LocalAuthentication
 
 import Alamofire
 import SwiftyJSON
+
 import NVActivityIndicatorView
 import Locksmith
+import FittedSheets
+import MaterialComponents
 
 class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivityIndicatorViewable {
     
@@ -32,7 +35,9 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     @IBAction func logoutAction(_ sender: Any) {
         
-        showAlertForLogout()
+        presentBottomSettings()
+        
+        /*showAlertForLogout()
         
         guard let registration = UserDefaults.standard.string(forKey: "registration") else {
             return
@@ -52,7 +57,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         registrationTextfield.isEnabled = true
         passwordTextfield.isEnabled = true
         
-        biometricLabel.text = nil
+        biometricLabel.text = nil*/
         
     }
     
@@ -557,6 +562,19 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         if let _ = sender.source as? SLCMTableViewController {
             print("Unwinding back to SLCM login")
         }
+    }
+    
+    //MARK: Bottom Settings View
+    func presentBottomSettings() {
+        
+        guard let settingsController = storyboard?.instantiateViewController(identifier: "slcmSettings") as? SLCMSettingsViewController else {
+            return
+        }
+        
+        let sheet = SheetViewController(controller: settingsController, sizes: [.fixed(250)])
+       // let sheet = MDCBottomSheetController(contentViewController: settingsController)
+        
+        present(sheet, animated: true, completion: nil)
     }
     
 

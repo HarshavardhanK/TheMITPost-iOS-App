@@ -12,6 +12,9 @@
 		BFECD38BC2BB41954A7767C9 /* Pods_TheMitPostTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8D4843B407BC33BF7CC027 /* Pods_TheMitPostTests.framework */; };
 		D60EBF3121ED0CDF00DAC538 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EBF3021ED0CDF00DAC538 /* Article.swift */; };
 		D60EBF3221ED0CDF00DAC538 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EBF3021ED0CDF00DAC538 /* Article.swift */; };
+		D614E7DF233CD6F200377DC8 /* SLCMSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614E7DE233CD6F200377DC8 /* SLCMSettingsViewController.swift */; };
+		D614E7E0233CD6F200377DC8 /* SLCMSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614E7DE233CD6F200377DC8 /* SLCMSettingsViewController.swift */; };
+		D614E7E1233CD6F200377DC8 /* SLCMSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614E7DE233CD6F200377DC8 /* SLCMSettingsViewController.swift */; };
 		D61C44DB223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
 		D61C44DC223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
 		D61C44DD223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
@@ -27,8 +30,6 @@
 		D64008FB2336A5DE0086064E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D64008FA2336A5DD0086064E /* Assets.xcassets */; };
 		D64008FC2336A5DE0086064E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D64008FA2336A5DD0086064E /* Assets.xcassets */; };
 		D64008FD2336A5DE0086064E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D64008FA2336A5DD0086064E /* Assets.xcassets */; };
-		D64009002336A8820086064E /* running-astro.json in Resources */ = {isa = PBXBuildFile; fileRef = D64008FF2336A8810086064E /* running-astro.json */; };
-		D64009012336A8820086064E /* running-astro.json in Resources */ = {isa = PBXBuildFile; fileRef = D64008FF2336A8810086064E /* running-astro.json */; };
 		D6400903233781500086064E /* ImagePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6400902233781500086064E /* ImagePresentViewController.swift */; };
 		D6400904233781500086064E /* ImagePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6400902233781500086064E /* ImagePresentViewController.swift */; };
 		D6400905233781500086064E /* ImagePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6400902233781500086064E /* ImagePresentViewController.swift */; };
@@ -119,12 +120,12 @@
 		D60EBF3021ED0CDF00DAC538 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D60F6BB12310713300279DA2 /* PostPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D614E7DD233CAB3D00377DC8 /* TheMitPost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMitPost.entitlements; sourceTree = "<group>"; };
+		D614E7DE233CD6F200377DC8 /* SLCMSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCMSettingsViewController.swift; sourceTree = "<group>"; };
 		D61C44DA223E74DF00DF5DAA /* SLCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCM.swift; sourceTree = "<group>"; };
 		D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCMTableViewController.swift; sourceTree = "<group>"; };
 		D63B747822999FC800673950 /* SubjectCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCellTableViewCell.swift; sourceTree = "<group>"; };
 		D64008FA2336A5DD0086064E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D64008FF2336A8810086064E /* running-astro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "running-astro.json"; sourceTree = "<group>"; };
 		D6400902233781500086064E /* ImagePresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresentViewController.swift; sourceTree = "<group>"; };
 		D662420B23015E9F00261081 /* ArticleWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWebViewController.swift; sourceTree = "<group>"; };
 		D664F31C22AF9F62002D6E0F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -259,14 +260,6 @@
 			path = Auxiliary;
 			sourceTree = "<group>";
 		};
-		D64008FE2336A86E0086064E /* Lottie Animations */ = {
-			isa = PBXGroup;
-			children = (
-				D64008FF2336A8810086064E /* running-astro.json */,
-			);
-			path = "Lottie Animations";
-			sourceTree = "<group>";
-		};
 		D67A7E4C231C3DA6009754D4 /* SLCM */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +306,7 @@
 			children = (
 				D6D6A21221ECC5A200B822F8 /* SLCMLoginViewController.swift */,
 				D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */,
+				D614E7DE233CD6F200377DC8 /* SLCMSettingsViewController.swift */,
 			);
 			path = SLCM;
 			sourceTree = "<group>";
@@ -362,7 +356,6 @@
 			isa = PBXGroup;
 			children = (
 				D614E7DD233CAB3D00377DC8 /* TheMitPost.entitlements */,
-				D64008FE2336A86E0086064E /* Lottie Animations */,
 				D6ACF13F2246A00A001B8A68 /* Fonts */,
 				D60EBF2C21ED0C7000DAC538 /* Model */,
 				D60EBF2D21ED0C7800DAC538 /* View */,
@@ -513,7 +506,6 @@
 				D6ACF12222469ED7001B8A68 /* Aileron-Regular.otf in Resources */,
 				D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */,
 				D6ACF11F22469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
-				D64009002336A8820086064E /* running-astro.json in Resources */,
 				D6ACF12A22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */,
 				D6ACF12E22469EFF001B8A68 /* Roboto-Medium.ttf in Resources */,
 				D6ACF13D22469F24001B8A68 /* DyeLine-Regular5.ttf in Resources */,
@@ -526,7 +518,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D64009012336A8820086064E /* running-astro.json in Resources */,
 				D64008FC2336A5DE0086064E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -643,6 +634,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D614E7DF233CD6F200377DC8 /* SLCMSettingsViewController.swift in Sources */,
 				D6F392B922D5FB5900CE50D1 /* Events.swift in Sources */,
 				D60EBF3121ED0CDF00DAC538 /* Article.swift in Sources */,
 				D6313DC72292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
@@ -671,6 +663,7 @@
 				D6A8705F22D916B60057A30B /* EventViewCell.swift in Sources */,
 				D63B747B22999FC800673950 /* SubjectCellTableViewCell.swift in Sources */,
 				D664F32822B0FA2D002D6E0F /* Notices.swift in Sources */,
+				D614E7E0233CD6F200377DC8 /* SLCMSettingsViewController.swift in Sources */,
 				D69B3058220382DC00E66AE3 /* Extensions.swift in Sources */,
 				D6313DC82292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
 				D6F392BE22D604DC00CE50D1 /* EventsViewController.swift in Sources */,
@@ -695,6 +688,7 @@
 				D6D6A23121ECC5A500B822F8 /* TheMitPostUITests.swift in Sources */,
 				D61D3A9721EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D61C44DD223E74DF00DF5DAA /* SLCM.swift in Sources */,
+				D614E7E1233CD6F200377DC8 /* SLCMSettingsViewController.swift in Sources */,
 				D6F392BF22D604DC00CE50D1 /* EventsViewController.swift in Sources */,
 				D664F31F22AF9F62002D6E0F /* Utilities.swift in Sources */,
 				D6313DC92292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
