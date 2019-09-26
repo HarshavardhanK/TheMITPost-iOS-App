@@ -7,24 +7,52 @@
 //
 
 import UIKit
-import MaterialComponents
+import Locksmith
 
 class SLCMSettingsViewController: UIViewController {
+    
+    @IBOutlet weak var biometricSwitch: UISwitch!
+    @IBOutlet weak var logoutButton: UIButton!
+    
+    @IBAction func switchBiometric(_ sender: Any) {
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        
+        print("log out pressed")
+        
+        guard let registration = UserDefaults.standard.string(forKey: "registration") else {
+            return
+        }
+               
+        try! Locksmith.deleteDataForUserAccount(userAccount: registration)
+        
+        UserDefaults.standard.set(false, forKey: "userSaved")
+        UserDefaults.standard.set(nil, forKey: "registration")
+        UserDefaults.standard.set(nil, forKey: "password")
+        
+        logoutButton.isEnabled = false
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        guard let _ = UserDefaults.standard.string(forKey: "registration") else {
+            logoutButton.isEnabled = false
+            return
+        }
+        
     }
+    
+    //MARK: ALERTS
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         print("settings controller loaded")
-        let button = UIButton(frame: CGRect(x: 200, y: 150, width: 100, height: 40))
-        button.setTitle("Button", for: .normal)
-        
-        self.view.addSubview(button)
         
     }
     

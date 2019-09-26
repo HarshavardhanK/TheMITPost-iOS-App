@@ -1313,8 +1313,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4c-8f-TLi">
-                                <rect key="frame" x="62" y="738" width="251" height="40"/>
+                                <rect key="frame" x="62" y="738" width="250" height="40"/>
                                 <state key="normal" image="slcm_logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="93x-3J-fAl" eventType="touchUpInside" id="Oqo-69-BC6"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="biometric" translatesAutoresizingMaskIntoConstraints="NO" id="KV7-91-pxb">
                                 <rect key="frame" x="16" y="680" width="30" height="30"/>
@@ -1326,7 +1329,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3f-4d-6YM">
                                 <rect key="frame" x="62" y="680" width="170" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="170" id="6Jd-gQ-Dy7"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="6Jd-gQ-Dy7"/>
                                     <constraint firstAttribute="height" constant="31" id="I9t-eV-O1c"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1339,12 +1342,14 @@
                                     <constraint firstAttribute="width" constant="47" id="CVO-Cb-7HQ"/>
                                     <constraint firstAttribute="height" constant="31" id="dRB-qj-wRV"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="switchBiometric:" destination="93x-3J-fAl" eventType="valueChanged" id="34Q-07-jar"/>
+                                </connections>
                             </switch>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.9730688820422535" green="0.96767715669014087" blue="0.95273987676056338" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="RQK-Bp-ZGx" firstAttribute="leading" secondItem="o3f-4d-6YM" secondAttribute="trailing" constant="78" id="CNh-b2-HtP"/>
-                            <constraint firstItem="F4c-8f-TLi" firstAttribute="centerX" secondItem="3My-If-f1E" secondAttribute="centerX" id="DHu-eN-JZS"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="KV7-91-pxb" secondAttribute="bottom" constant="68" id="ZeV-2L-nVl"/>
                             <constraint firstItem="F4c-8f-TLi" firstAttribute="top" secondItem="o3f-4d-6YM" secondAttribute="bottom" constant="27" id="ads-z4-BGq"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="RQK-Bp-ZGx" secondAttribute="bottom" constant="67" id="aoL-py-gyr"/>
@@ -1356,6 +1361,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4yU-Hl-R6r"/>
                     </view>
+                    <connections>
+                        <outlet property="biometricSwitch" destination="RQK-Bp-ZGx" id="a0I-WG-wyA"/>
+                        <outlet property="logoutButton" destination="F4c-8f-TLi" id="Hwu-Z7-QWX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DaS-m5-1hS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
