@@ -73,6 +73,41 @@ class NoticeImageCollectionViewCell: UICollectionViewCell {
         contentLabel.alpha = MDCTypography.body1FontOpacity()
     }
     
+    func mode() {
+        
+        if #available(iOS 13, *) {
+            
+            if traitCollection.userInterfaceStyle == .dark {
+                
+                backgroundColor = .foreground
+                contentLabel.backgroundColor = .foreground
+                dateLabel.backgroundColor = .foreground
+                titleLabel.backgroundColor = .foreground
+                
+                contentLabel.textColor = .secondaryLabel
+                titleLabel.textColor = .label
+                dateLabel.textColor = .tertiaryLabel
+                
+            } else {
+                
+                backgroundColor = .white
+                contentLabel.backgroundColor = .white
+                dateLabel.backgroundColor = .white
+                titleLabel.backgroundColor = .white
+                               
+                contentLabel.textColor = .secondaryLabel
+                titleLabel.textColor = .label
+                dateLabel.textColor = .tertiaryLabel
+            }
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        mode()
+    }
+    
     override class var layerClass: AnyClass {
         return MDCShadowLayer.self
     }
@@ -144,6 +179,41 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
         contentLabel.font = MDCTypography.body1Font()
         contentLabel.alpha = MDCTypography.body1FontOpacity()
         
+    }
+    
+    func mode() {
+        
+        if #available(iOS 13, *) {
+            
+            if traitCollection.userInterfaceStyle == .dark {
+                
+                backgroundColor = .foreground
+                contentLabel.backgroundColor = .foreground
+                dateLabel.backgroundColor = .foreground
+                titleLabel.backgroundColor = .foreground
+                
+                contentLabel.textColor = .secondaryLabel
+                titleLabel.textColor = .label
+                dateLabel.textColor = .tertiaryLabel
+                
+            } else {
+                
+                backgroundColor = .white
+                contentLabel.backgroundColor = .white
+                dateLabel.backgroundColor = .white
+                titleLabel.backgroundColor = .white
+                               
+                contentLabel.textColor = .secondaryLabel
+                titleLabel.textColor = .label
+                dateLabel.textColor = .tertiaryLabel
+            }
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        mode()
     }
     
     override class var layerClass: AnyClass {
