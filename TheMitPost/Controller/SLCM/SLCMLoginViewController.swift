@@ -32,6 +32,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     @IBAction func logoutAction(_ sender: Any) {
         
+        showAlertForLogout()
+        
         guard let registration = UserDefaults.standard.string(forKey: "registration") else {
             return
         }
@@ -280,9 +282,9 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         registrationTextfield.delegate = self
         passwordTextfield.delegate = self
         
-        registrationTextfield.layer.cornerRadius = 4
-        passwordTextfield.layer.cornerRadius = 4
-        signInButton.layer.cornerRadius = 4
+        registrationTextfield.layer.cornerRadius = 8
+        passwordTextfield.layer.cornerRadius = 8
+        signInButton.layer.cornerRadius = 8
         
         registrationTextfield.keyboardType = .numberPad
         
@@ -324,16 +326,25 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     //MARK: UI THEME
     func mode() {
         
-        if traitCollection.userInterfaceStyle == .dark {
-            self.navigationController?.navigationBar.barTintColor = .background
-            self.view.backgroundColor = .background
-            signInButton.backgroundColor = .background
+        if #available(iOS 13, *) {
             
-        } else {
-            self.navigationController?.navigationBar.barTintColor = .systemOrange
-            self.view.backgroundColor = .white
-            signInButton.backgroundColor = .white
+            if traitCollection.userInterfaceStyle == .dark {
+                
+                self.navigationController?.navigationBar.barTintColor = .background
+                self.view.backgroundColor = .background
+                self.tabBarController?.tabBar.barTintColor = .background
+                signInButton.backgroundColor = .background
+                
+            } else {
+                
+                self.navigationController?.navigationBar.barTintColor = .systemOrange
+                self.view.backgroundColor = .white
+                self.tabBarController?.tabBar.barTintColor = .white
+                signInButton.backgroundColor = .white
+            }
+            
         }
+        
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -375,6 +386,21 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         }))
         
         self.present(invalidAlert, animated: true, completion: nil)
+    }
+    
+    func showAlertForLogout() {
+        
+        let logoutAlert = UIAlertController(title: "Are you sure you want to log out?", message: "You will not be able to receive notifications if you are logged out", preferredStyle: .alert)
+        
+        logoutAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            print("logged out")
+        }))
+        
+        logoutAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            print("log out cancel")
+        }))
+        
+        self.present(logoutAlert, animated: true, completion: nil)
     }
     
     //MARK:- Activty Indicator NVActivityIndicatorView
@@ -480,7 +506,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
     }
     
-    //MARK:- UITextFieldDelegate methods
+    //MARK:- TextFieldDelegate methods
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         print("text field being edited..")
         animateBottomConstraint(direction: 1)
