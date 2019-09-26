@@ -238,6 +238,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        print("login view will appear")
+        
         if checkForBiometric() {
             print("biometric is enabled")
             biometricLabel.text = "Face ID is enabled"
@@ -248,8 +250,15 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         }
         
         guard let registration_ = UserDefaults.standard.string(forKey: "registration") else {
+            
             registrationFound = false
             passwordFound = false
+            
+            biometricLabel.text = nil
+            registrationTextfield.text = nil
+            passwordTextfield.text = nil
+            signInButton.isEnabled = false
+            
             return
         }
         
@@ -557,10 +566,27 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
     }
     
-    @IBAction func unwindFromSLCM(sender: UIStoryboardSegue) {
+    @IBAction func unwindFromSLCMSettings(sender: UIStoryboardSegue) {
         
-        if let _ = sender.source as? SLCMTableViewController {
+        if let _ = sender.source as? SLCMSettingsViewController {
             print("Unwinding back to SLCM login")
+            
+            print("log out pressed")
+            
+            guard let registration = UserDefaults.standard.string(forKey: "registration") else {
+                return
+            }
+                   
+            try! Locksmith.deleteDataForUserAccount(userAccount: registration)
+            
+            UserDefaults.standard.set(false, forKey: "userSaved")
+            UserDefaults.standard.set(nil, forKey: "registration")
+            UserDefaults.standard.set(nil, forKey: "password")
+            
+            biometricLabel.text = nil
+            registrationTextfield.text = nil
+            passwordTextfield.text = nil
+            signInButton.isEnabled = false
         }
     }
     

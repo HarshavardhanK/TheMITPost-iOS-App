@@ -32,29 +32,49 @@ class SLCMSettingsViewController: UIViewController {
         UserDefaults.standard.set(nil, forKey: "password")
         
         logoutButton.isEnabled = false
+        
+//        self.dismiss(animated: true) {
+//            //loginViewController.registrationTextfield.text = nil
+//            //self.tabBarController?.selectedIndex = 0
+//        }
     }
+
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    //MARK: ALERTS
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         guard let _ = UserDefaults.standard.string(forKey: "registration") else {
             logoutButton.isEnabled = false
             return
         }
         
-    }
-    
-    //MARK: ALERTS
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+       // mode()
 
         // Do any additional setup after loading the view.
         print("settings controller loaded")
         
     }
+    
+//    func mode() {
+//
+//        if #available(iOS 13, *) {
+//
+//            if traitCollection.userInterfaceStyle == .dark {
+//                self.view.backgroundColor = .background
+//
+//            } else {
+//                self.view.backgroundColor = .white
+//            }
+//        }
+//    }
+    
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        super.traitCollectionDidChange(previousTraitCollection)
+//
+//        mode()
+//    }
     
 
     /*
