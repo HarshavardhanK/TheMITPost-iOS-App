@@ -28,6 +28,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     @IBOutlet var activityIndicator: NVActivityIndicatorView!
     
+    @IBOutlet weak var stackViewBottomConstraint: NSLayoutConstraint!
+    
     @IBAction func logoutAction(_ sender: Any) {
         
         guard let registration = UserDefaults.standard.string(forKey: "registration") else {
@@ -223,6 +225,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
     }
     
+    //MARK: VIEW WILL APPEAR
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -246,7 +250,10 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             return
         }
         
-        let password = credentials["password"] as! String
+        guard let password = credentials["password"] as? String else {
+            print("password not found for \(registration_)")
+            return
+        }
         
         registrationTextfield.text = registration_
         passwordTextfield.text = password
@@ -259,14 +266,22 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     var passwordFound = true
     var registrationFound = true
     
+    var bottomConstraint: CGFloat = 0.0
+    
+    //MARK: VIEW DID APPEAR
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mode()
         
+        bottomConstraint = stackViewBottomConstraint.constant
+        
         registrationTextfield.delegate = self
         passwordTextfield.delegate = self
         
+        registrationTextfield.layer.cornerRadius = 4
+        passwordTextfield.layer.cornerRadius = 4
         signInButton.layer.cornerRadius = 4
         
         registrationTextfield.keyboardType = .numberPad
@@ -443,9 +458,32 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
        
     }
     
+    //MARK: ANIMATION
+    func animateBottomConstraint(direction: Int) {
+        
+        if direction == 0 { //down
+            
+            self.stackViewBottomConstraint.constant = self.bottomConstraint
+            
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.view.layoutIfNeeded()
+            })
+            
+        } else {
+            
+            self.stackViewBottomConstraint.constant += 90
+            
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.view.layoutIfNeeded()
+            })
+        }
+        
+    }
+    
     //MARK:- UITextFieldDelegate methods
     func textFieldDidBeginEditing(_ textField: UITextField) {
         print("text field being edited..")
+        animateBottomConstraint(direction: 1)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -456,11 +494,14 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         if registrationTextfield.text != nil && registrationTextfield.text?.count == 9 && passwordTextfield.text != nil {
             signInButton.isEnabled = true
         }
+        
+        animateBottomConstraint(direction: 0)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //textField.resignFirstResponder()
         self.view.endEditing(true)
+        animateBottomConstraint(direction: 0)
         return true
     }
     

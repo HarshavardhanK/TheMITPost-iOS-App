@@ -164,6 +164,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 
                 print("dark mode detected")
                 self.navigationController?.navigationBar.barTintColor = .background
+                self.tabBarController?.tabBar.barTintColor = .background
 
                 self.view.backgroundColor = .background
                 articleCollectionView.backgroundColor = .background
@@ -172,6 +173,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 
                 print("light mode detected")
                 self.navigationController?.navigationBar.barTintColor = .systemOrange
+                self.tabBarController?.tabBar.barTintColor = .white
                 
                 self.view.backgroundColor = .white
                 articleCollectionView.backgroundColor = .white

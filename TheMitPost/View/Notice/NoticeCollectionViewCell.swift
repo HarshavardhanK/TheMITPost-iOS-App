@@ -58,7 +58,7 @@ class NoticeImageCollectionViewCell: UICollectionViewCell {
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
         layer.cornerRadius = 5.0
-        layer.shadowRadius = 10.0
+        layer.shadowRadius = 5.0
         
         clipsToBounds = false
         
@@ -143,5 +143,30 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
 }
 
 class NoticePDFCollectionViewCell: UICollectionViewCell {
+    
+    //set up PDF cell
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        shadowLayer?.elevation = .cardPickedUp
+               
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.cornerRadius = 7.5
+        layer.shadowRadius = 5.0
+               
+        clipsToBounds = false
+    }
+    
+    override class var layerClass: AnyClass {
+        return MDCShadowLayer.self
+    }
+    
+    var shadowLayer: MDCShadowLayer? {
+        return self.layer as? MDCShadowLayer
+    }
+    
+    
     
 }
