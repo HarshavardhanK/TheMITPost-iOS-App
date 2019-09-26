@@ -16,6 +16,7 @@ pod 'FoldingCell'
 pod 'Alamofire'
 pod 'NVActivityIndicatorView'
 pod 'RAMAnimatedTabBarController'
+pod 'Locksmith'
 
   target 'TheMitPostTests' do
     inherit! :search_paths

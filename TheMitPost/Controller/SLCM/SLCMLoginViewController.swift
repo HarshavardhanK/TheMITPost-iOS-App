@@ -12,6 +12,7 @@ import LocalAuthentication
 import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
+import Locksmith
 
 class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivityIndicatorViewable {
     
@@ -29,9 +30,17 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     @IBAction func logoutAction(_ sender: Any) {
         
+        guard let registration = UserDefaults.standard.string(forKey: "registration") else {
+            return
+        }
+               
+        try! Locksmith.deleteDataForUserAccount(userAccount: registration)
+        
         UserDefaults.standard.set(false, forKey: "userSaved")
         UserDefaults.standard.set(nil, forKey: "registration")
         UserDefaults.standard.set(nil, forKey: "password")
+        
+        signInButton.isEnabled = false
         
         registrationTextfield.text = nil
         passwordTextfield.text = nil
@@ -40,6 +49,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         passwordTextfield.isEnabled = true
         
         biometricLabel.text = nil
+        
     }
     
     
@@ -55,7 +65,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         var error: NSError?
 
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let reason = "Identify yourself!"
+            let reason = "slcm login"
 
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
                 [weak self] success, authenticationError in
@@ -81,6 +91,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
     }
     
+    //MARK: SIGN IN PRESSED
+    
     @IBAction func signInPressed(_ sender: Any) {
         
         self.startActivityIndicator()
@@ -96,10 +108,19 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                     guard let registration = UserDefaults.standard.string(forKey: "registration") else {
                         return
                     }
+//
+//                    guard let password = UserDefaults.standard.string(forKey: "password") else {
+//                        return
+//                    }
                     
-                    guard let password = UserDefaults.standard.string(forKey: "password") else {
+                    guard let credentials = Locksmith.loadDataForUserAccount(userAccount: registration) else {
                         return
                     }
+                    
+                    print(credentials)
+                    
+                    let password = credentials["password"] as! String
+                    print("PASSWORD FROM KEYCHAIN IS \(password)")
                     
                     self.loadSLCMData (registration: registration, password: password) { (result) in
                             
@@ -148,13 +169,21 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                     
                     if result {
                         
+                        UserDefaults.standard.set(true, forKey: "userSaved")
+                        
                         self.stopActivityIndicator()
                         
                         print("Storing \(registration)")
                         print("Storing \(password)")
                         
                         UserDefaults.standard.set(registration, forKey: "registration")
-                        UserDefaults.standard.set(password, forKey: "password")
+                    
+                        try! Locksmith.saveData(data: ["registration": registration, "password": password], forUserAccount: registration)
+                        
+                        print("Registration and password stored in Locksmith")
+                        
+                        //UserDefaults.standard.set(registration, forKey: "registration")
+                        //UserDefaults.standard.set(password, forKey: "password")
                         
                         self.performSegue(withIdentifier: "slcmDetail", sender: self)
                         
@@ -176,7 +205,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                         self.signInButton.isEnabled = true
                     }
             
-            UserDefaults.standard.set(true, forKey: "userSaved")
+            
         }
     }
 
@@ -207,18 +236,19 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             print("biometric is disabled")
         }
         
-        guard let registration = UserDefaults.standard.string(forKey: "registration") else {
+        guard let registration_ = UserDefaults.standard.string(forKey: "registration") else {
             registrationFound = false
             passwordFound = false
             return
         }
         
-        guard let password = UserDefaults.standard.string(forKey: "password") else {
-            passwordFound = false
+        guard let credentials = Locksmith.loadDataForUserAccount(userAccount: registration_) else {
             return
         }
         
-        registrationTextfield.text = registration
+        let password = credentials["password"] as! String
+        
+        registrationTextfield.text = registration_
         passwordTextfield.text = password
         
         registrationTextfield.isEnabled = false
@@ -244,12 +274,16 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
         if checkForBiometric() {
+            
             print("biometric is enabled")
             biometricLabel.text = "Face ID is enabled"
             biometricLabel.textColor = .tertiaryLabel
             
         } else {
+            
             print("biometric is disabled")
+            signInButton.isEnabled = false
+            
         }
         
         guard let registration = UserDefaults.standard.string(forKey: "registration") else {
@@ -268,6 +302,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         registrationTextfield.isEnabled = false
         passwordTextfield.isEnabled = false
+        
         
     }
     
@@ -314,6 +349,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         return false
     }
     
+    //MARK: UI ALERT VIEW
+    
     func showAlertForInvalidCredentials() {
         
         let invalidAlert = UIAlertController(title: "Invalid credentials", message: "Check your registration/password, and try again", preferredStyle: .alert)
@@ -345,9 +382,10 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     func stopActivityIndicator() {
         
         activityIndicator.stopAnimating()
-        activityIndicator.removeFromSuperview()
         
     }
+    
+    //MARK: API CALL
     
     func loadSLCMData(registration: String, password: String, completion: @escaping (Bool) -> ()) {
         
@@ -362,6 +400,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             
             guard let resultValue = response.result.value else {
                 print("Failing in website")
+                
                 completion(false)
                 //sendinf false would mean invalid login. Change it
                 //code to send error alert
@@ -413,6 +452,10 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         print("text field ended editing..")
         print("Text field has text \(textField.text ?? "NA")")
         resignFirstResponder()
+        
+        if registrationTextfield.text != nil && registrationTextfield.text?.count == 9 && passwordTextfield.text != nil {
+            signInButton.isEnabled = true
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

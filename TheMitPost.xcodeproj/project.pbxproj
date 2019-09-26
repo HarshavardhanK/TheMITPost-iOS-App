@@ -118,6 +118,7 @@
 		BD8D4843B407BC33BF7CC027 /* Pods_TheMitPostTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPostTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60EBF3021ED0CDF00DAC538 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D60F6BB12310713300279DA2 /* PostPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D614E7DD233CAB3D00377DC8 /* TheMitPost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMitPost.entitlements; sourceTree = "<group>"; };
 		D61C44DA223E74DF00DF5DAA /* SLCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCM.swift; sourceTree = "<group>"; };
 		D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCMTableViewController.swift; sourceTree = "<group>"; };
@@ -360,6 +361,7 @@
 		D6D6A20D21ECC5A200B822F8 /* TheMitPost */ = {
 			isa = PBXGroup;
 			children = (
+				D614E7DD233CAB3D00377DC8 /* TheMitPost.entitlements */,
 				D64008FE2336A86E0086064E /* Lottie Animations */,
 				D6ACF13F2246A00A001B8A68 /* Fonts */,
 				D60EBF2C21ED0C7000DAC538 /* Model */,
@@ -863,6 +865,7 @@
 			baseConfigurationReference = 3FCCA74F8792056F2B37DDCC /* Pods-TheMitPost.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TheMitPost/TheMitPost.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPost/Info.plist;
@@ -883,6 +886,7 @@
 			baseConfigurationReference = 4501688696CD89640AC66713 /* Pods-TheMitPost.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TheMitPost/TheMitPost.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z34Y633MA;
 				INFOPLIST_FILE = TheMitPost/Info.plist;

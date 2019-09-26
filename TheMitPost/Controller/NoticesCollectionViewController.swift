@@ -38,7 +38,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             if traitCollection.userInterfaceStyle == .dark {
                 
                 print("dark mode detected")
-                self.navigationController?.navigationBar.barTintColor = .darkGray
+                self.navigationController?.navigationBar.barTintColor = .background
 
                 self.view.backgroundColor = UIColor.background
                 noticesCollectionView.backgroundColor = UIColor.background
