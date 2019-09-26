@@ -157,6 +157,13 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                                 self.signInButton.isEnabled = true
                         }
                     
+                } else {
+                    
+                    print("FACE ID failed to recognize")
+                    
+                    self.stopActivityIndicator()
+                    
+                    self.signInButton.isEnabled = true
                 }
                 
             }
@@ -586,6 +593,9 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             biometricLabel.text = nil
             registrationTextfield.text = nil
             passwordTextfield.text = nil
+            
+            registrationTextfield.isEnabled = true
+            passwordTextfield.isEnabled = true
             signInButton.isEnabled = false
         }
     }
