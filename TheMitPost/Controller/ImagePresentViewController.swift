@@ -18,11 +18,19 @@ class ImagePresentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageView.sd_setImage(with: image_url!, completed: nil)
-
+        print("image presentation loaded")
+        
+        if let url = image_url {
+            imageView.sd_setImage(with: url, completed: nil)
+            
+        } else {
+            print("No URL found")
+        }
+        
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.barTintColor = .black
         self.view.backgroundColor = .black
+        self.tabBarController?.tabBar.barTintColor = .black
     }
     
 

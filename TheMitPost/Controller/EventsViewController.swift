@@ -26,7 +26,12 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         return .lightContent
     }
     
-    //MARK: VIEW DID LOAD
+    //MARK: VIEW WILL DID LOAD
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        mode()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +88,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
             if traitCollection.userInterfaceStyle == .dark {
                 
                 print("dark mode detected")
-                self.navigationController?.navigationBar.barTintColor = .black
+                self.navigationController?.navigationBar.barTintColor = .background
+                self.tabBarController?.tabBar.barTintColor = .background
 
                 self.view.backgroundColor = UIColor.background
                 eventsCollectionView.backgroundColor = UIColor.background
@@ -92,6 +98,7 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
                 
                 print("light mode detected")
                 self.navigationController?.navigationBar.barTintColor = .white
+                self.tabBarController?.tabBar.barTintColor = .white
                 
                 self.view.backgroundColor = .white
                 eventsCollectionView.backgroundColor = .white

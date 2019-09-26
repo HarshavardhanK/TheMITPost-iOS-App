@@ -53,12 +53,12 @@ class NoticeImageCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        shadowLayer?.elevation = .cardPickedUp
+        shadowLayer?.elevation = .cardResting
         
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
         layer.cornerRadius = 5.0
-        layer.shadowRadius = 5.0
+        //layer.shadowRadius = 5.0
         
         clipsToBounds = false
         
@@ -115,12 +115,12 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         
-        shadowLayer?.elevation = .cardPickedUp
+        shadowLayer?.elevation = .cardResting
         
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
         layer.cornerRadius = 7.5
-        layer.shadowRadius = 5.0
+        //layer.shadowRadius = 4.0
         
         clipsToBounds = false
         

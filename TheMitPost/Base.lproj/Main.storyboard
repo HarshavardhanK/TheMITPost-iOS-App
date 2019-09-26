@@ -500,7 +500,10 @@
                                             <outlet property="registerButton" destination="7fu-v8-pYn" id="cZ9-fI-0eQ"/>
                                             <outlet property="timeLabel" destination="Xrl-nX-4pL" id="kXI-j9-ZdE"/>
                                             <outlet property="titleLabel" destination="YeK-Po-NDO" id="YiY-i9-KKr"/>
-                                            <segue destination="NF4-vc-DK0" kind="show" identifier="detailEvent" id="xU1-wR-som"/>
+                                            <segue destination="NF4-vc-DK0" kind="show" identifier="detailEvent" id="xU1-wR-som">
+                                                <segue key="commit" inheritsFrom="parent" id="mim-Eq-r0q"/>
+                                                <segue key="preview" inheritsFrom="commit" id="v7p-rM-Pj0"/>
+                                            </segue>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -529,14 +532,14 @@
             <objects>
                 <viewController id="NF4-vc-DK0" customClass="ImagePresentViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DAb-pG-l1u">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="piz-eR-Sxl">
-                                <rect key="frame" x="17" y="190" width="341" height="349"/>
+                                <rect key="frame" x="17" y="50" width="341" height="541"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slcm-card-image" translatesAutoresizingMaskIntoConstraints="NO" id="Ab9-EW-CtS">
-                                        <rect key="frame" x="20" y="20" width="301" height="309"/>
+                                        <rect key="frame" x="20" y="20" width="301" height="501"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -567,7 +570,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4z9-mH-sDL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2462" y="-2353"/>
+            <point key="canvasLocation" x="3780" y="-2073"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7XP-UR-xq4">
+            <objects>
+                <viewController id="V4j-TU-srH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eVO-b6-8gF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="D6g-Ww-hKJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="MDa-Ug-eVd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sWr-4V-1XK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3126" y="-1405"/>
         </scene>
         <!--The Post-->
         <scene sceneID="hbg-OF-Qkx">
@@ -1327,8 +1346,9 @@
                                     <constraint firstAttribute="height" constant="30" id="vdU-DA-kGj"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3f-4d-6YM">
-                                <rect key="frame" x="62" y="680" width="170" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Require Face ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3f-4d-6YM">
+                                <rect key="frame" x="62" y="680" width="240" height="31"/>
+                                <color key="backgroundColor" white="0.95918057933789946" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="6Jd-gQ-Dy7"/>
                                     <constraint firstAttribute="height" constant="31" id="I9t-eV-O1c"/>
@@ -1350,7 +1370,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.9730688820422535" green="0.96767715669014087" blue="0.95273987676056338" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="RQK-Bp-ZGx" firstAttribute="leading" secondItem="o3f-4d-6YM" secondAttribute="trailing" constant="78" id="CNh-b2-HtP"/>
+                            <constraint firstItem="RQK-Bp-ZGx" firstAttribute="leading" secondItem="o3f-4d-6YM" secondAttribute="trailing" constant="8" id="CNh-b2-HtP"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="KV7-91-pxb" secondAttribute="bottom" constant="68" id="ZeV-2L-nVl"/>
                             <constraint firstItem="F4c-8f-TLi" firstAttribute="top" secondItem="o3f-4d-6YM" secondAttribute="bottom" constant="27" id="ads-z4-BGq"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="RQK-Bp-ZGx" secondAttribute="bottom" constant="67" id="aoL-py-gyr"/>
@@ -1371,7 +1391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DaS-m5-1hS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3303" y="358"/>
+            <point key="canvasLocation" x="3301.5999999999999" y="357.63546798029557"/>
         </scene>
         <!--Events-->
         <scene sceneID="NW1-Qb-yU4">
@@ -1534,6 +1554,10 @@
                                             <outlet property="dateLabel" destination="OIT-5w-F2c" id="REb-K8-eTg"/>
                                             <outlet property="noticeImageView" destination="g4T-3x-dNg" id="4Wl-J8-D7g"/>
                                             <outlet property="titleLabel" destination="oX1-CR-FXJ" id="uIv-GK-gS4"/>
+                                            <segue destination="NF4-vc-DK0" kind="show" identifier="detailNotice" id="lhA-Wr-3RK">
+                                                <segue key="commit" inheritsFrom="parent" id="GuK-Z0-rGJ"/>
+                                                <segue key="preview" inheritsFrom="commit" id="iAS-dj-hoQ"/>
+                                            </segue>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="textCell" id="jjO-DO-Ydr" customClass="NoticeTextCollectionViewCell" customModule="TheMitPost" customModuleProvider="target">
@@ -1587,6 +1611,10 @@
                                             <outlet property="contentLabel" destination="3gb-sS-T8Y" id="6G2-fV-e9Q"/>
                                             <outlet property="dateLabel" destination="KQv-Dz-DgK" id="UdH-vg-Az7"/>
                                             <outlet property="titleLabel" destination="pbg-NZ-ETE" id="gc5-Zk-GNe"/>
+                                            <segue destination="V4j-TU-srH" kind="show" identifier="pdfViewer" id="ubl-fz-kAk">
+                                                <segue key="commit" inheritsFrom="parent" id="7Nl-Ff-9u4"/>
+                                                <segue key="preview" inheritsFrom="commit" id="Q1Z-Sn-pNn"/>
+                                            </segue>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -2925,6 +2953,8 @@ AABtAAAAAAAAAAAAAAAAAAEs0w
         <image name="slcm_logout" width="250" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ubl-fz-kAk"/>
+        <segue reference="lhA-Wr-3RK"/>
         <segue reference="8dR-2C-g2L"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.82020246478873238" green="0.23085214714788729" blue="0.28020466549295775" alpha="0.80344960387323938" colorSpace="custom" customColorSpace="sRGB"/>

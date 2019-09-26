@@ -18,6 +18,14 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
     
     var notices = [Notice]()
     
+    //MARK: VIEW WILL DID APPEAR
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        mode()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +39,8 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         retrieveNotices()
     }
     
+    //MARK: THEME MODE
+    
     func mode() {
         
         if #available(iOS 13.0, *) {
@@ -39,6 +49,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                 
                 print("dark mode detected")
                 self.navigationController?.navigationBar.barTintColor = .background
+                self.tabBarController?.tabBar.barTintColor = .background
 
                 self.view.backgroundColor = UIColor.background
                 noticesCollectionView.backgroundColor = UIColor.background
@@ -47,6 +58,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                 
                 print("light mode detected")
                 self.navigationController?.navigationBar.barTintColor = .systemOrange
+                self.tabBarController?.tabBar.barTintColor = .white
                 
                 self.view.backgroundColor = .white
                 noticesCollectionView.backgroundColor = .white
@@ -138,11 +150,36 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 30.0
+        return 15.0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 30.0, left: 20.0, bottom: 5.0, right: 20.0)
+        return UIEdgeInsets(top: 30.0, left: 20.0, bottom: 0, right: 20.0)
+    }
+    
+    //MARK: SEGUE
+    //MARK: DETAIL IMAGE SEGUE
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let cellType = sender as? NoticeImageCollectionViewCell else {
+            return
+        }
+        
+        if segue.identifier == "detailNotice" {
+            
+            if let destinationViewController = segue.destination as? ImagePresentViewController {
+                
+                let path = self.noticesCollectionView.indexPath(for: cellType)
+                
+                if let path_ = path {
+                    
+                    print("URL IS \(String(describing: notices[path_.row].getComponentURL))")
+                    destinationViewController.image_url = notices[path_.row].getComponentURL
+                }
+                
+            }
+        }
     }
     
 
