@@ -33,6 +33,10 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         // Do any additional setup after loading the view.
         mode()
         
+        let layout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = CGSize(width: NoticeTextCollectionViewCell.width, height: 120)
+        
+        noticesCollectionView.collectionViewLayout = layout
         noticesCollectionView.delegate = self
         noticesCollectionView.dataSource = self
         
@@ -125,7 +129,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                 cell.titleText = notice.title
                 cell.contentText = notice.content
                 
-                cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: NoticeImageCollectionViewCell.width, height: NoticeImageCollectionViewCell.height)
+               // cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: NoticeImageCollectionViewCell.width, height: NoticeImageCollectionViewCell.height)
                 
                 return cell
                 
@@ -140,7 +144,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                 cell.titleText = notice.title
                 cell.contentText = notice.content
                 
-                cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: NoticeTextCollectionViewCell.width, height: NoticeTextCollectionViewCell.height)
+                //cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: NoticeTextCollectionViewCell.width, height: NoticeTextCollectionViewCell.height)
                 
                 return cell
                 
@@ -154,7 +158,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             cell.titleText = notice.title
             cell.contentText = notice.content
             
-            cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: NoticeTextCollectionViewCell.width, height: NoticeTextCollectionViewCell.height)
+           // cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: NoticeTextCollectionViewCell.width, height: NoticeTextCollectionViewCell.height)
             
             cell.isUserInteractionEnabled = false
             

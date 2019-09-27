@@ -36,41 +36,8 @@ class SLCMSettingsViewController: UIViewController {
             return
         }
         
-       // mode()
-
-        // Do any additional setup after loading the view.
         print("settings controller loaded")
         
     }
-    
-//    func mode() {
-//
-//        if #available(iOS 13, *) {
-//
-//            if traitCollection.userInterfaceStyle == .dark {
-//                self.view.backgroundColor = .background
-//
-//            } else {
-//                self.view.backgroundColor = .white
-//            }
-//        }
-//    }
-    
-//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        super.traitCollectionDidChange(previousTraitCollection)
-//
-//        mode()
-//    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

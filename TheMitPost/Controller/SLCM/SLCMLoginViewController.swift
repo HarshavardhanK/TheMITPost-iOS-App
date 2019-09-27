@@ -189,8 +189,6 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                     
                     if result {
                         
-                        UserDefaults.standard.set(true, forKey: "userSaved")
-                        
                         self.stopActivityIndicator()
                         
                         print("Storing \(registration)")
@@ -223,14 +221,11 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     func checkForBiometric() -> Bool {
         
-        let isUserSaved = UserDefaults.standard.bool(forKey: "userSaved")
-        
-        if isUserSaved {
-            
-            return true
+        guard let _ = UserDefaults.standard.string(forKey: "registration") else {
+            return false
         }
         
-        return false
+        return true
         
     }
     
@@ -416,6 +411,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             
             let banner = NotificationBanner(title: "Saved!", subtitle: "Like the North, we always remember", style: .success)
             banner.show()
+            
+            UserDefaults.standard.set(true, forKey: "userSaved")
             
             UserDefaults.standard.set(registration, forKey: "registration")
             
