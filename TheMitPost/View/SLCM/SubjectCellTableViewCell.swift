@@ -17,6 +17,7 @@ class SubjectCellTableViewCell: FoldingCell {
     
     @IBOutlet weak var subjectName: UILabel!
     
+    @IBOutlet weak var slcmHeaderImage: UIImageView!
     @IBOutlet weak var slcmForegroundView: RotatedView!
     @IBOutlet weak var absent: UILabel!
     @IBOutlet weak var total: UILabel!
@@ -46,21 +47,24 @@ class SubjectCellTableViewCell: FoldingCell {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var updateView: UIView!
     
+    @IBOutlet weak var timeLabel: UILabel!
+    
     @IBOutlet weak var line: UIView!
     
     
     func mode() {
         
-         backgroundColor = .systemBackground
+        
+        timeLabel.textColor = .background
 
         if traitCollection.userInterfaceStyle == .dark {
-           
-            subjectName.backgroundColor = .darkGray
-            absent.backgroundColor = .darkGray
-            present.backgroundColor = .darkGray
-            slcmForegroundView.backgroundColor = .darkGray
+            backgroundColor = .background
+            subjectName.backgroundColor = .foreground
+            absent.backgroundColor = .foreground
+            present.backgroundColor = .foreground
+            slcmForegroundView.backgroundColor = .foreground
             
-            attendancePercentage.backgroundColor = .darkGray
+            attendancePercentage.backgroundColor = .foreground
             
             absent.textColor = .label
             present.textColor = .label
@@ -71,18 +75,18 @@ class SubjectCellTableViewCell: FoldingCell {
             totalClasses.textColor = .label
             bunks.textColor = .label
             
-            totalContainerView.backgroundColor = .darkGray
-            secondContainerView.backgroundColor = .darkGray
-            thirdContainerView.backgroundColor = .darkGray
-            bottomContainerView.backgroundColor = .darkGray
+            totalContainerView.backgroundColor = .foreground
+            secondContainerView.backgroundColor = .foreground
+            thirdContainerView.backgroundColor = .foreground
+            bottomContainerView.backgroundColor = .foreground
             
-            assignment1.backgroundColor = .darkGray
-            assignment2.backgroundColor = .darkGray
-            assignment3.backgroundColor = .darkGray
-            assignment4.backgroundColor = .darkGray
+            assignment1.backgroundColor = .foreground
+            assignment2.backgroundColor = .foreground
+            assignment3.backgroundColor = .foreground
+            assignment4.backgroundColor = .foreground
             
-            sessional1.backgroundColor = .darkGray
-            sessional2.backgroundColor = .darkGray
+            sessional1.backgroundColor = .foreground
+            sessional2.backgroundColor = .foreground
             
             assignment1.textColor = .secondaryLabel
             assignment2.textColor = .secondaryLabel
@@ -94,12 +98,13 @@ class SubjectCellTableViewCell: FoldingCell {
             
         } else {
             
-            subjectName.backgroundColor = .white
-            absent.backgroundColor = .white
-            present.backgroundColor = .white
-            slcmForegroundView.backgroundColor = .white
+            backgroundColor = .white
+            subjectName.backgroundColor = .notSoWhite
+            absent.backgroundColor = .notSoWhite
+            present.backgroundColor = .notSoWhite
+            slcmForegroundView.backgroundColor = .notSoWhite
             
-            attendancePercentage.backgroundColor = .white
+            attendancePercentage.backgroundColor = .notSoWhite
             
             absent.textColor = .label
             present.textColor = .label
@@ -110,19 +115,19 @@ class SubjectCellTableViewCell: FoldingCell {
             totalClasses.textColor = .label
             bunks.textColor = .label
             
-            totalContainerView.backgroundColor = .darkGray
+            totalContainerView.backgroundColor = .notSoWhite
             
-            secondContainerView.backgroundColor = .white
-            thirdContainerView.backgroundColor = .white
-            bottomContainerView.backgroundColor = .white
+            secondContainerView.backgroundColor = .notSoWhite
+            thirdContainerView.backgroundColor = .notSoWhite
+            bottomContainerView.backgroundColor = .notSoWhite
             
-            assignment1.backgroundColor = .white
-            assignment2.backgroundColor = .white
-            assignment3.backgroundColor = .white
-            assignment4.backgroundColor = .white
+            assignment1.backgroundColor = .notSoWhite
+            assignment2.backgroundColor = .notSoWhite
+            assignment3.backgroundColor = .notSoWhite
+            assignment4.backgroundColor = .notSoWhite
             
-            sessional1.backgroundColor = .white
-            sessional2.backgroundColor = .white
+            sessional1.backgroundColor = .notSoWhite
+            sessional2.backgroundColor = .notSoWhite
             
             assignment1.textColor = .secondaryLabel
             assignment2.textColor = .secondaryLabel
@@ -205,6 +210,8 @@ class SubjectCellTableViewCell: FoldingCell {
                 detailLabel.backgroundColor = attendance.colorCode
                 updateView.backgroundColor = attendance.colorCode
                 
+                timeLabel.text = attendance.attendanceUpdatedAt
+                
                 
             }
             
@@ -219,7 +226,8 @@ class SubjectCellTableViewCell: FoldingCell {
         super.awakeFromNib()
         
         mode()
-        
+        slcmHeaderImage.layer.cornerRadius = 15
+        layer.cornerRadius = 15
         foregroundView.layer.cornerRadius = 15
         foregroundView.layer.masksToBounds = true
         

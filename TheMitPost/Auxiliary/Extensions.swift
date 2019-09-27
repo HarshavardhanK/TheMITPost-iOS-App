@@ -7,37 +7,8 @@
 //
 
 import Foundation
+import UIKit
 
-extension FloatingPoint {
-    
-    public func scaled(from source: ClosedRange<Self>, to destination: ClosedRange<Self>, clamped: Bool = false, reversed: Bool = false) -> Self {
-        let destinationStart = reversed ? destination.upperBound : destination.lowerBound
-        let destinationEnd = reversed ? destination.lowerBound : destination.upperBound
-        
-        // these are broken up to speed up compile time
-        let selfMinusLower = self - source.lowerBound
-        let sourceUpperMinusLower = source.upperBound - source.lowerBound
-        let destinationUpperMinusLower = destinationEnd - destinationStart
-        var result = (selfMinusLower / sourceUpperMinusLower) * destinationUpperMinusLower + destinationStart
-        if clamped {
-            result = result.clamped(to: destination)
-        }
-        return result
-    }
-    
-}
-
-public extension Comparable {
-    
-    func clamped(to range: ClosedRange<Self>) -> Self {
-        return clamped(min: range.lowerBound, max: range.upperBound)
-    }
-    
-    func clamped(min lower: Self, max upper: Self) -> Self {
-        return min(max(self, lower), upper)
-    }
-    
-}
 
 extension String {
     
@@ -61,3 +32,41 @@ extension String {
     }
     
 }
+
+extension Date {
+    
+    static func unixTimeStampToDate(unixTime: Double) -> String {
+        
+        let monthNumber = ["01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr", "05": "May", "06": "June", "07": "Jul", "08": "Aug", "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec"]
+        
+        let date = Date(timeIntervalSince1970: unixTime)
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.timeZone = TimeZone(abbreviation: "IST")
+        dateFormatter.locale = NSLocale.current
+        
+        dateFormatter.dateFormat = "dd-MM"
+        
+        let strDate = dateFormatter.string(from: date)
+        
+        let day = String(strDate.prefix(2))
+        let month = String(strDate.suffix(2))
+        
+        guard let month_ = monthNumber[month] else {
+            print("Could not convert timestamp to time")
+            return "__"
+        }
+        
+        return day +  " " + month_
+    }
+    
+}
+
+extension UIColor {
+    
+    static var background = UIColor(red: 25.0 / 256.0, green: 30.0 / 256.0, blue: 34.0 / 256.0, alpha: 1.0)
+    static var foreground = UIColor(red: 36.0 / 256.0, green: 38.0 / 256.0, blue: 40.0 / 256.0, alpha: 0.9)
+    static var notSoWhite = UIColor(red: 0.98, green: 0.98, blue: 1.0, alpha: 1.0)
+}
+

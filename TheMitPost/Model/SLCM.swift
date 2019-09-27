@@ -14,6 +14,7 @@ class Attendance {
     var totalClasses: String?
     var classesPresent: String?
     var classesAbsent: String?
+    var updatedAt: Double?
     
     init(data: JSON?) {
         
@@ -22,10 +23,7 @@ class Attendance {
             totalClasses = _data["totalClasses"].stringValue
             classesAbsent = _data["classesAbsent"].stringValue
             classesPresent = _data["classesAttended"].stringValue
-            
-           // print("Total classes \(totalClasses!)")
-          //  print("Classes present \(classesPresent!)")
-          //  print("Classes absent \(classesAbsent!)")
+            updatedAt = _data["updatedAt"].doubleValue
             
         }
         
@@ -61,6 +59,25 @@ class Attendance {
         
         return percent
         
+    }
+    
+    var attendanceUpdatedAt: String {
+        
+        if let updatedAt_ = updatedAt {
+            
+            if updatedAt_ == -1 {
+                return "__"
+            }
+            
+            let strUpdatedAt = Date.unixTimeStampToDate(unixTime: updatedAt_)
+            
+            print(strUpdatedAt)
+            
+            return strUpdatedAt
+            
+        } else {
+            return "__"
+        }
     }
     
     var attendancePercentString: String {
