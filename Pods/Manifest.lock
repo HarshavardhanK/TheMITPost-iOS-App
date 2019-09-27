@@ -748,7 +748,6 @@ PODS:
     - SDWebImage/Core (= 4.4.7)
   - SDWebImage/Core (4.4.7)
   - SnapKit (5.0.1)
-  - SPAlert (1.1.1)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
@@ -763,7 +762,6 @@ DEPENDENCIES:
   - NVActivityIndicatorView
   - RAMAnimatedTabBarController
   - SDWebImage (~> 4.0)
-  - SPAlert
   - SwiftyJSON
 
 SPEC REPOS:
@@ -797,7 +795,6 @@ SPEC REPOS:
     - RAMAnimatedTabBarController
     - SDWebImage
     - SnapKit
-    - SPAlert
     - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -841,9 +838,8 @@ SPEC CHECKSUMS:
   RAMAnimatedTabBarController: ec36fba2fa4679fd36db55098e3477fe9bd79f52
   SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  SPAlert: 292690a27df49ff131d532a0a39d89b08dd93e4d
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: b15dda66eb3bfafb1aaf5ccca36dd99ea98a0e91
+PODFILE CHECKSUM: ff6acc642a10d6b7a43b240835c4854d4bf2ab6c
 
 COCOAPODS: 1.7.5

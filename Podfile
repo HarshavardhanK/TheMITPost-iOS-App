@@ -18,7 +18,6 @@ pod 'NVActivityIndicatorView'
 pod 'RAMAnimatedTabBarController'
 pod 'Locksmith'
 pod 'FittedSheets'
-pod 'SPAlert'
 pod 'NotificationBannerSwift', :git => 'https://github.com/Daltron/NotificationBanner', :branch => 'ios13'
 
   target 'TheMitPostTests' do
