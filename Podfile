@@ -18,6 +18,8 @@ pod 'NVActivityIndicatorView'
 pod 'RAMAnimatedTabBarController'
 pod 'Locksmith'
 pod 'FittedSheets'
+pod 'SPAlert'
+pod 'NotificationBannerSwift'
 
   target 'TheMitPostTests' do
     inherit! :search_paths
