@@ -12,6 +12,7 @@ import LocalAuthentication
 import Alamofire
 import SwiftyJSON
 
+import NotificationBannerSwift
 import NVActivityIndicatorView
 import Locksmith
 import FittedSheets
@@ -161,6 +162,9 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                     
                     print("FACE ID failed to recognize")
                     
+                    let banner = NotificationBanner(title: "Snap!", subtitle: "Sorry, we could not recognize you", style: .warning)
+                    banner.show()
+                    
                     self.stopActivityIndicator()
                     
                     self.signInButton.isEnabled = true
@@ -192,16 +196,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                         print("Storing \(registration)")
                         print("Storing \(password)")
                         
-                        UserDefaults.standard.set(registration, forKey: "registration")
-                    
-                        try! Locksmith.saveData(data: ["registration": registration, "password": password], forUserAccount: registration)
-                        
-                        print("Registration and password stored in Locksmith")
-                        
-                        //UserDefaults.standard.set(registration, forKey: "registration")
-                        //UserDefaults.standard.set(password, forKey: "password")
-                        
-                        self.performSegue(withIdentifier: "slcmDetail", sender: self)
+                        self.showAlertForSaveCredentials(registration: registration, password: password)
                         
                     } else {
                         
@@ -406,22 +401,43 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             //add code to limit the number of invalid attempts
         }))
         
+        let banner = NotificationBanner(title: "Oops!", subtitle: "Ah, here we go again", style: .danger)
+        banner.show()
+        
         self.present(invalidAlert, animated: true, completion: nil)
+        
     }
     
-    func showAlertForLogout() {
+    func showAlertForSaveCredentials(registration: String, password: String) {
         
-        let logoutAlert = UIAlertController(title: "Are you sure you want to log out?", message: "You will not be able to receive notifications if you are logged out", preferredStyle: .alert)
+        let saveLoginAlert = UIAlertController(title: "Remember log in", message: "Your credentials will be stored on your iPhone's Keychain", preferredStyle: .alert)
         
-        logoutAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            print("logged out")
+        saveLoginAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) in
+            
+            let banner = NotificationBanner(title: "Saved!", subtitle: "Like the North, we always remember", style: .success)
+            banner.show()
+            
+            UserDefaults.standard.set(registration, forKey: "registration")
+            
+            try! Locksmith.saveData(data: ["registration": registration, "password": password], forUserAccount: registration)
+                
+            print("Registration and password stored in Locksmith")
+            
+            
+            self.performSegue(withIdentifier: "slcmDetail", sender: self)
+            
         }))
         
-        logoutAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
-            print("log out cancel")
+        saveLoginAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action) in
+            //add code to limit the number of invalid attempts
+            let banner = NotificationBanner(title: "Oh no!", subtitle: "If you change your mind, you can always set this in the settings", style: .danger)
+            banner.show()
+            
+            self.performSegue(withIdentifier: "slcmDetail", sender: self)
         }))
         
-        self.present(logoutAlert, animated: true, completion: nil)
+        self.present(saveLoginAlert, animated: true, completion: nil)
+        
     }
     
     //MARK:- Activty Indicator NVActivityIndicatorView
@@ -597,6 +613,9 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             registrationTextfield.isEnabled = true
             passwordTextfield.isEnabled = true
             signInButton.isEnabled = false
+            
+            let banner = NotificationBanner(title: "Well..", subtitle: "We will not be able to send you notifications about your SLCM updates!", style: .warning)
+            banner.show()
         }
     }
     

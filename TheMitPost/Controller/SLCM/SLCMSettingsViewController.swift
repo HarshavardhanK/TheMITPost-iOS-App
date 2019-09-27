@@ -7,6 +7,8 @@
 //
 
 import UIKit
+
+import NotificationBannerSwift
 import Locksmith
 
 class SLCMSettingsViewController: UIViewController {
@@ -21,22 +23,6 @@ class SLCMSettingsViewController: UIViewController {
         
         print("log out pressed")
         
-        guard let registration = UserDefaults.standard.string(forKey: "registration") else {
-            return
-        }
-               
-        try! Locksmith.deleteDataForUserAccount(userAccount: registration)
-        
-        UserDefaults.standard.set(false, forKey: "userSaved")
-        UserDefaults.standard.set(nil, forKey: "registration")
-        UserDefaults.standard.set(nil, forKey: "password")
-        
-        logoutButton.isEnabled = false
-        
-//        self.dismiss(animated: true) {
-//            //loginViewController.registrationTextfield.text = nil
-//            //self.tabBarController?.selectedIndex = 0
-//        }
     }
 
     

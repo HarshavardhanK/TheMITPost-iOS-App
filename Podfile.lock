@@ -736,7 +736,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
-  - NotificationBannerSwift (2.5.1):
+  - NotificationBannerSwift (2.6.0):
     - MarqueeLabel (~> 4.0.0)
     - SnapKit (~> 5.0.0)
   - NVActivityIndicatorView (4.7.0):
@@ -759,7 +759,7 @@ DEPENDENCIES:
   - FoldingCell
   - Locksmith
   - MaterialComponents
-  - NotificationBannerSwift
+  - NotificationBannerSwift (from `https://github.com/Daltron/NotificationBanner`, branch `ios13`)
   - NVActivityIndicatorView
   - RAMAnimatedTabBarController
   - SDWebImage (~> 4.0)
@@ -792,7 +792,6 @@ SPEC REPOS:
     - MotionInterchange
     - MotionTransitioning
     - nanopb
-    - NotificationBannerSwift
     - NVActivityIndicatorView
     - Protobuf
     - RAMAnimatedTabBarController
@@ -800,6 +799,16 @@ SPEC REPOS:
     - SnapKit
     - SPAlert
     - SwiftyJSON
+
+EXTERNAL SOURCES:
+  NotificationBannerSwift:
+    :branch: ios13
+    :git: https://github.com/Daltron/NotificationBanner
+
+CHECKOUT OPTIONS:
+  NotificationBannerSwift:
+    :commit: 010a3577a7a4be5314367674c276492c1685c51b
+    :git: https://github.com/Daltron/NotificationBanner
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
@@ -826,7 +835,7 @@ SPEC CHECKSUMS:
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
   MotionTransitioning: 23d25edc2f4606efb922403cbac6d81af37aa33a
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  NotificationBannerSwift: e55dd801b0d78f1a7bacb10d722a935ec95f94a3
+  NotificationBannerSwift: 35e1dbe02bf745e3d2919c3f2b9f75c10b2402e3
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   RAMAnimatedTabBarController: ec36fba2fa4679fd36db55098e3477fe9bd79f52
@@ -835,6 +844,6 @@ SPEC CHECKSUMS:
   SPAlert: 292690a27df49ff131d532a0a39d89b08dd93e4d
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 537537d06de81580dbbbb90b511f18fff06847de
+PODFILE CHECKSUM: b15dda66eb3bfafb1aaf5ccca36dd99ea98a0e91
 
 COCOAPODS: 1.7.5
