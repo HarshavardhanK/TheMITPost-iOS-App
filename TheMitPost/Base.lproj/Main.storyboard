@@ -158,13 +158,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your data is secured by state-of-the-art AES-128 encryption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9L-Ia-2VT">
-                                <rect key="frame" x="16" y="596" width="342" height="13.666666666666629"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your data is secured by state-of-the-art AES-128 encryption" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9L-Ia-2VT">
+                                <rect key="frame" x="16" y="607" width="342" height="13.666666666666629"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="13.67" id="bzz-BB-caE"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="342" id="khN-EX-a0U"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -240,17 +240,32 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lh9-14-h40" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="162" y="550" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="x6S-tW-TPa"/>
+                                    <constraint firstAttribute="width" constant="50" id="yJ3-mn-5WI"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="security"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Lh9-14-h40" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="162" id="JZS-CY-tDF"/>
                             <constraint firstItem="dhe-Nb-64V" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="16" id="Mcp-aE-0rn"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="wC3-SO-iqr" secondAttribute="trailing" constant="163" id="OLf-Tx-VTF"/>
-                            <constraint firstItem="h9L-Ia-2VT" firstAttribute="top" secondItem="wC3-SO-iqr" secondAttribute="bottom" constant="54" id="XMb-bx-ozk"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="h9L-Ia-2VT" secondAttribute="bottom" constant="31.333333333333371" id="b0K-JH-IIV"/>
+                            <constraint firstItem="h9L-Ia-2VT" firstAttribute="top" secondItem="wC3-SO-iqr" secondAttribute="bottom" constant="65" id="XMb-bx-ozk"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="Lh9-14-h40" secondAttribute="trailing" constant="163" id="Z4q-aN-Ebh"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="h9L-Ia-2VT" secondAttribute="bottom" constant="20.333333333333371" id="b0K-JH-IIV"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="dhe-Nb-64V" secondAttribute="bottom" constant="146.33333333333326" id="cnO-Ep-gn8"/>
+                            <constraint firstItem="h9L-Ia-2VT" firstAttribute="top" secondItem="Lh9-14-h40" secondAttribute="bottom" constant="7" id="dTJ-d4-RKk"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="dhe-Nb-64V" secondAttribute="trailing" constant="16" id="e1V-eE-F9P"/>
                             <constraint firstItem="wC3-SO-iqr" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="162" id="kTO-T1-3TZ"/>
+                            <constraint firstItem="Lh9-14-h40" firstAttribute="top" secondItem="wC3-SO-iqr" secondAttribute="bottom" constant="8" id="mnF-oM-K4p"/>
                             <constraint firstItem="h9L-Ia-2VT" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="16" id="oXm-Gn-id4"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="h9L-Ia-2VT" secondAttribute="trailing" constant="17" id="xls-jf-08E"/>
                         </constraints>
@@ -271,6 +286,7 @@
                         <outlet property="logoutButton" destination="hGl-VU-4La" id="1d0-IW-Ea5"/>
                         <outlet property="passwordTextfield" destination="b0c-g5-FcD" id="hG3-R5-nIf"/>
                         <outlet property="registrationTextfield" destination="KO4-As-ZjB" id="tiS-ck-5bR"/>
+                        <outlet property="securityLottieAnimation" destination="Lh9-14-h40" id="ooS-3s-zyL"/>
                         <outlet property="signInButton" destination="xGt-ZJ-9Rb" id="sVa-3M-z15"/>
                         <outlet property="stackViewBottomConstraint" destination="cnO-Ep-gn8" id="2OT-Bn-eq7"/>
                         <segue destination="vFB-Dx-17J" kind="show" identifier="slcmDetail" id="jSI-iU-a9o"/>
@@ -1373,17 +1389,6 @@
                                     <action selector="switchBiometric:" destination="93x-3J-fAl" eventType="valueChanged" id="34Q-07-jar"/>
                                 </connections>
                             </switch>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lv4-4H-baH" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="152" y="20" width="60" height="60"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="74E-YV-901"/>
-                                    <constraint firstAttribute="height" constant="60" id="xq5-mQ-VLt"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="settings-gear"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHB-AI-gNb" customClass="AnimationView" customModule="Lottie">
                                 <rect key="frame" x="16" y="216" width="50" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1406,24 +1411,48 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="jumbo-typing"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCW-cl-jEP">
+                                <rect key="frame" x="122" y="28" width="121" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="37y-tJ-Crl"/>
+                                    <constraint firstAttribute="width" constant="121" id="7Gw-tW-zFd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lv4-4H-baH" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="93" y="19" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="74E-YV-901"/>
+                                    <constraint firstAttribute="height" constant="50" id="xq5-mQ-VLt"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="settings-gear"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="lv4-4H-baH" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="152" id="0pI-Ue-5Ne"/>
+                            <constraint firstItem="lv4-4H-baH" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="93" id="0pI-Ue-5Ne"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="F4c-8f-TLi" secondAttribute="trailing" constant="68" id="1HZ-1Y-1Po"/>
-                            <constraint firstItem="37n-uC-SGi" firstAttribute="top" secondItem="lv4-4H-baH" secondAttribute="bottom" constant="-11" id="2oV-iM-6J3"/>
+                            <constraint firstItem="37n-uC-SGi" firstAttribute="top" secondItem="lv4-4H-baH" secondAttribute="bottom" id="2oV-iM-6J3"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="YHE-G9-cYW" secondAttribute="trailing" constant="173" id="3GR-ah-sbd"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="RQK-Bp-ZGx" secondAttribute="bottom" constant="143" id="3ul-69-SVW"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="RQK-Bp-ZGx" secondAttribute="trailing" constant="8" id="BWH-iQ-1a4"/>
                             <constraint firstItem="o3f-4d-6YM" firstAttribute="trailing" secondItem="F4c-8f-TLi" secondAttribute="trailing" constant="-5" id="BcP-jV-aiM"/>
+                            <constraint firstItem="37n-uC-SGi" firstAttribute="top" secondItem="DCW-cl-jEP" secondAttribute="bottom" constant="8" id="EhS-2t-xew"/>
                             <constraint firstItem="F4c-8f-TLi" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="57" id="F3c-Vb-S45"/>
+                            <constraint firstItem="DCW-cl-jEP" firstAttribute="top" secondItem="YHE-G9-cYW" secondAttribute="bottom" constant="16" id="Fsk-sS-vWf"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="37n-uC-SGi" secondAttribute="trailing" constant="113" id="Ghu-jb-fOD"/>
                             <constraint firstItem="37n-uC-SGi" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="102" id="Kut-GF-tw6"/>
-                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="lv4-4H-baH" secondAttribute="trailing" constant="163" id="PRF-XP-oSa"/>
+                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="lv4-4H-baH" secondAttribute="trailing" constant="232" id="PRF-XP-oSa"/>
                             <constraint firstItem="F4c-8f-TLi" firstAttribute="top" secondItem="o3f-4d-6YM" secondAttribute="bottom" constant="22" id="SRA-qm-TJz"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="YHE-G9-cYW" secondAttribute="bottom" constant="388" id="Vt2-Pd-05U"/>
                             <constraint firstItem="hHB-AI-gNb" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="16" id="ZQR-ML-R3e"/>
-                            <constraint firstItem="lv4-4H-baH" firstAttribute="top" secondItem="YHE-G9-cYW" secondAttribute="bottom" constant="8" id="c3r-Oy-JBI"/>
+                            <constraint firstItem="lv4-4H-baH" firstAttribute="top" secondItem="YHE-G9-cYW" secondAttribute="bottom" constant="7" id="c3r-Oy-JBI"/>
+                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="DCW-cl-jEP" secondAttribute="trailing" constant="132" id="k6J-N7-THH"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="hHB-AI-gNb" secondAttribute="bottom" constant="134" id="lh7-cu-Ze9"/>
                             <constraint firstItem="o3f-4d-6YM" firstAttribute="top" secondItem="RQK-Bp-ZGx" secondAttribute="top" id="mF2-ax-HHg"/>
                             <constraint firstItem="o3f-4d-6YM" firstAttribute="top" secondItem="37n-uC-SGi" secondAttribute="bottom" constant="32" id="ogb-36-EB1"/>
@@ -1439,9 +1468,11 @@
                     <connections>
                         <outlet property="biometricLottieView" destination="hHB-AI-gNb" id="CpG-8l-Byd"/>
                         <outlet property="biometricSwitch" destination="RQK-Bp-ZGx" id="a0I-WG-wyA"/>
+                        <outlet property="biometricTypeLabel" destination="o3f-4d-6YM" id="gVs-jE-gbh"/>
                         <outlet property="jumboLottieView" destination="37n-uC-SGi" id="HH4-j7-2nv"/>
                         <outlet property="logoutButton" destination="F4c-8f-TLi" id="Hwu-Z7-QWX"/>
                         <outlet property="lottieSettingsView" destination="lv4-4H-baH" id="mFh-g2-ohb"/>
+                        <outlet property="settingLabel" destination="DCW-cl-jEP" id="tuH-TP-vHa"/>
                         <outlet property="topThingView" destination="YHE-G9-cYW" id="oRi-Cl-Wf6"/>
                     </connections>
                 </viewController>

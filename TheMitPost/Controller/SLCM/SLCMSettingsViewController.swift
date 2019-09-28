@@ -14,6 +14,9 @@ import Locksmith
 
 class SLCMSettingsViewController: UIViewController {
     
+    
+    @IBOutlet var settingLabel: UILabel!
+    @IBOutlet var biometricTypeLabel: UILabel!
     @IBOutlet weak var biometricSwitch: UISwitch!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet var lottieSettingsView: AnimationView!
@@ -32,17 +35,15 @@ class SLCMSettingsViewController: UIViewController {
     }
 
     
-    //MARK: ALERTS
+    //MARK: VIEW DID LOAD
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.layer.cornerRadius = 20
-        self.topThingView.layer.cornerRadius = 5
+        self.topThingView.layer.cornerRadius = 8
         
-        lottieSettingsView.backgroundColor = .white
-        biometricLottieView.backgroundColor = .white
-        jumboLottieView.backgroundColor = .white
+        mode()
         
         lottieSettingsView.play()
         biometricLottieView.play()
@@ -56,6 +57,40 @@ class SLCMSettingsViewController: UIViewController {
         
         print("settings controller loaded")
         
+    }
+    
+    //MARK: UI THEME
+    func mode() {
+        
+        biometricTypeLabel.textColor = .secondaryLabel
+        
+        if traitCollection.userInterfaceStyle == .dark {
+            
+            view.backgroundColor = .black
+            lottieSettingsView.backgroundColor = .black
+            biometricLottieView.backgroundColor = .black
+            jumboLottieView.backgroundColor = .black
+            settingLabel.backgroundColor = .black
+            biometricTypeLabel.backgroundColor = .black
+            
+        } else {
+            
+            view.backgroundColor = .white
+            lottieSettingsView.backgroundColor = .white
+            biometricLottieView.backgroundColor = .white
+            jumboLottieView.backgroundColor = .white
+            settingLabel.backgroundColor = .white
+            biometricTypeLabel.backgroundColor = .white
+            
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 13, *) {
+            mode()
+        }
     }
     
     //

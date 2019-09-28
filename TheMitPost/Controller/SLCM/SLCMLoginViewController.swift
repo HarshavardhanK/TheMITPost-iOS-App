@@ -12,6 +12,7 @@ import LocalAuthentication
 import Alamofire
 import SwiftyJSON
 
+import Lottie
 import NotificationBannerSwift
 import NVActivityIndicatorView
 import Locksmith
@@ -33,6 +34,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     @IBOutlet var activityIndicator: NVActivityIndicatorView!
     
     @IBOutlet weak var stackViewBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet var securityLottieAnimation: AnimationView!
     
     @IBAction func logoutAction(_ sender: Any) {
         
@@ -281,12 +284,22 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     var bottomConstraint: CGFloat = 0.0
     
-    //MARK: VIEW DID APPEAR
+   
+    
+    //MARK: LOTTIE ANIMATIONS
+    
+    func lottieAnimations() {
+        
+        securityLottieAnimation.play()
+    }
+    
+     //MARK: VIEW DID LOAD
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mode()
+        lottieAnimations()
         
         bottomConstraint = stackViewBottomConstraint.constant
         
@@ -344,6 +357,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                 self.navigationController?.navigationBar.barTintColor = .background
                 self.view.backgroundColor = .background
                 self.tabBarController?.tabBar.barTintColor = .background
+                
+                securityLottieAnimation.backgroundColor = .background
                 signInButton.backgroundColor = .background
                 
             } else {
@@ -351,6 +366,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                 self.navigationController?.navigationBar.barTintColor = .systemOrange
                 self.view.backgroundColor = .white
                 self.tabBarController?.tabBar.barTintColor = .white
+                
+                securityLottieAnimation.backgroundColor = .white
                 signInButton.backgroundColor = .white
             }
             
