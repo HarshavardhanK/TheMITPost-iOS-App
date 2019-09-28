@@ -19,6 +19,7 @@ pod 'RAMAnimatedTabBarController'
 pod 'Locksmith'
 pod 'FittedSheets'
 pod 'NotificationBannerSwift', :git => 'https://github.com/Daltron/NotificationBanner', :branch => 'ios13'
+pod 'lottie-ios'
 
   target 'TheMitPostTests' do
     inherit! :search_paths

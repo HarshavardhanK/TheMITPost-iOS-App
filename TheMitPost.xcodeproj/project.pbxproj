@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		5F9699B46A80C37C0127890C /* Pods_TheMitPostTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFAE0E7E4DC7575594E03EBD /* Pods_TheMitPostTests.framework */; };
 		6D40F4165C2D569930251676 /* Pods_TheMitPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B8109A4336D2A769BAD54A /* Pods_TheMitPost.framework */; };
+		D609834E233F4CF600299F86 /* settings-gear.json in Resources */ = {isa = PBXBuildFile; fileRef = D609834D233F4CF500299F86 /* settings-gear.json */; };
+		D609834F233F4CF600299F86 /* settings-gear.json in Resources */ = {isa = PBXBuildFile; fileRef = D609834D233F4CF500299F86 /* settings-gear.json */; };
+		D6098350233F4CF600299F86 /* settings-gear.json in Resources */ = {isa = PBXBuildFile; fileRef = D609834D233F4CF500299F86 /* settings-gear.json */; };
+		D6098352233F5DCF00299F86 /* biometric.json in Resources */ = {isa = PBXBuildFile; fileRef = D6098351233F5DCF00299F86 /* biometric.json */; };
+		D6098353233F5DCF00299F86 /* biometric.json in Resources */ = {isa = PBXBuildFile; fileRef = D6098351233F5DCF00299F86 /* biometric.json */; };
+		D6098354233F5DCF00299F86 /* biometric.json in Resources */ = {isa = PBXBuildFile; fileRef = D6098351233F5DCF00299F86 /* biometric.json */; };
+		D6098356233F60F100299F86 /* jumbo-typing.json in Resources */ = {isa = PBXBuildFile; fileRef = D6098355233F60F100299F86 /* jumbo-typing.json */; };
+		D6098357233F60F100299F86 /* jumbo-typing.json in Resources */ = {isa = PBXBuildFile; fileRef = D6098355233F60F100299F86 /* jumbo-typing.json */; };
+		D6098358233F60F100299F86 /* jumbo-typing.json in Resources */ = {isa = PBXBuildFile; fileRef = D6098355233F60F100299F86 /* jumbo-typing.json */; };
 		D60EBF3121ED0CDF00DAC538 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EBF3021ED0CDF00DAC538 /* Article.swift */; };
 		D60EBF3221ED0CDF00DAC538 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EBF3021ED0CDF00DAC538 /* Article.swift */; };
 		D614E7DF233CD6F200377DC8 /* SLCMSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614E7DE233CD6F200377DC8 /* SLCMSettingsViewController.swift */; };
@@ -121,6 +130,9 @@
 		2FD30D9E2F4CE373283DD8B5 /* Pods_TheMitPostUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPostUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2DEBB1C1F671BF1B1133D /* Pods-TheMitPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.release.xcconfig"; path = "Target Support Files/Pods-TheMitPost/Pods-TheMitPost.release.xcconfig"; sourceTree = "<group>"; };
 		C8BF744849CDEC8242B5C748 /* Pods-TheMitPostTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D609834D233F4CF500299F86 /* settings-gear.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "settings-gear.json"; sourceTree = "<group>"; };
+		D6098351233F5DCF00299F86 /* biometric.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = biometric.json; sourceTree = "<group>"; };
+		D6098355233F60F100299F86 /* jumbo-typing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "jumbo-typing.json"; sourceTree = "<group>"; };
 		D60EBF3021ED0CDF00DAC538 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D60F6BB12310713300279DA2 /* PostPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D614E7DD233CAB3D00377DC8 /* TheMitPost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMitPost.entitlements; sourceTree = "<group>"; };
@@ -360,6 +372,9 @@
 		D6D6A20D21ECC5A200B822F8 /* TheMitPost */ = {
 			isa = PBXGroup;
 			children = (
+				D6098351233F5DCF00299F86 /* biometric.json */,
+				D6098355233F60F100299F86 /* jumbo-typing.json */,
+				D609834D233F4CF500299F86 /* settings-gear.json */,
 				D614E7DD233CAB3D00377DC8 /* TheMitPost.entitlements */,
 				D6ACF13F2246A00A001B8A68 /* Fonts */,
 				D60EBF2C21ED0C7000DAC538 /* Model */,
@@ -502,12 +517,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6ACF13B22469F24001B8A68 /* DyeLine-Regular3.ttf in Resources */,
+				D6098352233F5DCF00299F86 /* biometric.json in Resources */,
 				D6ACF13722469F24001B8A68 /* DyeLine-Regular4.ttf in Resources */,
 				D6D6A21B21ECC5A400B822F8 /* LaunchScreen.storyboard in Resources */,
+				D6098356233F60F100299F86 /* jumbo-typing.json in Resources */,
 				D6ACF13922469F24001B8A68 /* DyeLine-Bold.ttf in Resources */,
 				D6ACF12522469EE4001B8A68 /* Aileron-SemiBold.otf in Resources */,
 				D6ACF12C22469EFF001B8A68 /* Roboto-Light.ttf in Resources */,
 				D6ACF13522469F24001B8A68 /* DyeLine-Regular2.ttf in Resources */,
+				D609834E233F4CF600299F86 /* settings-gear.json in Resources */,
 				D6ACF12222469ED7001B8A68 /* Aileron-Regular.otf in Resources */,
 				D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */,
 				D6ACF11F22469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
@@ -524,6 +542,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D64008FC2336A5DE0086064E /* Assets.xcassets in Resources */,
+				D6098353233F5DCF00299F86 /* biometric.json in Resources */,
+				D6098357233F60F100299F86 /* jumbo-typing.json in Resources */,
+				D609834F233F4CF600299F86 /* settings-gear.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,12 +556,15 @@
 				D6ACF13622469F24001B8A68 /* DyeLine-Regular2.ttf in Resources */,
 				D6ACF12622469EE4001B8A68 /* Aileron-SemiBold.otf in Resources */,
 				D6ACF12022469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
+				D6098354233F5DCF00299F86 /* biometric.json in Resources */,
 				D6ACF12F22469EFF001B8A68 /* Roboto-Medium.ttf in Resources */,
 				D6ACF13E22469F24001B8A68 /* DyeLine-Regular5.ttf in Resources */,
+				D6098358233F60F100299F86 /* jumbo-typing.json in Resources */,
 				D6ACF12D22469EFF001B8A68 /* Roboto-Light.ttf in Resources */,
 				D6ACF13822469F24001B8A68 /* DyeLine-Regular4.ttf in Resources */,
 				D6ACF12B22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */,
 				D6ACF12322469ED7001B8A68 /* Aileron-Regular.otf in Resources */,
+				D6098350233F4CF600299F86 /* settings-gear.json in Resources */,
 				D64008FD2336A5DE0086064E /* Assets.xcassets in Resources */,
 				D6ACF13A22469F24001B8A68 /* DyeLine-Bold.ttf in Resources */,
 			);

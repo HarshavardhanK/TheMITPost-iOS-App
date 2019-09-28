@@ -37,11 +37,13 @@ class SLCMTableViewController: UITableViewController {
         if traitCollection.userInterfaceStyle == .dark {
             
             self.navigationController?.navigationBar.barTintColor = .background
+            self.tableView.backgroundColor = .background
             self.tabBarController?.tabBar.barTintColor = .background
             self.view.backgroundColor = .background
             
         } else {
             self.navigationController?.navigationBar.barTintColor = .systemOrange
+            self.tableView.backgroundColor = .white
             self.tabBarController?.tabBar.barTintColor = .white
             self.view.backgroundColor = .white
         }

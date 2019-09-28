@@ -623,7 +623,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             return
         }
         
-        let sheet = SheetViewController(controller: settingsController, sizes: [.fixed(250)])
+        let sheet = MDCBottomSheetController(contentViewController: settingsController)
+            //SheetViewController(controller: settingsController, sizes: [.fixed(250)])
        // let sheet = MDCBottomSheetController(contentViewController: settingsController)
         
         present(sheet, animated: true, completion: nil)

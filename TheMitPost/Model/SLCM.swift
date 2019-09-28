@@ -25,6 +25,10 @@ class Attendance {
             classesPresent = _data["classesAttended"].stringValue
             updatedAt = _data["updatedAt"].doubleValue
             
+            if updatedAt == 0.0 {
+                updatedAt = -1
+            }
+            
         }
         
     }
@@ -68,10 +72,10 @@ class Attendance {
             if updatedAt_ == -1 {
                 return "__"
             }
-            
+        
             let strUpdatedAt = Date.unixTimeStampToDate(unixTime: updatedAt_)
             
-            print(strUpdatedAt)
+            print("\(updatedAt_) -> \(strUpdatedAt)")
             
             return strUpdatedAt
             

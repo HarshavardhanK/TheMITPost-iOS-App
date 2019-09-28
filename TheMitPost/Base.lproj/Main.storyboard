@@ -1330,69 +1330,124 @@
             <objects>
                 <viewController storyboardIdentifier="slcmSettings" id="93x-3J-fAl" customClass="SLCMSettingsViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3My-If-f1E">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4c-8f-TLi">
-                                <rect key="frame" x="62" y="738" width="250" height="40"/>
+                                <rect key="frame" x="57" y="279" width="250" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="RPo-Md-6VN"/>
+                                    <constraint firstAttribute="width" constant="250" id="yfd-1i-EYI"/>
+                                </constraints>
                                 <state key="normal" image="slcm_logout"/>
                                 <connections>
                                     <segue destination="shm-tI-rlR" kind="unwind" unwindAction="unwindFromSLCMSettingsWithSender:" id="Mbe-MY-1ki"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="biometric" translatesAutoresizingMaskIntoConstraints="NO" id="KV7-91-pxb">
-                                <rect key="frame" x="16" y="680" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="8wh-D4-aQH"/>
-                                    <constraint firstAttribute="height" constant="30" id="vdU-DA-kGj"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Require Face ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3f-4d-6YM">
-                                <rect key="frame" x="62" y="680" width="240" height="31"/>
-                                <color key="backgroundColor" white="0.95918057933789946" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="72" y="226" width="230" height="31"/>
+                                <color key="backgroundColor" white="0.98906606735159808" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="6Jd-gQ-Dy7"/>
-                                    <constraint firstAttribute="height" constant="31" id="I9t-eV-O1c"/>
+                                    <constraint firstAttribute="height" constant="31" id="MLF-zE-ZMo"/>
+                                    <constraint firstAttribute="width" constant="230" id="fdW-OP-iTr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RQK-Bp-ZGx">
-                                <rect key="frame" x="310" y="680" width="49" height="31"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHE-G9-cYW">
+                                <rect key="frame" x="162" y="7" width="40" height="5"/>
+                                <color key="backgroundColor" white="0.90406499714611854" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="47" id="CVO-Cb-7HQ"/>
-                                    <constraint firstAttribute="height" constant="31" id="dRB-qj-wRV"/>
+                                    <constraint firstAttribute="height" constant="5" id="lhN-TF-Fgm"/>
+                                    <constraint firstAttribute="width" constant="40" id="uLO-Aa-SSa"/>
+                                </constraints>
+                            </view>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RQK-Bp-ZGx">
+                                <rect key="frame" x="318" y="226" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="AXk-HR-oX0"/>
+                                    <constraint firstAttribute="width" constant="49" id="vsb-fO-DBj"/>
                                 </constraints>
                                 <connections>
                                     <action selector="switchBiometric:" destination="93x-3J-fAl" eventType="valueChanged" id="34Q-07-jar"/>
                                 </connections>
                             </switch>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lv4-4H-baH" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="152" y="20" width="60" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="74E-YV-901"/>
+                                    <constraint firstAttribute="height" constant="60" id="xq5-mQ-VLt"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="settings-gear"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHB-AI-gNb" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="16" y="216" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="AyF-Xb-Ter"/>
+                                    <constraint firstAttribute="width" constant="50" id="Iyn-Qs-w5o"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="biometric"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37n-uC-SGi" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="102" y="69" width="160" height="125"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="7AD-m6-ui7"/>
+                                    <constraint firstAttribute="width" constant="160" id="Kuu-fv-SVt"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="jumbo-typing"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.9730688820422535" green="0.96767715669014087" blue="0.95273987676056338" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="RQK-Bp-ZGx" firstAttribute="leading" secondItem="o3f-4d-6YM" secondAttribute="trailing" constant="8" id="CNh-b2-HtP"/>
-                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="KV7-91-pxb" secondAttribute="bottom" constant="68" id="ZeV-2L-nVl"/>
-                            <constraint firstItem="F4c-8f-TLi" firstAttribute="top" secondItem="o3f-4d-6YM" secondAttribute="bottom" constant="27" id="ads-z4-BGq"/>
-                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="RQK-Bp-ZGx" secondAttribute="bottom" constant="67" id="aoL-py-gyr"/>
-                            <constraint firstItem="F4c-8f-TLi" firstAttribute="bottom" secondItem="4yU-Hl-R6r" secondAttribute="bottom" id="f8X-34-JVS"/>
-                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="RQK-Bp-ZGx" secondAttribute="trailing" constant="18" id="hYA-0D-SvT"/>
-                            <constraint firstItem="F4c-8f-TLi" firstAttribute="leading" secondItem="o3f-4d-6YM" secondAttribute="leading" id="kKn-SB-hWR"/>
-                            <constraint firstItem="KV7-91-pxb" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="16" id="pP4-5Y-KOp"/>
-                            <constraint firstItem="o3f-4d-6YM" firstAttribute="leading" secondItem="KV7-91-pxb" secondAttribute="trailing" constant="16" id="vWt-AT-hu6"/>
+                            <constraint firstItem="lv4-4H-baH" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="152" id="0pI-Ue-5Ne"/>
+                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="F4c-8f-TLi" secondAttribute="trailing" constant="68" id="1HZ-1Y-1Po"/>
+                            <constraint firstItem="37n-uC-SGi" firstAttribute="top" secondItem="lv4-4H-baH" secondAttribute="bottom" constant="-11" id="2oV-iM-6J3"/>
+                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="YHE-G9-cYW" secondAttribute="trailing" constant="173" id="3GR-ah-sbd"/>
+                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="RQK-Bp-ZGx" secondAttribute="bottom" constant="143" id="3ul-69-SVW"/>
+                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="RQK-Bp-ZGx" secondAttribute="trailing" constant="8" id="BWH-iQ-1a4"/>
+                            <constraint firstItem="o3f-4d-6YM" firstAttribute="trailing" secondItem="F4c-8f-TLi" secondAttribute="trailing" constant="-5" id="BcP-jV-aiM"/>
+                            <constraint firstItem="F4c-8f-TLi" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="57" id="F3c-Vb-S45"/>
+                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="37n-uC-SGi" secondAttribute="trailing" constant="113" id="Ghu-jb-fOD"/>
+                            <constraint firstItem="37n-uC-SGi" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="102" id="Kut-GF-tw6"/>
+                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="lv4-4H-baH" secondAttribute="trailing" constant="163" id="PRF-XP-oSa"/>
+                            <constraint firstItem="F4c-8f-TLi" firstAttribute="top" secondItem="o3f-4d-6YM" secondAttribute="bottom" constant="22" id="SRA-qm-TJz"/>
+                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="YHE-G9-cYW" secondAttribute="bottom" constant="388" id="Vt2-Pd-05U"/>
+                            <constraint firstItem="hHB-AI-gNb" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="16" id="ZQR-ML-R3e"/>
+                            <constraint firstItem="lv4-4H-baH" firstAttribute="top" secondItem="YHE-G9-cYW" secondAttribute="bottom" constant="8" id="c3r-Oy-JBI"/>
+                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="hHB-AI-gNb" secondAttribute="bottom" constant="134" id="lh7-cu-Ze9"/>
+                            <constraint firstItem="o3f-4d-6YM" firstAttribute="top" secondItem="RQK-Bp-ZGx" secondAttribute="top" id="mF2-ax-HHg"/>
+                            <constraint firstItem="o3f-4d-6YM" firstAttribute="top" secondItem="37n-uC-SGi" secondAttribute="bottom" constant="32" id="ogb-36-EB1"/>
+                            <constraint firstItem="YHE-G9-cYW" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="162" id="rDE-e7-Ure"/>
+                            <constraint firstItem="RQK-Bp-ZGx" firstAttribute="leading" secondItem="o3f-4d-6YM" secondAttribute="trailing" constant="16" id="wTU-Jw-MnN"/>
+                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="F4c-8f-TLi" secondAttribute="bottom" constant="81" id="x7f-Hc-mHA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4yU-Hl-R6r"/>
                     </view>
                     <navigationItem key="navigationItem" id="ftB-7z-crp"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <size key="freeformSize" width="375" height="400"/>
                     <connections>
+                        <outlet property="biometricLottieView" destination="hHB-AI-gNb" id="CpG-8l-Byd"/>
                         <outlet property="biometricSwitch" destination="RQK-Bp-ZGx" id="a0I-WG-wyA"/>
+                        <outlet property="jumboLottieView" destination="37n-uC-SGi" id="HH4-j7-2nv"/>
                         <outlet property="logoutButton" destination="F4c-8f-TLi" id="Hwu-Z7-QWX"/>
+                        <outlet property="lottieSettingsView" destination="lv4-4H-baH" id="mFh-g2-ohb"/>
+                        <outlet property="topThingView" destination="YHE-G9-cYW" id="oRi-Cl-Wf6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DaS-m5-1hS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3301.5999999999999" y="357.63546798029557"/>
+            <point key="canvasLocation" x="3293.5999999999999" y="357.63546798029557"/>
         </scene>
         <!--Events-->
         <scene sceneID="NW1-Qb-yU4">
@@ -1641,7 +1696,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="biometric" width="170.66667175292969" height="170.66667175292969"/>
         <image name="button:LE2-5w-1gA:image" width="38" height="29">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGaWpYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QGAcI
