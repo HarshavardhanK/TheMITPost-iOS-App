@@ -10,7 +10,7 @@ import UIKit
 
 import Alamofire
 import SwiftyJSON
-import MaterialComponents.MaterialAppBar
+import Lottie
 import SDWebImage
 
 
@@ -42,37 +42,42 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         super.viewDidLoad()
         
         mode()
+        
+        articleCollectionView.dataSource = self
+        articleCollectionView.delegate = self
+        articleCollectionView.addSubview(refreshControl)
+        
+        tabBarController?.delegate = self
+        
+        refreshControl.addTarget(self, action: #selector(refreshArticles), for: .valueChanged)
       
         retrieveArticles { (success) in
             
             if !success {
                 
                 //create a Lottie animation here
+                self.createEmptyView()
                 
-                let emptyImageView = UIImageView(image: UIImage(named: "post-empty"))
-                emptyImageView.frame = CGRect(origin: self.view.center, size: CGSize(width: 300, height: 237))
-                emptyImageView.center = self.view.center
-                
-                self.view.addSubview(emptyImageView)
             }
             
         }
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
-        // Do any additional setup after loading the view, typically from a nib.
-        print("Bounds of the view W: \(view.bounds.width) H: \(view.bounds.height)")
-        print("Frame of the view W: \(view.frame.width) H: \(view.frame.height)")
+    }
+    
+    //MARK: CREATE LOTTIE VIEW
+    func createEmptyView() {
+        let emptyImageView = AnimationView(name: "empty-box")
+        emptyImageView.frame = CGRect(origin: self.view.center, size: CGSize(width: 300, height: 237))
+        emptyImageView.center = self.view.center
         
-        articleCollectionView.dataSource = self
-        articleCollectionView.delegate = self
-        //articleCollectionView.addSubview(refreshControl)
+        self.view.addSubview(emptyImageView)
+        emptyImageView.play()
         
-        tabBarController?.delegate = self
-        
-        refreshControl.addTarget(self, action: #selector(refreshArticles), for: .valueChanged)
-        
-        
+        let label = UILabel(frame: CGRect(x: self.view.frame.width / 2 - 50, y: self.view.frame.height / 2 + 200, width: 200, height: 30))
+        label.text = "Pull to refresh"
+        self.view.addSubview(label)
     }
     
     //MARK:- FETCH ARTICLES

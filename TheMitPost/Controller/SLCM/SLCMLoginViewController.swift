@@ -39,29 +39,6 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     @IBAction func logoutAction(_ sender: Any) {
         
         presentBottomSettings()
-        
-        /*showAlertForLogout()
-        
-        guard let registration = UserDefaults.standard.string(forKey: "registration") else {
-            return
-        }
-               
-        try! Locksmith.deleteDataForUserAccount(userAccount: registration)
-        
-        UserDefaults.standard.set(false, forKey: "userSaved")
-        UserDefaults.standard.set(nil, forKey: "registration")
-        UserDefaults.standard.set(nil, forKey: "password")
-        
-        signInButton.isEnabled = false
-        
-        registrationTextfield.text = nil
-        passwordTextfield.text = nil
-        
-        registrationTextfield.isEnabled = true
-        passwordTextfield.isEnabled = true
-        
-        biometricLabel.text = nil*/
-        
     }
     
     
@@ -305,6 +282,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         mode()
         
+        lottieAnimations()
         
         bottomConstraint = stackViewBottomConstraint.constant
         

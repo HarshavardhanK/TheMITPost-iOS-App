@@ -111,7 +111,7 @@ class EventViewCell: UICollectionViewCell {
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
         
-        registerButton.layer.cornerRadius = 5
+        registerButton.layer.cornerRadius = 8
         titleLabel.layer.cornerRadius = 5.0
         titleLabel.layer.shadowRadius = 10.0
         
