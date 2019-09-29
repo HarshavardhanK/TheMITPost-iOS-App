@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F9699B46A80C37C0127890C /* Pods_TheMitPostTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFAE0E7E4DC7575594E03EBD /* Pods_TheMitPostTests.framework */; };
-		6D40F4165C2D569930251676 /* Pods_TheMitPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B8109A4336D2A769BAD54A /* Pods_TheMitPost.framework */; };
+		1256D19ED8AF5173693A3ABC /* Pods_TheMitPostUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8062DC121FD206E9E748B09 /* Pods_TheMitPostUITests.framework */; };
+		2D6340E772715A170A003232 /* Pods_TheMitPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBDC6D078CEDB615BD066017 /* Pods_TheMitPost.framework */; };
+		A1A563786C81423B92AE483A /* Pods_TheMitPostTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E5C976D2EDB57832674ABAA /* Pods_TheMitPostTests.framework */; };
 		D609834E233F4CF600299F86 /* settings-gear.json in Resources */ = {isa = PBXBuildFile; fileRef = D609834D233F4CF500299F86 /* settings-gear.json */; };
 		D609834F233F4CF600299F86 /* settings-gear.json in Resources */ = {isa = PBXBuildFile; fileRef = D609834D233F4CF500299F86 /* settings-gear.json */; };
 		D6098350233F4CF600299F86 /* settings-gear.json in Resources */ = {isa = PBXBuildFile; fileRef = D609834D233F4CF500299F86 /* settings-gear.json */; };
@@ -110,7 +111,6 @@
 		D6FA299823326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */; };
 		D6FA299923326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */; };
 		D6FA299A23326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */; };
-		EB8CD018DD9E178431296AFD /* Pods_TheMitPostUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD30D9E2F4CE373283DD8B5 /* Pods_TheMitPostUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,14 +131,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0738DB0AB1289FE691135048 /* Pods-TheMitPostTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.release.xcconfig"; path = "Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.release.xcconfig"; sourceTree = "<group>"; };
-		0A3D0E7E48D076A9E44B4E97 /* Pods-TheMitPostUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostUITests.release.xcconfig"; path = "Target Support Files/Pods-TheMitPostUITests/Pods-TheMitPostUITests.release.xcconfig"; sourceTree = "<group>"; };
-		0F6C756C8E91AA73B2536DAF /* Pods-TheMitPostUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostUITests.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPostUITests/Pods-TheMitPostUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		12B8109A4336D2A769BAD54A /* Pods_TheMitPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DA7E67DF020828C5B0F8310 /* Pods-TheMitPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPost/Pods-TheMitPost.debug.xcconfig"; sourceTree = "<group>"; };
-		2FD30D9E2F4CE373283DD8B5 /* Pods_TheMitPostUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPostUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		75A2DEBB1C1F671BF1B1133D /* Pods-TheMitPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.release.xcconfig"; path = "Target Support Files/Pods-TheMitPost/Pods-TheMitPost.release.xcconfig"; sourceTree = "<group>"; };
-		C8BF744849CDEC8242B5C748 /* Pods-TheMitPostTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0B91674DBB7F58C069DA248C /* Pods-TheMitPostUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostUITests.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPostUITests/Pods-TheMitPostUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1E617B83BE10CD51AA24E42C /* Pods-TheMitPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPost/Pods-TheMitPost.debug.xcconfig"; sourceTree = "<group>"; };
+		232932305781041D20A80FB9 /* Pods-TheMitPostTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.release.xcconfig"; path = "Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.release.xcconfig"; sourceTree = "<group>"; };
+		54F14B397EBF1D99A3F90F46 /* Pods-TheMitPostTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostTests.debug.xcconfig"; path = "Target Support Files/Pods-TheMitPostTests/Pods-TheMitPostTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5E5C976D2EDB57832674ABAA /* Pods_TheMitPostTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPostTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F0AEA5869D910A117329625 /* Pods-TheMitPostUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPostUITests.release.xcconfig"; path = "Target Support Files/Pods-TheMitPostUITests/Pods-TheMitPostUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8908E0386657324275A8E247 /* Pods-TheMitPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMitPost.release.xcconfig"; path = "Target Support Files/Pods-TheMitPost/Pods-TheMitPost.release.xcconfig"; sourceTree = "<group>"; };
+		A8062DC121FD206E9E748B09 /* Pods_TheMitPostUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPostUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBDC6D078CEDB615BD066017 /* Pods_TheMitPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D609834D233F4CF500299F86 /* settings-gear.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "settings-gear.json"; sourceTree = "<group>"; };
 		D6098351233F5DCF00299F86 /* biometric.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = biometric.json; sourceTree = "<group>"; };
 		D6098355233F60F100299F86 /* jumbo-typing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "jumbo-typing.json"; sourceTree = "<group>"; };
@@ -190,7 +191,6 @@
 		D6F392BC22D604DC00CE50D1 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		D6FA299323326B2E00703DE7 /* NoticeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesCollectionViewController.swift; sourceTree = "<group>"; };
-		FFAE0E7E4DC7575594E03EBD /* Pods_TheMitPostTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMitPostTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,7 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D40F4165C2D569930251676 /* Pods_TheMitPost.framework in Frameworks */,
+				2D6340E772715A170A003232 /* Pods_TheMitPost.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F9699B46A80C37C0127890C /* Pods_TheMitPostTests.framework in Frameworks */,
+				A1A563786C81423B92AE483A /* Pods_TheMitPostTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,32 +214,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB8CD018DD9E178431296AFD /* Pods_TheMitPostUITests.framework in Frameworks */,
+				1256D19ED8AF5173693A3ABC /* Pods_TheMitPostUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		47285B305D9317E63E075EF1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				12B8109A4336D2A769BAD54A /* Pods_TheMitPost.framework */,
-				FFAE0E7E4DC7575594E03EBD /* Pods_TheMitPostTests.framework */,
-				2FD30D9E2F4CE373283DD8B5 /* Pods_TheMitPostUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		6739CD553BEF26033D670CBE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2DA7E67DF020828C5B0F8310 /* Pods-TheMitPost.debug.xcconfig */,
-				75A2DEBB1C1F671BF1B1133D /* Pods-TheMitPost.release.xcconfig */,
-				C8BF744849CDEC8242B5C748 /* Pods-TheMitPostTests.debug.xcconfig */,
-				0738DB0AB1289FE691135048 /* Pods-TheMitPostTests.release.xcconfig */,
-				0F6C756C8E91AA73B2536DAF /* Pods-TheMitPostUITests.debug.xcconfig */,
-				0A3D0E7E48D076A9E44B4E97 /* Pods-TheMitPostUITests.release.xcconfig */,
+				1E617B83BE10CD51AA24E42C /* Pods-TheMitPost.debug.xcconfig */,
+				8908E0386657324275A8E247 /* Pods-TheMitPost.release.xcconfig */,
+				54F14B397EBF1D99A3F90F46 /* Pods-TheMitPostTests.debug.xcconfig */,
+				232932305781041D20A80FB9 /* Pods-TheMitPostTests.release.xcconfig */,
+				0B91674DBB7F58C069DA248C /* Pods-TheMitPostUITests.debug.xcconfig */,
+				5F0AEA5869D910A117329625 /* Pods-TheMitPostUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -367,7 +357,7 @@
 				D6D6A22F21ECC5A500B822F8 /* TheMitPostUITests */,
 				D6D6A20C21ECC5A200B822F8 /* Products */,
 				6739CD553BEF26033D670CBE /* Pods */,
-				47285B305D9317E63E075EF1 /* Frameworks */,
+				E9CE57D4450819CAECAABDF5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -423,6 +413,16 @@
 			path = TheMitPostUITests;
 			sourceTree = "<group>";
 		};
+		E9CE57D4450819CAECAABDF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CBDC6D078CEDB615BD066017 /* Pods_TheMitPost.framework */,
+				5E5C976D2EDB57832674ABAA /* Pods_TheMitPostTests.framework */,
+				A8062DC121FD206E9E748B09 /* Pods_TheMitPostUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -430,11 +430,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6D6A23521ECC5A500B822F8 /* Build configuration list for PBXNativeTarget "TheMitPost" */;
 			buildPhases = (
-				EB524E0DA7637817238F782E /* [CP] Check Pods Manifest.lock */,
+				DF6ED7953EC1C9644027A495 /* [CP] Check Pods Manifest.lock */,
 				D6D6A20721ECC5A200B822F8 /* Sources */,
 				D6D6A20821ECC5A200B822F8 /* Frameworks */,
 				D6D6A20921ECC5A200B822F8 /* Resources */,
-				E9AE30D9362EEF71867D7C1E /* [CP] Embed Pods Frameworks */,
+				0E7222E98F2AB9045E46B355 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -449,7 +449,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6D6A23821ECC5A500B822F8 /* Build configuration list for PBXNativeTarget "TheMitPostTests" */;
 			buildPhases = (
-				0D41537B469A804B842A22D5 /* [CP] Check Pods Manifest.lock */,
+				884A4EDBAB84580EDC1E70BB /* [CP] Check Pods Manifest.lock */,
 				D6D6A21D21ECC5A500B822F8 /* Sources */,
 				D6D6A21E21ECC5A500B822F8 /* Frameworks */,
 				D6D6A21F21ECC5A500B822F8 /* Resources */,
@@ -468,7 +468,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6D6A23B21ECC5A500B822F8 /* Build configuration list for PBXNativeTarget "TheMitPostUITests" */;
 			buildPhases = (
-				7DC9479CE4006704D87FE0E2 /* [CP] Check Pods Manifest.lock */,
+				A41E343EDC98A0350160556E /* [CP] Check Pods Manifest.lock */,
 				D6D6A22821ECC5A500B822F8 /* Sources */,
 				D6D6A22921ECC5A500B822F8 /* Frameworks */,
 				D6D6A22A21ECC5A500B822F8 /* Resources */,
@@ -597,7 +597,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0D41537B469A804B842A22D5 /* [CP] Check Pods Manifest.lock */ = {
+		0E7222E98F2AB9045E46B355 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		884A4EDBAB84580EDC1E70BB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -619,7 +636,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7DC9479CE4006704D87FE0E2 /* [CP] Check Pods Manifest.lock */ = {
+		A41E343EDC98A0350160556E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -641,24 +658,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E9AE30D9362EEF71867D7C1E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TheMitPost/Pods-TheMitPost-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EB524E0DA7637817238F782E /* [CP] Check Pods Manifest.lock */ = {
+		DF6ED7953EC1C9644027A495 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -912,7 +912,7 @@
 		};
 		D6D6A23621ECC5A500B822F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2DA7E67DF020828C5B0F8310 /* Pods-TheMitPost.debug.xcconfig */;
+			baseConfigurationReference = 1E617B83BE10CD51AA24E42C /* Pods-TheMitPost.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TheMitPost/TheMitPost.entitlements;
@@ -933,7 +933,7 @@
 		};
 		D6D6A23721ECC5A500B822F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75A2DEBB1C1F671BF1B1133D /* Pods-TheMitPost.release.xcconfig */;
+			baseConfigurationReference = 8908E0386657324275A8E247 /* Pods-TheMitPost.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TheMitPost/TheMitPost.entitlements;
@@ -954,7 +954,7 @@
 		};
 		D6D6A23921ECC5A500B822F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8BF744849CDEC8242B5C748 /* Pods-TheMitPostTests.debug.xcconfig */;
+			baseConfigurationReference = 54F14B397EBF1D99A3F90F46 /* Pods-TheMitPostTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -976,7 +976,7 @@
 		};
 		D6D6A23A21ECC5A500B822F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0738DB0AB1289FE691135048 /* Pods-TheMitPostTests.release.xcconfig */;
+			baseConfigurationReference = 232932305781041D20A80FB9 /* Pods-TheMitPostTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -998,7 +998,7 @@
 		};
 		D6D6A23C21ECC5A500B822F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0F6C756C8E91AA73B2536DAF /* Pods-TheMitPostUITests.debug.xcconfig */;
+			baseConfigurationReference = 0B91674DBB7F58C069DA248C /* Pods-TheMitPostUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1019,7 +1019,7 @@
 		};
 		D6D6A23D21ECC5A500B822F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A3D0E7E48D076A9E44B4E97 /* Pods-TheMitPostUITests.release.xcconfig */;
+			baseConfigurationReference = 5F0AEA5869D910A117329625 /* Pods-TheMitPostUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

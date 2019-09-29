@@ -21,7 +21,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet var articleCollectionView: UICollectionView!
     
-    //let refreshControl = UIRefreshControl()
+    let refreshControl = UIRefreshControl()
     
     let window: UIWindow? = nil
     let _storyboard_ = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -42,11 +42,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         super.viewDidLoad()
         
         mode()
-        
-        /*let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = CGSize(width: NoticeTextCollectionViewCell.width, height: 300)
-        articleCollectionView.collectionViewLayout = layout*/
-    
+      
         retrieveArticles { (success) in
             
             if !success {
@@ -62,10 +58,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             
         }
         
-        //configureAppBar()
-        
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        //self.tabBarController?.tabBar.isHidden = false
         
         // Do any additional setup after loading the view, typically from a nib.
         print("Bounds of the view W: \(view.bounds.width) H: \(view.bounds.height)")
@@ -77,7 +70,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         tabBarController?.delegate = self
         
-       // refreshControl.addTarget(self, action: #selector(refreshArticles), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshArticles), for: .valueChanged)
         
         
     }
@@ -100,7 +93,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             self.parseArticleResult(result: JSON(resultValue))
             
             self.articleCollectionView.reloadData()
-            //self.refreshControl.endRefreshing()
+            self.refreshControl.endRefreshing()
             
             self.articlesShown = [Bool](repeating: false, count: self.articlesList.count)
             

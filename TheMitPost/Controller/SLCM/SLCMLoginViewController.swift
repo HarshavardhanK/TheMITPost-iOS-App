@@ -16,7 +16,6 @@ import Lottie
 import NotificationBannerSwift
 import NVActivityIndicatorView
 import Locksmith
-import FittedSheets
 import MaterialComponents
 
 class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivityIndicatorViewable {

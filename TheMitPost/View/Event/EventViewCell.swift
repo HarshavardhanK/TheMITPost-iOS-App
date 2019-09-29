@@ -61,17 +61,16 @@ class EventViewCell: UICollectionViewCell {
             
             print("set event cell")
             
-            if let link_ = event.formLink {
-                
-                formLink = link_
-            
-            } else {
+            if event.formLink == "NA" {
                 
                 print("no form link")
                 registerButton.backgroundColor = .white
                 registerButton.isEnabled = false
                 registerButton.alpha = 0.85
-            }
+                
+                formLink = ""
+            
+            } 
             
         }
     }
@@ -133,7 +132,7 @@ class EventViewCell: UICollectionViewCell {
                 
                 descriptionLabel.backgroundColor = UIColor.foreground
                 organizerNameLabel.backgroundColor = UIColor.foreground
-                
+                clubLottieView.backgroundColor = .foreground
                 titleLabel.textColor = .label
                 organizerNameLabel.textColor = .secondaryLabel
                 
@@ -147,7 +146,7 @@ class EventViewCell: UICollectionViewCell {
                 
                 descriptionLabel.backgroundColor = UIColor.white
                 organizerNameLabel.backgroundColor = UIColor.white
-                
+                clubLottieView.backgroundColor = .white
                 titleLabel.textColor = .label
                 organizerNameLabel.textColor = .secondaryLabel
                 
