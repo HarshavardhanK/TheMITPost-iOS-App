@@ -295,11 +295,17 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
      //MARK: VIEW DID LOAD
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        lottieAnimations()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mode()
-        lottieAnimations()
+        
         
         bottomConstraint = stackViewBottomConstraint.constant
         
@@ -641,9 +647,6 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         }
         
         let sheet = MDCBottomSheetController(contentViewController: settingsController)
-            //SheetViewController(controller: settingsController, sizes: [.fixed(250)])
-       // let sheet = MDCBottomSheetController(contentViewController: settingsController)
-        
         present(sheet, animated: true, completion: nil)
     }
     

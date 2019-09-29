@@ -42,10 +42,16 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         super.viewDidLoad()
         
         mode()
+        
+        /*let layout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = CGSize(width: NoticeTextCollectionViewCell.width, height: 300)
+        articleCollectionView.collectionViewLayout = layout*/
     
         retrieveArticles { (success) in
             
             if !success {
+                
+                //create a Lottie animation here
                 
                 let emptyImageView = UIImageView(image: UIImage(named: "post-empty"))
                 emptyImageView.frame = CGRect(origin: self.view.center, size: CGSize(width: 300, height: 237))
@@ -118,14 +124,18 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         for i in 0...result.count {
             
             let data = result[i]
+            print(data)
+            print("Message \(data["message"])")
             
             let year = data["date"]["year"].stringValue
             let month = data["date"]["month"].stringValue
             let day = data["date"]["day"].stringValue
             
+            let category = data["category"].stringValue
+            
             let date = day + " " + month + " " + year
             
-            let article = Article(articleID: data["_id"].stringValue, title: String(htmlEncodedString: data["title"].stringValue)!,author: data["author"]["name"].stringValue, date: date, featured_media: data["featured_media"].stringValue, message: data["message"].stringValue, content: nil)
+            let article = Article(articleID: data["_id"].stringValue, title: String(htmlEncodedString: data["title"].stringValue)!,author: data["author"]["name"].stringValue, date: date, featured_media: data["featured_media"].stringValue, message_: data["message"].stringValue, category_: category, content: nil)
             
             
             articlesList.append(article)
@@ -211,24 +221,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "articleViewSegue" {
-            print("Going to ArticleTableViewController")
-            
-            if let destinationViewController = segue.destination as? ArticleWebViewController {
-                //destinationViewController.article = selectedArticle
-                let selectedCell = sender as? ArticleCollectionViewCell
-                let indexPath = self.articleCollectionView.indexPath(for: selectedCell!)
-                
-                let selectedArticle = articlesList[(indexPath?.row)!]
-                
-                destinationViewController.POST_ID = selectedArticle.articleID
-                //print("Sending article \(selectedArticle!.title) to articleView..")
-            }
-        }
-    }
-    
     
     //MARK:- UICOLLECTIONVIEWDELEGATEFLOWLAYOUT METHODS
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -284,7 +276,27 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     //MARK:- UICOLLECTIONVIEWDATASOURCE DELEGATE METHODS
     
-    //MARK:- UNWIND SEGUES
+    //MARK:- SEGUES
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "articleViewSegue" {
+            print("Going to ArticleTableViewController")
+            
+            if let destinationViewController = segue.destination as? ArticleWebViewController {
+                //destinationViewController.article = selectedArticle
+                let selectedCell = sender as? ArticleCollectionViewCell
+                let indexPath = self.articleCollectionView.indexPath(for: selectedCell!)
+                
+                let selectedArticle = articlesList[(indexPath?.row)!]
+                
+                destinationViewController.POST_ID = selectedArticle.articleID
+                destinationViewController.category = selectedArticle.category
+                //print("Sending article \(selectedArticle!.title) to articleView..")
+            }
+        }
+    }
+    
     @IBAction func unwindToArticlesListFromArticle(sender: UIStoryboardSegue) {
         
         if let _ = sender.source as? ArticlesViewController {

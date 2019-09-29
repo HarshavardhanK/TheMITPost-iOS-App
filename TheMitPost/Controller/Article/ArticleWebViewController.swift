@@ -15,7 +15,9 @@ import NVActivityIndicatorView
 class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebViewDelegate {
     
     let API = "https://app.themitpost.com/posts/render/"
+    
     var POST_ID: String?
+    var category: String?
 
     @IBOutlet weak var articleWebView: WKWebView!
     
@@ -24,7 +26,13 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let category_ = category {
+            self.title = category_
+        }
+        
         activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.width / 2, y: self.view.frame.height / 2, width: 40, height: 40))
+        
+        
         
         if let id = POST_ID {
             
@@ -38,7 +46,11 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
             
             let url = URL(string: urlString)!
             
+            createActivityIndicator()
+            
             articleWebView.load(URLRequest(url: url))
+            
+            stopActivityIndicator()
             
         } else {
             print("Invalid request..")
@@ -57,7 +69,7 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
         
         if traitCollection.userInterfaceStyle == .dark {
             
-            self.navigationController?.navigationBar.barTintColor = .darkGray
+            self.navigationController?.navigationBar.barTintColor = .background
             articleWebView.backgroundColor = .background
             
             if traitCollection.userInterfaceStyle == .dark {
@@ -77,8 +89,6 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
             
             articleWebView.backgroundColor = .white
             articleWebView.load(URLRequest(url: URL(string: urlString)!))
-            articleWebView.addSubview(activityIndicator!)
-            createActivityIndicator()
             
         }
     }
@@ -109,8 +119,6 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
     //MARK: Loading View Animation
     func createActivityIndicator() {
         
-        
-        
         let types = [NVActivityIndicatorType.ballScaleRippleMultiple, NVActivityIndicatorType.ballBeat, NVActivityIndicatorType.ballScale, NVActivityIndicatorType.ballPulseSync]
         
         let index: Int = Int(arc4random()) % 4
@@ -118,6 +126,8 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
         activityIndicator?.type = types[index]
         
         activityIndicator?.color = UIColor.lightGray
+        
+        self.view.addSubview(activityIndicator!)
         
     }
     

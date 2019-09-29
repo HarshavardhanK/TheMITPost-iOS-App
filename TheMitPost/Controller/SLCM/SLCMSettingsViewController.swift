@@ -33,6 +33,10 @@ class SLCMSettingsViewController: UIViewController {
         print("log out pressed")
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 
     
     //MARK: VIEW DID LOAD
@@ -48,8 +52,7 @@ class SLCMSettingsViewController: UIViewController {
         lottieSettingsView.play()
         biometricLottieView.play()
         jumboLottieView.play()
-        
-        
+       
         guard let _ = UserDefaults.standard.string(forKey: "registration") else {
             logoutButton.isEnabled = false
             return
