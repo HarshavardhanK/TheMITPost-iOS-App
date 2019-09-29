@@ -27,13 +27,9 @@ class Events {
         imageURL = URL(string: data["imageURL"].stringValue)
         date = "20 MAY, 2019"
         
-        /*if data["formLink"].stringValue != "nil" {
+        if data["formLink"].stringValue != "nil" {
             formLink = data["formLink"].stringValue
-        } else {
-            formLink = nil
-        }*/
-        
-        formLink = "bakwas" // handle this
+        } 
     }
     
     static func parseNotices(data: [JSON]) -> [Events] {

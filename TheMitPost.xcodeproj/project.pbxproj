@@ -21,6 +21,9 @@
 		D609835A233F635600299F86 /* security.json in Resources */ = {isa = PBXBuildFile; fileRef = D6098359233F635600299F86 /* security.json */; };
 		D609835B233F635600299F86 /* security.json in Resources */ = {isa = PBXBuildFile; fileRef = D6098359233F635600299F86 /* security.json */; };
 		D609835C233F635600299F86 /* security.json in Resources */ = {isa = PBXBuildFile; fileRef = D6098359233F635600299F86 /* security.json */; };
+		D609835E23412FE800299F86 /* empty-box.json in Resources */ = {isa = PBXBuildFile; fileRef = D609835D23412FE600299F86 /* empty-box.json */; };
+		D609835F23412FE800299F86 /* empty-box.json in Resources */ = {isa = PBXBuildFile; fileRef = D609835D23412FE600299F86 /* empty-box.json */; };
+		D609836023412FE800299F86 /* empty-box.json in Resources */ = {isa = PBXBuildFile; fileRef = D609835D23412FE600299F86 /* empty-box.json */; };
 		D60EBF3121ED0CDF00DAC538 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EBF3021ED0CDF00DAC538 /* Article.swift */; };
 		D60EBF3221ED0CDF00DAC538 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60EBF3021ED0CDF00DAC538 /* Article.swift */; };
 		D614E7DF233CD6F200377DC8 /* SLCMSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614E7DE233CD6F200377DC8 /* SLCMSettingsViewController.swift */; };
@@ -56,6 +59,9 @@
 		D664F32722B0FA2D002D6E0F /* Notices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664F32622B0FA2D002D6E0F /* Notices.swift */; };
 		D664F32822B0FA2D002D6E0F /* Notices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664F32622B0FA2D002D6E0F /* Notices.swift */; };
 		D664F32922B0FA2D002D6E0F /* Notices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D664F32622B0FA2D002D6E0F /* Notices.swift */; };
+		D68B70E6234130A400A41D3D /* cube.json in Resources */ = {isa = PBXBuildFile; fileRef = D68B70E5234130A300A41D3D /* cube.json */; };
+		D68B70E7234130A400A41D3D /* cube.json in Resources */ = {isa = PBXBuildFile; fileRef = D68B70E5234130A300A41D3D /* cube.json */; };
+		D68B70E8234130A400A41D3D /* cube.json in Resources */ = {isa = PBXBuildFile; fileRef = D68B70E5234130A300A41D3D /* cube.json */; };
 		D69B3057220382DC00E66AE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3056220382DC00E66AE3 /* Extensions.swift */; };
 		D69B3058220382DC00E66AE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3056220382DC00E66AE3 /* Extensions.swift */; };
 		D69B3059220382DC00E66AE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B3056220382DC00E66AE3 /* Extensions.swift */; };
@@ -137,6 +143,7 @@
 		D6098351233F5DCF00299F86 /* biometric.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = biometric.json; sourceTree = "<group>"; };
 		D6098355233F60F100299F86 /* jumbo-typing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "jumbo-typing.json"; sourceTree = "<group>"; };
 		D6098359233F635600299F86 /* security.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = security.json; sourceTree = "<group>"; };
+		D609835D23412FE600299F86 /* empty-box.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "empty-box.json"; sourceTree = "<group>"; };
 		D60EBF3021ED0CDF00DAC538 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D60F6BB12310713300279DA2 /* PostPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D614E7DD233CAB3D00377DC8 /* TheMitPost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMitPost.entitlements; sourceTree = "<group>"; };
@@ -151,6 +158,7 @@
 		D662420B23015E9F00261081 /* ArticleWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWebViewController.swift; sourceTree = "<group>"; };
 		D664F31C22AF9F62002D6E0F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D664F32622B0FA2D002D6E0F /* Notices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notices.swift; sourceTree = "<group>"; };
+		D68B70E5234130A300A41D3D /* cube.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cube.json; sourceTree = "<group>"; };
 		D69B3056220382DC00E66AE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D6A8705D22D916B60057A30B /* EventViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewCell.swift; sourceTree = "<group>"; };
 		D6ACF11E22469EC4001B8A68 /* Aileron-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-UltraLight.otf"; sourceTree = "<group>"; };
@@ -378,6 +386,8 @@
 			children = (
 				D6098351233F5DCF00299F86 /* biometric.json */,
 				D6098359233F635600299F86 /* security.json */,
+				D609835D23412FE600299F86 /* empty-box.json */,
+				D68B70E5234130A300A41D3D /* cube.json */,
 				D6098355233F60F100299F86 /* jumbo-typing.json */,
 				D609834D233F4CF500299F86 /* settings-gear.json */,
 				D614E7DD233CAB3D00377DC8 /* TheMitPost.entitlements */,
@@ -532,6 +542,8 @@
 				D6ACF13522469F24001B8A68 /* DyeLine-Regular2.ttf in Resources */,
 				D609835A233F635600299F86 /* security.json in Resources */,
 				D609834E233F4CF600299F86 /* settings-gear.json in Resources */,
+				D609835E23412FE800299F86 /* empty-box.json in Resources */,
+				D68B70E6234130A400A41D3D /* cube.json in Resources */,
 				D6ACF12222469ED7001B8A68 /* Aileron-Regular.otf in Resources */,
 				D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */,
 				D6ACF11F22469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
@@ -550,7 +562,9 @@
 				D64008FC2336A5DE0086064E /* Assets.xcassets in Resources */,
 				D6098353233F5DCF00299F86 /* biometric.json in Resources */,
 				D6098357233F60F100299F86 /* jumbo-typing.json in Resources */,
+				D609835F23412FE800299F86 /* empty-box.json in Resources */,
 				D609834F233F4CF600299F86 /* settings-gear.json in Resources */,
+				D68B70E7234130A400A41D3D /* cube.json in Resources */,
 				D609835B233F635600299F86 /* security.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -559,6 +573,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68B70E8234130A400A41D3D /* cube.json in Resources */,
 				D6ACF13C22469F24001B8A68 /* DyeLine-Regular3.ttf in Resources */,
 				D6ACF13622469F24001B8A68 /* DyeLine-Regular2.ttf in Resources */,
 				D6ACF12622469EE4001B8A68 /* Aileron-SemiBold.otf in Resources */,
@@ -568,6 +583,7 @@
 				D6ACF13E22469F24001B8A68 /* DyeLine-Regular5.ttf in Resources */,
 				D6098358233F60F100299F86 /* jumbo-typing.json in Resources */,
 				D6ACF12D22469EFF001B8A68 /* Roboto-Light.ttf in Resources */,
+				D609836023412FE800299F86 /* empty-box.json in Resources */,
 				D6ACF13822469F24001B8A68 /* DyeLine-Regular4.ttf in Resources */,
 				D6ACF12B22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */,
 				D6ACF12322469ED7001B8A68 /* Aileron-Regular.otf in Resources */,

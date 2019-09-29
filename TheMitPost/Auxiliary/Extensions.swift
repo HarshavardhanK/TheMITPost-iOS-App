@@ -61,6 +61,10 @@ extension Date {
         return day +  " " + month_
     }
     
+//    static func dateFromString(strDate: String) -> String {
+//        
+//    }
+    
 }
 
 extension UIColor {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 import SDWebImage
 import MaterialComponents
 
@@ -19,6 +20,10 @@ class EventViewCell: UICollectionViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton!
     
+    @IBOutlet var clubLottieView: AnimationView!
+    
+    var formLink: String?
+    
     @IBAction func shareAction(_ sender: Any) {
         print("Share button tapped")
         shareEvent()
@@ -26,11 +31,22 @@ class EventViewCell: UICollectionViewCell {
     
     @IBAction func registerAction(_ sender: Any) {
         print("button tapped")
+        
+        if let link_ = formLink {
+        
+            guard let url = URL(string: link_) else {
+                print("No link")
+                return
+            }
+            
+            UIApplication.shared.open(url)
+            
+        }
+        
+        
     }
     
-    
-    
-    static let cellPadding: CGFloat = 15.0
+    static let cellPadding: CGFloat = 12.0
     
     var event: Events! {
         
@@ -45,10 +61,16 @@ class EventViewCell: UICollectionViewCell {
             
             print("set event cell")
             
-            if event.formLink == nil {
+            if let link_ = event.formLink {
+                
+                formLink = link_
+            
+            } else {
+                
                 print("no form link")
                 registerButton.backgroundColor = .white
-            
+                registerButton.isEnabled = false
+                registerButton.alpha = 0.85
             }
             
         }
@@ -61,6 +83,7 @@ class EventViewCell: UICollectionViewCell {
         // Initialization code
         
         mode()
+        clubLottieView.play()
         
         shadowLayer?.elevation = .cardPickedUp
         
