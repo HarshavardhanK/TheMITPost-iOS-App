@@ -93,7 +93,8 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 completion(false)
                 return
             }
-            //print(result.count)
+            
+            self.articlesList = [Article]()
             
             self.parseArticleResult(result: JSON(resultValue))
             
@@ -144,7 +145,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @objc func refreshArticles() {
-        articlesList = [Article]()
         
         retrieveArticles{ (sucess) in
             

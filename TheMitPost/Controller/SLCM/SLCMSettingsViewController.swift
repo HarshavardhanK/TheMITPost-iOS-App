@@ -25,13 +25,17 @@ class SLCMSettingsViewController: UIViewController {
     @IBOutlet var jumboLottieView: AnimationView!
     
     @IBOutlet weak var topThingView: UIView!
-    @IBAction func switchBiometric(_ sender: Any) {
-    }
     
-    @IBAction func logout(_ sender: Any) {
+    @IBAction func biometricSwitchAction(_ sender: UISwitch) {
         
-        print("log out pressed")
-        
+        if sender.isOn {
+            print("Switch on")
+            UserDefaults.standard.set(true, forKey: "biometricEnabled")
+            
+        } else {
+            UserDefaults.standard.set(false, forKey: "biometricEnabled")
+            print("Swtich off")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +64,8 @@ class SLCMSettingsViewController: UIViewController {
         
         print("settings controller loaded")
         
+        
+        
     }
     
     //MARK: UI THEME
@@ -69,12 +75,12 @@ class SLCMSettingsViewController: UIViewController {
         
         if traitCollection.userInterfaceStyle == .dark {
             
-            view.backgroundColor = .black
-            lottieSettingsView.backgroundColor = .black
-            biometricLottieView.backgroundColor = .black
-            jumboLottieView.backgroundColor = .black
-            settingLabel.backgroundColor = .black
-            biometricTypeLabel.backgroundColor = .black
+            view.backgroundColor = .background
+            lottieSettingsView.backgroundColor = .background
+            biometricLottieView.backgroundColor = .background
+            jumboLottieView.backgroundColor = .background
+            settingLabel.backgroundColor = .background
+            biometricTypeLabel.backgroundColor = .background
             
         } else {
             
@@ -96,6 +102,7 @@ class SLCMSettingsViewController: UIViewController {
         }
     }
     
-    //
+    //MARK: Face ID Switch Change
+    
 
 }

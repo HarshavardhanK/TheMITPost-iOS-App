@@ -59,6 +59,8 @@ class EventViewCell: UICollectionViewCell {
             titleLabel.text = event.title
             eventImageView.sd_setImage(with: event.imageURL!)
             
+            formLink = event.formLink
+            
             print("set event cell")
             
             if event.formLink == "NA" {

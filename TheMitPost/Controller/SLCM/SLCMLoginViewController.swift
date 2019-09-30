@@ -97,10 +97,6 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                     guard let registration = UserDefaults.standard.string(forKey: "registration") else {
                         return
                     }
-//
-//                    guard let password = UserDefaults.standard.string(forKey: "password") else {
-//                        return
-//                    }
                     
                     guard let credentials = Locksmith.loadDataForUserAccount(userAccount: registration) else {
                         return
@@ -200,11 +196,11 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     func checkForBiometric() -> Bool {
         
-        guard let _ = UserDefaults.standard.string(forKey: "registration") else {
-            return false
+        if UserDefaults.standard.bool(forKey: "biometricEnabled") {
+            return true
         }
         
-        return true
+        return false
         
     }
     
