@@ -158,6 +158,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         Alamofire.request(EVENTS_API, method: .get).responseJSON {
             response_ in
             
+            self.events = [Events]()
+            
             guard let resultValue = response_.result.value else {
                 completion(false)
                 return
@@ -168,6 +170,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
             if(response["status"].stringValue != "OK") {
                 //TODO:- UPDATE BACKGROUND IMAGE TO CONVEY THERE WAS AN ERROR GETTING EVENTS
                 print("Cannot get EVENTS")
+                self.refreshControl.endRefreshing()
+                completion(false)
                 
             } else {
                 
@@ -182,6 +186,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             self.eventShown = [Bool](repeatElement(false, count: self.events.count + 1))
             
+            self.refreshControl.endRefreshing()
+            
             self.eventsCollectionView.reloadData()
         }
         
@@ -191,7 +197,6 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @objc func refreshEvents() {
         
-        events = [Events]()
         retrieveEvents { (success) in
             
             if !success {

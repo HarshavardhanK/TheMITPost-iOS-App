@@ -18,9 +18,17 @@ class Notice {
     
     
     init(data: JSON) {
+        
         title = data["title"].stringValue
         content = data["content"].stringValue
-        url = data["imageURL"].stringValue
+        
+        if data["imageLink"].stringValue != "" {
+            url = data["imageLink"].stringValue
+            
+        } else if data["pdfLink"].stringValue != "" {
+            url = data["pdfLink"].stringValue
+        }
+        
     }
     
     var getComponentURL: URL? {

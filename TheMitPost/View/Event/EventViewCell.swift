@@ -66,13 +66,15 @@ class EventViewCell: UICollectionViewCell {
             if event.formLink == "NA" {
                 
                 print("no form link")
-                registerButton.backgroundColor = .white
                 registerButton.isEnabled = false
                 registerButton.alpha = 0.85
                 
                 formLink = ""
             
-            } 
+            } else {
+                registerButton.isEnabled = true
+                registerButton.alpha = 1.0
+            }
             
         }
     }
@@ -103,13 +105,14 @@ class EventViewCell: UICollectionViewCell {
         
         titleLabel.font = MDCTypography.titleFont()
         titleLabel.alpha = MDCTypography.titleFontOpacity()
+        titleLabel.numberOfLines = 0
+        titleLabel.lineBreakMode = .byWordWrapping
         
         timeLabel.font = MDCTypography.captionFont()
         timeLabel.alpha = MDCTypography.captionFontOpacity()
         
         descriptionLabel.font = MDCTypography.body1Font()
         descriptionLabel.alpha = MDCTypography.body1FontOpacity()
-        
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
         

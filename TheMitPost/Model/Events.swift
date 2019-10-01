@@ -27,6 +27,8 @@ class Events {
         imageURL = URL(string: data["imageURL"].stringValue)
         date = data["date"].stringValue
         formLink = data["formLink"].stringValue
+        
+        print(formLink)
     }
     
     static func parseNotices(data: [JSON]) -> [Events] {
