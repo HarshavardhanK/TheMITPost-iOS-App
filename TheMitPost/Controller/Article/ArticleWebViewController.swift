@@ -32,12 +32,12 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
         super.viewDidLoad()
         
         if let category_ = category {
-            self.title = category_
+            self.title = String.init(htmlEncodedString: category_)
         }
         
         activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.width / 2, y: self.view.frame.height / 2, width: 40, height: 40))
         
-        
+        createActivityIndicator()
         
         if let id = POST_ID {
             
@@ -51,11 +51,8 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
             
             let url = URL(string: urlString)!
             
-            createActivityIndicator()
-            
             articleWebView.load(URLRequest(url: url))
             
-            stopActivityIndicator()
             
         } else {
             print("Invalid request..")
@@ -87,8 +84,7 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
             
             articleWebView.load(URLRequest(url: url))
             
-            articleWebView.addSubview(activityIndicator!)
-            createActivityIndicator()
+            
             
         } else {
             
@@ -154,7 +150,7 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
         
         activityIndicator?.color = UIColor.lightGray
         
-        self.view.addSubview(activityIndicator!)
+        self.articleWebView.addSubview(activityIndicator!)
         
     }
     
