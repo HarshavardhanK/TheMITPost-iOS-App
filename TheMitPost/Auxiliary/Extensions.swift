@@ -61,9 +61,30 @@ extension Date {
         return day +  " " + month_
     }
     
-//    static func dateFromString(strDate: String) -> String {
-//        
-//    }
+    static func noticesDateFromString(strDate: String) -> String {
+        return "hello"
+    }
+    
+    static func eventsDateFromString(strDate: String) -> String {
+        
+        let monthNumber = ["01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr", "05": "May", "06": "June", "07": "Jul", "08": "Aug", "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec"]
+        
+        let _ = String(strDate.prefix(2))
+        let month = String(strDate.suffix(2))
+        
+        let dayIndexStart = strDate.index(strDate.startIndex, offsetBy: 5)
+        let dayIndexEnd = strDate.index(dayIndexStart, offsetBy: 2)
+        
+        let day = strDate[dayIndexStart..<dayIndexEnd]
+        
+        if let month_ = monthNumber[month] {
+            return day + " " + month_
+            
+        } else {
+            return ""
+        }
+        
+    }
     
 }
 

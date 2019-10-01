@@ -415,7 +415,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of the said event" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MY6-su-tf8">
-                                                    <rect key="frame" x="20" y="342.66666666666652" width="325" height="45"/>
+                                                    <rect key="frame" x="20" y="342.66666666666669" width="325" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="1St-x8-SeY"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="325" id="ImW-Gj-txJ"/>
@@ -1418,7 +1418,7 @@
                                 <state key="normal" image="purge_account"/>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sxc-cb-Y1b">
-                                <rect key="frame" x="295" y="226" width="49" height="31"/>
+                                <rect key="frame" x="295" y="226" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="BCh-4h-2lN"/>
                                     <constraint firstAttribute="width" constant="49" id="prZ-Hv-K8o"/>

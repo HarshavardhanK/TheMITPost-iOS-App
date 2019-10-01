@@ -55,7 +55,7 @@ class EventViewCell: UICollectionViewCell {
             descriptionLabel.text = event.content
             organizerNameLabel.text = event.organizer
             
-            //timeLabel.text = event.date
+            timeLabel.text = event.date
             titleLabel.text = event.title
             eventImageView.sd_setImage(with: event.imageURL!)
             
