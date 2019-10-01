@@ -111,21 +111,24 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
                 decisionHandler(.cancel)
                 
                 //MARK: SHARE ARTICLE
-                let shareItems = [articleTitle,
-                String("\n\nCheck out this amazing piece by " + (articleAuthor ?? "") + "!"), articleMessage,
-                    String("\nRead the entire article at " + (articleURL ?? "www.themitpost.com")),
-                    String("\n\nShared from The MIT Post app\nAvailable for both iOS and Android")]
+                let shareTitle = "Check out this amazing piece by " + (articleAuthor ?? "") + "!\n\n"
+                let shareURL = "\n\nRead the full article at " + (articleURL ?? "www.themitpost.com")
+                let shareApp = "\n\nShared from The MIT Post app. Available for both iOS and Android!"
+                let shareArticleTitle = "*" + (articleTitle ?? "") + "*\n\n"
+                let shareArticleMessage = (articleMessage ?? "") + "\n\n"
+                
+                let shareItems = [shareTitle, shareArticleTitle, shareArticleMessage, shareURL, shareApp]
                 
                 let shareActivityController = UIActivityViewController(activityItems: shareItems as [Any], applicationActivities: nil)
-                   present(shareActivityController, animated: true)
                 
+                   present(shareActivityController, animated: true)
                 
             } else if host.contains("app.themitpost.com") {
                 print("opening article")
                 decisionHandler(.allow)
                 
             } else {
-                print("disallowing")
+                print("disallowing | Opening in Safari")
                 decisionHandler(.cancel)
                 
                 UIApplication.shared.open(navigationAction.request.url!)
