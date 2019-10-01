@@ -18,6 +18,10 @@ struct ERROR_CODES {
     
 }
 
+struct DEFAULTS {
+    static let BIOMETRIC_ENABLED = "biometricEnabled"
+    static let REGISTRATION = "registration"
+}
 
 
 

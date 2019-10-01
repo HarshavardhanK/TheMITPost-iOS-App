@@ -68,7 +68,7 @@ class SLCMSettingsViewController: UIViewController {
             biometricSwitch.setOn(false, animated: true)
         }
        
-        guard let _ = UserDefaults.standard.string(forKey: "registration") else {
+        guard let _ = UserDefaults.standard.string(forKey: DEFAULTS.REGISTRATION) else {
             logoutButton.isEnabled = false
             return
         }
@@ -88,10 +88,10 @@ class SLCMSettingsViewController: UIViewController {
             
             view.backgroundColor = .background
             lottieSettingsView.backgroundColor = .background
-            biometricLottieView.backgroundColor = .background
+            biometricLottieView.backgroundColor = .foreground
             jumboLottieView.backgroundColor = .background
             settingLabel.backgroundColor = .background
-            biometricTypeLabel.backgroundColor = .background
+            biometricTypeLabel.backgroundColor = .foreground
             
         } else {
             
@@ -112,8 +112,5 @@ class SLCMSettingsViewController: UIViewController {
             mode()
         }
     }
-    
-    //MARK: Face ID Switch Change
-    
 
 }

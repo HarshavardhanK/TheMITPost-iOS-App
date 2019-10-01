@@ -163,13 +163,15 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                     
                     if success {
                         self.stopActivityIndicator()
-                        
+                        self.performSegue(withIdentifier: "slcmDetail", sender: self)
                        
                     } else {
                         self.stopActivityIndicator()
                         self.showAlertForInvalidCredentials()
                     }
                 }
+                
+                signInButton.isEnabled = true
                 
             } else {
                 
@@ -214,7 +216,6 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                         }
                 
                 
-                
             }
             
             
@@ -224,7 +225,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     func checkForBiometric() -> Bool {
         
-        if UserDefaults.standard.bool(forKey: "biometricEnabled") {
+        if UserDefaults.standard.bool(forKey: DEFAULTS.BIOMETRIC_ENABLED) {
             return true
         }
         
@@ -249,8 +250,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             print("biometric is disabled")
         }
         
-        guard let registration_ = UserDefaults.standard.string(forKey: "registration") else {
-            
+        guard let registration_ = UserDefaults.standard.string(forKey: DEFAULTS.REGISTRATION) else {
+            print("Login view will appear | Registration not found")
             registrationFound = false
             passwordFound = false
             
@@ -284,7 +285,6 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     var bottomConstraint: CGFloat = 0.0
     
-   
     
     //MARK: LOTTIE ANIMATIONS
     
@@ -623,19 +623,9 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                    
             try! Locksmith.deleteDataForUserAccount(userAccount: registration)
             
-            UserDefaults.standard.set(false, forKey: "userSaved")
-            UserDefaults.standard.set(nil, forKey: "registration")
-            UserDefaults.standard.set(nil, forKey: "password")
+            clearUserCache()
             
-            biometricLabel.text = nil
-            registrationTextfield.text = nil
-            passwordTextfield.text = nil
-            
-            registrationTextfield.isEnabled = true
-            passwordTextfield.isEnabled = true
-            signInButton.isEnabled = false
-            
-            let banner = NotificationBanner(title: "Well..", subtitle: "We will not be able to send you notifications about your SLCM updates!", style: .warning)
+            let banner = NotificationBanner(title: "Well..", subtitle: "We will not be able to send you notifications about your SLCM updates!", style: .danger)
             banner.show()
         }
     }
@@ -653,8 +643,26 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         present(sheet, animated: true, completion: nil)
     }
     
+    func clearUserCache() {
+        
+        UserDefaults.standard.set(nil, forKey: "registration")
+        UserDefaults.standard.set(nil, forKey: "password")
+        UserDefaults.standard.set(false, forKey: "biometricEnabled")
+        
+        biometricLabel.text = nil
+        registrationTextfield.text = nil
+        passwordTextfield.text = nil
+        
+        registrationTextfield.isEnabled = true
+        passwordTextfield.isEnabled = true
+        signInButton.isEnabled = false
+        
+    }
+    
 
 }
+
+
 
 
 
