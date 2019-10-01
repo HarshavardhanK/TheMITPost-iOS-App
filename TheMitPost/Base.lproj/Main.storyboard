@@ -510,6 +510,7 @@
                                             <outlet property="clubLottieView" destination="cK7-Ta-5hc" id="Ko0-HP-yIX"/>
                                             <outlet property="descriptionLabel" destination="MY6-su-tf8" id="3e7-bi-LqN"/>
                                             <outlet property="eventImageView" destination="mJI-Yf-CAx" id="Kfa-S6-7Vx"/>
+                                            <outlet property="locationLabel" destination="R4a-nn-xNc" id="VDz-4c-0gT"/>
                                             <outlet property="organizerNameLabel" destination="z4g-ah-JEM" id="y3l-Qz-BWi"/>
                                             <outlet property="registerButton" destination="7fu-v8-pYn" id="cZ9-fI-0eQ"/>
                                             <outlet property="timeLabel" destination="Xrl-nX-4pL" id="kXI-j9-ZdE"/>
@@ -544,7 +545,7 @@
         <!--Image Present View Controller-->
         <scene sceneID="bcy-ze-SNC">
             <objects>
-                <viewController id="NF4-vc-DK0" customClass="ImagePresentViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="imagePresent" id="NF4-vc-DK0" customClass="ImagePresentViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DAb-pG-l1u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -579,6 +580,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Txk-C9-NPH"/>
                     <connections>
+                        <outlet property="imageScrollView" destination="piz-eR-Sxl" id="r4b-jg-fB3"/>
                         <outlet property="imageView" destination="Ab9-EW-CtS" id="QG4-UA-88p"/>
                     </connections>
                 </viewController>

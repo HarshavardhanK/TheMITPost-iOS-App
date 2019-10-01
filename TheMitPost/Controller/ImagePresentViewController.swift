@@ -9,8 +9,9 @@
 import UIKit
 import SDWebImage
 
-class ImagePresentViewController: UIViewController {
+class ImagePresentViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet var imageScrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
     
     var image_url: URL?
@@ -19,6 +20,9 @@ class ImagePresentViewController: UIViewController {
         super.viewDidLoad()
         
         print("image presentation loaded")
+        self.view.addSubview(imageScrollView)
+        imageScrollView.delegate = self
+        imageScrollView.addSubview(imageView)
         
         if let url = image_url {
             imageView.sd_setImage(with: url, completed: nil)
@@ -28,9 +32,14 @@ class ImagePresentViewController: UIViewController {
         }
         
         // Do any additional setup after loading the view.
-        self.navigationController?.navigationBar.barTintColor = .black
+        self.navigationController?.navigationBar.barTintColor = .background
         self.view.backgroundColor = .black
-        self.tabBarController?.tabBar.barTintColor = .black
+        self.tabBarController?.tabBar.barTintColor = .background
+        
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
     }
     
 

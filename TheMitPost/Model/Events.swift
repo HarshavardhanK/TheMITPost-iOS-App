@@ -16,6 +16,7 @@ class Events {
     var content: String?
     var imageURL: URL?
     var date: String?
+    var location: String?
     var formLink: String? = nil
     
     
@@ -26,10 +27,9 @@ class Events {
         content = data["content"].stringValue
         imageURL = URL(string: data["imageURL"].stringValue)
         date = Date.eventsDateFromString(strDate: data["date"].stringValue)
+        location = data["location"].stringValue
         formLink = data["formLink"].stringValue
         
-        print(date)
-        print(formLink)
     }
     
     static func parseNotices(data: [JSON]) -> [Events] {

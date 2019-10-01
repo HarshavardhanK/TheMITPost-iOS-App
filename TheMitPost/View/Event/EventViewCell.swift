@@ -17,11 +17,12 @@ class EventViewCell: UICollectionViewCell {
     @IBOutlet weak var organizerNameLabel: UILabel!
     @IBOutlet weak var eventImageView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton!
-    
     @IBOutlet var clubLottieView: AnimationView!
     
+    var imageURL: URL?
     var formLink: String?
     
     @IBAction func shareAction(_ sender: Any) {
@@ -58,8 +59,10 @@ class EventViewCell: UICollectionViewCell {
             timeLabel.text = event.date
             titleLabel.text = event.title
             eventImageView.sd_setImage(with: event.imageURL!)
-            
+            locationLabel.text = event.location ?? ""
             formLink = event.formLink
+            
+            self.imageURL = event.imageURL
             
             print("set event cell")
             
@@ -75,6 +78,8 @@ class EventViewCell: UICollectionViewCell {
                 registerButton.isEnabled = true
                 registerButton.alpha = 1.0
             }
+            
+            
             
         }
     }
@@ -177,6 +182,19 @@ class EventViewCell: UICollectionViewCell {
         self.window?.rootViewController?.present(shareActivityController, animated: true)
         
        }
+    
+    //MARK: DETAIL IMAGE SEGUE
+    
+//    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if segue.identifier == "detailEvent" {
+//
+//            if let destinationViewController = segue.destination as? ImagePresentViewController {
+//
+//                destinationViewController.image_url = event.imageURL
+//            }
+//        }
+//    }
     
     override func prepareForReuse() {
         super.prepareForReuse()

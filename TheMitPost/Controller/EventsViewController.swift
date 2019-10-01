@@ -113,6 +113,18 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         
     }
     
+//    @objc func eventImagePressed(_ sender: Any) {
+//        print("Event image tapped like an ass")
+//        if #available(iOS 13.0, *) {
+//            let imagePresentVC = storyboard?.instantiateViewController(identifier: "imagePresent") as! ImagePresentViewController
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//        imagePresentVC.image_url =
+//        present(imagePresentVC, animated: true, completion: nil)
+//        //self.performSegue(withIdentifier: "detailEvent", sender: sender)
+//    }
+    
     //MARK: TABLE VIEW ANIMATION
     
     
@@ -122,10 +134,10 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             let transform = CATransform3DTranslate(CATransform3DIdentity, -5, 80, 0)
             cell.layer.transform = transform
-            cell.alpha = 0.5
+            cell.alpha = 0.4
             
             
-            UIView.animate(withDuration: 0.8, delay: 0.1, options: [.curveEaseOut, .allowUserInteraction], animations: {
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: [.curveEaseOut, .allowUserInteraction], animations: {
                 
                 cell.layer.transform = CATransform3DIdentity
                 cell.alpha = 1.0
@@ -216,7 +228,7 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             if let destinationViewController = segue.destination as? ImagePresentViewController {
                 
-                let path = self.eventsCollectionView.indexPath(for: (sender as? EventViewCell)!)
+                let path = self.eventsCollectionView.indexPath(for: sender as! EventViewCell)
                 
                 destinationViewController.image_url = events[(path?.row)!].imageURL
             }
