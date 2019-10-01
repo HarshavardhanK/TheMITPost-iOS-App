@@ -330,7 +330,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         } else {
             
             print("biometric is disabled")
-            signInButton.isEnabled = false
+            biometricLabel.text = nil
+            //signInButton.isEnabled = false
             
         }
         

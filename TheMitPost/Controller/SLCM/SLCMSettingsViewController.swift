@@ -88,10 +88,10 @@ class SLCMSettingsViewController: UIViewController {
             
             view.backgroundColor = .background
             lottieSettingsView.backgroundColor = .background
-            biometricLottieView.backgroundColor = .foreground
+            biometricLottieView.backgroundColor = .background
             jumboLottieView.backgroundColor = .background
             settingLabel.backgroundColor = .background
-            biometricTypeLabel.backgroundColor = .foreground
+            biometricTypeLabel.backgroundColor = .background
             
         } else {
             

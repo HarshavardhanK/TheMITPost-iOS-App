@@ -1359,7 +1359,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Require Face ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3f-4d-6YM">
-                                <rect key="frame" x="74" y="216" width="215" height="44"/>
+                                <rect key="frame" x="72" y="226" width="215" height="31"/>
                                 <color key="backgroundColor" white="0.98906606735159808" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="MLF-zE-ZMo"/>
@@ -1386,17 +1386,6 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="settings-gear"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hHB-AI-gNb" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="16" y="216" width="50" height="44"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="AyF-Xb-Ter"/>
-                                    <constraint firstAttribute="width" constant="50" id="Iyn-Qs-w5o"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="biometric"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37n-uC-SGi" customClass="AnimationView" customModule="Lottie">
@@ -1429,15 +1418,26 @@
                                 <state key="normal" image="purge_account"/>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sxc-cb-Y1b">
-                                <rect key="frame" x="297" y="223" width="49" height="31"/>
+                                <rect key="frame" x="295" y="226" width="49" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="49" id="XRp-jn-oRn"/>
-                                    <constraint firstAttribute="height" constant="44" id="rTk-wt-qiY"/>
+                                    <constraint firstAttribute="height" constant="31" id="BCh-4h-2lN"/>
+                                    <constraint firstAttribute="width" constant="49" id="prZ-Hv-K8o"/>
                                 </constraints>
                                 <connections>
                                     <action selector="biometricSwitchAction:" destination="93x-3J-fAl" eventType="valueChanged" id="ByY-A7-Clu"/>
                                 </connections>
                             </switch>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hHB-AI-gNb" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="16" y="213" width="50" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="AyF-Xb-Ter"/>
+                                    <constraint firstAttribute="width" constant="50" id="Iyn-Qs-w5o"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="biometric"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1445,25 +1445,25 @@
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="F4c-8f-TLi" secondAttribute="trailing" constant="68" id="1HZ-1Y-1Po"/>
                             <constraint firstItem="37n-uC-SGi" firstAttribute="top" secondItem="lv4-4H-baH" secondAttribute="bottom" id="2oV-iM-6J3"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="YHE-G9-cYW" secondAttribute="trailing" constant="173" id="3GR-ah-sbd"/>
+                            <constraint firstItem="F4c-8f-TLi" firstAttribute="top" secondItem="sxc-cb-Y1b" secondAttribute="bottom" constant="22" id="9ni-6W-eEZ"/>
                             <constraint firstItem="o3f-4d-6YM" firstAttribute="trailing" secondItem="F4c-8f-TLi" secondAttribute="trailing" constant="-20" id="BcP-jV-aiM"/>
                             <constraint firstItem="37n-uC-SGi" firstAttribute="top" secondItem="DCW-cl-jEP" secondAttribute="bottom" constant="8" id="EhS-2t-xew"/>
                             <constraint firstItem="F4c-8f-TLi" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="57" id="F3c-Vb-S45"/>
                             <constraint firstItem="DCW-cl-jEP" firstAttribute="top" secondItem="YHE-G9-cYW" secondAttribute="bottom" constant="16" id="Fsk-sS-vWf"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="37n-uC-SGi" secondAttribute="trailing" constant="113" id="Ghu-jb-fOD"/>
-                            <constraint firstItem="sxc-cb-Y1b" firstAttribute="top" secondItem="4yU-Hl-R6r" secondAttribute="top" constant="179" id="ILN-tQ-7Vp"/>
                             <constraint firstItem="37n-uC-SGi" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="102" id="Kut-GF-tw6"/>
-                            <constraint firstItem="sxc-cb-Y1b" firstAttribute="leading" secondItem="o3f-4d-6YM" secondAttribute="trailing" constant="8" id="O7s-Hc-bcT"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="lv4-4H-baH" secondAttribute="trailing" constant="239" id="PRF-XP-oSa"/>
-                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="sxc-cb-Y1b" secondAttribute="trailing" constant="29" id="Rzp-YW-qP4"/>
                             <constraint firstItem="F4c-8f-TLi" firstAttribute="top" secondItem="o3f-4d-6YM" secondAttribute="bottom" constant="22" id="SRA-qm-TJz"/>
+                            <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="sxc-cb-Y1b" secondAttribute="trailing" constant="31" id="UpB-q7-Hix"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="YHE-G9-cYW" secondAttribute="bottom" constant="388" id="Vt2-Pd-05U"/>
                             <constraint firstItem="Fju-qq-8l5" firstAttribute="top" secondItem="F4c-8f-TLi" secondAttribute="bottom" constant="21" id="Wr6-lc-6hj"/>
                             <constraint firstItem="hHB-AI-gNb" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="16" id="ZQR-ML-R3e"/>
+                            <constraint firstItem="sxc-cb-Y1b" firstAttribute="leading" secondItem="o3f-4d-6YM" secondAttribute="trailing" constant="8" id="a6J-Tz-Tol"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="Fju-qq-8l5" secondAttribute="trailing" constant="68" id="bNM-vJ-LZs"/>
                             <constraint firstItem="lv4-4H-baH" firstAttribute="top" secondItem="YHE-G9-cYW" secondAttribute="bottom" constant="7" id="c3r-Oy-JBI"/>
+                            <constraint firstItem="sxc-cb-Y1b" firstAttribute="top" secondItem="4yU-Hl-R6r" secondAttribute="top" constant="182" id="faz-kH-bnc"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="DCW-cl-jEP" secondAttribute="trailing" constant="131" id="k6J-N7-THH"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="hHB-AI-gNb" secondAttribute="bottom" constant="134" id="lh7-cu-Ze9"/>
-                            <constraint firstItem="F4c-8f-TLi" firstAttribute="top" secondItem="sxc-cb-Y1b" secondAttribute="bottom" constant="25" id="ny5-Qd-Aec"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="Fju-qq-8l5" secondAttribute="bottom" constant="20" id="o78-3H-EpD"/>
                             <constraint firstItem="o3f-4d-6YM" firstAttribute="top" secondItem="37n-uC-SGi" secondAttribute="bottom" constant="32" id="ogb-36-EB1"/>
                             <constraint firstItem="YHE-G9-cYW" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="162" id="rDE-e7-Ure"/>
