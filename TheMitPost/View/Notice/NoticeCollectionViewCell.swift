@@ -68,9 +68,13 @@ class NoticeImageCollectionViewCell: UICollectionViewCell {
         
         titleLabel.font = MDCTypography.titleFont()
         titleLabel.alpha = MDCTypography.titleFontOpacity()
+        titleLabel.numberOfLines = 0
+        titleLabel.lineBreakMode = .byWordWrapping
         
         contentLabel.font = MDCTypography.body1Font()
         contentLabel.alpha = MDCTypography.body1FontOpacity()
+        contentLabel.numberOfLines = 0
+        contentLabel.lineBreakMode = .byWordWrapping
     }
     
     func mode() {
@@ -176,8 +180,14 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
         titleLabel.font = MDCTypography.titleFont()
         titleLabel.alpha = MDCTypography.titleFontOpacity()
         
+        titleLabel.numberOfLines = 0
+        titleLabel.lineBreakMode = .byWordWrapping
+        
         contentLabel.font = MDCTypography.body1Font()
         contentLabel.alpha = MDCTypography.body1FontOpacity()
+        
+        contentLabel.numberOfLines = 0
+        contentLabel.lineBreakMode = .byWordWrapping
         
     }
     

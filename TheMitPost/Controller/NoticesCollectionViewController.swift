@@ -17,6 +17,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
     @IBOutlet weak var noticesCollectionView: UICollectionView!
     
     var notices = [Notice]()
+    let refreshControl = UIRefreshControl()
     
     //MARK: VIEW WILL DID APPEAR
     
@@ -32,6 +33,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
 
         // Do any additional setup after loading the view.
         mode()
+        retrieveNotices()
         
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = CGSize(width: NoticeTextCollectionViewCell.width, height: 120)
@@ -40,7 +42,11 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         noticesCollectionView.delegate = self
         noticesCollectionView.dataSource = self
         
-        retrieveNotices()
+        noticesCollectionView.addSubview(refreshControl)
+        
+        refreshControl.addTarget(self, action: #selector(refreshNotices), for: .valueChanged)
+        
+        
     }
     
     //MARK: THEME MODE
@@ -84,10 +90,14 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         Alamofire.request(API, method: .get).responseJSON {
             response_ in
             
+            self.notices = [Notice]()
+            
             let response = JSON(response_.result.value!)
             
             if response["status"] != "OK" {
                 print("error")
+                
+                self.refreshControl.endRefreshing()
                 
             } else {
                 
@@ -98,6 +108,8 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                 self.noticesCollectionView.reloadData()
                 
                 print("Successfully loaded data")
+                
+                self.refreshControl.endRefreshing()
             }
             
             print("\(self.notices.count) notices retrieved")
@@ -218,6 +230,11 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             }
         }
         
+    }
+    
+    @objc func refreshNotices() {
+        
+        retrieveNotices()
     }
     
 
