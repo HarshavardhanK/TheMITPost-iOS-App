@@ -140,8 +140,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                 cell.url = notice.getComponentURL
                 cell.titleText = notice.title
                 cell.contentText = notice.content
-                
-               // cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: NoticeImageCollectionViewCell.width, height: NoticeImageCollectionViewCell.height)
+                cell.dateText = notice.date
                 
                 return cell
                 
@@ -156,8 +155,6 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                 cell.titleText = notice.title
                 cell.contentText = notice.content
                 
-                //cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: NoticeTextCollectionViewCell.width, height: NoticeTextCollectionViewCell.height)
-                
                 return cell
                 
             }
@@ -169,8 +166,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             
             cell.titleText = notice.title
             cell.contentText = notice.content
-            
-           // cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: NoticeTextCollectionViewCell.width, height: NoticeTextCollectionViewCell.height)
+            cell.dateText = notice.date
             
             cell.isUserInteractionEnabled = false
             

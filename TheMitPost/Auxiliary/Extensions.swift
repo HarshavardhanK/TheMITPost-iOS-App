@@ -35,9 +35,9 @@ extension String {
 
 extension Date {
     
+    static let monthNumber = ["01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr", "05": "May", "06": "June", "07": "Jul", "08": "Aug", "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec"]
+    
     static func unixTimeStampToDate(unixTime: Double) -> String {
-        
-        let monthNumber = ["01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr", "05": "May", "06": "June", "07": "Jul", "08": "Aug", "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec"]
         
         let date = Date(timeIntervalSince1970: unixTime / 1000)
         
@@ -62,12 +62,24 @@ extension Date {
     }
     
     static func noticesDateFromString(strDate: String) -> String {
-        return "hello"
+        
+        let _ = String(strDate.prefix(2))
+        let day = String(strDate.suffix(2))
+        
+        let monthIndexStart = strDate.index(strDate.startIndex, offsetBy: 5)
+        let monthIndexEnd = strDate.index(monthIndexStart, offsetBy: 2)
+        
+        let month = String(strDate[monthIndexStart..<monthIndexEnd])
+        
+        if let month_ = monthNumber[month] {
+            return day + " " + month_
+            
+        } else {
+            return ""
+        }
     }
     
     static func eventsDateFromString(strDate: String) -> String {
-        
-        let monthNumber = ["01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr", "05": "May", "06": "June", "07": "Jul", "08": "Aug", "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec"]
         
         let _ = String(strDate.prefix(2))
         let month = String(strDate.suffix(2))
@@ -91,7 +103,9 @@ extension Date {
 extension UIColor {
     
     static var background = UIColor(red: 25.0 / 256.0, green: 30.0 / 256.0, blue: 34.0 / 256.0, alpha: 1.0)
-    static var foreground = UIColor(red: 36.0 / 256.0, green: 38.0 / 256.0, blue: 40.0 / 256.0, alpha: 0.9)
+    
+    static var foreground = UIColor(red: 36.0 / 256.0, green: 38.0 / 256.0, blue: 40.0 / 256.0, alpha: 0.5)
+    
     static var notSoWhite = UIColor(red: 0.98, green: 0.98, blue: 1.0, alpha: 1.0)
 }
 

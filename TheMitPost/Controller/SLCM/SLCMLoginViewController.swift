@@ -48,9 +48,10 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     var count: Int = 0 // counting invalid attempts
     
+    let context = LAContext()
+    
     func authenticateWithBiometric(completion: @escaping (Bool) -> ())  {
-        
-        let context = LAContext()
+
         var error: NSError?
 
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
@@ -244,7 +245,11 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         if checkForBiometric() {
             print("biometric is enabled")
             biometricLabel.text = "Face ID is enabled"
-            biometricLabel.textColor = .tertiaryLabel
+            
+            if #available(iOS 13, *) {
+                biometricLabel.textColor = .tertiaryLabel
+            }
+            
             
         } else {
             print("biometric is disabled")
@@ -324,8 +329,19 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         if checkForBiometric() {
             
             print("biometric is enabled")
-            biometricLabel.text = "Face ID is enabled"
-            biometricLabel.textColor = .tertiaryLabel
+            
+            if context.biometryType == .faceID {
+                biometricLabel.text = "Face ID is enabled"
+                
+            } else if context.biometryType == .touchID {
+                biometricLabel.text = "Touch ID is enabled"
+            }
+            
+            if #available(iOS 13, *) {
+                biometricLabel.textColor = .tertiaryLabel
+            }
+            
+            
             
         } else {
             
@@ -632,16 +648,26 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     }
     
     //MARK: Bottom Settings View
+    //@available(iOS 13.0, *)
     func presentBottomSettings() {
         
-        guard let settingsController = storyboard?.instantiateViewController(identifier: "slcmSettings") as? SLCMSettingsViewController else {
-            return
+        if #available(iOS 13.0, *) {
+            
+            guard let settingsController = storyboard?.instantiateViewController(identifier: "slcmSettings") as? SLCMSettingsViewController else {
+                return
+            }
+            
+            settingsController.biometricLabel = biometricLabel
+            
+            let sheet = MDCBottomSheetController(contentViewController: settingsController)
+            present(sheet, animated: true, completion: nil)
+            
+        } else {
+            // Fallback on earlier versions
+            
         }
         
-        settingsController.biometricLabel = biometricLabel
         
-        let sheet = MDCBottomSheetController(contentViewController: settingsController)
-        present(sheet, animated: true, completion: nil)
     }
     
     func clearUserCache() {

@@ -49,6 +49,16 @@ class NoticeImageCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var dateText: String? {
+        
+        didSet {
+            
+            if let date_ = dateText {
+                dateLabel.text = date_
+            }
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -162,6 +172,16 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
             
         }
         
+    }
+    
+    var dateText: String? {
+        
+        didSet {
+            
+            if let date_ = dateText {
+                dateLabel.text = date_
+            }
+        }
     }
     
     override func awakeFromNib() {

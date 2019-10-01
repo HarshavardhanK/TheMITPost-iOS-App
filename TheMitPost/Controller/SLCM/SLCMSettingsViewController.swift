@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 import Lottie
 import NotificationBannerSwift
@@ -27,13 +28,36 @@ class SLCMSettingsViewController: UIViewController {
     @IBOutlet weak var topThingView: UIView!
     
     var biometricLabel: UILabel?
+    let context = LAContext()
     
     @IBAction func biometricSwitchAction(_ sender: UISwitch) {
         
+        var laTypeString = "Touch ID"
+        
+        let _ = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+        
+        switch context.biometryType {
+            
+        case .none:
+            laTypeString = ""
+            
+        case .faceID:
+            laTypeString = "Face ID is enabled"
+            
+        case .touchID:
+            laTypeString = "Touch ID is enabled"
+            
+        default:
+            laTypeString = ""
+            
+        }
+        
+        
         if sender.isOn {
+            
             print("Switch on")
             UserDefaults.standard.set(true, forKey: "biometricEnabled")
-            biometricLabel?.text = "Face ID Enabled"
+            biometricLabel?.text = laTypeString
             
         } else {
             UserDefaults.standard.set(false, forKey: "biometricEnabled")
@@ -56,6 +80,28 @@ class SLCMSettingsViewController: UIViewController {
         self.topThingView.layer.cornerRadius = 8
         
         mode()
+        
+        var laTypeString = "Touch ID"
+        
+        let _ = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+        
+        switch context.biometryType {
+            
+        case .none:
+            laTypeString = ""
+            
+        case .faceID:
+            laTypeString = "Require Face ID"
+            
+        case .touchID:
+            laTypeString = "Require Touch ID"
+            
+        default:
+            laTypeString = ""
+            
+        }
+        
+        biometricTypeLabel.text = laTypeString
         
         lottieSettingsView.play()
         biometricLottieView.play()
@@ -82,28 +128,36 @@ class SLCMSettingsViewController: UIViewController {
     //MARK: UI THEME
     func mode() {
         
-        biometricTypeLabel.textColor = .secondaryLabel
-        
-        if traitCollection.userInterfaceStyle == .dark {
+        if #available(iOS 13, *) {
             
-            view.backgroundColor = .background
-            lottieSettingsView.backgroundColor = .background
-            biometricLottieView.backgroundColor = .background
-            jumboLottieView.backgroundColor = .background
-            settingLabel.backgroundColor = .background
-            biometricTypeLabel.backgroundColor = .background
+            biometricTypeLabel.textColor = .secondaryLabel
             
-        } else {
-            
-            view.backgroundColor = .white
-            lottieSettingsView.backgroundColor = .white
-            biometricLottieView.backgroundColor = .white
-            jumboLottieView.backgroundColor = .white
-            settingLabel.backgroundColor = .white
-            biometricTypeLabel.backgroundColor = .white
+            if traitCollection.userInterfaceStyle == .dark {
+                
+                view.backgroundColor = .background
+                lottieSettingsView.backgroundColor = .background
+                biometricLottieView.backgroundColor = .background
+                jumboLottieView.backgroundColor = .background
+                settingLabel.backgroundColor = .background
+                biometricTypeLabel.backgroundColor = .background
+                
+            } else {
+                
+                view.backgroundColor = .white
+                lottieSettingsView.backgroundColor = .white
+                biometricLottieView.backgroundColor = .white
+                jumboLottieView.backgroundColor = .white
+                settingLabel.backgroundColor = .white
+                biometricTypeLabel.backgroundColor = .white
+                
+            }
             
         }
+        
+        
     }
+    
+    //@available(iOS 13, *)
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)

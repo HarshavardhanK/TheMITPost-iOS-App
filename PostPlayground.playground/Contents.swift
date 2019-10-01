@@ -61,3 +61,25 @@ func eventsDateFromString(strDate: String) -> String {
 }
 
 print(eventsDateFromString(strDate: "2019-02-10"))
+
+func noticesDateFromString(strDate: String) -> String {
+    
+    let monthNumber = ["01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr", "05": "May", "06": "June", "07": "Jul", "08": "Aug", "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec"]
+    
+    let _ = String(strDate.prefix(2))
+    let day = String(strDate.suffix(2))
+    
+    let monthIndexStart = strDate.index(strDate.startIndex, offsetBy: 5)
+    let monthIndexEnd = strDate.index(monthIndexStart, offsetBy: 2)
+    
+    let month = String(strDate[monthIndexStart..<monthIndexEnd])
+    
+    if let month_ = monthNumber[month] {
+        return day + " " + month_
+        
+    } else {
+        return ""
+    }
+}
+
+print(noticesDateFromString(strDate: "2019-10-02"))

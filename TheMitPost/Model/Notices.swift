@@ -14,13 +14,14 @@ class Notice {
     var title: String?
     var content: String?
     var url: String?
-    var date: Date?
+    var date: String?
     
     
     init(data: JSON) {
         
         title = data["title"].stringValue
         content = data["content"].stringValue
+        date = Date.noticesDateFromString(strDate: data["date"].stringValue)
         
         if data["imageLink"].stringValue != "" {
             url = data["imageLink"].stringValue

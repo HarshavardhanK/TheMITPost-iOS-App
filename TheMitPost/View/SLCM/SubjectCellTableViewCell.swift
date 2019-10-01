@@ -54,90 +54,95 @@ class SubjectCellTableViewCell: FoldingCell {
     
     func mode() {
         
-        
-        timeLabel.textColor = .background
+        if #available(iOS 13, *) {
+            
+            timeLabel.textColor = .background
 
-        if traitCollection.userInterfaceStyle == .dark {
-            backgroundColor = .background
-            subjectName.backgroundColor = .foreground
-            absent.backgroundColor = .foreground
-            present.backgroundColor = .foreground
-            slcmForegroundView.backgroundColor = .foreground
+                if traitCollection.userInterfaceStyle == .dark {
             
-            attendancePercentage.backgroundColor = .foreground
-            
-            absent.textColor = .label
-            present.textColor = .label
-            
-            attendancePercentage.textColor = .label
-            attendancePercentage2.textColor = .label
-            
-            totalClasses.textColor = .label
-            bunks.textColor = .label
-            
-            totalContainerView.backgroundColor = .foreground
-            secondContainerView.backgroundColor = .foreground
-            thirdContainerView.backgroundColor = .foreground
-            bottomContainerView.backgroundColor = .foreground
-            
-            assignment1.backgroundColor = .foreground
-            assignment2.backgroundColor = .foreground
-            assignment3.backgroundColor = .foreground
-            assignment4.backgroundColor = .foreground
-            
-            sessional1.backgroundColor = .foreground
-            sessional2.backgroundColor = .foreground
-            
-            assignment1.textColor = .secondaryLabel
-            assignment2.textColor = .secondaryLabel
-            assignment3.textColor = .secondaryLabel
-            assignment4.textColor = .secondaryLabel
-            
-            sessional1.textColor = .secondaryLabel
-            sessional2.textColor = .secondaryLabel
-            
-        } else {
-            
-            backgroundColor = .white
-            subjectName.backgroundColor = .notSoWhite
-            absent.backgroundColor = .notSoWhite
-            present.backgroundColor = .notSoWhite
-            slcmForegroundView.backgroundColor = .notSoWhite
-            
-            attendancePercentage.backgroundColor = .notSoWhite
-            
-            absent.textColor = .label
-            present.textColor = .label
-            
-            attendancePercentage.textColor = .label
-            attendancePercentage2.textColor = .label
-            
-            totalClasses.textColor = .label
-            bunks.textColor = .label
-            
-            totalContainerView.backgroundColor = .notSoWhite
-            
-            secondContainerView.backgroundColor = .notSoWhite
-            thirdContainerView.backgroundColor = .notSoWhite
-            bottomContainerView.backgroundColor = .notSoWhite
-            
-            assignment1.backgroundColor = .notSoWhite
-            assignment2.backgroundColor = .notSoWhite
-            assignment3.backgroundColor = .notSoWhite
-            assignment4.backgroundColor = .notSoWhite
-            
-            sessional1.backgroundColor = .notSoWhite
-            sessional2.backgroundColor = .notSoWhite
-            
-            assignment1.textColor = .secondaryLabel
-            assignment2.textColor = .secondaryLabel
-            assignment3.textColor = .secondaryLabel
-            assignment4.textColor = .secondaryLabel
-            
-            sessional1.textColor = .secondaryLabel
-            sessional2.textColor = .secondaryLabel
+                    backgroundColor = .background
+                    subjectName.backgroundColor = .foreground
+                    absent.backgroundColor = .foreground
+                    present.backgroundColor = .foreground
+                    slcmForegroundView.backgroundColor = .foreground
+                    
+                    attendancePercentage.backgroundColor = .foreground
+                    
+                    absent.textColor = .label
+                    present.textColor = .label
+                    
+                    attendancePercentage.textColor = .label
+                    attendancePercentage2.textColor = .label
+                    
+                    totalClasses.textColor = .label
+                    bunks.textColor = .label
+                    
+                    totalContainerView.backgroundColor = .foreground
+                    secondContainerView.backgroundColor = .foreground
+                    thirdContainerView.backgroundColor = .foreground
+                    bottomContainerView.backgroundColor = .foreground
+                    
+                    assignment1.backgroundColor = .foreground
+                    assignment2.backgroundColor = .foreground
+                    assignment3.backgroundColor = .foreground
+                    assignment4.backgroundColor = .foreground
+                    
+                    sessional1.backgroundColor = .foreground
+                    sessional2.backgroundColor = .foreground
+                    
+                    assignment1.textColor = .secondaryLabel
+                    assignment2.textColor = .secondaryLabel
+                    assignment3.textColor = .secondaryLabel
+                    assignment4.textColor = .secondaryLabel
+                    
+                    sessional1.textColor = .secondaryLabel
+                    sessional2.textColor = .secondaryLabel
+                    
+                } else {
+                    
+                    backgroundColor = .white
+                    subjectName.backgroundColor = .notSoWhite
+                    absent.backgroundColor = .notSoWhite
+                    present.backgroundColor = .notSoWhite
+                    slcmForegroundView.backgroundColor = .notSoWhite
+                    
+                    attendancePercentage.backgroundColor = .notSoWhite
+                    
+                    absent.textColor = .label
+                    present.textColor = .label
+                    
+                    attendancePercentage.textColor = .label
+                    attendancePercentage2.textColor = .label
+                    
+                    totalClasses.textColor = .label
+                    bunks.textColor = .label
+                    
+                    totalContainerView.backgroundColor = .notSoWhite
+                    
+                    secondContainerView.backgroundColor = .notSoWhite
+                    thirdContainerView.backgroundColor = .notSoWhite
+                    bottomContainerView.backgroundColor = .notSoWhite
+                    
+                    assignment1.backgroundColor = .notSoWhite
+                    assignment2.backgroundColor = .notSoWhite
+                    assignment3.backgroundColor = .notSoWhite
+                    assignment4.backgroundColor = .notSoWhite
+                    
+                    sessional1.backgroundColor = .notSoWhite
+                    sessional2.backgroundColor = .notSoWhite
+                    
+                    assignment1.textColor = .secondaryLabel
+                    assignment2.textColor = .secondaryLabel
+                    assignment3.textColor = .secondaryLabel
+                    assignment4.textColor = .secondaryLabel
+                    
+                    sessional1.textColor = .secondaryLabel
+                    sessional2.textColor = .secondaryLabel
+                    
+                }
             
         }
+        
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
