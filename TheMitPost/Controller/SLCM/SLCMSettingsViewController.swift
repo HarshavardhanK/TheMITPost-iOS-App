@@ -26,15 +26,19 @@ class SLCMSettingsViewController: UIViewController {
     
     @IBOutlet weak var topThingView: UIView!
     
+    var biometricLabel: UILabel?
+    
     @IBAction func biometricSwitchAction(_ sender: UISwitch) {
         
         if sender.isOn {
             print("Switch on")
             UserDefaults.standard.set(true, forKey: "biometricEnabled")
+            biometricLabel?.text = "Face ID Enabled"
             
         } else {
             UserDefaults.standard.set(false, forKey: "biometricEnabled")
-            print("Swtich off")
+            print("Switch off")
+            biometricLabel?.text = nil
         }
     }
     
@@ -56,6 +60,13 @@ class SLCMSettingsViewController: UIViewController {
         lottieSettingsView.play()
         biometricLottieView.play()
         jumboLottieView.play()
+        
+        if UserDefaults.standard.bool(forKey: "biometricEnabled") {
+            biometricSwitch.setOn(true, animated: true)
+            
+        } else {
+            biometricSwitch.setOn(false, animated: true)
+        }
        
         guard let _ = UserDefaults.standard.string(forKey: "registration") else {
             logoutButton.isEnabled = false

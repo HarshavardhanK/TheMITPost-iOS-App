@@ -149,45 +149,73 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             
         } else {
             
-            guard let registration = registrationTextfield.text else {
-                return
-            }
-
-            guard let password = passwordTextfield.text else {
-                return
-            }
-            
-            self.passwordTextfield.text = nil
-            self.registrationTextfield.text = nil
-            
-            loadSLCMData (registration: registration, password: password){ (result) in
+            if let savedRegistration = UserDefaults.standard.string(forKey: "registration") {
+                
+                guard let credentials = Locksmith.loadDataForUserAccount(userAccount: savedRegistration) else {
+                    return
+                }
+                
+                print(credentials)
+                
+                let password = credentials["password"] as! String
+                
+                loadSLCMData(registration: savedRegistration, password: password) { (success) in
                     
-                    if result {
-                        
+                    if success {
                         self.stopActivityIndicator()
                         
-                        print("Storing \(registration)")
-                        print("Storing \(password)")
-                        
-                        self.showAlertForSaveCredentials(registration: registration, password: password)
-                        
-                    } else {
-                        
-                        self.showAlertForInvalidCredentials()
                        
-                        self.count += 1
-                        
-                        UserDefaults.standard.set(self.count, forKey: ERROR_CODES.INVALID_ATTEMPT)
-                        
+                    } else {
                         self.stopActivityIndicator()
-                        
-            //            if self.count == 2 {
-            //                UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
-            //            }
-                      }
-                        
-                        self.signInButton.isEnabled = true
+                        self.showAlertForInvalidCredentials()
                     }
+                }
+                
+            } else {
+                
+                guard let registration = registrationTextfield.text else {
+                    return
+                }
+
+                guard let password = passwordTextfield.text else {
+                    return
+                }
+                
+                self.passwordTextfield.text = nil
+                self.registrationTextfield.text = nil
+                
+                loadSLCMData (registration: registration, password: password){ (result) in
+                        
+                        if result {
+                            
+                            self.stopActivityIndicator()
+                            
+                            print("Storing \(registration)")
+                            print("Storing \(password)")
+                            
+                            self.showAlertForSaveCredentials(registration: registration, password: password)
+                            
+                        } else {
+                            
+                            self.showAlertForInvalidCredentials()
+                           
+                            self.count += 1
+                            
+                            UserDefaults.standard.set(self.count, forKey: ERROR_CODES.INVALID_ATTEMPT)
+                            
+                            self.stopActivityIndicator()
+                            
+                //            if self.count == 2 {
+                //                UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
+                //            }
+                          }
+                            
+                            self.signInButton.isEnabled = true
+                        }
+                
+                
+                
+            }
             
             
         }
@@ -618,6 +646,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         guard let settingsController = storyboard?.instantiateViewController(identifier: "slcmSettings") as? SLCMSettingsViewController else {
             return
         }
+        
+        settingsController.biometricLabel = biometricLabel
         
         let sheet = MDCBottomSheetController(contentViewController: settingsController)
         present(sheet, animated: true, completion: nil)
