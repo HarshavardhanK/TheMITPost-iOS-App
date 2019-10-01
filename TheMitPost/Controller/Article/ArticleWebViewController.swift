@@ -56,6 +56,8 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
             print("Invalid request..")
         }
         
+        articleWebView.navigationDelegate = self
+        
         
         // Do any additional setup after loading the view.
     }
@@ -97,17 +99,27 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
-        print("navigation function")
-        
-        if let url = navigationAction.request.url {
+        if let host = navigationAction.request.url?.absoluteString {
             
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url)
+            if host.contains("share") {
+                print("disallowing")
+                print("share")
                 decisionHandler(.cancel)
                 
+                //TODO: Share article code goes here
+                
+               
+                
+            } else if host.contains("app.themitpost.com") {
+                print("opening article")
+                decisionHandler(.allow)
+                
+            } else {
+                print("disallowing")
+                decisionHandler(.cancel)
             }
-            
         }
+
         
     }
     
@@ -137,6 +149,7 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
         activityIndicator?.removeFromSuperview()
         
     }
+    
     
 
     /*

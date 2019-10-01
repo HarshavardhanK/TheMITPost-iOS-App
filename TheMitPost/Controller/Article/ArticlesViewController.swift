@@ -279,7 +279,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "articleViewSegue" {
-            print("Going to ArticleTableViewController")
+            print("Going to ArticleWebViewController")
             
             if let destinationViewController = segue.destination as? ArticleWebViewController {
                 //destinationViewController.article = selectedArticle
