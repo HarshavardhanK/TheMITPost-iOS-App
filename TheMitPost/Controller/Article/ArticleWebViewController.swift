@@ -18,6 +18,11 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
     
     var POST_ID: String?
     var category: String?
+    
+    var articleMessage: String?
+    var articleURL: String?
+    var articleAuthor: String?
+    var articleTitle: String?
 
     @IBOutlet weak var articleWebView: WKWebView!
     
@@ -102,13 +107,18 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
         if let host = navigationAction.request.url?.absoluteString {
             
             if host.contains("share") {
-                print("disallowing")
-                print("share")
+                
                 decisionHandler(.cancel)
                 
-                //TODO: Share article code goes here
+                //MARK: SHARE ARTICLE
+                let shareItems = [articleTitle,
+                String("\n\nCheck out this amazing piece by " + (articleAuthor ?? "") + "!"), articleMessage,
+                    String("\nRead the entire article at " + (articleURL ?? "www.themitpost.com")),
+                    String("\n\nShared from The MIT Post app\nAvailable for both iOS and Android")]
                 
-               
+                let shareActivityController = UIActivityViewController(activityItems: shareItems as [Any], applicationActivities: nil)
+                   present(shareActivityController, animated: true)
+                
                 
             } else if host.contains("app.themitpost.com") {
                 print("opening article")
@@ -117,6 +127,8 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
             } else {
                 print("disallowing")
                 decisionHandler(.cancel)
+                
+                UIApplication.shared.open(navigationAction.request.url!)
             }
         }
 

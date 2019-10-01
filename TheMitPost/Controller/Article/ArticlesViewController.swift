@@ -134,7 +134,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             let date = day + " " + month + " " + year
             
-            let article = Article(articleID: data["_id"].stringValue, title: String(htmlEncodedString: data["title"].stringValue)!,author: data["author"]["name"].stringValue, date: date, featured_media: data["featured_media"].stringValue, message_: data["message"].stringValue, category_: category, content: nil)
+            let article = Article(articleID: data["_id"].stringValue, title: String(htmlEncodedString: data["title"].stringValue)!,author: data["author"]["name"].stringValue, date: date, featured_media: data["featured_media"].stringValue, message_: data["message"].stringValue, category_: category, articleLink: data["link"].stringValue, content: nil)
             
             
             articlesList.append(article)
@@ -279,10 +279,9 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "articleViewSegue" {
-            print("Going to ArticleWebViewController")
-            
+           
             if let destinationViewController = segue.destination as? ArticleWebViewController {
-                //destinationViewController.article = selectedArticle
+                
                 let selectedCell = sender as? ArticleCollectionViewCell
                 let indexPath = self.articleCollectionView.indexPath(for: selectedCell!)
                 
@@ -290,7 +289,11 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 
                 destinationViewController.POST_ID = selectedArticle.articleID
                 destinationViewController.category = selectedArticle.category
-                //print("Sending article \(selectedArticle!.title) to articleView..")
+                destinationViewController.articleMessage = selectedArticle.message
+                destinationViewController.articleURL = selectedArticle.articleLink
+                destinationViewController.articleTitle = selectedArticle.title
+                destinationViewController.articleAuthor = selectedArticle.author
+                
             }
         }
     }

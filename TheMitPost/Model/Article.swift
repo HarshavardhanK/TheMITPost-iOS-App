@@ -30,15 +30,18 @@ class Article {
     var featured_media: String?
     var author: String
     var message: String!
+    var articleLink: String?
     var content: [Content]?
     
-    init(articleID: String, title: String, author: String, date: String, featured_media: String, message_: String?, category_: String?, content: [Content]?) {
+    init(articleID: String, title: String, author: String, date: String, featured_media: String, message_: String?, category_: String?, articleLink: String?, content: [Content]?) {
         
         self.articleID = articleID
         self.title = title
         self.featured_media = featured_media
         self.author = author
         self.date = date
+        
+        self.articleLink = articleLink
         
         if let mess_ = message_ {
             self.message = mess_
