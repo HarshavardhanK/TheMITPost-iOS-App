@@ -51,6 +51,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     let context = LAContext()
     
     func authenticateWithBiometric(completion: @escaping (Bool) -> ())  {
+        
+        print("Authenticating")
 
         var error: NSError?
 
@@ -63,10 +65,11 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                 DispatchQueue.main.async {
 
                     if success {
+                        print("Successfully authenticated")
                         completion(true)
                     } else {
                         //invalid authentication error
-                        
+                        print("Could not authenticate")
                         completion(false)
                     }
                 }
@@ -74,7 +77,9 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
                
             }
         } else {
+            print("Couldnt find biometry")
             // no biometry
+            completion(false)
             
         }
         
@@ -90,199 +95,42 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         signInButton.isEnabled = false
         
         if checkForBiometric() {
+            print("Signing in with biometry")
             
             authenticateWithBiometric { (success) in
                 
                 if success {
                     
-                    guard let registration = UserDefaults.standard.string(forKey: "registration") else {
-                        return
+                    if self.isUserSaved() {
+                        print("User saved")
+                        self.signIn_Saved()
+                        
+                    } else {
+                        print("User not saved")
+                        self.signIn_NotSaved()
+                        
                     }
-                    
-                    guard let credentials = Locksmith.loadDataForUserAccount(userAccount: registration) else {
-                        return
-                    }
-                    
-                    print(credentials)
-                    
-                    let password = credentials["password"] as! String
-                    print("PASSWORD FROM KEYCHAIN IS \(password)")
-                    
-                    self.loadSLCMData (registration: registration, password: password) { (result) in
-                            
-                            if result {
-                                
-                                self.stopActivityIndicator()
-                                
-                                self.performSegue(withIdentifier: "slcmDetail", sender: self)
-                                
-                            } else {
-                                
-                                self.showAlertForInvalidCredentials()
-                               
-                                self.count += 1
-                                
-                                UserDefaults.standard.set(self.count, forKey: ERROR_CODES.INVALID_ATTEMPT)
-                                
-                                self.stopActivityIndicator()
-                                
-                    //            if self.count == 2 {
-                    //                UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
-                    //            }
-                              }
-                                
-                                self.signInButton.isEnabled = true
-                        }
                     
                 } else {
+                    self.signIn_biometryFailed()
                     
-                    print("FACE ID failed to recognize")
-                    
-                    let banner = NotificationBanner(title: "Snap!", subtitle: "Sorry, we could not recognize you", style: .warning)
-                    banner.show()
-                    
-                    self.stopActivityIndicator()
-                    
-                    self.signInButton.isEnabled = true
                 }
-                
             }
             
         } else {
             
-            if let savedRegistration = UserDefaults.standard.string(forKey: "registration") {
-                
-                guard let credentials = Locksmith.loadDataForUserAccount(userAccount: savedRegistration) else {
-                    return
-                }
-                
-                print(credentials)
-                
-                let password = credentials["password"] as! String
-                
-                loadSLCMData(registration: savedRegistration, password: password) { (success) in
-                    
-                    if success {
-                        self.stopActivityIndicator()
-                        self.performSegue(withIdentifier: "slcmDetail", sender: self)
-                       
-                    } else {
-                        self.stopActivityIndicator()
-                        self.showAlertForInvalidCredentials()
-                    }
-                }
-                
-                signInButton.isEnabled = true
+            print("Biometry sign in disabled")
+            
+            if isUserSaved() {
+                print("User saved")
+                self.signIn_Saved()
                 
             } else {
-                
-                guard let registration = registrationTextfield.text else {
-                    return
-                }
-
-                guard let password = passwordTextfield.text else {
-                    return
-                }
-                
-                self.passwordTextfield.text = nil
-                self.registrationTextfield.text = nil
-                
-                loadSLCMData (registration: registration, password: password){ (result) in
-                        
-                        if result {
-                            
-                            self.stopActivityIndicator()
-                            
-                            print("Storing \(registration)")
-                            print("Storing \(password)")
-                            
-                            self.showAlertForSaveCredentials(registration: registration, password: password)
-                            
-                        } else {
-                            
-                            self.showAlertForInvalidCredentials()
-                           
-                            self.count += 1
-                            
-                            UserDefaults.standard.set(self.count, forKey: ERROR_CODES.INVALID_ATTEMPT)
-                            
-                            self.stopActivityIndicator()
-                            
-                //            if self.count == 2 {
-                //                UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
-                //            }
-                          }
-                            
-                            self.signInButton.isEnabled = true
-                        }
-                
+                print("User not saved")
+                self.signIn_NotSaved()
                 
             }
-            
-            
         }
-    }
-
-    
-    func checkForBiometric() -> Bool {
-        
-        if UserDefaults.standard.bool(forKey: DEFAULTS.BIOMETRIC_ENABLED) {
-            return true
-        }
-        
-        return false
-        
-    }
-    
-    //MARK: VIEW WILL APPEAR
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        print("login view will appear")
-        
-        if checkForBiometric() {
-            print("biometric is enabled")
-            biometricLabel.text = "Face ID is enabled"
-            
-            if #available(iOS 13, *) {
-                biometricLabel.textColor = .tertiaryLabel
-            }
-            
-            
-        } else {
-            print("biometric is disabled")
-        }
-        
-        guard let registration_ = UserDefaults.standard.string(forKey: DEFAULTS.REGISTRATION) else {
-            print("Login view will appear | Registration not found")
-            registrationFound = false
-            passwordFound = false
-            
-            biometricLabel.text = nil
-            registrationTextfield.text = nil
-            passwordTextfield.text = nil
-            signInButton.isEnabled = false
-            
-            return
-        }
-        
-        guard let credentials = Locksmith.loadDataForUserAccount(userAccount: registration_) else {
-            return
-        }
-        
-        guard let password = credentials["password"] as? String else {
-            print("password not found for \(registration_)")
-            return
-        }
-        
-        registrationTextfield.text = registration_
-        passwordTextfield.text = password
-        
-        registrationTextfield.isEnabled = false
-        passwordTextfield.isEnabled = false
-        
     }
     
     var passwordFound = true
@@ -298,13 +146,31 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         securityLottieAnimation.play()
     }
     
-     //MARK: VIEW DID LOAD
-    
-    override func viewWillDisappear(_ animated: Bool) {
+    //MARK: VIEW WILL APPEAR
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        lottieAnimations()
+        if isUserSaved() {
+            
+            if let regText = UserDefaults.standard.string(forKey: DEFAULTS.REGISTRATION) {
+                registrationTextfield.text = regText
+                
+                guard let credentials = Locksmith.loadDataForUserAccount(userAccount: regText) else {
+                    return
+                }
+                
+                signInButton.isEnabled = true
+                
+                passwordTextfield.text = credentials["password"] as? String
+                
+            } else {
+                signInButton.isEnabled = false
+            }
+        }
     }
+    
+     //MARK: VIEW DID LOAD
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -330,43 +196,55 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             
             print("biometric is enabled")
             
-            if context.biometryType == .faceID {
-                biometricLabel.text = "Face ID is enabled"
+            let _ = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+            var laTypeString: String
+            
+            switch context.biometryType {
                 
-            } else if context.biometryType == .touchID {
-                biometricLabel.text = "Touch ID is enabled"
+            case .none:
+                laTypeString = ""
+                
+            case .faceID:
+                laTypeString = "Face ID is enabled"
+                
+            case .touchID:
+                laTypeString = "Touch ID is enabled"
+                
+            default:
+                laTypeString = ""
+                
             }
+            
+            biometricLabel.text = laTypeString
             
             if #available(iOS 13, *) {
                 biometricLabel.textColor = .tertiaryLabel
             }
             
-            
-            
         } else {
             
             print("biometric is disabled")
             biometricLabel.text = nil
-            //signInButton.isEnabled = false
             
         }
         
-        guard let registration = UserDefaults.standard.string(forKey: "registration") else {
+        if isUserSaved() {
+            
+            registrationTextfield.text = getRegistration()
+            passwordTextfield.text = getPassword()
+            
+            registrationTextfield.isEnabled = true
+            passwordTextfield.isEnabled = true
+            
+        } else {
+            
             registrationFound = false
             passwordFound = false
-            return
+            signInButton.isEnabled = false
+            
+            registrationTextfield.isEnabled = false
+            passwordTextfield.isEnabled = false
         }
-        
-        guard let password = UserDefaults.standard.string(forKey: "password") else {
-            passwordFound = false
-            return
-        }
-        
-        registrationTextfield.text = registration
-        passwordTextfield.text = password
-        
-        registrationTextfield.isEnabled = false
-        passwordTextfield.isEnabled = false
         
         
     }
@@ -524,7 +402,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             }
             
             let data = JSON(resultValue)
-            print(data)
+            //print(data)
             
             if data["message"].stringValue == "Invalid Credentials" {
                 
@@ -672,9 +550,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     func clearUserCache() {
         
-        UserDefaults.standard.set(nil, forKey: "registration")
-        UserDefaults.standard.set(nil, forKey: "password")
-        UserDefaults.standard.set(false, forKey: "biometricEnabled")
+        UserDefaults.standard.set(nil, forKey: DEFAULTS.REGISTRATION)
+        UserDefaults.standard.set(false, forKey: DEFAULTS.BIOMETRIC_ENABLED)
         
         biometricLabel.text = nil
         registrationTextfield.text = nil
@@ -684,6 +561,142 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         passwordTextfield.isEnabled = true
         signInButton.isEnabled = false
         
+    }
+    
+    //MARK: SIGN IN FUNCTIONS
+    
+    func signIn_biometryFailed() {
+        
+        print("FACE ID failed to recognize")
+        
+        let banner = NotificationBanner(title: "Snap!", subtitle: "Sorry, we could not recognize you", style: .warning)
+        banner.show()
+        
+        self.stopActivityIndicator()
+        
+        self.signInButton.isEnabled = true
+        
+    }
+    
+    func signIn_Saved() {
+        
+        if let savedRegistration = UserDefaults.standard.string(forKey: "registration") {
+            
+            guard let credentials = Locksmith.loadDataForUserAccount(userAccount: savedRegistration) else {
+                return
+            }
+            
+            print(credentials)
+            
+            let password = credentials["password"] as! String
+            
+            loadSLCMData(registration: savedRegistration, password: password) { (success) in
+                
+                if success {
+                    self.stopActivityIndicator()
+                    self.performSegue(withIdentifier: "slcmDetail", sender: self)
+                   
+                } else {
+                    self.stopActivityIndicator()
+                    self.showAlertForInvalidCredentials()
+                }
+            }
+            
+            signInButton.isEnabled = true
+            
+        }
+        
+    }
+    
+    func signIn_NotSaved() {
+        
+        guard let registration = registrationTextfield.text else {
+            return
+        }
+
+        guard let password = passwordTextfield.text else {
+            return
+        }
+        
+        self.passwordTextfield.text = nil
+        self.registrationTextfield.text = nil
+        
+        loadSLCMData (registration: registration, password: password){ (result) in
+                
+                if result {
+                    
+                    self.stopActivityIndicator()
+                    
+                    print("Storing \(registration)")
+                    print("Storing \(password)")
+                    
+                    self.showAlertForSaveCredentials(registration: registration, password: password)
+                    
+                } else {
+                    
+                    self.showAlertForInvalidCredentials()
+                   
+                    self.count += 1
+                    
+                    UserDefaults.standard.set(self.count, forKey: ERROR_CODES.INVALID_ATTEMPT)
+                    
+                    self.stopActivityIndicator()
+                    
+        //            if self.count == 2 {
+        //                UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
+        //            }
+                  }
+                    
+                    self.signInButton.isEnabled = true
+                }
+        
+    }
+
+    
+    func checkForBiometric() -> Bool {
+        
+        if UserDefaults.standard.bool(forKey: DEFAULTS.BIOMETRIC_ENABLED) == true {
+            print("Biometry enabled")
+            return true
+        }
+        
+        print("Biometry disabled")
+        return false
+        
+    }
+    
+    func isUserSaved() -> Bool {
+        
+        guard let _ = UserDefaults.standard.string(forKey: DEFAULTS.REGISTRATION) else {
+            print("No user found")
+            return false
+        }
+        
+        print("User found")
+        return true
+    }
+    
+    func getRegistration() -> String? {
+        
+        if let regText = UserDefaults.standard.string(forKey: DEFAULTS.REGISTRATION) {
+            return regText
+        }
+        
+        return nil
+    }
+    
+    func getPassword() -> String? {
+        
+        if let regText = UserDefaults.standard.string(forKey: DEFAULTS.REGISTRATION) {
+            
+            guard let credentials = Locksmith.loadDataForUserAccount(userAccount: regText) else {
+                return nil
+            }
+            
+            return credentials["password"] as? String
+        }
+        
+        return nil
     }
     
 

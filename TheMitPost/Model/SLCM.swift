@@ -135,7 +135,7 @@ class Marks {
             
         }
         
-        print(data)
+        //print(data)
         
     }
     
@@ -174,7 +174,7 @@ func groupData(data: JSON) -> [Subject]? {
     
     var subjects = [Subject]()
     
-    print(data["attendance"].count)
+    //print(data["attendance"].count)
     
     for i in 0..<data["attendance"].count {
         
@@ -193,7 +193,7 @@ func groupData(data: JSON) -> [Subject]? {
         
     }
     
-    print("Returning grouped subjects data")
+    //print("Returning grouped subjects data")
     
     return subjects
 }
