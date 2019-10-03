@@ -8,6 +8,7 @@
 
 import UIKit
 
+import MaterialComponents
 import NVActivityIndicatorView
 import Alamofire
 import SwiftyJSON
@@ -16,6 +17,11 @@ import SDWebImage
 
 
 class ArticlesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate {
+    
+    @IBAction func menuButtonAction(_ sender: Any) {
+        
+        presentBottomMenu()
+    }
     
     let API = "https://app.themitpost.com/posts";
     var articlesList = [Article]()
@@ -328,6 +334,31 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         if let _ = sender.source as? SLCMLoginViewController {
             print("Unwinding back to articles list")
         }
+    }
+    
+    //MARK: Bottom Settings View
+   
+    func presentBottomMenu() {
+        
+        if #available(iOS 13.0, *) {
+            
+            guard let menuController = storyboard?.instantiateViewController(identifier: "menu") as? AboutViewController else {
+                return
+            }
+            
+            //settingsController.biometricLabel = biometricLabel
+            
+            let sheet = MDCBottomSheetController(contentViewController: menuController)
+            sheet.preferredContentSize = CGSize(width: self.view.frame.width, height: 350.0)
+            present(sheet, animated: true, completion: nil)
+            
+            
+        } else {
+            // Fallback on earlier versions
+            //performSegue(withIdentifier: "settingsSegue", sender: self)
+            
+        }
+        
     }
 
 
