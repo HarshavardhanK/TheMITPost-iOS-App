@@ -236,6 +236,9 @@ class SubjectCellTableViewCell: FoldingCell {
         foregroundView.layer.cornerRadius = 15
         foregroundView.layer.masksToBounds = true
         
+        subjectName.numberOfLines = 0
+        subjectName.lineBreakMode = .byWordWrapping
+        
         //backgroundColor = .systemBackground
         
     }

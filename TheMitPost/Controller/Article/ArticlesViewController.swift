@@ -8,6 +8,7 @@
 
 import UIKit
 
+import NVActivityIndicatorView
 import Alamofire
 import SwiftyJSON
 import Lottie
@@ -42,6 +43,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         super.viewDidLoad()
         
         mode()
+        startActivityIndicator()
         
         articleCollectionView.dataSource = self
         articleCollectionView.delegate = self
@@ -52,6 +54,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         refreshControl.addTarget(self, action: #selector(refreshArticles), for: .valueChanged)
       
         retrieveArticles { (success) in
+            
             
             if !success {
                 
@@ -64,6 +67,21 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
+    }
+    
+    //MARK: CREATE LOADING VIEW
+    var activityIndicator: NVActivityIndicatorView!
+    func startActivityIndicator() {
+        
+        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.width / 2, y: self.view.frame.height / 2, width: 50, height: 50), type: .circleStrokeSpin, color: .lightGray, padding: 0)
+        activityIndicator.center = self.view.center
+        self.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
     }
     
     //MARK: CREATE LOTTIE VIEW
@@ -81,8 +99,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     //MARK:- FETCH ARTICLES
-    
-    
     var selectedArticle: Article?
     
     private func retrieveArticles(completion: @escaping (Bool) -> ()) {
@@ -97,6 +113,8 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             self.articlesList = [Article]()
             
             self.parseArticleResult(result: JSON(resultValue))
+            
+            self.stopActivityIndicator()
             
             self.articleCollectionView.reloadData()
             self.refreshControl.endRefreshing()

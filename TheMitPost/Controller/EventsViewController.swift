@@ -8,6 +8,8 @@
 
 import UIKit
 
+import Lottie
+import NVActivityIndicatorView
 import SwiftyJSON
 import Alamofire
 
@@ -38,6 +40,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.viewDidLoad()
         
         mode()
+        
+        startActivityIndicator()
 
         eventsCollectionView.delegate = self
         eventsCollectionView.dataSource = self
@@ -57,6 +61,37 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         refreshControl.addTarget(self, action: #selector(refreshEvents), for: .valueChanged)
         
+    }
+    
+    //MARK: ACTIVITY INDICATOR
+    var activityIndicator: NVActivityIndicatorView!
+    func startActivityIndicator() {
+        
+        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.width / 2, y: self.view.frame.height / 2, width: 45, height: 45), type: .cubeTransition, color: .lightGray, padding: 0)
+        activityIndicator.center = self.view.center
+        self.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
+    }
+    
+    //MARK: EMPTY LOTTIE VIEW
+    
+    func createEmptyView() {
+        
+        let emptyImageView = AnimationView(name: "empty-box")
+        emptyImageView.frame = CGRect(origin: self.view.center, size: CGSize(width: 300, height: 237))
+        emptyImageView.center = self.view.center
+        
+        self.view.addSubview(emptyImageView)
+        emptyImageView.play()
+        
+        let label = UILabel(frame: CGRect(x: self.view.frame.width / 2 - 50, y: self.view.frame.height / 2 + 200, width: 200, height: 30))
+        label.text = "Pull to refresh"
+        self.view.addSubview(label)
     }
     
     //MARK:- DARK MODE CHECK
@@ -84,6 +119,11 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
                 eventsCollectionView.backgroundColor = .white
                 
             }
+            
+        } else {
+            self.navigationController?.navigationBar.barTintColor = .white
+            self.tabBarController?.tabBar.barTintColor = .white
+            
         }
     }
     
@@ -204,6 +244,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
             self.eventShown = [Bool](repeatElement(false, count: self.events.count + 1))
             
             self.refreshControl.endRefreshing()
+            
+            self.stopActivityIndicator()
             
             self.eventsCollectionView.reloadData()
         }
