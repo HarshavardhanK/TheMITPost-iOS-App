@@ -340,7 +340,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
    
     func presentBottomMenu() {
         
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13, *) {
             
             guard let menuController = storyboard?.instantiateViewController(identifier: "menu") as? AboutViewController else {
                 return
@@ -350,15 +350,20 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             sheet.preferredContentSize = CGSize(width: self.view.frame.width, height: 400.0)
             present(sheet, animated: true, completion: nil)
             
-            
         } else {
-            // Fallback on earlier versions
-            //performSegue(withIdentifier: "settingsSegue", sender: self)
+            
+            guard let menuController = storyboard?.instantiateViewController(withIdentifier: "menu") as? AboutViewController else {
+                return
+            }
+            
+            let sheet = MDCBottomSheetController(contentViewController: menuController)
+            sheet.preferredContentSize = CGSize(width: self.view.frame.width, height: 400.0)
+            present(sheet, animated: true, completion: nil)
             
         }
         
+        
     }
-
 
 }
 

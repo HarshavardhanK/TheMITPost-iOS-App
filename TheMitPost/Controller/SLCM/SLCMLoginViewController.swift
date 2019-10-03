@@ -561,7 +561,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     }
     
     //MARK: Bottom Settings View
-    //@available(iOS 13.0, *)
+   
     func presentBottomSettings() {
         
         if #available(iOS 13.0, *) {
@@ -578,8 +578,16 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             
             
         } else {
-            // Fallback on earlier versions
-            performSegue(withIdentifier: "settingsSegue", sender: self)
+           
+            guard let settingsController = storyboard?.instantiateViewController(withIdentifier: "slcmSettings") as? SLCMSettingsViewController else {
+                return
+            }
+            
+            settingsController.biometricLabel = biometricLabel
+            
+            let sheet = MDCBottomSheetController(contentViewController: settingsController)
+            sheet.preferredContentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height / 2)
+            present(sheet, animated: true, completion: nil)
             
         }
         

@@ -63,6 +63,9 @@ class AboutViewController: UIViewController {
         instagramHandle.isUserInteractionEnabled = true
         instagramHandle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(instagramTap)))
         
+        let devImages = ["harsha1", "harsha2", "harsha3"]
+        let name = devImages[Int(arc4random()) % 3]
+        developerImageView.image = UIImage(named: name)
     }
     
     //MARK: Tap on social media
