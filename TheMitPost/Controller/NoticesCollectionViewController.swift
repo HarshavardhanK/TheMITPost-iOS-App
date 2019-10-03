@@ -50,7 +50,6 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         
         refreshControl.addTarget(self, action: #selector(refreshNotices), for: .valueChanged)
         
-        
     }
     
     //MARK: ACTIVITY INDICATOR VIEW
@@ -108,6 +107,11 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                 noticesCollectionView.backgroundColor = .white
                 
             }
+            
+        } else {
+            self.navigationController?.navigationBar.barTintColor = .white
+            self.tabBarController?.tabBar.barTintColor = .white
+            
         }
     }
     
