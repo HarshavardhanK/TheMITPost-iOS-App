@@ -15,6 +15,7 @@ import NVActivityIndicatorView
 class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebViewDelegate {
     
     let API = "https://app.themitpost.com/posts/render/"
+    var url: String?
     
     var POST_ID: String?
     var category: String?
