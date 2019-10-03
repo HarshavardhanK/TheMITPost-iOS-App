@@ -20,7 +20,17 @@ or alternatively using `brew cask install fastlane`
 ```
 fastlane ios create_app
 ```
-Create app on Apple Developer and App Store Connect sites
+Description of what the lane does
+### ios beta
+```
+fastlane ios beta
+```
+
+### ios upload
+```
+fastlane ios upload
+```
+
 
 ----
 

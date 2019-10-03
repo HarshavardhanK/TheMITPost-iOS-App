@@ -30,6 +30,7 @@
 		D614E7DF233CD6F200377DC8 /* SLCMSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614E7DE233CD6F200377DC8 /* SLCMSettingsViewController.swift */; };
 		D614E7E0233CD6F200377DC8 /* SLCMSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614E7DE233CD6F200377DC8 /* SLCMSettingsViewController.swift */; };
 		D614E7E1233CD6F200377DC8 /* SLCMSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614E7DE233CD6F200377DC8 /* SLCMSettingsViewController.swift */; };
+		D61670CA2344D981004AAF8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D61670C92344D981004AAF8B /* GoogleService-Info.plist */; };
 		D61C44DB223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
 		D61C44DC223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
 		D61C44DD223E74DF00DF5DAA /* SLCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C44DA223E74DF00DF5DAA /* SLCM.swift */; };
@@ -98,7 +99,6 @@
 		D6D6A21B21ECC5A400B822F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D6A21921ECC5A400B822F8 /* LaunchScreen.storyboard */; };
 		D6D6A22621ECC5A500B822F8 /* TheMitPostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A22521ECC5A500B822F8 /* TheMitPostTests.swift */; };
 		D6D6A23121ECC5A500B822F8 /* TheMitPostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D6A23021ECC5A500B822F8 /* TheMitPostUITests.swift */; };
-		D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D6A24021ECDC1800B822F8 /* GoogleService-Info.plist */; };
 		D6F392B922D5FB5900CE50D1 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F392B822D5FB5900CE50D1 /* Events.swift */; };
 		D6F392BA22D5FB5900CE50D1 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F392B822D5FB5900CE50D1 /* Events.swift */; };
 		D6F392BB22D5FB5900CE50D1 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F392B822D5FB5900CE50D1 /* Events.swift */; };
@@ -149,6 +149,7 @@
 		D60F6BB12310713300279DA2 /* PostPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D614E7DD233CAB3D00377DC8 /* TheMitPost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMitPost.entitlements; sourceTree = "<group>"; };
 		D614E7DE233CD6F200377DC8 /* SLCMSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCMSettingsViewController.swift; sourceTree = "<group>"; };
+		D61670C92344D981004AAF8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D61C44DA223E74DF00DF5DAA /* SLCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCM.swift; sourceTree = "<group>"; };
 		D61D3A9321EE494B006DDD6B /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6313DC62292D37C00CB6F92 /* SLCMTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCMTableViewController.swift; sourceTree = "<group>"; };
@@ -186,7 +187,6 @@
 		D6D6A22C21ECC5A500B822F8 /* TheMitPostUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMitPostUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D6A23021ECC5A500B822F8 /* TheMitPostUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMitPostUITests.swift; sourceTree = "<group>"; };
 		D6D6A23221ECC5A500B822F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6D6A24021ECDC1800B822F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6F392B822D5FB5900CE50D1 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		D6F392BC22D604DC00CE50D1 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		D6FA299323326B2E00703DE7 /* NoticeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -389,8 +389,8 @@
 				D6D6A21421ECC5A200B822F8 /* Main.storyboard */,
 				D6D6A21921ECC5A400B822F8 /* LaunchScreen.storyboard */,
 				D6D6A21C21ECC5A400B822F8 /* Info.plist */,
+				D61670C92344D981004AAF8B /* GoogleService-Info.plist */,
 				D64008FA2336A5DD0086064E /* Assets.xcassets */,
-				D6D6A24021ECDC1800B822F8 /* GoogleService-Info.plist */,
 			);
 			path = TheMitPost;
 			sourceTree = "<group>";
@@ -545,13 +545,13 @@
 				D609835E23412FE800299F86 /* empty-box.json in Resources */,
 				D68B70E6234130A400A41D3D /* cube.json in Resources */,
 				D6ACF12222469ED7001B8A68 /* Aileron-Regular.otf in Resources */,
-				D6D6A24121ECDC2000B822F8 /* GoogleService-Info.plist in Resources */,
 				D6ACF11F22469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
 				D6ACF12A22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */,
 				D6ACF12E22469EFF001B8A68 /* Roboto-Medium.ttf in Resources */,
 				D6ACF13D22469F24001B8A68 /* DyeLine-Regular5.ttf in Resources */,
 				D64008FB2336A5DE0086064E /* Assets.xcassets in Resources */,
 				D6D6A21621ECC5A200B822F8 /* Main.storyboard in Resources */,
+				D61670CA2344D981004AAF8B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -917,14 +917,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TheMitPost/TheMitPost.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Z34Y633MA;
+				DEVELOPMENT_TEAM = N7MCZ8UJRF;
 				INFOPLIST_FILE = TheMitPost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarshah.apps.TheMitPost;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ramathmika.ThePost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -938,14 +938,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TheMitPost/TheMitPost.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Z34Y633MA;
+				DEVELOPMENT_TEAM = N7MCZ8UJRF;
 				INFOPLIST_FILE = TheMitPost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarshah.apps.TheMitPost;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ramathmika.ThePost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

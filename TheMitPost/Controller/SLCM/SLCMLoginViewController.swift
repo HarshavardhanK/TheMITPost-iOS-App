@@ -233,17 +233,16 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             registrationTextfield.text = getRegistration()
             passwordTextfield.text = getPassword()
             
-            registrationTextfield.isEnabled = true
-            passwordTextfield.isEnabled = true
+            registrationFound = true
+            passwordFound = true
             
-        } else {
-            
-            registrationFound = false
-            passwordFound = false
-            signInButton.isEnabled = false
             
             registrationTextfield.isEnabled = false
             passwordTextfield.isEnabled = false
+            
+        } else {
+            signInButton.isEnabled = false
+            
         }
         
         
@@ -388,53 +387,60 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         print("registration is \(registration)")
         print("password is \(password)")
         
-        Alamofire.request(self.SLCMAPI, method: .post, parameters:["regNumber":registration, "pass":password], encoding: JSONEncoding.default).responseJSON { response in
+        if let fcm_token = UserDefaults.standard.string(forKey: "token") {
             
-            print("calling post request")
+            print("FCM Token is \(fcm_token)")
             
-            guard let resultValue = response.result.value else {
-                print("Failing in website")
+            Alamofire.request(self.SLCMAPI, method: .post, parameters:["regNumber":registration, "pass":password, "fcm_token": fcm_token], encoding: JSONEncoding.default).responseJSON { response in
                 
-                completion(false)
-                //sendinf false would mean invalid login. Change it
-                //code to send error alert
-                return
-            }
-            
-            let data = JSON(resultValue)
-            //print(data)
-            
-            if data["message"].stringValue == "Invalid Credentials" {
+                print("calling post request")
                 
-                print(data["message"].stringValue)
-                print("Actually invalid")
-                success = false
-                
-            } else {
-        
-                print("Credentials are right..")
-                success = true
-                
-                guard let _subjects = groupData(data: data["academicDetails"][0]) else {
-                    print("Failing to group")
+                guard let resultValue = response.result.value else {
+                    print("Failing in website")
+                    
+                    completion(false)
+                    //sendinf false would mean invalid login. Change it
+                    //code to send error alert
                     return
                 }
                 
-                print(self.subjects.count)
+                let data = JSON(resultValue)
+                //print(data)
                 
-                _subjects[0].display()
-                
-                self.subjects = _subjects
+                if data["message"].stringValue == "Invalid Credentials" {
+                    
+                    print(data["message"].stringValue)
+                    print("Actually invalid")
+                    success = false
+                    
+                } else {
             
+                    print("Credentials are right..")
+                    success = true
+                    
+                    guard let _subjects = groupData(data: data["academicDetails"][0]) else {
+                        print("Failing to group")
+                        return
+                    }
+                    
+                    print(self.subjects.count)
+                    
+                    _subjects[0].display()
+                    
+                    self.subjects = _subjects
+                
+                }
+                
+                print("Completed POST request")
+                
+                completion(success)
+                
             }
             
-            print("Completed POST request")
-            
-            completion(success)
-            
+        } else {
+            print("FCM token not found")
         }
-        
-       
+    
     }
     
     //MARK: ANIMATION
@@ -501,6 +507,14 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             destination.subjects = self.subjects
                 
                 
+        } else if segue.identifier == "settingsSegue" {
+            
+            let settingsController = segue.destination as! SLCMSettingsViewController
+            settingsController.biometricLabel = biometricLabel
+            
+            let sheet = MDCBottomSheetController(contentViewController: settingsController)
+            present(sheet, animated: true, completion: nil)
+            
         }
         
     }
@@ -540,11 +554,12 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             let sheet = MDCBottomSheetController(contentViewController: settingsController)
             present(sheet, animated: true, completion: nil)
             
+            
         } else {
             // Fallback on earlier versions
+            performSegue(withIdentifier: "settingsSegue", sender: self)
             
         }
-        
         
     }
     
