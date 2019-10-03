@@ -180,6 +180,11 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         return 15.0
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(width: view.bounds.width - (EventViewCell.cellPadding), height: collectionView.collectionViewLayout.collectionViewContentSize.height)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 30.0, left: 20.0, bottom: 0, right: 20.0)
     }
