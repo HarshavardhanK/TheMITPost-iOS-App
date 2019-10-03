@@ -21,6 +21,7 @@ import MaterialComponents
 class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivityIndicatorViewable {
     
     let SLCMAPI: String = "https://app.themitpost.com/values"
+    let FCMTokenAPI: String = "https://app.themitpost.com/token"
 
     @IBOutlet weak var registrationTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
@@ -94,7 +95,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         signInButton.isEnabled = false
         
-        if checkForBiometric() {
+        if checkForBiometric() && isUserSaved() {
             print("Signing in with biometry")
             
             authenticateWithBiometric { (success) in
@@ -122,10 +123,12 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             print("Biometry sign in disabled")
             
             if isUserSaved() {
+                
                 print("User saved")
                 self.signIn_Saved()
                 
             } else {
+                
                 print("User not saved")
                 self.signIn_NotSaved()
                 
@@ -387,60 +390,78 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         print("registration is \(registration)")
         print("password is \(password)")
         
-        if let fcm_token = UserDefaults.standard.string(forKey: "token") {
+        Alamofire.request(self.SLCMAPI, method: .post, parameters:["regNumber":registration, "pass":password], encoding: JSONEncoding.default).responseJSON { response in
             
-            print("FCM Token is \(fcm_token)")
+            print("calling post request")
             
-            Alamofire.request(self.SLCMAPI, method: .post, parameters:["regNumber":registration, "pass":password, "fcm_token": fcm_token], encoding: JSONEncoding.default).responseJSON { response in
+            guard let resultValue = response.result.value else {
+                print("Failing in website")
                 
-                print("calling post request")
+                completion(false)
+                //sendinf false would mean invalid login. Change it
+                //code to send error alert
+                return
+            }
+            
+            let data = JSON(resultValue)
+            //print(data)
+            
+            if data["message"].stringValue == "Invalid Credentials" {
                 
-                guard let resultValue = response.result.value else {
-                    print("Failing in website")
-                    
-                    completion(false)
-                    //sendinf false would mean invalid login. Change it
-                    //code to send error alert
+                print(data["message"].stringValue)
+                print("Actually invalid")
+                success = false
+                
+            } else {
+        
+                print("Credentials are right..")
+                success = true
+                
+                guard let _subjects = groupData(data: data["academicDetails"][0]) else {
+                    print("Failing to group")
                     return
                 }
                 
-                let data = JSON(resultValue)
-                //print(data)
+                print(self.subjects.count)
                 
-                if data["message"].stringValue == "Invalid Credentials" {
-                    
-                    print(data["message"].stringValue)
-                    print("Actually invalid")
-                    success = false
-                    
-                } else {
+                _subjects[0].display()
+                
+                self.subjects = _subjects
             
-                    print("Credentials are right..")
-                    success = true
-                    
-                    guard let _subjects = groupData(data: data["academicDetails"][0]) else {
-                        print("Failing to group")
-                        return
-                    }
-                    
-                    print(self.subjects.count)
-                    
-                    _subjects[0].display()
-                    
-                    self.subjects = _subjects
+            }
+            
+            print("Completed POST request")
+            
+            completion(success)
+            
+        }
+        
+    }
+    
+    enum ACTIONS: String {
+        
+        case INSERT = "insert"
+        case DELETE = "delete"
+        case UPDATE = "update"
+        
+    }
+    
+    func fcmAction(registration: String, password: String, action: ACTIONS) {
+        
+        if let fcmToken = UserDefaults.standard.string(forKey: "token") {
+            
+            Alamofire.request(FCMTokenAPI, method: .post, parameters: ["registration": registration, "password": password, "fcm_token": fcmToken, "action": action], encoding: JSONEncoding.default).responseJSON { (response) in
                 
+                if JSON(response.result.value!)["status"].stringValue == "OK" {
+                    print("Successfully saved")
                 }
-                
-                print("Completed POST request")
-                
-                completion(success)
                 
             }
             
         } else {
-            print("FCM token not found")
+            print("NO FCM TOKEN")
         }
-    
+        
     }
     
     //MARK: ANIMATION
