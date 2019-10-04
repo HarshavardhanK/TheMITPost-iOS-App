@@ -21,7 +21,7 @@ import MaterialComponents
 class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivityIndicatorViewable {
     
     let SLCMAPI: String = "https://app.themitpost.com/values"
-    let FCMTokenAPI: String = "https://app.themitpost.com/token"
+    let FCMTokenAPI: String = "https://app.themitpost.com/credential"
 
     @IBOutlet weak var registrationTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
@@ -333,6 +333,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             let banner = NotificationBanner(title: "Saved!", subtitle: "Like the North, we always remember", style: .success)
             banner.show()
             
+            self.fcmAction(registration: registration, password: password, action: "insert")
+            
             UserDefaults.standard.set(true, forKey: "userSaved")
             
             UserDefaults.standard.set(registration, forKey: "registration")
@@ -446,14 +448,34 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
     }
     
-    func fcmAction(registration: String, password: String, action: ACTIONS) {
+    func fcmAction(registration: String, password: String, action: String) {
         
         if let fcmToken = UserDefaults.standard.string(forKey: "token") {
             
-            Alamofire.request(FCMTokenAPI, method: .post, parameters: ["registration": registration, "password": password, "fcm_token": fcmToken, "action": action], encoding: JSONEncoding.default).responseJSON { (response) in
+            print("FCM \(fcmToken)")
+            
+            Alamofire.request(FCMTokenAPI, method: .post, parameters:["regNumber":registration, "pass":password, "fcm_token": fcmToken, "action": action], encoding: JSONEncoding.default).responseJSON { response in
                 
-                if JSON(response.result.value!)["status"].stringValue == "OK" {
-                    print("Successfully saved")
+            
+                print("calling fcm post request")
+            
+                guard let resultValue = response.result.value else {
+                    print("Failing in website")
+                
+                
+                //sendinf false would mean invalid login. Change it
+                //code to send error alert
+                    return
+                }
+            
+                let data = JSON(resultValue)
+                //print(data)
+                
+                if data["message"].stringValue == "OK" {
+                    print("Sucessfully \(action)ed")
+                    
+                } else {
+                    print("Failed to \(action) token")
                 }
                 
             }
@@ -550,13 +572,19 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             guard let registration = UserDefaults.standard.string(forKey: "registration") else {
                 return
             }
-                   
+            
+            if let password = getPassword() {
+                fcmAction(registration: registration, password: password, action: "delete")
+            }
+        
             try! Locksmith.deleteDataForUserAccount(userAccount: registration)
             
             clearUserCache()
             
             let banner = NotificationBanner(title: "Well..", subtitle: "We will not be able to send you notifications about your SLCM updates!", style: .danger)
             banner.show()
+            
+            
         }
     }
     

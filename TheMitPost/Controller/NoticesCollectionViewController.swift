@@ -40,9 +40,9 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         retrieveNotices()
         
         let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = CGSize(width: NoticeTextCollectionViewCell.width, height: 120)
+        layout.estimatedItemSize = CGSize(width: NoticeImageCollectionViewCell.width, height: 120.0)
         
-        noticesCollectionView.collectionViewLayout = layout
+       // noticesCollectionView.collectionViewLayout = layout
         noticesCollectionView.delegate = self
         noticesCollectionView.dataSource = self
         
@@ -173,7 +173,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                 
                 print("image notice")
                 
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! NoticeImageCollectionViewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "textCell", for: indexPath) as! NoticeTextCollectionViewCell
                 
                 cell.url = notice.getComponentURL
                 cell.titleText = notice.title
@@ -214,17 +214,16 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: NoticeImageCollectionViewCell.width, height: 150.0)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 15.0
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        return CGSize(width: view.bounds.width - (EventViewCell.cellPadding), height: collectionView.collectionViewLayout.collectionViewContentSize.height)
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 30.0, left: 20.0, bottom: 0, right: 20.0)
+        return UIEdgeInsets(top: 20.0, left: 20.0, bottom: 0, right: 20.0)
     }
     
     //MARK: SEGUE
