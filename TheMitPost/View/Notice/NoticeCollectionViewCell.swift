@@ -133,6 +133,8 @@ class NoticeImageCollectionViewCell: UICollectionViewCell {
 
 class NoticeTextCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet var arrowImageView: UIImageView!
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -168,6 +170,9 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
             
             if let _ = url {
                 isPDF = true
+                
+            } else {
+                arrowImageView.alpha = 0
             }
             
         }
@@ -187,6 +192,7 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        mode()
         
         shadowLayer?.elevation = .cardResting
         
@@ -225,6 +231,7 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
                 contentLabel.textColor = .secondaryLabel
                 titleLabel.textColor = .label
                 dateLabel.textColor = .tertiaryLabel
+                arrowImageView.image = UIImage(named: "arrow")
                 
             } else {
                 
@@ -236,6 +243,8 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
                 contentLabel.textColor = .secondaryLabel
                 titleLabel.textColor = .label
                 dateLabel.textColor = .tertiaryLabel
+                
+                arrowImageView.image = UIImage(named: "next")
             }
         }
     }

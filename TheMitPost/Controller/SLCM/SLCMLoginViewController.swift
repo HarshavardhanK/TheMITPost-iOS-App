@@ -35,6 +35,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     @IBOutlet weak var stackViewBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var stackViewTopConstraint: NSLayoutConstraint!
+    
     @IBOutlet var securityLottieAnimation: AnimationView!
     
     @IBAction func logoutAction(_ sender: Any) {
@@ -140,6 +142,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     var registrationFound = true
     
     var bottomConstraint: CGFloat = 0.0
+    var topConstraint: CGFloat = 0.0
     
     
     //MARK: LOTTIE ANIMATIONS
@@ -183,6 +186,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         lottieAnimations()
         
         bottomConstraint = stackViewBottomConstraint.constant
+        topConstraint = stackViewTopConstraint.constant
         
         registrationTextfield.delegate = self
         passwordTextfield.delegate = self
@@ -492,6 +496,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         if direction == 0 { //down
             
             self.stackViewBottomConstraint.constant = self.bottomConstraint
+            self.stackViewTopConstraint.constant = topConstraint
             
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.view.layoutIfNeeded()
@@ -500,6 +505,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         } else {
             
             self.stackViewBottomConstraint.constant += 90
+            self.stackViewTopConstraint.constant -= 90
             
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.view.layoutIfNeeded()
@@ -516,6 +522,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        
         print("text field ended editing..")
         print("Text field has text \(textField.text ?? "NA")")
         resignFirstResponder()
