@@ -131,7 +131,7 @@ class EventViewCell: UICollectionViewCell {
     
     func mode() {
         
-        timeLabel.textColor = .systemPurple
+        timeLabel.textColor = .systemTeal
         locationLabel.textColor = .systemTeal
         
         if #available(iOS 13.0, *) {
