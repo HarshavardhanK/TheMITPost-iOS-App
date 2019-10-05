@@ -35,6 +35,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     @IBOutlet weak var stackViewBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet var stackView: UIStackView!
+    
     @IBOutlet weak var stackViewTopConstraint: NSLayoutConstraint!
     
     @IBOutlet var securityLottieAnimation: AnimationView!
@@ -183,10 +185,17 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         mode()
         
+       // stackView.autoresizingMask = .flexibleBottomMargin
+        stackView.autoresizingMask = .flexibleTopMargin
+        //stackView.autoresizingMask = .flexibleWidth
+        //stackView.autoresizingMask = .flexibleHeight
+        stackView.autoresizingMask = .flexibleLeftMargin
+        stackView.autoresizingMask = .flexibleRightMargin
+        
         lottieAnimations()
         
         bottomConstraint = stackViewBottomConstraint.constant
-        topConstraint = stackViewTopConstraint.constant
+        //topConstraint = stackViewTopConstraint.constant
         
         registrationTextfield.delegate = self
         passwordTextfield.delegate = self
@@ -496,7 +505,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         if direction == 0 { //down
             
             self.stackViewBottomConstraint.constant = self.bottomConstraint
-            self.stackViewTopConstraint.constant = topConstraint
+            //self.stackViewTopConstraint.constant = topConstraint
             
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.view.layoutIfNeeded()
@@ -505,7 +514,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         } else {
             
             self.stackViewBottomConstraint.constant += 90
-            self.stackViewTopConstraint.constant -= 90
+            //self.stackViewTopConstraint.constant -= 90
             
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.view.layoutIfNeeded()
