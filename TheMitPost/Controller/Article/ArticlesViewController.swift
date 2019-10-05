@@ -60,10 +60,9 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
         
         self.hero.isEnabled = true
         self.navigationController?.delegate = self
-        self.navigationController?.hero.navigationAnimationType = .selectBy(presenting: .zoomOut, dismissing: .zoomSlide(direction: .right))
         
-        //panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(panGesture:)))
-        //self.view.addGestureRecognizer(panGestureRecognizer)
+        self.navigationController?.hero.navigationAnimationType = .selectBy(presenting: .zoomOut, dismissing: .auto)
+        
         
         mode()
         startActivityIndicator()
@@ -379,6 +378,9 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
     }
     
     //MARK: Navigation Controller Delegate
+    
+    
+    //MARK: FOR HERO
     func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning)
         -> UIViewControllerInteractiveTransitioning? {
         return heroTransition.navigationController(navigationController, interactionControllerFor: animationController)
@@ -391,88 +393,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
         return heroTransition.navigationController(navigationController, animationControllerFor: operation, from: fromVC, to: toVC)
     }
     
-    @objc func handlePanGesture(panGesture: UIPanGestureRecognizer) {
-
-        let percent = max(panGesture.translation(in: view).x, 0) / view.frame.width
-
-        switch panGesture.state {
-
-        case .began:
-            navigationController?.delegate = self
-            navigationController?.popViewController(animated: true)
-
-        case .changed:
-            percentDrivenInteractiveTransition.update(percent)
-
-        case .ended:
-            let velocity = panGesture.velocity(in: view).x
-
-            // Continue if drag more than 50% of screen width or velocity is higher than 1000
-            
-            if percent > 0.5 || velocity > 1000 {
-                percentDrivenInteractiveTransition.finish()
-            } else {
-                percentDrivenInteractiveTransition.cancel()
-            }
-
-        case .cancelled, .failed:
-            percentDrivenInteractiveTransition.cancel()
-
-        default:
-            break
-        }
-    }
-    
-    //MARK:- UICOLLECTIONVIEWDATASOURCE DELEGATE METHODS
-    
     //MARK:- SEGUES
-    @objc func tappedArticle(_ sender: UITapGestureRecognizer) {
-        
-        if #available(iOS 13, *) {
-            
-            guard let articleWebViewController = storyboard?.instantiateViewController(identifier: "articleWeb") as? ArticleWebViewController else {
-                return
-            }
-            
-            articleWebViewController.hero.isEnabled = true
-            articleWebViewController.hero.modalAnimationType = .selectBy(presenting: .zoomSlide(direction: .up), dismissing: .slide(direction: .down))
-            
-            if sender.state == UIGestureRecognizer.State.ended {
-                
-                let tapLocation = sender.location(in: self.articleCollectionView)
-                
-                if let tapIndexPath = self.articleCollectionView.indexPathForItem(at: tapLocation) {
-                    
-                    if let selectedCell = self.articleCollectionView.cellForItem(at: tapIndexPath) as? ArticleCollectionViewCell {
-                        //do what you want to cell here
-                        
-                        //let selectedCell = sender as? ArticleCollectionViewCell
-                        let indexPath = self.articleCollectionView.indexPath(for: selectedCell)
-                        
-                        let selectedArticle = articlesList[(indexPath?.row)!]
-                        
-                        articleWebViewController.POST_ID = selectedArticle.articleID
-                        articleWebViewController.category = selectedArticle.category
-                        articleWebViewController.articleMessage = selectedArticle.message
-                        articleWebViewController.articleURL = selectedArticle.articleLink
-                        articleWebViewController.articleTitle = selectedArticle.title
-                        articleWebViewController.articleAuthor = selectedArticle.author
-                        
-                        /*self.tabBarController?.present(articleWebViewController, animated: true, completion: {
-                            print("Presenting article")
-                        })*/
-                        
-                        self.navigationController?.pushViewController(articleWebViewController, animated: false)
-                        
-                        //self.present(articleWebViewController, animated: true, completion: nil)
-                        
-                    }
-                }
-            }
-            
-            
-        }
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

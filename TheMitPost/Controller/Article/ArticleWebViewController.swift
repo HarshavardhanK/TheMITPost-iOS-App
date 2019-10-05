@@ -37,7 +37,7 @@ class ArticleWebViewController: UIViewController, UINavigationControllerDelegate
         
         self.hero.isEnabled = true
         //self.navigationController?.delegate = self
-       // self.navigationController?.hero.navigationAnimationType = .selectBy(presenting: .zoomOut, dismissing: .zoomSlide(direction: .right))
+        //self.navigationController?.hero.navigationAnimationType = .selectBy(presenting: .zoomSlide(direction: .left), dismissing: .zoomSlide(direction: .right))
         
         if let category_ = category {
             self.title = String.init(htmlEncodedString: category_)
@@ -76,6 +76,19 @@ class ArticleWebViewController: UIViewController, UINavigationControllerDelegate
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    //MARK: FOR HERO
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning)
+        -> UIViewControllerInteractiveTransitioning? {
+        return heroTransition.navigationController(navigationController, interactionControllerFor: animationController)
+    }
+
+    func navigationController(_ navigationController: UINavigationController,
+                              animationControllerFor operation: UINavigationController.Operation,
+                              from fromVC: UIViewController,
+                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return heroTransition.navigationController(navigationController, animationControllerFor: operation, from: fromVC, to: toVC)
     }
     
     //MARK:- UI MODE
