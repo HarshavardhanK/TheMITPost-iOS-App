@@ -20,6 +20,8 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
     @IBOutlet weak var noticesCollectionView: UICollectionView!
     
     var notices = [Notice]()
+    var noticesShown = [Bool]()
+    
     let refreshControl = UIRefreshControl()
     
     //MARK: VIEW WILL DID APPEAR
@@ -143,6 +145,8 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             
                 print("Successfully loaded data")
                 
+                self.noticesShown = [Bool](repeating: false, count: self.notices.count)
+                
             }
             
             self.stopActivityIndicator()
@@ -212,6 +216,30 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             
         }
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if noticesShown[indexPath.row] == false {
+            
+            let transform = CATransform3DTranslate(CATransform3DIdentity, 0, 80, 10)
+            cell.layer.transform = transform
+            cell.alpha = 0.4
+            
+            
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: [.curveEaseOut, .allowUserInteraction], animations: {
+                
+                cell.layer.transform = CATransform3DIdentity
+                cell.alpha = 1.0
+                
+            }) { (true) in
+                print("Animation complete")
+                
+            }
+            
+            noticesShown[indexPath.row] = true
+            
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

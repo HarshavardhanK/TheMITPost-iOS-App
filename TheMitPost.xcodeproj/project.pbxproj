@@ -64,6 +64,9 @@
 		D66A8A0E2348825B00AB9917 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A8A0D2348825A00AB9917 /* PrivacyViewController.swift */; };
 		D66A8A0F2348825B00AB9917 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A8A0D2348825A00AB9917 /* PrivacyViewController.swift */; };
 		D66A8A102348825B00AB9917 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A8A0D2348825A00AB9917 /* PrivacyViewController.swift */; };
+		D66A8A122348A40900AB9917 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A8A112348A40900AB9917 /* Common.swift */; };
+		D66A8A132348A40900AB9917 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A8A112348A40900AB9917 /* Common.swift */; };
+		D66A8A142348A40900AB9917 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A8A112348A40900AB9917 /* Common.swift */; };
 		D68A32612346353300B62C5E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68A32602346353300B62C5E /* AboutViewController.swift */; };
 		D68A32622346353300B62C5E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68A32602346353300B62C5E /* AboutViewController.swift */; };
 		D68A32632346353300B62C5E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68A32602346353300B62C5E /* AboutViewController.swift */; };
@@ -167,6 +170,7 @@
 		D664F31C22AF9F62002D6E0F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D664F32622B0FA2D002D6E0F /* Notices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notices.swift; sourceTree = "<group>"; };
 		D66A8A0D2348825A00AB9917 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
+		D66A8A112348A40900AB9917 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		D68A32602346353300B62C5E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		D68B70E5234130A300A41D3D /* cube.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cube.json; sourceTree = "<group>"; };
 		D69B3056220382DC00E66AE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 				D64B5909233D10A00096CF74 /* PDFLoadViewController.swift */,
 				D68A32602346353300B62C5E /* AboutViewController.swift */,
 				D66A8A0D2348825A00AB9917 /* PrivacyViewController.swift */,
+				D66A8A112348A40900AB9917 /* Common.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -732,6 +737,7 @@
 				D6FA299823326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */,
 				D61D3A9521EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D6D6A20F21ECC5A200B822F8 /* AppDelegate.swift in Sources */,
+				D66A8A122348A40900AB9917 /* Common.swift in Sources */,
 				D662420C23015E9F00261081 /* ArticleWebViewController.swift in Sources */,
 				D6FA299423326B2E00703DE7 /* NoticeCollectionViewCell.swift in Sources */,
 				D6400903233781500086064E /* ImagePresentViewController.swift in Sources */,
@@ -758,6 +764,7 @@
 				D68A32622346353300B62C5E /* AboutViewController.swift in Sources */,
 				D61D3A9621EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D60EBF3221ED0CDF00DAC538 /* Article.swift in Sources */,
+				D66A8A132348A40900AB9917 /* Common.swift in Sources */,
 				D6F392BA22D5FB5900CE50D1 /* Events.swift in Sources */,
 				D6FA299523326B2E00703DE7 /* NoticeCollectionViewCell.swift in Sources */,
 				D6400904233781500086064E /* ImagePresentViewController.swift in Sources */,
@@ -780,6 +787,7 @@
 				D6F392BF22D604DC00CE50D1 /* EventsViewController.swift in Sources */,
 				D664F31F22AF9F62002D6E0F /* Utilities.swift in Sources */,
 				D6313DC92292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
+				D66A8A142348A40900AB9917 /* Common.swift in Sources */,
 				D64B590C233D10A00096CF74 /* PDFLoadViewController.swift in Sources */,
 				D6F392BB22D5FB5900CE50D1 /* Events.swift in Sources */,
 				D6400905233781500086064E /* ImagePresentViewController.swift in Sources */,
@@ -952,7 +960,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TheMitPost/TheMitPost.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = N7MCZ8UJRF;
 				INFOPLIST_FILE = TheMitPost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -960,7 +968,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ramathmika.ThePost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -975,7 +983,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TheMitPost/TheMitPost.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = N7MCZ8UJRF;
 				INFOPLIST_FILE = TheMitPost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -983,7 +991,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ramathmika.ThePost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
