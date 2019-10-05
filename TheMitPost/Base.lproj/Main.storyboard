@@ -98,9 +98,9 @@
                                     <outlet property="dateLabelView" destination="8aQ-OJ-eI1" id="QQ7-0h-CYp"/>
                                     <outlet property="messageLabelView" destination="ntH-Sv-qlV" id="kpk-Iw-pRk"/>
                                     <outlet property="titleLabelView" destination="j4h-OU-WGP" id="swe-jc-PPy"/>
-                                    <segue destination="bI4-qh-96K" kind="show" identifier="articleViewSegue" id="8dR-2C-g2L">
-                                        <segue key="commit" inheritsFrom="parent" id="fAE-rS-vPz"/>
-                                        <segue key="preview" inheritsFrom="commit" id="Ie0-l9-Iwi"/>
+                                    <segue destination="bI4-qh-96K" kind="show" identifier="articleViewSegue" id="nQq-1V-BrB">
+                                        <segue key="commit" inheritsFrom="parent" id="nl6-jw-ncB"/>
+                                        <segue key="preview" inheritsFrom="commit" id="yW3-Ja-NOI"/>
                                     </segue>
                                 </connections>
                             </collectionViewCell>
@@ -126,14 +126,14 @@
         <!--Writing-->
         <scene sceneID="enr-fq-N9X">
             <objects>
-                <viewController title="Writing" id="bI4-qh-96K" customClass="ArticleWebViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="articleWeb" title="Writing" id="bI4-qh-96K" customClass="ArticleWebViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OC9-tn-UMV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qY1-K1-Gas">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -150,13 +150,17 @@
                         <viewLayoutGuide key="safeArea" id="ijF-Qs-Vpt"/>
                     </view>
                     <navigationItem key="navigationItem" id="ysi-dE-cYJ"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="heroModalAnimationTypeString" value="fade"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="articleWebView" destination="qY1-K1-Gas" id="voZ-qN-x4X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p4V-Fz-n7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2688.8000000000002" y="-524.6305418719212"/>
+            <point key="canvasLocation" x="2495" y="-523"/>
         </scene>
         <!--The Post-->
         <scene sceneID="wg7-f3-ORb">
@@ -3266,7 +3270,7 @@ AABtAAAAAAAAAAAAAAAAAAEs0w
     <inferredMetricsTieBreakers>
         <segue reference="ubl-fz-kAk"/>
         <segue reference="xU1-wR-som"/>
-        <segue reference="8dR-2C-g2L"/>
+        <segue reference="nQq-1V-BrB"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.82020246478873238" green="0.23085214714788729" blue="0.28020466549295775" alpha="0.80344960387323938" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

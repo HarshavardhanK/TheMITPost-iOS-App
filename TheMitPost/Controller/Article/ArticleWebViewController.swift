@@ -10,9 +10,10 @@ import UIKit
 import WebKit
 import SafariServices
 
+import Hero
 import NVActivityIndicatorView
 
-class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebViewDelegate {
+class ArticleWebViewController: UIViewController, UINavigationControllerDelegate, WKNavigationDelegate, UIWebViewDelegate {
     
     let API = "https://app.themitpost.com/posts/render/"
     var url: String?
@@ -29,11 +30,23 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebVie
     
     var activityIndicator: NVActivityIndicatorView?
     
+    fileprivate let heroTransition = HeroTransition()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hero.isEnabled = true
+        //self.navigationController?.delegate = self
+       // self.navigationController?.hero.navigationAnimationType = .selectBy(presenting: .zoomOut, dismissing: .zoomSlide(direction: .right))
+        
         if let category_ = category {
             self.title = String.init(htmlEncodedString: category_)
+        }
+        
+        if traitCollection.userInterfaceStyle == .dark {
+            articleWebView.backgroundColor = .background
+        } else {
+            articleWebView.backgroundColor = .white
         }
         
         activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.width / 2, y: self.view.frame.height / 2, width: 40, height: 40))
