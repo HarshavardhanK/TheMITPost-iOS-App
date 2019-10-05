@@ -96,11 +96,17 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     //MARK: CREATE EMPTY VIEW
     let emptyImageView = AnimationView(name: "empty-box")
+    var emptyLabel = UILabel()
     var refreshButton = UIButton()
     
     func emptyView(action: String) {
         
         if action == "make" {
+            
+            emptyLabel = UILabel(frame: CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 - 90, width: 200, height: 30))
+            emptyLabel.center.x = self.view.center.x
+            emptyLabel.text = "Could not fetch articles.."
+            self.view.addSubview(emptyLabel)
             
             emptyImageView.frame = CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 - 100, width: 250, height: 250)
             emptyImageView.center.x = self.view.center.x
@@ -125,6 +131,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             print("removing empty views")
             emptyImageView.removeFromSuperview()
             refreshButton.removeFromSuperview()
+            emptyLabel.removeFromSuperview()
             
         }
         
@@ -147,6 +154,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 
             } else {
                 self.emptyView(action: "make")
+                self.stopActivityIndicator()
             }
         }
         
@@ -162,7 +170,10 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             guard let resultValue = response_.result.value else {
                 //MARK: Data connection banner
                 
-                let banner = StatusBarNotificationBanner(title: "Snap! Check your internet connection", style: .danger)
+                self.stopActivityIndicator()
+                self.refreshControl.endRefreshing()
+                
+                let banner = StatusBarNotificationBanner(title: "Oops! Check your internet connection", style: .danger)
                 banner.haptic = .heavy
                 banner.show()
                 
