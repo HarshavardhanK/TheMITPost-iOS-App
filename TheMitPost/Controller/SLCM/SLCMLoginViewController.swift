@@ -600,6 +600,8 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             let banner = NotificationBanner(title: "Well..", subtitle: "We will not be able to send you notifications about your SLCM updates!", style: .danger)
             banner.show()
             
+            UserDefaults.standard.set(false, forKey: "notFirstTime")
+            
             
         }
     }

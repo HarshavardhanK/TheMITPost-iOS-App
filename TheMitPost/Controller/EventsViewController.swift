@@ -8,6 +8,7 @@
 
 import UIKit
 
+import NotificationBannerSwift
 import Lottie
 import NVActivityIndicatorView
 import SwiftyJSON
@@ -51,10 +52,7 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             if !success {
                 
-                let emptyImageView = UIImageView(image: UIImage(named: "post-empty"))
-                emptyImageView.frame = CGRect(origin: self.view.bounds.origin, size: CGSize(width: 300, height: 237))
-                
-                self.view.addSubview(emptyImageView)
+                self.emptyView(action: "make")
             }
             
         }
@@ -82,11 +80,17 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     //MARK: CREATE EMPTY VIEW
     let emptyImageView = AnimationView(name: "empty-box")
+    var emptyLabel = UILabel()
     var refreshButton = UIButton()
-
+    
     func emptyView(action: String) {
         
         if action == "make" {
+            
+            emptyLabel = UILabel(frame: CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 - 90, width: 200, height: 30))
+            emptyLabel.center.x = self.view.center.x
+            emptyLabel.text = "Could not fetch events.."
+            self.view.addSubview(emptyLabel)
             
             emptyImageView.frame = CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 - 100, width: 250, height: 250)
             emptyImageView.center.x = self.view.center.x
@@ -111,23 +115,30 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
             print("removing empty views")
             emptyImageView.removeFromSuperview()
             refreshButton.removeFromSuperview()
+            emptyLabel.removeFromSuperview()
             
         }
         
     }
-
+    
     @objc func refresh() {
         
         emptyView(action: "remove")
-        //startActivityIndicator()
+        startActivityIndicator()
         
         retrieveEvents { (success) in
             
             if success {
-                self.stopActivityIndicator()
+                
+                let banner = StatusBarNotificationBanner(title: "Great! Internet connection is back", style: .success)
+                banner.show()
+                banner.haptic = .light
+                
+                self.emptyView(action: "remove")
                 
             } else {
                 self.emptyView(action: "make")
+                self.stopActivityIndicator()
             }
         }
         
@@ -246,6 +257,14 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
             self.events = [Events]()
             
             guard let resultValue = response_.result.value else {
+                
+                self.stopActivityIndicator()
+                self.refreshControl.endRefreshing()
+                
+                let banner = NotificationBanner(title: "Oops! Check your internet connection", style: .danger)
+                banner.haptic = .heavy
+                banner.show()
+                
                 completion(false)
                 return
             }

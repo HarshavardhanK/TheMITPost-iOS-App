@@ -7,6 +7,8 @@
 //
 
 import UIKit
+
+import NotificationBannerSwift
 import FoldingCell
 
 
@@ -21,7 +23,14 @@ class SLCMTableViewController: UITableViewController {
         super.viewDidLoad()
         
         mode()
-
+        
+        if !UserDefaults.standard.bool(forKey: "notFirstTime") {
+            let banner = NotificationBanner(title: "Knock knock", subtitle: "Tap on a cell to view more details", style: .info)
+            banner.show(bannerPosition: .bottom)
+            
+            UserDefaults.standard.set(true, forKey: "notFirstTime")
+        }
+        
         setup()
         print("View loaded..")
         print(subjects.count)

@@ -636,7 +636,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWr-4V-1XK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3125.5999999999999" y="-1405.4187192118227"/>
+            <point key="canvasLocation" x="2626" y="-1405"/>
         </scene>
         <!--The Post-->
         <scene sceneID="hbg-OF-Qkx">
@@ -1591,7 +1591,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBe-eI-gZ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5016.8000000000002" y="-1771.1822660098524"/>
+            <point key="canvasLocation" x="5097" y="-1816"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="SdM-9i-jmQ">
@@ -1933,7 +1933,11 @@
                         <constraints>
                             <constraint firstItem="PT8-7R-pXp" firstAttribute="bottom" secondItem="r2e-Vs-HZL" secondAttribute="bottom" id="51r-tW-Zvx"/>
                             <constraint firstItem="PT8-7R-pXp" firstAttribute="trailing" secondItem="r2e-Vs-HZL" secondAttribute="trailing" id="Klc-ZZ-8r7"/>
+                            <constraint firstItem="PT8-7R-pXp" firstAttribute="leading" secondItem="r2e-Vs-HZL" secondAttribute="leading" id="Mr9-Yr-ngK"/>
+                            <constraint firstItem="PT8-7R-pXp" firstAttribute="bottom" secondItem="r2e-Vs-HZL" secondAttribute="bottom" id="OCm-Mr-62c"/>
                             <constraint firstItem="PT8-7R-pXp" firstAttribute="leading" secondItem="r2e-Vs-HZL" secondAttribute="leading" id="UcL-FH-aZq"/>
+                            <constraint firstItem="PT8-7R-pXp" firstAttribute="top" secondItem="r2e-Vs-HZL" secondAttribute="top" id="dtM-2A-s0x"/>
+                            <constraint firstItem="PT8-7R-pXp" firstAttribute="trailing" secondItem="r2e-Vs-HZL" secondAttribute="trailing" id="hv0-H4-rgt"/>
                             <constraint firstItem="PT8-7R-pXp" firstAttribute="top" secondItem="r2e-Vs-HZL" secondAttribute="top" id="qRV-WS-G82"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r2e-Vs-HZL"/>
