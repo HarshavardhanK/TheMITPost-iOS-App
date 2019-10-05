@@ -347,7 +347,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
             
             let sheet = MDCBottomSheetController(contentViewController: menuController)
-            sheet.preferredContentSize = CGSize(width: self.view.frame.width, height: 400.0)
+            sheet.preferredContentSize = CGSize(width: self.view.frame.width, height: 365.0)
             present(sheet, animated: true, completion: nil)
             
         } else {
@@ -357,7 +357,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
             
             let sheet = MDCBottomSheetController(contentViewController: menuController)
-            sheet.preferredContentSize = CGSize(width: self.view.frame.width, height: 400.0)
+            sheet.preferredContentSize = CGSize(width: self.view.frame.width, height: 365.0)
             present(sheet, animated: true, completion: nil)
             
         }

@@ -22,13 +22,16 @@ class AboutViewController: UIViewController {
     @IBOutlet var instagramHandle: UIImageView!
     @IBOutlet var facebookHandle: UIImageView!
     
+    @IBOutlet var privacyPolicyButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mode()
         // Do any additional setup after loading the view.
+        privacyPolicyButton.layer.cornerRadius = 8
         self.view.layer.cornerRadius = 20
-        self.topThingView.layer.cornerRadius = self.topThingView.frame.width / 2 - 10
+        //self.topThingView.layer.cornerRadius = self.topThingView.frame.width / 2 - 10
         
         //MARK: Round Image
         self.clubImageView.backgroundColor = .white
@@ -102,9 +105,9 @@ class AboutViewController: UIViewController {
             if traitCollection.userInterfaceStyle == .dark {
                 
                 view.backgroundColor = .background
-                topThingView.backgroundColor = .white
+                topThingView.backgroundColor = .black
                 
-                developerImageView.layer.borderColor = UIColor.black.cgColor
+                developerImageView.layer.borderColor = UIColor.white.cgColor
                 developerImageView.backgroundColor = .background
                 clubImageView.layer.borderColor = UIColor.white.cgColor
                 clubImageView.backgroundColor = .background
@@ -112,11 +115,11 @@ class AboutViewController: UIViewController {
             } else {
                 
                 view.backgroundColor = .white
-                topThingView.backgroundColor = .lightGray
+                topThingView.backgroundColor = .white
                 
                 developerImageView.layer.borderColor = UIColor.lightGray.cgColor
                 developerImageView.backgroundColor = .white
-                clubImageView.layer.borderColor = UIColor.black.cgColor
+                clubImageView.layer.borderColor = UIColor.lightGray.cgColor
                 clubImageView.backgroundColor = .white
                 
             }
