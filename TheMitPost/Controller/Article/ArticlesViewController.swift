@@ -8,6 +8,9 @@
 
 import UIKit
 
+import NotificationBannerSwift
+import MaterialComponents
+import NVActivityIndicatorView
 import Alamofire
 import SwiftyJSON
 import Lottie
@@ -15,6 +18,11 @@ import SDWebImage
 
 
 class ArticlesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate {
+    
+    @IBAction func menuButtonAction(_ sender: Any) {
+        
+        presentBottomMenu()
+    }
     
     let API = "https://app.themitpost.com/posts";
     var articlesList = [Article]()
@@ -42,6 +50,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         super.viewDidLoad()
         
         mode()
+        startActivityIndicator()
         
         articleCollectionView.dataSource = self
         articleCollectionView.delegate = self
@@ -53,11 +62,15 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
       
         retrieveArticles { (success) in
             
+            
             if !success {
                 
                 //create a Lottie animation here
-                self.createEmptyView()
+                self.emptyView(action: "make")
+                self.stopActivityIndicator()
                 
+            } else {
+                self.stopActivityIndicator()
             }
             
         }
@@ -66,23 +79,80 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
-    //MARK: CREATE LOTTIE VIEW
-    func createEmptyView() {
-        let emptyImageView = AnimationView(name: "empty-box")
-        emptyImageView.frame = CGRect(origin: self.view.center, size: CGSize(width: 300, height: 237))
-        emptyImageView.center = self.view.center
+    //MARK: CREATE LOADING VIEW
+    var activityIndicator: NVActivityIndicatorView!
+    func startActivityIndicator() {
         
-        self.view.addSubview(emptyImageView)
-        emptyImageView.play()
+        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.width / 2, y: self.view.frame.height / 2, width: 50, height: 50), type: .circleStrokeSpin, color: .lightGray, padding: 0)
+        activityIndicator.center = self.view.center
+        self.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
+    }
+    
+    //MARK: CREATE EMPTY VIEW
+    let emptyImageView = AnimationView(name: "empty-box")
+    var refreshButton = UIButton()
+    
+    func emptyView(action: String) {
         
-        let label = UILabel(frame: CGRect(x: self.view.frame.width / 2 - 50, y: self.view.frame.height / 2 + 200, width: 200, height: 30))
-        label.text = "Pull to refresh"
-        self.view.addSubview(label)
+        if action == "make" {
+            
+            emptyImageView.frame = CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 - 100, width: 250, height: 250)
+            emptyImageView.center.x = self.view.center.x
+            
+            self.view.addSubview(emptyImageView)
+            emptyImageView.play()
+            
+            refreshButton = UIButton(frame: CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 + 150, width: 150, height: 30))
+            refreshButton.center.x = self.view.center.x
+            refreshButton.layer.cornerRadius = 8
+            refreshButton.backgroundColor = .systemGray
+            refreshButton.setTitle("Tap to refresh", for: .normal)
+            refreshButton.addTarget(self, action: #selector(refresh), for: .touchUpInside)
+            
+            self.view.addSubview(refreshButton)
+            
+        }
+        
+        
+        else if action == "remove" {
+            
+            print("removing empty views")
+            emptyImageView.removeFromSuperview()
+            refreshButton.removeFromSuperview()
+            
+        }
+        
+    }
+    
+    @objc func refresh() {
+        
+        emptyView(action: "remove")
+        startActivityIndicator()
+        
+        retrieveArticles { (success) in
+            
+            if success {
+                
+                let banner = StatusBarNotificationBanner(title: "Great! Internet connection is back", style: .success)
+                banner.show()
+                banner.haptic = .light
+                
+                self.emptyView(action: "remove")
+                
+            } else {
+                self.emptyView(action: "make")
+            }
+        }
+        
     }
     
     //MARK:- FETCH ARTICLES
-    
-    
     var selectedArticle: Article?
     
     private func retrieveArticles(completion: @escaping (Bool) -> ()) {
@@ -90,6 +160,12 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         Alamofire.request(API, method: .get).responseJSON { response_ in
             
             guard let resultValue = response_.result.value else {
+                //MARK: Data connection banner
+                
+                let banner = StatusBarNotificationBanner(title: "Snap! Check your internet connection", style: .danger)
+                banner.haptic = .heavy
+                banner.show()
+                
                 completion(false)
                 return
             }
@@ -97,6 +173,8 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             self.articlesList = [Article]()
             
             self.parseArticleResult(result: JSON(resultValue))
+            
+            self.stopActivityIndicator()
             
             self.articleCollectionView.reloadData()
             self.refreshControl.endRefreshing()
@@ -311,7 +389,35 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             print("Unwinding back to articles list")
         }
     }
-
+    
+    //MARK: Bottom Settings View
+   
+    func presentBottomMenu() {
+        
+        if #available(iOS 13, *) {
+            
+            guard let menuController = storyboard?.instantiateViewController(identifier: "menu") as? AboutViewController else {
+                return
+            }
+            
+            let sheet = MDCBottomSheetController(contentViewController: menuController)
+            sheet.preferredContentSize = CGSize(width: self.view.frame.width, height: 365.0)
+            present(sheet, animated: true, completion: nil)
+            
+        } else {
+            
+            guard let menuController = storyboard?.instantiateViewController(withIdentifier: "menu") as? AboutViewController else {
+                return
+            }
+            
+            let sheet = MDCBottomSheetController(contentViewController: menuController)
+            sheet.preferredContentSize = CGSize(width: self.view.frame.width, height: 365.0)
+            present(sheet, animated: true, completion: nil)
+            
+        }
+        
+        
+    }
 
 }
 

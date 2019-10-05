@@ -23,7 +23,7 @@ class SLCMSettingsViewController: UIViewController {
     @IBOutlet var lottieSettingsView: AnimationView!
     
     @IBOutlet var biometricLottieView: AnimationView!
-    @IBOutlet var jumboLottieView: AnimationView!
+  //  @IBOutlet var jumboLottieView: AnimationView!
     
     @IBOutlet weak var topThingView: UIView!
     
@@ -105,7 +105,7 @@ class SLCMSettingsViewController: UIViewController {
         
         lottieSettingsView.play()
         biometricLottieView.play()
-        jumboLottieView.play()
+        //jumboLottieView.play()
         
         if UserDefaults.standard.bool(forKey: "biometricEnabled") {
             biometricSwitch.setOn(true, animated: true)
@@ -137,7 +137,7 @@ class SLCMSettingsViewController: UIViewController {
                 view.backgroundColor = .background
                 lottieSettingsView.backgroundColor = .background
                 biometricLottieView.backgroundColor = .background
-                jumboLottieView.backgroundColor = .background
+               // jumboLottieView.backgroundColor = .background
                 settingLabel.backgroundColor = .background
                 biometricTypeLabel.backgroundColor = .background
                 
@@ -146,7 +146,7 @@ class SLCMSettingsViewController: UIViewController {
                 view.backgroundColor = .white
                 lottieSettingsView.backgroundColor = .white
                 biometricLottieView.backgroundColor = .white
-                jumboLottieView.backgroundColor = .white
+                //jumboLottieView.backgroundColor = .white
                 settingLabel.backgroundColor = .white
                 biometricTypeLabel.backgroundColor = .white
                 

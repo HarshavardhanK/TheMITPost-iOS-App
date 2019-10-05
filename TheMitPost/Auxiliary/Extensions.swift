@@ -63,6 +63,10 @@ extension Date {
     
     static func noticesDateFromString(strDate: String) -> String {
         
+        if strDate.count == 0 {
+            return "10 Oct"
+        }
+        
         let _ = String(strDate.prefix(2))
         let day = String(strDate.suffix(2))
         

@@ -17,12 +17,14 @@ class PDFLoadViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("PDF view controller")
 
         // Do any additional setup after loading the view.
         
         if let url_ = url {
-                pdfWebView.load(URLRequest(url: url_))
-            }
+            pdfWebView.load(URLRequest(url: url_))
         }
     }
+}
 

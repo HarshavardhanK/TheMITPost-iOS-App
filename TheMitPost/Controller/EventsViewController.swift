@@ -8,6 +8,8 @@
 
 import UIKit
 
+import Lottie
+import NVActivityIndicatorView
 import SwiftyJSON
 import Alamofire
 
@@ -38,6 +40,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.viewDidLoad()
         
         mode()
+        
+        startActivityIndicator()
 
         eventsCollectionView.delegate = self
         eventsCollectionView.dataSource = self
@@ -56,6 +60,76 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
         
         refreshControl.addTarget(self, action: #selector(refreshEvents), for: .valueChanged)
+        
+    }
+    
+    //MARK: ACTIVITY INDICATOR
+    var activityIndicator: NVActivityIndicatorView!
+    func startActivityIndicator() {
+        
+        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.width / 2, y: self.view.frame.height / 2, width: 45, height: 45), type: .cubeTransition, color: .lightGray, padding: 0)
+        activityIndicator.center = self.view.center
+        self.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
+    }
+    
+    //MARK: EMPTY LOTTIE VIEW
+    
+    //MARK: CREATE EMPTY VIEW
+    let emptyImageView = AnimationView(name: "empty-box")
+    var refreshButton = UIButton()
+
+    func emptyView(action: String) {
+        
+        if action == "make" {
+            
+            emptyImageView.frame = CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 - 100, width: 250, height: 250)
+            emptyImageView.center.x = self.view.center.x
+            
+            self.view.addSubview(emptyImageView)
+            emptyImageView.play()
+            
+            refreshButton = UIButton(frame: CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 + 150, width: 150, height: 30))
+            refreshButton.center.x = self.view.center.x
+            refreshButton.layer.cornerRadius = 8
+            refreshButton.backgroundColor = .systemGray
+            refreshButton.setTitle("Tap to refresh", for: .normal)
+            refreshButton.addTarget(self, action: #selector(refresh), for: .touchUpInside)
+            
+            self.view.addSubview(refreshButton)
+            
+        }
+        
+        
+        else if action == "remove" {
+            
+            print("removing empty views")
+            emptyImageView.removeFromSuperview()
+            refreshButton.removeFromSuperview()
+            
+        }
+        
+    }
+
+    @objc func refresh() {
+        
+        emptyView(action: "remove")
+        //startActivityIndicator()
+        
+        retrieveEvents { (success) in
+            
+            if success {
+                self.stopActivityIndicator()
+                
+            } else {
+                self.emptyView(action: "make")
+            }
+        }
         
     }
     
@@ -84,6 +158,11 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
                 eventsCollectionView.backgroundColor = .white
                 
             }
+            
+        } else {
+            self.navigationController?.navigationBar.barTintColor = .white
+            self.tabBarController?.tabBar.barTintColor = .white
+            
         }
     }
     
@@ -112,18 +191,7 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         return cell
         
     }
-    
-//    @objc func eventImagePressed(_ sender: Any) {
-//        print("Event image tapped like an ass")
-//        if #available(iOS 13.0, *) {
-//            let imagePresentVC = storyboard?.instantiateViewController(identifier: "imagePresent") as! ImagePresentViewController
-//        } else {
-//            // Fallback on earlier versions
-//        }
-//        imagePresentVC.image_url =
-//        present(imagePresentVC, animated: true, completion: nil)
-//        //self.performSegue(withIdentifier: "detailEvent", sender: sender)
-//    }
+
     
     //MARK: TABLE VIEW ANIMATION
     
@@ -156,6 +224,11 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return CGFloat(30)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(width: view.bounds.width - (EventViewCell.cellPadding), height: 450)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -199,6 +272,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
             self.eventShown = [Bool](repeatElement(false, count: self.events.count + 1))
             
             self.refreshControl.endRefreshing()
+            
+            self.stopActivityIndicator()
             
             self.eventsCollectionView.reloadData()
         }

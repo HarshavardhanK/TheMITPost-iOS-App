@@ -7,6 +7,9 @@
 //
 
 import UIKit
+
+import Lottie
+import NVActivityIndicatorView
 import Alamofire
 import SwiftyJSON
 
@@ -17,6 +20,8 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
     @IBOutlet weak var noticesCollectionView: UICollectionView!
     
     var notices = [Notice]()
+    var noticesShown = [Bool]()
+    
     let refreshControl = UIRefreshControl()
     
     //MARK: VIEW WILL DID APPEAR
@@ -33,12 +38,13 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
 
         // Do any additional setup after loading the view.
         mode()
+        startActivityIndicator()
         retrieveNotices()
         
         let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = CGSize(width: NoticeTextCollectionViewCell.width, height: 120)
+        layout.estimatedItemSize = CGSize(width: NoticeImageCollectionViewCell.width, height: 120.0)
         
-        noticesCollectionView.collectionViewLayout = layout
+       // noticesCollectionView.collectionViewLayout = layout
         noticesCollectionView.delegate = self
         noticesCollectionView.dataSource = self
         
@@ -46,7 +52,36 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         
         refreshControl.addTarget(self, action: #selector(refreshNotices), for: .valueChanged)
         
+    }
+    
+    //MARK: ACTIVITY INDICATOR VIEW
+    var activityIndicator: NVActivityIndicatorView!
+    func startActivityIndicator() {
         
+        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.frame.width / 2, y: self.view.frame.height / 2, width: 50, height: 50), type: .ballRotateChase, color: .lightGray, padding: 0)
+        activityIndicator.center = self.view.center
+        self.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
+    }
+    
+    //MARK: EMPTY LOTTIE VIEW
+    func createEmptyView() {
+        
+        let emptyImageView = AnimationView(name: "empty-box")
+        emptyImageView.frame = CGRect(origin: self.view.center, size: CGSize(width: 300, height: 237))
+        emptyImageView.center = self.view.center
+        
+        self.view.addSubview(emptyImageView)
+        emptyImageView.play()
+        
+        let label = UILabel(frame: CGRect(x: self.view.frame.width / 2 - 50, y: self.view.frame.height / 2 + 200, width: 200, height: 30))
+        label.text = "Pull to refresh"
+        self.view.addSubview(label)
     }
     
     //MARK: THEME MODE
@@ -74,6 +109,11 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                 noticesCollectionView.backgroundColor = .white
                 
             }
+            
+        } else {
+            self.navigationController?.navigationBar.barTintColor = .white
+            self.tabBarController?.tabBar.barTintColor = .white
+            
         }
     }
     
@@ -97,20 +137,22 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             if response["status"] != "OK" {
                 print("error")
                 
-                self.refreshControl.endRefreshing()
-                
             } else {
                 
                 let data = response["data"].arrayValue
                 
                 self.notices = parseNotices(data: data)
-                
-                self.noticesCollectionView.reloadData()
-                
+            
                 print("Successfully loaded data")
                 
-                self.refreshControl.endRefreshing()
+                self.noticesShown = [Bool](repeating: false, count: self.notices.count)
+                
             }
+            
+            self.stopActivityIndicator()
+            
+            self.refreshControl.endRefreshing()
+            self.noticesCollectionView.reloadData()
             
             print("\(self.notices.count) notices retrieved")
         }
@@ -135,7 +177,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                 
                 print("image notice")
                 
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! NoticeImageCollectionViewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "textCell", for: indexPath) as! NoticeTextCollectionViewCell
                 
                 cell.url = notice.getComponentURL
                 cell.titleText = notice.title
@@ -167,7 +209,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             cell.titleText = notice.title
             cell.contentText = notice.content
             cell.dateText = notice.date
-            
+            cell.arrowImageView.alpha = 0
             cell.isUserInteractionEnabled = false
             
             return cell
@@ -176,12 +218,42 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if noticesShown[indexPath.row] == false {
+            
+            let transform = CATransform3DTranslate(CATransform3DIdentity, 0, 80, 10)
+            cell.layer.transform = transform
+            cell.alpha = 0.4
+            
+            
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: [.curveEaseOut, .allowUserInteraction], animations: {
+                
+                cell.layer.transform = CATransform3DIdentity
+                cell.alpha = 1.0
+                
+            }) { (true) in
+                print("Animation complete")
+                
+            }
+            
+            noticesShown[indexPath.row] = true
+            
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 15.0
+        return CGFloat(10)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(width: view.bounds.width - (EventViewCell.cellPadding), height: 150)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 30.0, left: 20.0, bottom: 0, right: 20.0)
+        
+        return UIEdgeInsets(top: EventViewCell.cellPadding + 20, left: EventViewCell.cellPadding + 20, bottom: EventViewCell.cellPadding + 20, right: EventViewCell.cellPadding + 20)
     }
     
     //MARK: SEGUE
