@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     var window: UIWindow?
     var storyBoard: UIStoryboard!
+    
+    let notificationType = "gcm.notification.type"
+    let gcmMessageIDKey = "gcm.message_id"
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -33,10 +36,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             UNUserNotificationCenter.current().delegate = self
 
           let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-          UNUserNotificationCenter.current().requestAuthorization(
+            
+          UNUserNotificationCenter.current().requestAuthorization (
+            
             options: authOptions,
             completionHandler: {_, _ in })
+            
         } else {
+            
           let settings: UIUserNotificationSettings =
           UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
           application.registerUserNotificationSettings(settings)
@@ -47,22 +54,159 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         Messaging.messaging().delegate = self
         
         InstanceID.instanceID().instanceID { (result, error) in
+            
           if let error = error {
             print("Error fetching remote instance ID: \(error)")
+            
           } else if let result = result {
+            
             print("Remote instance ID token: \(result.token)")
             UserDefaults.standard.set(result.token, forKey: "token")
+            
            // self.instanceIDTokenMessage.text  = "Remote InstanceID token: \(result.token)"
           }
+            
         }
 
+        //MARK: Subscribe to notices
+        Messaging.messaging().subscribe(toTopic: "notice") { error in
+          print("Subscribed to notice topic")
+        }
         
+        Messaging.messaging().subscribe(toTopic: "general") { error in
+          print("Subscribed to general topic")
+        }
+        
+        let notificationOption = launchOptions?[.remoteNotification]
+        
+        if let notification = notificationOption as? [String: Any] {
+            
+            print(notification)
+            
+            if let type = notification["gcm.notification.type"] as? String {
+              
+               print(type)
+                
+                if type == "slcm" {
+                    (window?.rootViewController as? UITabBarController)?.selectedIndex = 1
+                    
+                } else if type == "notice" {
+                    (window?.rootViewController as? UITabBarController)?.selectedIndex = 2
+                    
+                } else if type == "event" {
+                    (window?.rootViewController as? UITabBarController)?.selectedIndex = 3
+                    
+                } else {
+                    (window?.rootViewController as? UITabBarController)?.selectedIndex = 0
+                }
+            }
+            
+            application.applicationIconBadgeNumber = 0
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        }
         
         return true
     }
     
     func applicationReceivedRemoteMessage(_ remoteMessage: MessagingRemoteMessage) {
         print(remoteMessage.appData)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        completionHandler([.alert])
+        
+        print("Notification received in foreground")
+        
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let userInfo = response.notification.request.content.userInfo
+        
+        if let type = userInfo["gcm.notification.type"] as? String {
+            
+            print(type)
+            
+            if type == "slcm" {
+                (window?.rootViewController as? UITabBarController)?.selectedIndex = 1
+                
+                
+                
+            } else if type == "notice" {
+                (window?.rootViewController as? UITabBarController)?.selectedIndex = 2
+                
+            } else if type == "event" {
+                (window?.rootViewController as? UITabBarController)?.selectedIndex = 3
+                
+            } else {
+                (window?.rootViewController as? UITabBarController)?.selectedIndex = 0
+            }
+        }
+        
+        
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+      // If you are receiving a notification message while your app is in the background,
+      // this callback will not be fired till the user taps on the notification launching the application.
+      // TODO: Handle data of notification
+      // With swizzling disabled you must let Messaging know about the message, for Analytics
+      // Messaging.messaging().appDidReceiveMessage(userInfo)
+      // Print message ID.
+      if let messageID = userInfo[gcmMessageIDKey] {
+        print("Message ID: \(messageID)")
+      }
+        
+//      if let type = userInfo["gcm.notification.type"] as? String {
+//
+//        print(type)
+//
+//          if type == "slcm" {
+//              (window?.rootViewController as? UITabBarController)?.selectedIndex = 1
+//
+//          } else if type == "notice" {
+//              (window?.rootViewController as? UITabBarController)?.selectedIndex = 2
+//
+//          } else if type == "event" {
+//              (window?.rootViewController as? UITabBarController)?.selectedIndex = 3
+//
+//          } else {
+//              (window?.rootViewController as? UITabBarController)?.selectedIndex = 0
+//          }
+//      }
+
+      // Print full message.
+      //print(userInfo)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+//        if let messageID = userInfo[gcmMessageIDKey] {
+//            print("Message ID: \(messageID)")
+//        }
+//
+//        print(userInfo)
+//
+//        if let type = userInfo["gcm.notification.type"] as? String {
+//
+//          print(type)
+//
+//            if type == "slcm" {
+//                (window?.rootViewController as? UITabBarController)?.selectedIndex = 1
+//
+//            } else if type == "notice" {
+//                (window?.rootViewController as? UITabBarController)?.selectedIndex = 2
+//
+//            } else if type == "event" {
+//                (window?.rootViewController as? UITabBarController)?.selectedIndex = 3
+//
+//            } else {
+//                (window?.rootViewController as? UITabBarController)?.selectedIndex = 0
+//            }
+//        }
+        
+        completionHandler(UIBackgroundFetchResult.newData)
     }
     
     
