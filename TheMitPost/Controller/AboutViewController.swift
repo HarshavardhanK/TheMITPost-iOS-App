@@ -8,6 +8,9 @@
 
 import UIKit
 
+import MaterialComponents
+import Crashlytics
+
 class AboutViewController: UIViewController {
     
     @IBOutlet var topThingView: UIView!
@@ -27,22 +30,32 @@ class AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let button = UIButton(type: .roundedRect)
+//        button.frame = CGRect(x: 20, y: 250, width: 100, height: 30)
+//        button.setTitle("Crash", for: [])
+//        button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
+//        view.addSubview(button)
+        
+        privacyPolicyButton.addTarget(self, action: #selector(privacyPolicy(_:)), for: .touchUpInside)
+        
         mode()
         // Do any additional setup after loading the view.
         privacyPolicyButton.layer.cornerRadius = 8
+        privacyPolicyButton.layer.shadowRadius = 5
+        
         self.view.layer.cornerRadius = 20
         //self.topThingView.layer.cornerRadius = self.topThingView.frame.width / 2 - 10
         
         //MARK: Round Image
         self.clubImageView.backgroundColor = .white
         self.clubImageView.layer.borderColor = UIColor.white.cgColor
-        self.clubImageView.layer.borderWidth = 0.70
+        self.clubImageView.layer.borderWidth = 0.30
         self.clubImageView.layer.cornerRadius = clubImageView.frame.width / 2
         clubImageView.clipsToBounds = true
         
         self.developerImageView.backgroundColor = .white
         self.developerImageView.layer.borderColor = UIColor.white.cgColor
-        self.developerImageView.layer.borderWidth = 0.70
+        self.developerImageView.layer.borderWidth = 0.30
         self.developerImageView.layer.cornerRadius = developerImageView.frame.width / 2
         
         developerImageView.clipsToBounds = true
@@ -66,9 +79,11 @@ class AboutViewController: UIViewController {
         instagramHandle.isUserInteractionEnabled = true
         instagramHandle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(instagramTap)))
         
-        let devImages = ["harsha1", "harsha2", "harsha3"]
-        let name = devImages[Int(arc4random()) % 3]
-        developerImageView.image = UIImage(named: name)
+        developerImageView.image = UIImage(named: "harsha1")
+    }
+    
+    @IBAction func crashButtonTapped(_ sender: AnyObject) {
+        Crashlytics.sharedInstance().crash()
     }
     
     //MARK: Tap on social media
@@ -107,9 +122,9 @@ class AboutViewController: UIViewController {
                 view.backgroundColor = .background
                 topThingView.backgroundColor = .black
                 
-                developerImageView.layer.borderColor = UIColor.white.cgColor
+                developerImageView.layer.borderColor = UIColor.lightGray.cgColor
                 developerImageView.backgroundColor = .background
-                clubImageView.layer.borderColor = UIColor.white.cgColor
+                clubImageView.layer.borderColor = UIColor.lightGray.cgColor
                 clubImageView.backgroundColor = .background
                 
             } else {
@@ -132,6 +147,50 @@ class AboutViewController: UIViewController {
         super.traitCollectionDidChange(previousTraitCollection)
         
         mode()
+    }
+    
+    @objc func privacyPolicy(_ sender: UIButton) {
+        
+        if #available(iOS 13.0, *) {
+            
+            guard let privacyController = storyboard?.instantiateViewController(identifier: "privacy") as? PrivacyViewController else {
+                return
+            }
+            
+            if traitCollection.userInterfaceStyle == .dark {
+                privacyController.url = URL(string: "https://app.themitpost.com/policy/dark")
+                       
+            } else {
+                privacyController.url = URL(string: "https://app.themitpost.com/policy")
+            }
+            
+            
+            let sheet = MDCBottomSheetController(contentViewController: privacyController)
+            sheet.preferredContentSize = CGSize(width: self.view.frame.width, height: 500.0)
+            
+            present(sheet, animated: true, completion: nil)
+            
+            
+        } else {
+           
+            guard let privacyController = storyboard?.instantiateViewController(withIdentifier: "privacy") as? PrivacyViewController else {
+                return
+            }
+            
+            if traitCollection.userInterfaceStyle == .dark {
+                privacyController.url = URL(string: "https://app.themitpost.com/policy/dark")
+                       
+            } else {
+                privacyController.url = URL(string: "https://app.themitpost.com/policy")
+            }
+            
+            let sheet = MDCBottomSheetController(contentViewController: privacyController)
+            sheet.preferredContentSize = CGSize(width: self.view.frame.width, height: 500.0)
+            
+            present(sheet, animated: true, completion: nil)
+            
+        }
+        
     }
     
 

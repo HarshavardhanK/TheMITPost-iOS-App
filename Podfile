@@ -21,6 +21,12 @@ pod 'NotificationBannerSwift', :git => 'https://github.com/Daltron/NotificationB
 pod 'lottie-ios'
 pod 'CRRefresh' #not using yet
 
+#Crashlytics Pods
+
+pod 'Fabric', '~> 1.10.2'
+pod 'Crashlytics', '~> 3.14.0'
+pod 'Firebase/Analytics'
+
   target 'TheMitPostTests' do
     inherit! :search_paths
     # Pods for testing

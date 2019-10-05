@@ -292,7 +292,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="MIT SLCM" leftItemsSupplementBackButton="YES" id="0cV-Cl-zMr">
                         <barButtonItem key="backBarButtonItem" title="Back" id="O3q-QX-hdx"/>
-                        <barButtonItem key="rightBarButtonItem" title="Log out" image="settings" id="hGl-VU-4La">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" image="menu-button" id="hGl-VU-4La">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="logoutAction:" destination="8rJ-Kc-sve" id="4Ur-uA-Zth"/>
@@ -315,7 +315,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
                 <exit id="shm-tI-rlR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1408.8" y="357.63546798029557"/>
+            <point key="canvasLocation" x="1662" y="358"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -597,19 +597,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4z9-mH-sDL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3780" y="-2073"/>
+            <point key="canvasLocation" x="3126" y="-2185"/>
         </scene>
         <!--Load View Controller-->
         <scene sceneID="7XP-UR-xq4">
             <objects>
                 <viewController id="V4j-TU-srH" customClass="PDFLoadViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eVO-b6-8gF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lci-yn-nT8">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -1362,7 +1362,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDa-nU-tub">
                                 <rect key="frame" x="113" y="168" width="150" height="35"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Z72-4O-eaj"/>
                                     <constraint firstAttribute="height" constant="35" id="lc3-Ri-Ndg"/>
@@ -1371,9 +1371,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="V4j-TU-srH" kind="show" identifier="privacySegue" id="3kX-2p-INQ"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMs-pc-nAt">
                                 <rect key="frame" x="1" y="211" width="375" height="1"/>
@@ -1392,7 +1389,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post_login" translatesAutoresizingMaskIntoConstraints="NO" id="dZV-no-VJz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post_icon" translatesAutoresizingMaskIntoConstraints="NO" id="dZV-no-VJz">
                                 <rect key="frame" x="45" y="44" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="fZO-7J-9X8"/>
@@ -1449,7 +1446,7 @@
                                             <constraint firstAttribute="height" constant="23" id="uOQ-iN-GDs"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MkX-KZ-gey">
@@ -1539,7 +1536,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yxy-Y8-37f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3888.8000000000002" y="-1351.4778325123152"/>
+            <point key="canvasLocation" x="4292" y="-1815"/>
+        </scene>
+        <!--Privacy View Controller-->
+        <scene sceneID="4Pp-fD-3OH">
+            <objects>
+                <viewController storyboardIdentifier="privacy" id="bpY-xM-5RZ" customClass="PrivacyViewController" customModule="TheMitPost" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a6t-AK-AI0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAb-dK-jfd">
+                                <rect key="frame" x="0.0" y="44" width="375" height="456"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="sFZ-5N-HjA"/>
+                                    <constraint firstAttribute="height" constant="456" id="wy9-1b-TSG"/>
+                                </constraints>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topThingGray" translatesAutoresizingMaskIntoConstraints="NO" id="KRe-y7-5Bn">
+                                <rect key="frame" x="167" y="9" width="40" height="5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="6Om-T4-6E5"/>
+                                    <constraint firstAttribute="height" constant="5" id="abq-KE-dcd"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="KRe-y7-5Bn" secondAttribute="trailing" constant="168" id="0TY-l6-NMl"/>
+                            <constraint firstItem="KRe-y7-5Bn" firstAttribute="leading" secondItem="a6t-AK-AI0" secondAttribute="leading" constant="167" id="0hu-vb-hHK"/>
+                            <constraint firstItem="SHJ-Fe-GWR" firstAttribute="bottom" secondItem="KRe-y7-5Bn" secondAttribute="bottom" constant="486" id="CGm-ld-Pvf"/>
+                            <constraint firstItem="lAb-dK-jfd" firstAttribute="top" secondItem="SHJ-Fe-GWR" secondAttribute="top" id="FJQ-hw-Qxj"/>
+                            <constraint firstItem="KRe-y7-5Bn" firstAttribute="top" secondItem="a6t-AK-AI0" secondAttribute="top" constant="9" id="N0D-3s-0T9"/>
+                            <constraint firstItem="lAb-dK-jfd" firstAttribute="trailing" secondItem="SHJ-Fe-GWR" secondAttribute="trailing" id="gGd-BT-Gxg"/>
+                            <constraint firstItem="lAb-dK-jfd" firstAttribute="leading" secondItem="SHJ-Fe-GWR" secondAttribute="leading" id="lLF-YR-3nG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SHJ-Fe-GWR"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="500"/>
+                    <connections>
+                        <outlet property="topThingView" destination="KRe-y7-5Bn" id="ier-zf-ZzU"/>
+                        <outlet property="webView" destination="lAb-dK-jfd" id="sqJ-nj-HyB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JBe-eI-gZ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5016.8000000000002" y="-1771.1822660098524"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="SdM-9i-jmQ">
@@ -1655,7 +1703,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DaS-m5-1hS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4010" y="-618"/>
+            <point key="canvasLocation" x="4292" y="-1366"/>
         </scene>
         <!--Events-->
         <scene sceneID="NW1-Qb-yU4">
@@ -3199,17 +3247,16 @@ AABtAAAAAAAAAAAAAAAAAAEs0w
         <image name="facebook" width="42.666667938232422" height="42.666667938232422"/>
         <image name="github-logo" width="42.666667938232422" height="42.666667938232422"/>
         <image name="graduation" width="21.333333969116211" height="21.333333969116211"/>
-        <image name="harsha1" width="773.33331298828125" height="773.33331298828125"/>
+        <image name="harsha1" width="1160" height="1160"/>
         <image name="instagram" width="42.666667938232422" height="42.666667938232422"/>
         <image name="mahe" width="210" height="234.5"/>
         <image name="megaphone" width="21.333333969116211" height="21.333333969116211"/>
         <image name="menu-button" width="21.333333969116211" height="21.333333969116211"/>
         <image name="next" width="32" height="32"/>
-        <image name="post_login" width="1503" height="1508"/>
+        <image name="post_icon" width="1024" height="585"/>
         <image name="posttabicon" width="21.333333969116211" height="21.333333969116211"/>
         <image name="purge_account" width="270" height="40"/>
         <image name="route" width="64" height="64"/>
-        <image name="settings" width="21.333333969116211" height="21.333333969116211"/>
         <image name="share" width="64" height="64"/>
         <image name="slcm-card-image" width="1198" height="760"/>
         <image name="slcm_login_2" width="190" height="35"/>
@@ -3217,7 +3264,7 @@ AABtAAAAAAAAAAAAAAAAAAEs0w
         <image name="topThingGray" width="40" height="5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3kX-2p-INQ"/>
+        <segue reference="ubl-fz-kAk"/>
         <segue reference="xU1-wR-som"/>
         <segue reference="8dR-2C-g2L"/>
     </inferredMetricsTieBreakers>
