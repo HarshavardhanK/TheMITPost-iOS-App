@@ -61,7 +61,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
         self.hero.isEnabled = true
         self.navigationController?.delegate = self
         
-        self.navigationController?.hero.navigationAnimationType = .selectBy(presenting: .zoomOut, dismissing: .auto)
+        self.navigationController?.hero.navigationAnimationType = .selectBy(presenting: .zoomOut, dismissing: .zoomSlide(direction: .right))
         
         
         mode()

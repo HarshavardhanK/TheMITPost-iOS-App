@@ -17,20 +17,18 @@ class SLCMSettingsViewController: UIViewController {
     
     
     @IBOutlet var settingLabel: UILabel!
-    @IBOutlet var biometricTypeLabel: UILabel!
-    @IBOutlet weak var biometricSwitch: UISwitch!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet var lottieSettingsView: AnimationView!
-    
+    @IBOutlet var biometricButton: UIButton!
     @IBOutlet var biometricLottieView: AnimationView!
   //  @IBOutlet var jumboLottieView: AnimationView!
     
-    @IBOutlet weak var topThingView: UIView!
+    @IBOutlet weak var topThingView: UIImageView!
     
     var biometricLabel: UILabel?
     let context = LAContext()
     
-    @IBAction func biometricSwitchAction(_ sender: UISwitch) {
+    @IBAction func biometricSwitchAction(_ sender: UIButton) {
         
         var laTypeString = "Touch ID"
         
@@ -53,7 +51,7 @@ class SLCMSettingsViewController: UIViewController {
         }
         
         
-        if sender.isOn {
+        /*if sender.isOn {
             
             print("Switch on")
             UserDefaults.standard.set(true, forKey: "biometricEnabled")
@@ -63,7 +61,7 @@ class SLCMSettingsViewController: UIViewController {
             UserDefaults.standard.set(false, forKey: "biometricEnabled")
             print("Switch off")
             biometricLabel?.text = nil
-        }
+        }*/
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,7 +75,7 @@ class SLCMSettingsViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.layer.cornerRadius = 20
-        self.topThingView.layer.cornerRadius = 8
+        //self.topThingView.layer.cornerRadius = 8
         
         mode()
         
@@ -101,18 +99,16 @@ class SLCMSettingsViewController: UIViewController {
             
         }
         
-        biometricTypeLabel.text = laTypeString
-        
         lottieSettingsView.play()
         biometricLottieView.play()
         //jumboLottieView.play()
         
-        if UserDefaults.standard.bool(forKey: "biometricEnabled") {
+        /*if UserDefaults.standard.bool(forKey: "biometricEnabled") {
             biometricSwitch.setOn(true, animated: true)
             
         } else {
             biometricSwitch.setOn(false, animated: true)
-        }
+        }*/
        
         guard let _ = UserDefaults.standard.string(forKey: DEFAULTS.REGISTRATION) else {
             logoutButton.isEnabled = false
@@ -130,8 +126,6 @@ class SLCMSettingsViewController: UIViewController {
         
         if #available(iOS 13, *) {
             
-            biometricTypeLabel.textColor = .secondaryLabel
-            
             if traitCollection.userInterfaceStyle == .dark {
                 
                 view.backgroundColor = .background
@@ -139,7 +133,6 @@ class SLCMSettingsViewController: UIViewController {
                 biometricLottieView.backgroundColor = .background
                // jumboLottieView.backgroundColor = .background
                 settingLabel.backgroundColor = .background
-                biometricTypeLabel.backgroundColor = .background
                 
             } else {
                 
@@ -148,7 +141,6 @@ class SLCMSettingsViewController: UIViewController {
                 biometricLottieView.backgroundColor = .white
                 //jumboLottieView.backgroundColor = .white
                 settingLabel.backgroundColor = .white
-                biometricTypeLabel.backgroundColor = .white
                 
             }
             

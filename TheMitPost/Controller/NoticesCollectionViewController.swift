@@ -111,10 +111,12 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             }
             
         } else {
-            self.navigationController?.navigationBar.barTintColor = .white
+            
+            self.navigationController?.navigationBar.backgroundColor = .systemOrange
             self.tabBarController?.tabBar.barTintColor = .white
             
         }
+        
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

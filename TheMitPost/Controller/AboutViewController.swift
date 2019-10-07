@@ -48,7 +48,7 @@ class AboutViewController: UIViewController {
         
         //MARK: Round Image
         self.clubImageView.backgroundColor = .white
-        self.clubImageView.layer.borderColor = UIColor.white.cgColor
+        self.clubImageView.layer.borderColor = UIColor.lightGray.cgColor
         self.clubImageView.layer.borderWidth = 0.30
         self.clubImageView.layer.cornerRadius = clubImageView.frame.width / 2
         clubImageView.clipsToBounds = true
@@ -126,6 +126,7 @@ class AboutViewController: UIViewController {
                 developerImageView.backgroundColor = .background
                 clubImageView.layer.borderColor = UIColor.lightGray.cgColor
                 clubImageView.backgroundColor = .background
+                privacyPolicyButton.backgroundColor = .background
                 
             } else {
                 
@@ -136,6 +137,7 @@ class AboutViewController: UIViewController {
                 developerImageView.backgroundColor = .white
                 clubImageView.layer.borderColor = UIColor.lightGray.cgColor
                 clubImageView.backgroundColor = .white
+                privacyPolicyButton.backgroundColor = .white
                 
             }
             

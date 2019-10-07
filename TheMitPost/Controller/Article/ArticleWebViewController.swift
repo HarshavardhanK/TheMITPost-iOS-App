@@ -38,6 +38,7 @@ class ArticleWebViewController: UIViewController, UINavigationControllerDelegate
         self.hero.isEnabled = true
         //self.navigationController?.delegate = self
         //self.navigationController?.hero.navigationAnimationType = .selectBy(presenting: .zoomSlide(direction: .left), dismissing: .zoomSlide(direction: .right))
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
         
         if let category_ = category {
             self.title = String.init(htmlEncodedString: category_)
