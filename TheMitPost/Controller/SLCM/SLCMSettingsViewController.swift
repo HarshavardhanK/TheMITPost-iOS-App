@@ -95,7 +95,15 @@ class SLCMSettingsViewController: UIViewController {
     //MARK: Setup Lottie Views
     func setupLottieViews() {
         
-        let names = ["astronaut", "bear", "biking", "fat-cat", "doggie", "funky-chicken", "jumping_girl", "karam", "jumbo-typing", "lumberjack", "body"]
+        var names: [String]
+        
+        if traitCollection.userInterfaceStyle == .dark {
+            names = ["particle-explosion", "astronaut", "vui", "force"]
+            
+        } else {
+            names = ["bear", "biking", "fat-cat", "doggie", "funky-chicken", "jumping_girl", "karam", "jumbo-typing", "lumberjack"]
+        }
+        
         let name = names[Int(arc4random()) % names.count]
         print(name)
         

@@ -91,6 +91,13 @@ class EventViewCell: UICollectionViewCell {
         // Initialization code
         
         mode()
+        
+        let names = ["logo-reveal", "vui", "cube3"]
+        let name = names[Int(arc4random()) % names.count]
+        let animation = Animation.named(name, subdirectory: "Lottie-Files")
+        
+        clubLottieView.animation = animation
+        clubLottieView.loopMode = .loop
         clubLottieView.play()
         
         shadowLayer?.elevation = .cardPickedUp
