@@ -92,7 +92,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             
             emptyLabel = UILabel(frame: CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 - 120, width: 200, height: 30))
             emptyLabel.center.x = self.view.center.x
-            emptyLabel.text = "Could not fetch articles.."
+            emptyLabel.text = "Could not fetch notices.."
             self.view.addSubview(emptyLabel)
             
             emptyImageView.frame = CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 - 100, width: 250, height: 250.0)
@@ -105,6 +105,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             refreshButton.center.x = self.view.center.x
             refreshButton.layer.cornerRadius = 8
             refreshButton.backgroundColor = .systemGray
+            refreshButton.backgroundColor = .clear
             refreshButton.setTitle("Tap to refresh", for: .normal)
             refreshButton.addTarget(self, action: #selector(refresh), for: .touchUpInside)
             

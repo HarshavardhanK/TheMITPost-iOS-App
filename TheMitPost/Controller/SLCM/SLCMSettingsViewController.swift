@@ -67,14 +67,15 @@ class SLCMSettingsViewController: UIViewController {
         let value = UserDefaults.standard.bool(forKey: DEFAULTS.BIOMETRIC_ENABLED)
         
         if value {
+            
             biometricButton.setTitleColor(.systemRed, for: .normal)
             biometricButton.setTitle("Disable " + biometricType(), for: .normal)
+            biometricLabel?.text = biometricType() + " enabled"
             
         } else {
+            
             biometricButton.setTitleColor(.systemBlue, for: .normal)
             biometricButton.setTitle("Require " + biometricType(), for: .normal)
-            
-            biometricLabel?.text = biometricType() + " enabled"
         }
        
         guard let _ = UserDefaults.standard.string(forKey: DEFAULTS.REGISTRATION) else {
@@ -83,6 +84,11 @@ class SLCMSettingsViewController: UIViewController {
         }
         
         print("settings controller loaded")
+        
+        if !UserDefaults.standard.bool(forKey: "settingsFirstTime") {
+            biometricBanner()
+            UserDefaults.standard.set(true, forKey: "settingsFirstTime")
+        }
         
     }
     
@@ -103,6 +109,14 @@ class SLCMSettingsViewController: UIViewController {
         biometricLottieView.loopMode = .loop
         biometricLottieView.play()
         
+    }
+    
+    //MARK: Banners
+    func biometricBanner() {
+        
+        let banner = NotificationBanner(title: "Secure save", subtitle: "You can use " + biometricType() + " to securely login when your credentials are saved on device", style: .info)
+        
+        banner.show(bannerPosition: .top)
     }
     
     //MARK: Biometric type

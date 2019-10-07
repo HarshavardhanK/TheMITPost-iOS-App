@@ -97,6 +97,9 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
     
     @IBAction func signInPressed(_ sender: Any) {
         
+        registrationTextfield.resignFirstResponder()
+        passwordTextfield.resignFirstResponder()
+        
         self.startActivityIndicator()
         
         signInButton.isEnabled = false
@@ -396,8 +399,13 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
     }
     
     //MARK: API CALL
+    enum CALLBACK: String {
+        case login = "login"
+        case connection = "connection"
+        case success = "success"
+    }
     
-    func loadSLCMData(registration: String, password: String, completion: @escaping (Bool) -> ()) {
+    func loadSLCMData(registration: String, password: String, completion: @escaping (CALLBACK) -> ()) {
         
         var success = false
         
@@ -411,20 +419,19 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
             guard let resultValue = response.result.value else {
                 print("Failing in website")
                 
-                completion(false)
-                //sendinf false would mean invalid login. Change it
-                //code to send error alert
+                completion(.connection)
+                
                 return
             }
             
             let data = JSON(resultValue)
-            //print(data)
             
             if data["message"].stringValue == "Invalid Credentials" {
                 
                 print(data["message"].stringValue)
                 print("Actually invalid")
-                success = false
+                
+                completion(.login)
                 
             } else {
         
@@ -446,7 +453,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
             
             print("Completed POST request")
             
-            completion(success)
+            completion(.success)
             
         }
         
@@ -691,15 +698,25 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
             
             let password = credentials["password"] as! String
             
-            loadSLCMData(registration: savedRegistration, password: password) { (success) in
+            loadSLCMData(registration: savedRegistration, password: password) { (result) in
                 
-                if success {
+                if result == .success {
+                    
                     self.stopActivityIndicator()
                     self.performSegue(withIdentifier: "slcmDetail", sender: self)
                    
-                } else {
+                } else if result == .login {
+                    
                     self.stopActivityIndicator()
                     self.showAlertForInvalidCredentials()
+                    
+                } else {
+                    
+                    self.stopActivityIndicator()
+                    
+                    let banner = StatusBarNotificationBanner(title: "The Internet connection appears to be offline", style: .danger)
+                    banner.haptic = .heavy
+                    banner.show()
                 }
             }
             
@@ -722,9 +739,9 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         self.passwordTextfield.text = nil
         self.registrationTextfield.text = nil
         
-        loadSLCMData (registration: registration, password: password){ (result) in
+        loadSLCMData (registration: registration, password: password) { (result) in
                 
-                if result {
+            if result == .success {
                     
                     self.stopActivityIndicator()
                     
@@ -733,7 +750,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
                     
                     self.showAlertForSaveCredentials(registration: registration, password: password)
                     
-                } else {
+            } else if result == .login {
                     
                     self.showAlertForInvalidCredentials()
                    
@@ -746,24 +763,26 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         //            if self.count == 2 {
         //                UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
         //            }
-                  }
-                    
-                    self.signInButton.isEnabled = true
-                }
+                
+            } else {
+                
+                self.stopActivityIndicator()
+                
+                let banner = StatusBarNotificationBanner(title: "The Internet connection appears to be offline", style: .danger)
+                banner.haptic = .heavy
+                banner.show()
+                
+            }
+            
+            self.signInButton.isEnabled = true
+            
+        }
         
     }
 
     
     func checkForBiometric() -> Bool {
-        
-        if UserDefaults.standard.bool(forKey: DEFAULTS.BIOMETRIC_ENABLED) == true {
-            print("Biometry enabled")
-            return true
-        }
-        
-        print("Biometry disabled")
-        return false
-        
+        return UserDefaults.standard.bool(forKey: DEFAULTS.BIOMETRIC_ENABLED)
     }
     
     func isUserSaved() -> Bool {
