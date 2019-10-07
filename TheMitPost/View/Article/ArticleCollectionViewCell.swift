@@ -7,13 +7,15 @@
 //
 
 import UIKit
+
+import Lottie
 import SDWebImage
 import MaterialComponents
 
 class ArticleCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet var arrowLottieView: AnimationView!
     @IBOutlet weak var dateLabelView: UILabel!
-   // @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var titleLabelView: UILabel!
     @IBOutlet weak var articleImageView: UIImageView!
     @IBOutlet weak var messageLabelView: UILabel!
@@ -96,6 +98,12 @@ class ArticleCollectionViewCell: UICollectionViewCell {
                 dateLabelView.textColor = .tertiaryLabel
                 titleLabelView.textColor = .label
                 
+                let animation = Animation.named("right-dark", subdirectory: "Lottie-Files")
+                arrowLottieView.animation = animation
+                arrowLottieView.backgroundColor = .foreground
+                arrowLottieView.loopMode = .loop
+                arrowLottieView.play()
+                
             } else {
                 
                 backgroundColor = UIColor.white
@@ -107,8 +115,22 @@ class ArticleCollectionViewCell: UICollectionViewCell {
                 dateLabelView.textColor = .tertiaryLabel
                 titleLabelView.textColor = .label
                 
+                let animation = Animation.named("right-light", subdirectory: "Lottie-Files")
+                arrowLottieView.animation = animation
+                arrowLottieView.backgroundColor = .white
+                arrowLottieView.loopMode = .loop
+                arrowLottieView.play()
+                
             }
         
+        } else {
+            
+            let animation = Animation.named("right-light", subdirectory: "Lottie-Files")
+            arrowLottieView.animation = animation
+            arrowLottieView.backgroundColor = .white
+            arrowLottieView.loopMode = .loop
+            arrowLottieView.play()
+            
         }
         
     }

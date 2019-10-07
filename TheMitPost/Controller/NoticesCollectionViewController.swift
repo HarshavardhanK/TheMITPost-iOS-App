@@ -275,7 +275,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             cell.titleText = notice.title
             cell.contentText = notice.content
             cell.dateText = notice.date
-            cell.arrowImageView.alpha = 0
+            cell.arrowLottieView.alpha = 0
             cell.isUserInteractionEnabled = false
             
             return cell

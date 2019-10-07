@@ -7,6 +7,8 @@
 //
 
 import UIKit
+
+import Lottie
 import MaterialComponents
 
 class NoticeImageCollectionViewCell: UICollectionViewCell {
@@ -134,6 +136,7 @@ class NoticeImageCollectionViewCell: UICollectionViewCell {
 class NoticeTextCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var arrowImageView: UIImageView!
+    @IBOutlet var arrowLottieView: AnimationView!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
@@ -231,7 +234,12 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
                 contentLabel.textColor = .secondaryLabel
                 titleLabel.textColor = .label
                 dateLabel.textColor = .tertiaryLabel
-                arrowImageView.image = UIImage(named: "arrow")
+                
+                let animation = Animation.named("right-dark", subdirectory: "Lottie-Files")
+                arrowLottieView.animation = animation
+                arrowLottieView.backgroundColor = .foreground
+                arrowLottieView.loopMode = .loop
+                arrowLottieView.play()
                 
             } else {
                 
@@ -244,8 +252,21 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
                 titleLabel.textColor = .label
                 dateLabel.textColor = .tertiaryLabel
                 
-                arrowImageView.image = UIImage(named: "next")
+                let animation = Animation.named("right-light", subdirectory: "Lottie-Files")
+                arrowLottieView.animation = animation
+                arrowLottieView.backgroundColor = .white
+                arrowLottieView.loopMode = .loop
+                arrowLottieView.play()
             }
+            
+        } else {
+            
+            let animation = Animation.named("right-light", subdirectory: "Lottie-Files")
+            arrowLottieView.animation = animation
+            arrowLottieView.backgroundColor = .white
+            arrowLottieView.loopMode = .loop
+            arrowLottieView.play()
+            
         }
     }
     

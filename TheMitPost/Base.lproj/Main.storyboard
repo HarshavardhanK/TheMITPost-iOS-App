@@ -67,12 +67,14 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="7RS-W4-7Iy">
-                                            <rect key="frame" x="288" y="307" width="64" height="16"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ov-yx-MwZ" customClass="AnimationView" customModule="Lottie">
+                                            <rect key="frame" x="317" y="288" width="35" height="35"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="16" id="1ey-2k-CWx"/>
+                                                <constraint firstAttribute="height" constant="35" id="LDh-11-o6l"/>
+                                                <constraint firstAttribute="width" constant="35" id="j6w-W1-a1K"/>
                                             </constraints>
-                                        </imageView>
+                                        </view>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -80,20 +82,21 @@
                                     <constraint firstItem="0i1-gK-VMg" firstAttribute="top" secondItem="Up2-8h-8yW" secondAttribute="top" id="6H4-EO-dYt"/>
                                     <constraint firstItem="ntH-Sv-qlV" firstAttribute="top" secondItem="j4h-OU-WGP" secondAttribute="bottom" constant="14" id="7dG-Hj-p2s"/>
                                     <constraint firstItem="0i1-gK-VMg" firstAttribute="leading" secondItem="Up2-8h-8yW" secondAttribute="leading" id="EcI-jp-cpW"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="7RS-W4-7Iy" secondAttribute="bottom" constant="12" id="Gmt-oS-JkL"/>
                                     <constraint firstItem="j4h-OU-WGP" firstAttribute="leading" secondItem="Up2-8h-8yW" secondAttribute="leadingMargin" constant="12" id="IfP-jY-RbU"/>
                                     <constraint firstItem="ntH-Sv-qlV" firstAttribute="leading" secondItem="Up2-8h-8yW" secondAttribute="leadingMargin" constant="12" id="O2b-uh-L8d"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="j4h-OU-WGP" secondAttribute="trailing" constant="12" id="SM4-su-LT7"/>
+                                    <constraint firstItem="1ov-yx-MwZ" firstAttribute="top" secondItem="ntH-Sv-qlV" secondAttribute="bottom" constant="24" id="ZCd-tv-kHh"/>
                                     <constraint firstAttribute="trailing" secondItem="0i1-gK-VMg" secondAttribute="trailing" id="Zzo-Zc-fcf"/>
                                     <constraint firstItem="8aQ-OJ-eI1" firstAttribute="top" secondItem="ntH-Sv-qlV" secondAttribute="bottom" constant="39" id="e5R-HB-S4N"/>
                                     <constraint firstItem="j4h-OU-WGP" firstAttribute="top" secondItem="0i1-gK-VMg" secondAttribute="bottom" constant="11" id="fEt-l2-Jkb"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="8aQ-OJ-eI1" secondAttribute="bottom" constant="12" id="fTe-vB-phi"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="1ov-yx-MwZ" secondAttribute="trailing" constant="12" id="gsy-qU-6eL"/>
                                     <constraint firstItem="8aQ-OJ-eI1" firstAttribute="leading" secondItem="Up2-8h-8yW" secondAttribute="leadingMargin" constant="11" id="kgi-1W-jbv"/>
-                                    <constraint firstItem="7RS-W4-7Iy" firstAttribute="top" secondItem="ntH-Sv-qlV" secondAttribute="bottom" constant="43" id="tQs-4x-Kgo"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="1ov-yx-MwZ" secondAttribute="bottom" constant="12" id="q6w-zq-haH"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="ntH-Sv-qlV" secondAttribute="trailing" constant="12" id="yLV-OQ-Uqd"/>
-                                    <constraint firstAttribute="trailing" secondItem="7RS-W4-7Iy" secondAttribute="trailing" constant="20" id="z69-sW-nXp"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="arrowLottieView" destination="1ov-yx-MwZ" id="kiM-ot-ceR"/>
                                     <outlet property="articleImageView" destination="0i1-gK-VMg" id="1yZ-5N-7Bo"/>
                                     <outlet property="dateLabelView" destination="8aQ-OJ-eI1" id="QQ7-0h-CYp"/>
                                     <outlet property="messageLabelView" destination="ntH-Sv-qlV" id="kpk-Iw-pRk"/>
@@ -1653,7 +1656,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="Lottie-Files/fat-cat"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lv4-4H-baH" customClass="AnimationView" customModule="Lottie">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lv4-4H-baH" customClass="AnimationView" customModule="Lottie">
                                 <rect key="frame" x="165" y="29" width="45" height="45"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -1888,31 +1891,31 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="ffO-Zw-0rr">
-                                                    <rect key="frame" x="313" y="113" width="17" height="17"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="blc-Cz-9Zi" customClass="AnimationView" customModule="Lottie">
+                                                    <rect key="frame" x="298" y="98" width="40" height="40"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="17" id="09U-Pa-flo"/>
-                                                        <constraint firstAttribute="height" constant="17" id="FSV-18-Gve"/>
+                                                        <constraint firstAttribute="width" constant="40" id="6qt-5s-5tc"/>
+                                                        <constraint firstAttribute="height" constant="40" id="qub-SX-AjN"/>
                                                     </constraints>
-                                                </imageView>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="trailingMargin" secondItem="ffO-Zw-0rr" secondAttribute="trailing" constant="12" id="1FT-Yt-lPg"/>
                                             <constraint firstItem="KQv-Dz-DgK" firstAttribute="top" secondItem="3gb-sS-T8Y" secondAttribute="bottom" constant="8" id="5VR-Pw-RHK"/>
-                                            <constraint firstItem="ffO-Zw-0rr" firstAttribute="top" secondItem="jjO-DO-Ydr" secondAttribute="topMargin" constant="105" id="6vM-g2-0ce"/>
-                                            <constraint firstItem="ffO-Zw-0rr" firstAttribute="leading" secondItem="KQv-Dz-DgK" secondAttribute="trailing" constant="173" id="CmK-dO-smq"/>
                                             <constraint firstItem="KQv-Dz-DgK" firstAttribute="leading" secondItem="jjO-DO-Ydr" secondAttribute="leadingMargin" constant="12" id="KAs-8T-IPe"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="StA-5k-RCE" secondAttribute="trailing" constant="12" id="PdU-nL-eSK"/>
                                             <constraint firstItem="StA-5k-RCE" firstAttribute="leading" secondItem="jjO-DO-Ydr" secondAttribute="leadingMargin" constant="12" id="XxI-gy-heT"/>
                                             <constraint firstItem="StA-5k-RCE" firstAttribute="top" secondItem="jjO-DO-Ydr" secondAttribute="topMargin" constant="2" id="fbp-Zc-idv"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="KQv-Dz-DgK" secondAttribute="trailing" constant="202" id="fce-Vt-nf4"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="KQv-Dz-DgK" secondAttribute="bottom" constant="12" id="gUn-b1-FYu"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="ffO-Zw-0rr" secondAttribute="bottom" constant="12" id="ogg-gv-kG0"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="blc-Cz-9Zi" secondAttribute="bottom" constant="4" id="lHT-it-pYH"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="blc-Cz-9Zi" secondAttribute="trailing" constant="4" id="pCe-Kk-KtL"/>
+                                            <constraint firstItem="blc-Cz-9Zi" firstAttribute="top" secondItem="jjO-DO-Ydr" secondAttribute="topMargin" constant="90" id="tIB-ZT-et9"/>
+                                            <constraint firstItem="blc-Cz-9Zi" firstAttribute="leading" secondItem="KQv-Dz-DgK" secondAttribute="trailing" constant="158" id="wYu-c3-x2s"/>
                                         </constraints>
                                         <size key="customSize" width="350" height="150"/>
                                         <connections>
-                                            <outlet property="arrowImageView" destination="ffO-Zw-0rr" id="fob-h6-Lqf"/>
                                             <outlet property="contentLabel" destination="3gb-sS-T8Y" id="6G2-fV-e9Q"/>
                                             <outlet property="dateLabel" destination="KQv-Dz-DgK" id="UdH-vg-Az7"/>
                                             <outlet property="titleLabel" destination="pbg-NZ-ETE" id="gc5-Zk-GNe"/>
@@ -3257,7 +3260,6 @@ AABtAAAAAAAAAAAAAAAAAAEs0w
         <image name="maps" width="21.333333969116211" height="21.333333969116211"/>
         <image name="megaphone" width="21.333333969116211" height="21.333333969116211"/>
         <image name="menu-button" width="21.333333969116211" height="21.333333969116211"/>
-        <image name="next" width="32" height="32"/>
         <image name="post_icon" width="1024" height="585"/>
         <image name="posttabicon" width="21.333333969116211" height="21.333333969116211"/>
         <image name="purge_account" width="270" height="40"/>
