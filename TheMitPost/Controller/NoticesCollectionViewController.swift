@@ -8,6 +8,7 @@
 
 import UIKit
 
+import NotificationBannerSwift
 import Lottie
 import NVActivityIndicatorView
 import Alamofire
@@ -39,7 +40,14 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         // Do any additional setup after loading the view.
         mode()
         startActivityIndicator()
-        retrieveNotices()
+        
+        retrieveNotices() { (result) in
+            
+            if !result {
+                self.emptyView(action: "make")
+            }
+            
+        }
         
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = CGSize(width: NoticeImageCollectionViewCell.width, height: 120.0)
@@ -50,7 +58,7 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         
         noticesCollectionView.addSubview(refreshControl)
         
-        refreshControl.addTarget(self, action: #selector(refreshNotices), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
     }
     
@@ -69,19 +77,51 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         activityIndicator.removeFromSuperview()
     }
     
-    //MARK: EMPTY LOTTIE VIEW
-    func createEmptyView() {
+    //MARK: CREATE EMPTY VIEW
+    let emptyImageView = AnimationView()
+    
+    var emptyLabel = UILabel()
+    var refreshButton = UIButton()
+    
+    func emptyView(action: String) {
         
-        let emptyImageView = AnimationView(name: "empty-box")
-        emptyImageView.frame = CGRect(origin: self.view.center, size: CGSize(width: 300, height: 237))
-        emptyImageView.center = self.view.center
+        if action == "make" {
+            let animation = Animation.named("empty-box")
+            emptyImageView.animation = animation
+            emptyImageView.loopMode = .loop
+            
+            emptyLabel = UILabel(frame: CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 - 120, width: 200, height: 30))
+            emptyLabel.center.x = self.view.center.x
+            emptyLabel.text = "Could not fetch articles.."
+            self.view.addSubview(emptyLabel)
+            
+            emptyImageView.frame = CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 - 100, width: 250, height: 250.0)
+            emptyImageView.center.x = self.view.center.x
+            
+            self.view.addSubview(emptyImageView)
+            emptyImageView.play()
+            
+            refreshButton = UIButton(frame: CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 + 150, width: 150, height: 30))
+            refreshButton.center.x = self.view.center.x
+            refreshButton.layer.cornerRadius = 8
+            refreshButton.backgroundColor = .systemGray
+            refreshButton.setTitle("Tap to refresh", for: .normal)
+            refreshButton.addTarget(self, action: #selector(refresh), for: .touchUpInside)
+            
+            self.view.addSubview(refreshButton)
+            
+        }
         
-        self.view.addSubview(emptyImageView)
-        emptyImageView.play()
         
-        let label = UILabel(frame: CGRect(x: self.view.frame.width / 2 - 50, y: self.view.frame.height / 2 + 200, width: 200, height: 30))
-        label.text = "Pull to refresh"
-        self.view.addSubview(label)
+        else if action == "remove" {
+            
+            print("removing empty views")
+            emptyImageView.removeFromSuperview()
+            refreshButton.removeFromSuperview()
+            emptyLabel.removeFromSuperview()
+            
+        }
+        
     }
     
     //MARK: THEME MODE
@@ -127,27 +167,43 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
 
     //MARK: API CALL
     
-    func retrieveNotices() {
+    func retrieveNotices(completion: @escaping (Bool) -> ()) {
         
         Alamofire.request(API, method: .get).responseJSON {
             response_ in
             
             self.notices = [Notice]()
             
-            let response = JSON(response_.result.value!)
+            guard let resultValue = response_.result.value else {
+                //MARK: Data connection banner
+                
+                self.stopActivityIndicator()
+                self.refreshControl.endRefreshing()
+                
+                let banner = StatusBarNotificationBanner(title: "Oops! Check your internet connection", style: .danger)
+                banner.haptic = .heavy
+                banner.show()
+                
+                completion(false)
+                return
+            }
             
-            if response["status"] != "OK" {
-                print("error")
+            let value = JSON(resultValue)
+            
+            if value["status"] != "OK" {
+                completion(false)
                 
             } else {
                 
-                let data = response["data"].arrayValue
+                let data = value["data"].arrayValue
                 
                 self.notices = parseNotices(data: data)
             
                 print("Successfully loaded data")
                 
                 self.noticesShown = [Bool](repeating: false, count: self.notices.count)
+                
+                completion(true)
                 
             }
             
@@ -159,6 +215,13 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             print("\(self.notices.count) notices retrieved")
         }
         
+    }
+    
+    @objc func refresh() {
+        
+        retrieveNotices() { (result) in
+            
+        }
     }
     
     //MARK: COLLECTION VIEW DELEGATE
@@ -301,21 +364,5 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
         }
         
     }
-    
-    @objc func refreshNotices() {
-        
-        retrieveNotices()
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

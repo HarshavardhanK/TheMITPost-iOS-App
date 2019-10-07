@@ -127,7 +127,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
             emptyLabel.text = "Could not fetch articles.."
             self.view.addSubview(emptyLabel)
             
-            emptyImageView.frame = CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 - 100, width: 250, height: 250)
+            emptyImageView.frame = CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 - 100, width: 250, height: 250.0)
             emptyImageView.center.x = self.view.center.x
             
             self.view.addSubview(emptyImageView)
@@ -404,9 +404,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
         if segue.identifier == "articleViewSegue" {
            
             if let destinationViewController = segue.destination as? ArticleWebViewController {
-                
-                destinationViewController.hero.isEnabled = true
-                destinationViewController.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .slide(direction: .right))
                 
                 let selectedCell = sender as? ArticleCollectionViewCell
                 let indexPath = self.articleCollectionView.indexPath(for: selectedCell!)

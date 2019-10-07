@@ -8,11 +8,12 @@
 
 import UIKit
 
+import Hero
 import NotificationBannerSwift
 import FoldingCell
 
 
-class SLCMTableViewController: UITableViewController {
+class SLCMTableViewController: UITableViewController, UINavigationControllerDelegate {
     
     var subjects = [Subject]()
     var cellsAnimated = Array<Bool>()
@@ -24,7 +25,10 @@ class SLCMTableViewController: UITableViewController {
         
         mode()
         
+        print("View loaded")
+        
         if !UserDefaults.standard.bool(forKey: "notFirstTime") {
+            
             let banner = NotificationBanner(title: "Knock knock", subtitle: "Tap on a cell to view more details", style: .info)
             banner.show(bannerPosition: .bottom)
             
@@ -39,6 +43,7 @@ class SLCMTableViewController: UITableViewController {
         cellsAnimated = Array(repeating: false, count: subjects.count)
         
     }
+    
     
     //MARK: UI THEME
     func mode() {

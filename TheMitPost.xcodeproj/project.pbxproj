@@ -120,6 +120,7 @@
 		D6FA299823326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */; };
 		D6FA299923326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */; };
 		D6FA299A23326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */; };
+		D6FF8153234B80C9000F7CC6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF8152234B80C9000F7CC6 /* LaunchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +204,7 @@
 		D6F392BC22D604DC00CE50D1 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		D6FA299323326B2E00703DE7 /* NoticeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6FA299723326CEF00703DE7 /* NoticesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesCollectionViewController.swift; sourceTree = "<group>"; };
+		D6FF8152234B80C9000F7CC6 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 				D68A32602346353300B62C5E /* AboutViewController.swift */,
 				D66A8A0D2348825A00AB9917 /* PrivacyViewController.swift */,
 				D66A8A112348A40900AB9917 /* Common.swift */,
+				D6FF8152234B80C9000F7CC6 /* LaunchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				D6313DC72292D37C00CB6F92 /* SLCMTableViewController.swift in Sources */,
 				D6D6A21321ECC5A200B822F8 /* SLCMLoginViewController.swift in Sources */,
 				D69B3057220382DC00E66AE3 /* Extensions.swift in Sources */,
+				D6FF8153234B80C9000F7CC6 /* LaunchViewController.swift in Sources */,
 				D61C44DB223E74DF00DF5DAA /* SLCM.swift in Sources */,
 				D64B590A233D10A00096CF74 /* PDFLoadViewController.swift in Sources */,
 				D664F31D22AF9F62002D6E0F /* Utilities.swift in Sources */,

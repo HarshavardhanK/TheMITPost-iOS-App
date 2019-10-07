@@ -32,13 +32,14 @@ class SLCMSettingsViewController: UIViewController {
         let value = UserDefaults.standard.bool(forKey: DEFAULTS.BIOMETRIC_ENABLED)
         
         if value {
-            
+            biometricButton.setTitleColor(.systemBlue, for: .normal)
             UserDefaults.standard.set(false, forKey: DEFAULTS.BIOMETRIC_ENABLED)
             biometricButton.setTitle("Require " + biometricType(), for: .normal)
             biometricLabel?.text = nil
             
         } else {
             
+            biometricButton.setTitleColor(.systemRed, for: .normal)
             UserDefaults.standard.set(true, forKey: DEFAULTS.BIOMETRIC_ENABLED)
             biometricButton.setTitle("Disable " + biometricType(), for: .normal)
             biometricLabel?.text = biometricType() + " enabled"
@@ -66,11 +67,11 @@ class SLCMSettingsViewController: UIViewController {
         let value = UserDefaults.standard.bool(forKey: DEFAULTS.BIOMETRIC_ENABLED)
         
         if value {
-            
+            biometricButton.setTitleColor(.systemRed, for: .normal)
             biometricButton.setTitle("Disable " + biometricType(), for: .normal)
             
         } else {
-            
+            biometricButton.setTitleColor(.systemBlue, for: .normal)
             biometricButton.setTitle("Require " + biometricType(), for: .normal)
             
             biometricLabel?.text = biometricType() + " enabled"

@@ -11,14 +11,16 @@ import LocalAuthentication
 
 import Alamofire
 import SwiftyJSON
-
+import Hero
 import Lottie
 import NotificationBannerSwift
 import NVActivityIndicatorView
 import Locksmith
 import MaterialComponents
 
-class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivityIndicatorViewable {
+class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate, NVActivityIndicatorViewable {
+    
+    //fileprivate let heroTransition = HeroTransition()
     
     let SLCMAPI: String = "https://app.themitpost.com/values"
     let FCMTokenAPI: String = "https://app.themitpost.com/credential"
@@ -193,7 +195,6 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         lottieAnimations()
         
         bottomConstraint = stackViewHorizontalConstraint.constant
-        //topConstraint = stackViewTopConstraint.constant
         
         registrationTextfield.delegate = self
         passwordTextfield.delegate = self
@@ -518,6 +519,19 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         }
         
     }
+    
+//    //MARK: FOR HERO
+//    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning)
+//        -> UIViewControllerInteractiveTransitioning? {
+//        return heroTransition.navigationController(navigationController, interactionControllerFor: animationController)
+//    }
+//
+//    func navigationController(_ navigationController: UINavigationController,
+//                              animationControllerFor operation: UINavigationController.Operation,
+//                              from fromVC: UIViewController,
+//                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        return heroTransition.navigationController(navigationController, animationControllerFor: operation, from: fromVC, to: toVC)
+//    }
     
     //MARK:- TextFieldDelegate methods
     
