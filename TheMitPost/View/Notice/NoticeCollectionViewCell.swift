@@ -135,7 +135,6 @@ class NoticeImageCollectionViewCell: UICollectionViewCell {
 
 class NoticeTextCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var arrowImageView: UIImageView!
     @IBOutlet var arrowLottieView: AnimationView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -174,8 +173,6 @@ class NoticeTextCollectionViewCell: UICollectionViewCell {
             if let _ = url {
                 isPDF = true
                 
-            } else {
-                arrowImageView.alpha = 0
             }
             
         }

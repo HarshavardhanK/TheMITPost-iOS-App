@@ -1916,6 +1916,7 @@
                                         </constraints>
                                         <size key="customSize" width="350" height="150"/>
                                         <connections>
+                                            <outlet property="arrowLottieView" destination="blc-Cz-9Zi" id="TQw-uy-ZkJ"/>
                                             <outlet property="contentLabel" destination="3gb-sS-T8Y" id="6G2-fV-e9Q"/>
                                             <outlet property="dateLabel" destination="KQv-Dz-DgK" id="UdH-vg-Az7"/>
                                             <outlet property="titleLabel" destination="pbg-NZ-ETE" id="gc5-Zk-GNe"/>
