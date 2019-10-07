@@ -628,7 +628,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             settingsController.biometricLabel = biometricLabel
             
             let sheet = MDCBottomSheetController(contentViewController: settingsController)
-            sheet.preferredContentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height / 2)
+            sheet.preferredContentSize = CGSize(width: self.view.frame.width, height: 400.0)
             present(sheet, animated: true, completion: nil)
             
         }
