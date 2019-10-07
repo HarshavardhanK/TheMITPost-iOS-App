@@ -33,7 +33,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
     
     @IBOutlet var activityIndicator: NVActivityIndicatorView!
     
-    @IBOutlet weak var stackViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var stackViewHorizontalConstraint: NSLayoutConstraint!
     
     @IBOutlet var stackView: UIStackView!
     
@@ -185,16 +185,14 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         mode()
         
-       // stackView.autoresizingMask = .flexibleBottomMargin
+        stackView.autoresizingMask = .flexibleBottomMargin
         stackView.autoresizingMask = .flexibleTopMargin
-        //stackView.autoresizingMask = .flexibleWidth
-        //stackView.autoresizingMask = .flexibleHeight
         stackView.autoresizingMask = .flexibleLeftMargin
         stackView.autoresizingMask = .flexibleRightMargin
         
         lottieAnimations()
         
-        bottomConstraint = stackViewBottomConstraint.constant
+        bottomConstraint = stackViewHorizontalConstraint.constant
         //topConstraint = stackViewTopConstraint.constant
         
         registrationTextfield.delegate = self
@@ -504,8 +502,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
         
         if direction == 0 { //down
             
-            self.stackViewBottomConstraint.constant = self.bottomConstraint
-            //self.stackViewTopConstraint.constant = topConstraint
+            self.stackViewHorizontalConstraint.constant = self.bottomConstraint
             
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.view.layoutIfNeeded()
@@ -513,8 +510,7 @@ class SLCMLoginViewController: UIViewController, UITextFieldDelegate, NVActivity
             
         } else {
             
-            self.stackViewBottomConstraint.constant += 90
-            //self.stackViewTopConstraint.constant -= 90
+            self.stackViewHorizontalConstraint.constant -= 90
             
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.view.layoutIfNeeded()
