@@ -15,13 +15,12 @@ import Locksmith
 
 class SLCMSettingsViewController: UIViewController {
     
-    
-    @IBOutlet var settingLabel: UILabel!
+    @IBOutlet var topThing: UIImageView!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet var lottieSettingsView: AnimationView!
     @IBOutlet var biometricButton: UIButton!
     @IBOutlet var biometricLottieView: AnimationView!
-  //  @IBOutlet var jumboLottieView: AnimationView!
+    @IBOutlet var lottieView: AnimationView!
     
     @IBOutlet weak var topThingView: UIImageView!
     
@@ -58,13 +57,11 @@ class SLCMSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.layer.cornerRadius = 20
-        
         mode()
         
-        lottieSettingsView.play()
-        biometricLottieView.play()
-        //jumboLottieView.play()
+        self.view.layer.cornerRadius = 20
+        
+        setupLottieViews()
         
         let value = UserDefaults.standard.bool(forKey: DEFAULTS.BIOMETRIC_ENABLED)
         
@@ -85,6 +82,25 @@ class SLCMSettingsViewController: UIViewController {
         }
         
         print("settings controller loaded")
+        
+    }
+    
+    //MARK: Setup Lottie Views
+    func setupLottieViews() {
+        
+        let names = ["astronaut", "bear", "biking", "fat-cat", "doggie", "funky-chicken", "jumping_girl", "karam", "jumbo-typing", "lumberjack", "body"]
+        let name = names[Int(arc4random()) % names.count]
+        print(name)
+        
+        let animation = Animation.named(name, subdirectory: "Lottie-Files")
+        lottieView.loopMode = .loop
+        lottieView.animation = animation
+        lottieView.play()
+        
+        lottieSettingsView.play()
+        lottieSettingsView.loopMode = .loop
+        biometricLottieView.loopMode = .loop
+        biometricLottieView.play()
         
     }
     
@@ -117,19 +133,19 @@ class SLCMSettingsViewController: UIViewController {
             
             if traitCollection.userInterfaceStyle == .dark {
                 
+                topThing.image = UIImage(named: "topThingWhite")
                 view.backgroundColor = .background
                 lottieSettingsView.backgroundColor = .background
                 biometricLottieView.backgroundColor = .background
-               // jumboLottieView.backgroundColor = .background
-                settingLabel.backgroundColor = .background
+                lottieView.backgroundColor = .background
                 
             } else {
                 
+                topThing.image = UIImage(named: "topThingGray")
                 view.backgroundColor = .white
                 lottieSettingsView.backgroundColor = .white
                 biometricLottieView.backgroundColor = .white
-                //jumboLottieView.backgroundColor = .white
-                settingLabel.backgroundColor = .white
+                lottieView.backgroundColor = .white
                 
             }
             

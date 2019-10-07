@@ -110,15 +110,19 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
     }
     
     //MARK: CREATE EMPTY VIEW
-    let emptyImageView = AnimationView(name: "empty-box")
+    let emptyImageView = AnimationView()
+    
     var emptyLabel = UILabel()
     var refreshButton = UIButton()
     
     func emptyView(action: String) {
         
         if action == "make" {
+            let animation = Animation.named("post", subdirectory: "Lottie-Files")
+            emptyImageView.animation = animation
+            emptyImageView.loopMode = .loop
             
-            emptyLabel = UILabel(frame: CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 - 90, width: 200, height: 30))
+            emptyLabel = UILabel(frame: CGRect(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2 - 120, width: 200, height: 30))
             emptyLabel.center.x = self.view.center.x
             emptyLabel.text = "Could not fetch articles.."
             self.view.addSubview(emptyLabel)

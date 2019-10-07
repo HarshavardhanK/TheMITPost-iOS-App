@@ -1635,12 +1635,12 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topThingGray" translatesAutoresizingMaskIntoConstraints="NO" id="iRb-VF-uy5">
                                 <rect key="frame" x="167.66666666666666" y="16" width="40" height="5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="bmC-hg-Qlx"/>
-                                    <constraint firstAttribute="height" constant="5" id="uom-BM-ex7"/>
+                                    <constraint firstAttribute="width" constant="40" id="9k0-rZ-fh1"/>
+                                    <constraint firstAttribute="height" constant="5" id="FQC-Yg-gaP"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lv4-4H-baH" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="152" y="29" width="70" height="70"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lv4-4H-baH" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="153.33333333333334" y="29" width="68.666666666666657" height="70"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="9qK-PG-3QS"/>
@@ -1650,22 +1650,34 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="settings-gear"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpT-dS-KhD" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="127" y="74" width="120" height="120"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="cIj-Qb-AEw"/>
+                                    <constraint firstAttribute="width" constant="120" id="d3N-T3-zyv"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="Lottie-Files/fat-cat"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="F4c-8f-TLi" secondAttribute="trailing" constant="63" id="Hyt-3S-nYd"/>
-                            <constraint firstItem="iRb-VF-uy5" firstAttribute="leading" secondItem="lv4-4H-baH" secondAttribute="trailing" constant="-54.333333333333343" id="J3G-bz-mSC"/>
                             <constraint firstItem="F4c-8f-TLi" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="62" id="J94-nG-vlf"/>
+                            <constraint firstItem="iRb-VF-uy5" firstAttribute="top" secondItem="3My-If-f1E" secondAttribute="top" constant="16" id="Ssl-mn-mWB"/>
+                            <constraint firstItem="iRb-VF-uy5" firstAttribute="centerX" secondItem="4yU-Hl-R6r" secondAttribute="centerX" id="TJ6-en-eHk"/>
                             <constraint firstItem="F4c-8f-TLi" firstAttribute="top" secondItem="nNt-ch-Pqc" secondAttribute="bottom" constant="36" id="UO8-xr-nK0"/>
                             <constraint firstItem="nNt-ch-Pqc" firstAttribute="centerX" secondItem="4yU-Hl-R6r" secondAttribute="centerX" id="V6M-4x-eSm"/>
                             <constraint firstItem="nNt-ch-Pqc" firstAttribute="leading" secondItem="hHB-AI-gNb" secondAttribute="trailing" constant="8" id="Wji-BA-jn4"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="bottom" secondItem="Fju-qq-8l5" secondAttribute="bottom" constant="33" id="aVR-Xk-xVg"/>
+                            <constraint firstItem="tpT-dS-KhD" firstAttribute="centerX" secondItem="4yU-Hl-R6r" secondAttribute="centerX" id="b63-sd-4cX"/>
                             <constraint firstItem="lv4-4H-baH" firstAttribute="centerX" secondItem="4yU-Hl-R6r" secondAttribute="centerX" id="bPz-KZ-msc"/>
                             <constraint firstItem="4yU-Hl-R6r" firstAttribute="trailing" secondItem="Fju-qq-8l5" secondAttribute="trailing" constant="63" id="d4G-3v-u2i"/>
-                            <constraint firstItem="iRb-VF-uy5" firstAttribute="centerX" secondItem="4yU-Hl-R6r" secondAttribute="centerX" id="fKg-iO-zdT"/>
                             <constraint firstItem="Fju-qq-8l5" firstAttribute="top" secondItem="F4c-8f-TLi" secondAttribute="bottom" constant="19" id="gJI-38-rUv"/>
+                            <constraint firstItem="nNt-ch-Pqc" firstAttribute="top" secondItem="tpT-dS-KhD" secondAttribute="bottom" constant="8" id="mUB-0I-BNw"/>
                             <constraint firstItem="Fju-qq-8l5" firstAttribute="leading" secondItem="4yU-Hl-R6r" secondAttribute="leading" constant="62" id="ppU-Gd-Uzj"/>
-                            <constraint firstItem="iRb-VF-uy5" firstAttribute="top" secondItem="3My-If-f1E" secondAttribute="top" constant="16" id="qgs-ac-QtL"/>
                             <constraint firstItem="F4c-8f-TLi" firstAttribute="top" secondItem="hHB-AI-gNb" secondAttribute="bottom" constant="31" id="sTS-UJ-IbL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4yU-Hl-R6r"/>
@@ -1678,6 +1690,8 @@
                         <outlet property="biometricLottieView" destination="hHB-AI-gNb" id="CpG-8l-Byd"/>
                         <outlet property="logoutButton" destination="F4c-8f-TLi" id="Hwu-Z7-QWX"/>
                         <outlet property="lottieSettingsView" destination="lv4-4H-baH" id="mFh-g2-ohb"/>
+                        <outlet property="lottieView" destination="tpT-dS-KhD" id="hg0-Y9-VVA"/>
+                        <outlet property="topThing" destination="iRb-VF-uy5" id="Q0m-hn-x7S"/>
                         <outlet property="topThingView" destination="iRb-VF-uy5" id="XGh-Ae-5Lb"/>
                     </connections>
                 </viewController>
