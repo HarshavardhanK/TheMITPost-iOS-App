@@ -67,6 +67,9 @@
 		D66A8A122348A40900AB9917 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A8A112348A40900AB9917 /* Common.swift */; };
 		D66A8A132348A40900AB9917 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A8A112348A40900AB9917 /* Common.swift */; };
 		D66A8A142348A40900AB9917 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A8A112348A40900AB9917 /* Common.swift */; };
+		D66A8A16234B425C00AB9917 /* Lottie-Files in Resources */ = {isa = PBXBuildFile; fileRef = D66A8A15234B425C00AB9917 /* Lottie-Files */; };
+		D66A8A17234B425C00AB9917 /* Lottie-Files in Resources */ = {isa = PBXBuildFile; fileRef = D66A8A15234B425C00AB9917 /* Lottie-Files */; };
+		D66A8A18234B425C00AB9917 /* Lottie-Files in Resources */ = {isa = PBXBuildFile; fileRef = D66A8A15234B425C00AB9917 /* Lottie-Files */; };
 		D68A32612346353300B62C5E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68A32602346353300B62C5E /* AboutViewController.swift */; };
 		D68A32622346353300B62C5E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68A32602346353300B62C5E /* AboutViewController.swift */; };
 		D68A32632346353300B62C5E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68A32602346353300B62C5E /* AboutViewController.swift */; };
@@ -171,6 +174,7 @@
 		D664F32622B0FA2D002D6E0F /* Notices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notices.swift; sourceTree = "<group>"; };
 		D66A8A0D2348825A00AB9917 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		D66A8A112348A40900AB9917 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		D66A8A15234B425C00AB9917 /* Lottie-Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Lottie-Files"; sourceTree = "<group>"; };
 		D68A32602346353300B62C5E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		D68B70E5234130A300A41D3D /* cube.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cube.json; sourceTree = "<group>"; };
 		D69B3056220382DC00E66AE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -389,6 +393,7 @@
 		D6D6A20D21ECC5A200B822F8 /* TheMitPost */ = {
 			isa = PBXGroup;
 			children = (
+				D66A8A15234B425C00AB9917 /* Lottie-Files */,
 				D6098351233F5DCF00299F86 /* biometric.json */,
 				D6098359233F635600299F86 /* security.json */,
 				D609835D23412FE600299F86 /* empty-box.json */,
@@ -560,6 +565,7 @@
 				D609834E233F4CF600299F86 /* settings-gear.json in Resources */,
 				D609835E23412FE800299F86 /* empty-box.json in Resources */,
 				D68B70E6234130A400A41D3D /* cube.json in Resources */,
+				D66A8A16234B425C00AB9917 /* Lottie-Files in Resources */,
 				D6ACF12222469ED7001B8A68 /* Aileron-Regular.otf in Resources */,
 				D6ACF11F22469EC4001B8A68 /* Aileron-UltraLight.otf in Resources */,
 				D6ACF12A22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */,
@@ -580,6 +586,7 @@
 				D6098357233F60F100299F86 /* jumbo-typing.json in Resources */,
 				D609835F23412FE800299F86 /* empty-box.json in Resources */,
 				D609834F233F4CF600299F86 /* settings-gear.json in Resources */,
+				D66A8A17234B425C00AB9917 /* Lottie-Files in Resources */,
 				D68B70E7234130A400A41D3D /* cube.json in Resources */,
 				D609835B233F635600299F86 /* security.json in Resources */,
 			);
@@ -604,6 +611,7 @@
 				D6ACF12B22469EFF001B8A68 /* Roboto-Regular.ttf in Resources */,
 				D6ACF12322469ED7001B8A68 /* Aileron-Regular.otf in Resources */,
 				D6098350233F4CF600299F86 /* settings-gear.json in Resources */,
+				D66A8A18234B425C00AB9917 /* Lottie-Files in Resources */,
 				D609835C233F635600299F86 /* security.json in Resources */,
 				D64008FD2336A5DE0086064E /* Assets.xcassets in Resources */,
 				D6ACF13A22469F24001B8A68 /* DyeLine-Bold.ttf in Resources */,

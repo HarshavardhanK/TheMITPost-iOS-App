@@ -30,38 +30,22 @@ class SLCMSettingsViewController: UIViewController {
     
     @IBAction func biometricSwitchAction(_ sender: UIButton) {
         
-        var laTypeString = "Touch ID"
+        let value = UserDefaults.standard.bool(forKey: DEFAULTS.BIOMETRIC_ENABLED)
         
-        let _ = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
-        
-        switch context.biometryType {
+        if value {
             
-        case .none:
-            laTypeString = ""
+            UserDefaults.standard.set(false, forKey: DEFAULTS.BIOMETRIC_ENABLED)
+            biometricButton.setTitle("Require " + biometricType(), for: .normal)
+            biometricLabel?.text = nil
             
-        case .faceID:
-            laTypeString = "Face ID is enabled"
+        } else {
             
-        case .touchID:
-            laTypeString = "Touch ID is enabled"
-            
-        default:
-            laTypeString = ""
-            
+            UserDefaults.standard.set(true, forKey: DEFAULTS.BIOMETRIC_ENABLED)
+            biometricButton.setTitle("Disable " + biometricType(), for: .normal)
+            biometricLabel?.text = biometricType() + " enabled"
         }
         
         
-        /*if sender.isOn {
-            
-            print("Switch on")
-            UserDefaults.standard.set(true, forKey: "biometricEnabled")
-            biometricLabel?.text = laTypeString
-            
-        } else {
-            UserDefaults.standard.set(false, forKey: "biometricEnabled")
-            print("Switch off")
-            biometricLabel?.text = nil
-        }*/
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,40 +59,25 @@ class SLCMSettingsViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.layer.cornerRadius = 20
-        //self.topThingView.layer.cornerRadius = 8
         
         mode()
-        
-        var laTypeString = "Touch ID"
-        
-        let _ = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
-        
-        switch context.biometryType {
-            
-        case .none:
-            laTypeString = ""
-            
-        case .faceID:
-            laTypeString = "Require Face ID"
-            
-        case .touchID:
-            laTypeString = "Require Touch ID"
-            
-        default:
-            laTypeString = ""
-            
-        }
         
         lottieSettingsView.play()
         biometricLottieView.play()
         //jumboLottieView.play()
         
-        /*if UserDefaults.standard.bool(forKey: "biometricEnabled") {
-            biometricSwitch.setOn(true, animated: true)
+        let value = UserDefaults.standard.bool(forKey: DEFAULTS.BIOMETRIC_ENABLED)
+        
+        if value {
+            
+            biometricButton.setTitle("Disable " + biometricType(), for: .normal)
             
         } else {
-            biometricSwitch.setOn(false, animated: true)
-        }*/
+            
+            biometricButton.setTitle("Require " + biometricType(), for: .normal)
+            
+            biometricLabel?.text = biometricType() + " enabled"
+        }
        
         guard let _ = UserDefaults.standard.string(forKey: DEFAULTS.REGISTRATION) else {
             logoutButton.isEnabled = false
@@ -117,8 +86,28 @@ class SLCMSettingsViewController: UIViewController {
         
         print("settings controller loaded")
         
+    }
+    
+    //MARK: Biometric type
+    func biometricType() -> String {
         
+        let _ = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
         
+        switch context.biometryType {
+            
+        case .none:
+            return "none"
+            
+        case .faceID:
+            return "Face ID"
+            
+        case .touchID:
+            return "Touch ID"
+            
+        default:
+            return "none"
+            
+        }
     }
     
     //MARK: UI THEME
