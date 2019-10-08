@@ -285,8 +285,11 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        onboard()
-        
+        if UserDefaults.standard.bool(forKey: "firstTime") == false {
+             onboard()
+            UserDefaults.standard.set(true, forKey: "firstTime")
+        }
+    
         mode()
     
         stackView.autoresizingMask = .flexibleBottomMargin
