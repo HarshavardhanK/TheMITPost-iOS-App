@@ -21,7 +21,7 @@ class Notice {
         
         title = data["title"].stringValue
         content = data["content"].stringValue
-        date = Date.noticesDateFromString(strDate: data["date"].stringValue)
+        date = Date.dateString(strDate: data["date"].stringValue)
         
         if data["imageLink"].stringValue != "" {
             url = data["imageLink"].stringValue

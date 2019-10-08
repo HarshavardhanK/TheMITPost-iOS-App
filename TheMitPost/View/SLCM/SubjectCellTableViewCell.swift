@@ -22,6 +22,7 @@ class SubjectCellTableViewCell: FoldingCell {
     @IBOutlet weak var absent: UILabel!
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var present: UILabel!
+    @IBOutlet var detailsLabel: UILabel!
     
     
     @IBOutlet weak var totalContainerView: UIView!
@@ -160,6 +161,7 @@ class SubjectCellTableViewCell: FoldingCell {
             if let _subject = subject {
                 
                 subjectName.text = _subject.subjectName
+                detailLabel.text = _subject.subjectName
                 
                 if let a1 = _subject._marks?.assignmentMarks?[0] {
                     assignment1.text = a1

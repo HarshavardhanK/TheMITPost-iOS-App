@@ -57,6 +57,28 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
     
     let context = LAContext()
     
+    //MARK: Biometric type
+    func biometricType() -> String {
+        
+        let _ = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+        
+        switch context.biometryType {
+            
+        case .none:
+            return "none"
+            
+        case .faceID:
+            return "Face ID"
+            
+        case .touchID:
+            return "Touch ID"
+            
+        default:
+            return "none"
+            
+        }
+    }
+    
     func authenticateWithBiometric(completion: @escaping (Bool) -> ())  {
         
         print("Authenticating")
@@ -191,7 +213,16 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         
         let pageTwo = OnboardPage(title: "Security",
                                   imageName: "lock",
-                                  description: "We use state of the art security practices to ensure that only you have control of your data", advanceButtonTitle: "Okay")
+                                  description: "We use state of the art security practices to ensure that only you have control of your data. By continuing further, you agree to our privacy policy",
+                                  advanceButtonTitle: "Next",
+                                  actionButtonTitle: "Enable " + biometricType(),
+                                  action: { [weak self] completion in
+                                    
+                                    UserDefaults.standard.set(true, forKey: DEFAULTS.BIOMETRIC_ENABLED)
+                                    let banner = NotificationBanner(title: "Great!", subtitle: "You have enabled " + (self?.biometricType())! + " for fast login", style: .success)
+                                    banner.show()
+                                    
+                                })
         
         let pageThree = OnboardPage(title: "Stay up to date",
                                     imageName: "notification",
@@ -224,7 +255,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
             backgroundColor = .white
         }
         
-        let tintColor = UIColor(red: 1.00, green: 0.52, blue: 0.40, alpha: 1.00)
+        let tintColor: UIColor = .systemBlue//UIColor(red: 1.00, green: 0.52, blue: 0.40, alpha: 1.00)
         let titleColor = UIColor(red: 1.00, green: 0.35, blue: 0.43, alpha: 1.00)
         let boldTitleFont = UIFont.systemFont(ofSize: 32.0, weight: .bold)
         let mediumTextFont = UIFont.systemFont(ofSize: 17.0, weight: .semibold)
@@ -246,27 +277,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
     }
 
     
-    //MARK: Biometric type
-    func biometricType() -> String {
-        
-        let _ = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
-        
-        switch context.biometryType {
-            
-        case .none:
-            return "none"
-            
-        case .faceID:
-            return "Face ID"
-            
-        case .touchID:
-            return "Touch ID"
-            
-        default:
-            return "none"
-            
-        }
-    }
+    
     
     //MARK: VIEW DID LOAD
 

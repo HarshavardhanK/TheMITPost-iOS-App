@@ -95,11 +95,16 @@ class Attendance {
     
     var colorCode: UIColor {
         
-        if attendancePercent < 75 {
+        if attendancePercent <= 75 {
             return UIColor(patternImage: UIImage(named: "red_background_1")!)
+            
+        } else if attendancePercent > 75 && attendancePercent < 90 {
+            return .systemYellow
+            
+        } else {
+            return UIColor(patternImage: UIImage(named: "green_gradient")!)
         }
         
-        return UIColor(patternImage: UIImage(named: "green_gradient")!)
     }
 
     
@@ -131,6 +136,10 @@ class Marks {
                 assignmentMarks?[2] = data["assignment"]["_three"].stringValue
                 assignmentMarks?[3] = data["assignment"]["_four"].stringValue
                 
+                
+            } else {
+                assignmentMarks?[0] = "Lab not yet supported"
+                sessionalMarks?[0] = "Lab not yet supported"
             }
             
         }

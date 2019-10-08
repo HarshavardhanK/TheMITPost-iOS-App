@@ -61,45 +61,40 @@ extension Date {
         return day +  " " + month_
     }
     
-    static func noticesDateFromString(strDate: String) -> String {
+    
+    static func dateString(strDate: String) -> String {
         
-        if strDate.count == 0 {
-            return "10 Oct"
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.timeZone = TimeZone(abbreviation: "IST")
+        dateFormatter.locale = NSLocale.current
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        if let date = dateFormatter.date(from: strDate) {
+            return date.day + " " + String(date.month.prefix(3))
         }
         
-        let _ = String(strDate.prefix(2))
-        let day = String(strDate.suffix(2))
+        return "NA"
         
-        let monthIndexStart = strDate.index(strDate.startIndex, offsetBy: 5)
-        let monthIndexEnd = strDate.index(monthIndexStart, offsetBy: 2)
-        
-        let month = String(strDate[monthIndexStart..<monthIndexEnd])
-        
-        if let month_ = monthNumber[month] {
-            return day + " " + month_
-            
-        } else {
-            return ""
-        }
     }
     
-    static func eventsDateFromString(strDate: String) -> String {
-        
-        let _ = String(strDate.prefix(2))
-        let month = String(strDate.suffix(2))
-        
-        let dayIndexStart = strDate.index(strDate.startIndex, offsetBy: 5)
-        let dayIndexEnd = strDate.index(dayIndexStart, offsetBy: 2)
-        
-        let day = strDate[dayIndexStart..<dayIndexEnd]
-        
-        if let month_ = monthNumber[month] {
-            return day + " " + month_
-            
-        } else {
-            return ""
-        }
-        
+    var month: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM"
+        return dateFormatter.string(from: self)
+    }
+    
+    var day: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd"
+        return dateFormatter.string(from: self)
+    }
+    
+    var year: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        return dateFormatter.string(from: self)
     }
     
 }

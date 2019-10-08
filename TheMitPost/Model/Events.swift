@@ -26,7 +26,7 @@ class Events {
         title = data["title"].stringValue
         content = data["content"].stringValue
         imageURL = URL(string: data["imageURL"].stringValue)
-        date = Date.eventsDateFromString(strDate: data["date"].stringValue)
+        date = Date.dateString(strDate: data["date"].stringValue)
         location = data["location"].stringValue
         formLink = data["formLink"].stringValue
         
