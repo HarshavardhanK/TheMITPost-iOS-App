@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationCenter
 
 import NotificationBannerSwift
 import Lottie
@@ -17,6 +18,7 @@ import SwiftyJSON
 class NoticesCollectionViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
     let API = "https://app.themitpost.com/notices"
+    var isNotification: Bool?
     
     @IBOutlet weak var noticesCollectionView: UICollectionView!
     
@@ -25,12 +27,20 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
     
     let refreshControl = UIRefreshControl()
     
+    var notificationCenter = NotificationCenter.default
+    
     //MARK: VIEW WILL DID APPEAR
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        print("View will appear")
+        
         mode()
+    }
+    
+    func setupNotificationCenter() {
+        notificationCenter.addObserver(self, selector: #selector(refresh), name: Notification.Name("notice"), object: nil)
     }
     
     
@@ -48,6 +58,8 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             }
             
         }
+        
+        setupNotificationCenter()
         
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = CGSize(width: NoticeImageCollectionViewCell.width, height: 120.0)
@@ -250,6 +262,9 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                 cell.contentText = notice.content
                 cell.dateText = notice.date
                 
+                cell.isUserInteractionEnabled = true
+                cell.arrowLottieView.alpha = 1
+                
                 return cell
                 
             } else {
@@ -262,6 +277,8 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                 cell.url = notice.getComponentURL
                 cell.titleText = notice.title
                 cell.contentText = notice.content
+                cell.isUserInteractionEnabled = true
+                cell.arrowLottieView.alpha = 1
                 
                 return cell
                 

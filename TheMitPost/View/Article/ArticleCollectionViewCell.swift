@@ -46,28 +46,24 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         
     }
     
-    @IBOutlet weak var imageVerticalConstraint: NSLayoutConstraint!
-    @IBOutlet weak var imageHorizontalConstraint: NSLayoutConstraint!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        mode()
-        
         shadowLayer?.elevation = .cardPickedUp
-        
-        layer.shouldRasterize = true
-        layer.rasterizationScale = UIScreen.main.scale
-        layer.cornerRadius = 5.0
-        layer.shadowRadius = 10.0
         
         clipsToBounds = false
         
         articleImageView.clipsToBounds = true
         
         self.contentView.layer.cornerRadius = 10.0
-
+        
+        mode()
+        
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.cornerRadius = 5.0
+        layer.shadowRadius = 10.0
+        
         titleLabelView.lineBreakMode = .byWordWrapping
         titleLabelView.numberOfLines = 3
         titleLabelView.font = UIFont(name: "Optima-Bold", size: 21)
@@ -78,7 +74,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         messageLabelView.lineBreakMode = .byWordWrapping
         messageLabelView.numberOfLines = 0
         messageLabelView.font = UIFont(name: "Optima", size: 15)
-    
+        
         dateLabelView.font = UIFont(name: "Helvetica", size: 14)
         
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationCenter
 
 import Firebase
 import SDWebImage
@@ -91,12 +92,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     (window?.rootViewController as? UITabBarController)?.selectedIndex = 1
                     
                 } else if type == "notice" {
+                    
+                    let notificationCenter = NotificationCenter.default
+                    notificationCenter.post(name: Notification.Name("notice"), object: nil)
+                    
                     (window?.rootViewController as? UITabBarController)?.selectedIndex = 2
                     
                 } else if type == "event" {
+                    
+                    let notificationCenter = NotificationCenter.default
+                    notificationCenter.post(name: Notification.Name("event"), object: nil)
+                    
                     (window?.rootViewController as? UITabBarController)?.selectedIndex = 3
                     
                 } else {
+                    
+                    let notificationCenter = NotificationCenter.default
+                    notificationCenter.post(name: Notification.Name("article"), object: nil)
+                    
                     (window?.rootViewController as? UITabBarController)?.selectedIndex = 0
                 }
             }
@@ -131,15 +144,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if type == "slcm" {
                 (window?.rootViewController as? UITabBarController)?.selectedIndex = 1
                 
-                
-                
             } else if type == "notice" {
+                
+                let notificationCenter = NotificationCenter.default
+                notificationCenter.post(name: Notification.Name("notice"), object: nil)
+                
                 (window?.rootViewController as? UITabBarController)?.selectedIndex = 2
                 
             } else if type == "event" {
+                
+                let notificationCenter = NotificationCenter.default
+                notificationCenter.post(name: Notification.Name("event"), object: nil)
+                
                 (window?.rootViewController as? UITabBarController)?.selectedIndex = 3
                 
             } else {
+                
+                let notificationCenter = NotificationCenter.default
+                notificationCenter.post(name: Notification.Name("article"), object: nil)
+                
                 (window?.rootViewController as? UITabBarController)?.selectedIndex = 0
             }
         }

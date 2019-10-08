@@ -9,6 +9,7 @@
 import UIKit
 import LocalAuthentication
 
+
 import Alamofire
 import SwiftyJSON
 import Hero
@@ -20,7 +21,6 @@ import MaterialComponents
 
 class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate, NVActivityIndicatorViewable {
     
-    //fileprivate let heroTransition = HeroTransition()
     
     let SLCMAPI: String = "https://app.themitpost.com/values"
     let FCMTokenAPI: String = "https://app.themitpost.com/credential"
@@ -182,7 +182,29 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         }
     }
     
-     //MARK: VIEW DID LOAD
+    //MARK: Biometric type
+    func biometricType() -> String {
+        
+        let _ = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+        
+        switch context.biometryType {
+            
+        case .none:
+            return "none"
+            
+        case .faceID:
+            return "Face ID"
+            
+        case .touchID:
+            return "Touch ID"
+            
+        default:
+            return "none"
+            
+        }
+    }
+    
+    //MARK: VIEW DID LOAD
 
     
     override func viewDidLoad() {

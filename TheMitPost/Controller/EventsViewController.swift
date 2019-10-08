@@ -8,6 +8,7 @@
 
 import UIKit
 
+import NotificationCenter
 import NotificationBannerSwift
 import Lottie
 import NVActivityIndicatorView
@@ -16,6 +17,7 @@ import Alamofire
 
 class EventsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    var notificationCenter = NotificationCenter.default
     
     @IBOutlet weak var eventsCollectionView: UICollectionView!
     
@@ -37,8 +39,14 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         mode()
     }
     
+    func setupNotificationCenter() {
+        notificationCenter.addObserver(self, selector: #selector(refresh), name: Notification.Name("event"), object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupNotificationCenter()
         
         mode()
         

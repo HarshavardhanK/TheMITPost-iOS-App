@@ -20,6 +20,7 @@ import SDWebImage
 
 class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate {
     
+    
     fileprivate let heroTransition = HeroTransition()
     
     @IBAction func menuButtonAction(_ sender: Any) {
@@ -46,7 +47,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
         super.viewWillAppear(animated)
         
     }
-    
 
     var percentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransition!
     var panGestureRecognizer: UIPanGestureRecognizer!
@@ -56,16 +56,16 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        mode()
+        startActivityIndicator()
+        
         //MARK: Hero Setup
         
         self.hero.isEnabled = true
         self.navigationController?.delegate = self
         
         self.navigationController?.hero.navigationAnimationType = .selectBy(presenting: .zoomOut, dismissing: .zoomSlide(direction: .right))
-        
-        
-        mode()
-        startActivityIndicator()
         
         articleCollectionView.dataSource = self
         articleCollectionView.delegate = self
@@ -77,15 +77,14 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
       
         retrieveArticles { (success) in
             
-            
             if !success {
                 
-                //create a Lottie animation here
                 self.emptyView(action: "make")
                 self.stopActivityIndicator()
                 
             } else {
                 self.stopActivityIndicator()
+                
             }
             
         }
@@ -204,7 +203,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
             
             self.parseArticleResult(result: JSON(resultValue))
             
-            self.stopActivityIndicator()
+            //self.stopActivityIndicator()
             
             self.articleCollectionView.reloadData()
             self.refreshControl.endRefreshing()
@@ -319,7 +318,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
         if let articleCell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath) as? ArticleCollectionViewCell {
             
             articleCell.article = articlesList[indexPath.row]
-            //articleCell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tappedArticle(_:))))
             
             return articleCell
             
