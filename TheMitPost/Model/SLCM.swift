@@ -144,8 +144,6 @@ class Marks {
             
         }
         
-        //print(data)
-        
     }
     
 }

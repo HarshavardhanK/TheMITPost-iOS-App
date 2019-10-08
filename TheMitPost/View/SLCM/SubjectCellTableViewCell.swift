@@ -52,6 +52,13 @@ class SubjectCellTableViewCell: FoldingCell {
     
     @IBOutlet weak var line: UIView!
     
+    //MARK: ASSMT SESS LABELS
+    @IBOutlet var assmnt12Label: UILabel!
+    @IBOutlet var assmnt34Label: UILabel!
+    
+    @IBOutlet var sess1Label: UILabel!
+    @IBOutlet var sess2Label: UILabel!
+    
     
     func mode() {
         

@@ -1335,6 +1335,8 @@
                                     <outlet property="assignment2" destination="Wnl-2j-4dr" id="nSL-K6-ae2"/>
                                     <outlet property="assignment3" destination="oLX-kU-vLD" id="Mdn-eE-3fp"/>
                                     <outlet property="assignment4" destination="zhL-cB-4Gw" id="rl5-ir-nMz"/>
+                                    <outlet property="assmnt12Label" destination="OGi-ik-g1S" id="klc-bd-cyM"/>
+                                    <outlet property="assmnt34Label" destination="WvY-eA-Wm8" id="CMZ-k4-QgA"/>
                                     <outlet property="attendancePercentage" destination="viX-ot-aFf" id="8ey-xB-obg"/>
                                     <outlet property="attendancePercentage2" destination="t9N-Vk-BBS" id="w50-fN-5Zb"/>
                                     <outlet property="bottomContainerView" destination="cag-2I-gdL" id="ebi-if-cus"/>
@@ -1348,6 +1350,8 @@
                                     <outlet property="line" destination="Vnw-uF-tlh" id="eIY-Wh-4i7"/>
                                     <outlet property="present" destination="6Qx-Hf-CfI" id="G2c-g6-pYZ"/>
                                     <outlet property="secondContainerView" destination="Ivw-6X-cgr" id="Vt6-P1-UoS"/>
+                                    <outlet property="sess1Label" destination="BUy-0k-i8B" id="KAF-yE-JA1"/>
+                                    <outlet property="sess2Label" destination="AIT-lt-zvH" id="lNp-da-Noy"/>
                                     <outlet property="sessional1" destination="829-7C-u7D" id="J1d-em-anY"/>
                                     <outlet property="sessional2" destination="mnl-1J-ok5" id="FuH-WE-4od"/>
                                     <outlet property="slcmForegroundView" destination="jr0-um-YWY" id="MqY-ls-k2K"/>
