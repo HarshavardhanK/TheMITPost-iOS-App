@@ -748,6 +748,7 @@ PODS:
   - NVActivityIndicatorView (4.7.0):
     - NVActivityIndicatorView/Presenter (= 4.7.0)
   - NVActivityIndicatorView/Presenter (4.7.0)
+  - OnboardKit (1.5.0)
   - Protobuf (3.9.0)
   - RAMAnimatedTabBarController (5.0.1)
   - SDWebImage (4.4.7):
@@ -770,6 +771,7 @@ DEPENDENCIES:
   - MaterialComponents
   - NotificationBannerSwift (from `https://github.com/Daltron/NotificationBanner`, branch `ios13`)
   - NVActivityIndicatorView
+  - OnboardKit
   - RAMAnimatedTabBarController
   - SDWebImage (~> 4.0)
   - SwiftyJSON
@@ -809,6 +811,8 @@ SPEC REPOS:
     - SDWebImage
     - SnapKit
     - SwiftyJSON
+  trunk:
+    - OnboardKit
 
 EXTERNAL SOURCES:
   NotificationBannerSwift:
@@ -850,12 +854,13 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NotificationBannerSwift: 35e1dbe02bf745e3d2919c3f2b9f75c10b2402e3
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
+  OnboardKit: 73a4e9c9a1ae88afee0514ac3f2bc4f82126b66e
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   RAMAnimatedTabBarController: ec36fba2fa4679fd36db55098e3477fe9bd79f52
   SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 64ce40967f99cc4bdffb3e7ae570feff39dca1d8
+PODFILE CHECKSUM: dd5b15ab42fb49df6e18bd89c356da7d7a81af86
 
 COCOAPODS: 1.8.3

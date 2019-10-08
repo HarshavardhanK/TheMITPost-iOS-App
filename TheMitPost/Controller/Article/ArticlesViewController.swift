@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationCenter
 
 import Hero
 import NotificationBannerSwift
@@ -20,6 +21,7 @@ import SDWebImage
 
 class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate {
     
+    var notificationCenter = NotificationCenter.default
     
     fileprivate let heroTransition = HeroTransition()
     
@@ -51,11 +53,16 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
     var percentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransition!
     var panGestureRecognizer: UIPanGestureRecognizer!
     
+    func setupNotificationCenter() {
+        notificationCenter.addObserver(self, selector: #selector(refresh), name: Notification.Name("notice"), object: nil)
+    }
+    
     //MARK: VIEW DID LOAD
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupNotificationCenter()
         
         mode()
         startActivityIndicator()
@@ -203,7 +210,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
             
             self.parseArticleResult(result: JSON(resultValue))
             
-            //self.stopActivityIndicator()
+            self.stopActivityIndicator()
             
             self.articleCollectionView.reloadData()
             self.refreshControl.endRefreshing()

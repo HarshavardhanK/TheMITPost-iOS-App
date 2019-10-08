@@ -181,26 +181,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("Message ID: \(messageID)")
       }
         
-//      if let type = userInfo["gcm.notification.type"] as? String {
-//
-//        print(type)
-//
-//          if type == "slcm" {
-//              (window?.rootViewController as? UITabBarController)?.selectedIndex = 1
-//
-//          } else if type == "notice" {
-//              (window?.rootViewController as? UITabBarController)?.selectedIndex = 2
-//
-//          } else if type == "event" {
-//              (window?.rootViewController as? UITabBarController)?.selectedIndex = 3
-//
-//          } else {
-//              (window?.rootViewController as? UITabBarController)?.selectedIndex = 0
-//          }
-//      }
+      if let type = userInfo["gcm.notification.type"] as? String {
 
-      // Print full message.
-      //print(userInfo)
+        print(type)
+
+          if type == "slcm" {
+              (window?.rootViewController as? UITabBarController)?.selectedIndex = 1
+              
+          } else if type == "notice" {
+              
+              let notificationCenter = NotificationCenter.default
+              notificationCenter.post(name: Notification.Name("notice"), object: nil)
+              
+              (window?.rootViewController as? UITabBarController)?.selectedIndex = 2
+              
+          } else if type == "event" {
+              
+              let notificationCenter = NotificationCenter.default
+              notificationCenter.post(name: Notification.Name("event"), object: nil)
+              
+              (window?.rootViewController as? UITabBarController)?.selectedIndex = 3
+              
+          } else {
+              
+              let notificationCenter = NotificationCenter.default
+              notificationCenter.post(name: Notification.Name("article"), object: nil)
+              
+              (window?.rootViewController as? UITabBarController)?.selectedIndex = 0
+          }
+      }
+      print(userInfo)
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {

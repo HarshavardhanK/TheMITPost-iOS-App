@@ -21,6 +21,9 @@ pod 'NotificationBannerSwift', :git => 'https://github.com/Daltron/NotificationB
 pod 'lottie-ios'
 pod 'Hero'
 
+#onboarding
+pod 'OnboardKit'
+
 #Crashlytics Pods
 
 pod 'Fabric', '~> 1.10.2'

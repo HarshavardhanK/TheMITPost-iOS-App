@@ -9,7 +9,7 @@
 import UIKit
 import LocalAuthentication
 
-
+import OnboardKit
 import Alamofire
 import SwiftyJSON
 import Hero
@@ -182,6 +182,70 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         }
     }
     
+    //MARK: Onboarding
+    lazy var onboardingPages: [OnboardPage] = {
+        
+        let pageOne = OnboardPage(title: "Welcome to SLCM",
+                                  imageName: "rocket",
+                                  description: "The Post SLCM is an easy to use, fast and secure SLCM utility", advanceButtonTitle: "Great!")
+        
+        let pageTwo = OnboardPage(title: "Security",
+                                  imageName: "lock",
+                                  description: "We use state of the art security practices to ensure that only you have control of your data", advanceButtonTitle: "Okay")
+        
+        let pageThree = OnboardPage(title: "Stay up to date",
+                                    imageName: "notification",
+                                    description: "We send push notifications when your attendance and marks are uploaded so you don't miss a thing!", advanceButtonTitle: "Done")
+        
+        return [pageOne, pageTwo, pageThree]
+        
+    }()
+    
+    func onboard() {
+        
+        var backgroundColor: UIColor
+        var labelColor: UIColor
+        
+        if #available(iOS 13, *) {
+            
+            labelColor = .secondaryLabel
+           
+            if traitCollection.userInterfaceStyle == .dark {
+                backgroundColor = .background
+                
+                 
+            } else {
+                backgroundColor = .white
+    
+            }
+            
+        } else {
+            labelColor = .darkGray
+            backgroundColor = .white
+        }
+        
+        let tintColor = UIColor(red: 1.00, green: 0.52, blue: 0.40, alpha: 1.00)
+        let titleColor = UIColor(red: 1.00, green: 0.35, blue: 0.43, alpha: 1.00)
+        let boldTitleFont = UIFont.systemFont(ofSize: 32.0, weight: .bold)
+        let mediumTextFont = UIFont.systemFont(ofSize: 17.0, weight: .semibold)
+        let appearanceConfiguration = OnboardViewController.AppearanceConfiguration(tintColor: tintColor,
+                                                                                    titleColor: titleColor,
+                                                            textColor: labelColor,
+                                                            backgroundColor: backgroundColor,
+                                                            titleFont: boldTitleFont,
+                                                            textFont: mediumTextFont)
+        
+        let onboardingVC = OnboardViewController(pageItems: onboardingPages, appearanceConfiguration: appearanceConfiguration ,completion: {
+            print("onboarding complete")
+            
+        })
+        
+        onboardingVC.modalPresentationStyle = .formSheet
+        onboardingVC.presentFrom(self, animated: true)
+        
+    }
+
+    
     //MARK: Biometric type
     func biometricType() -> String {
         
@@ -210,8 +274,10 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mode()
+        onboard()
         
+        mode()
+    
         stackView.autoresizingMask = .flexibleBottomMargin
         stackView.autoresizingMask = .flexibleTopMargin
         stackView.autoresizingMask = .flexibleLeftMargin
