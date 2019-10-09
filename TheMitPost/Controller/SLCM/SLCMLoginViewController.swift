@@ -276,9 +276,6 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         
     }
 
-    
-    
-    
     //MARK: VIEW DID LOAD
 
     

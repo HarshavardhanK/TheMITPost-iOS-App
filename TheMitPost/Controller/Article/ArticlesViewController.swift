@@ -9,6 +9,7 @@
 import UIKit
 import NotificationCenter
 
+import OnboardKit
 import Hero
 import NotificationBannerSwift
 import MaterialComponents
@@ -42,8 +43,90 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
     
     @IBOutlet weak var logoutSigninBarButton: UIBarButtonItem!
     
+    //MARK: Onboarding
+    lazy var onboardingPages: [OnboardPage] = {
+        
+        let pageOne = OnboardPage(title: "Welcome aboard",
+                                  imageName: "reading",
+                                  description: "The Post app provides a rich reading experience with articles ranging from international matters to detailed college event converages", advanceButtonTitle: "Great!")
+        
+        let pageTwo = OnboardPage(title: "The notice is served",
+                                  imageName: "school",
+                                  description: "Important notices sent from the administration will be delivered to you at your comfort",
+                                  advanceButtonTitle: "Awesome!")
+        
+        let pageThree = OnboardPage(title: "Socialize",
+                                    imageName: "laugh",
+                                    description: "Attending college events got a whole lot of easier with just a single swipe and a tap!", advanceButtonTitle: "Count me in")
+        
+        let pageFour = OnboardPage(title: "Be notified",
+                                   imageName: "message",
+                                   description: "To add icing on the cake, we provide rich push notifications so you stay on top of things as they happen",
+                                   advanceButtonTitle: "Next",
+                                   actionButtonTitle: "Enable notifications",
+                                   action: { [weak self] completion in
+                                       
+                                       //check if push notifcations is turned, regardless ask for it once more
+                                       
+                                   }
+                                )
+        
+        let pageFive = OnboardPage(title: "Thank you",
+        imageName: "success",
+        description: "We hope you enjoy your experience with our app", advanceButtonTitle: "Done")
+        
+        return [pageOne, pageTwo, pageThree, pageFour, pageFive]
+        
+    }()
     
     var articlesShown = [Bool]()
+    
+    func onboard() {
+        
+        var backgroundColor: UIColor
+        var labelColor: UIColor
+        var titleColor: UIColor
+        
+        if #available(iOS 13, *) {
+            
+            labelColor = .secondaryLabel
+           
+            if traitCollection.userInterfaceStyle == .dark {
+                backgroundColor = .background
+                titleColor = .white
+                
+                 
+            } else {
+                backgroundColor = .white
+                titleColor = .darkText
+    
+            }
+            
+        } else {
+            labelColor = .darkGray
+            backgroundColor = .white
+            titleColor = .darkText
+        }
+        
+        let boldTitleFont = UIFont.systemFont(ofSize: 32.0, weight: .bold)
+        let mediumTextFont = UIFont.systemFont(ofSize: 17.0, weight: .semibold)
+        let appearanceConfiguration = OnboardViewController.AppearanceConfiguration(
+                                                            tintColor: .systemBlue,
+                                                            titleColor: titleColor,
+                                                            textColor: labelColor,
+                                                            backgroundColor: backgroundColor,
+                                                            titleFont: boldTitleFont,
+                                                            textFont: mediumTextFont)
+        
+        let onboardingVC = OnboardViewController(pageItems: onboardingPages, appearanceConfiguration: appearanceConfiguration ,completion: {
+            print("onboarding complete")
+            
+        })
+        
+        onboardingVC.modalPresentationStyle = .formSheet
+        onboardingVC.presentFrom(self, animated: true)
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -61,6 +144,8 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        onboard()
         
         setupNotificationCenter()
         
