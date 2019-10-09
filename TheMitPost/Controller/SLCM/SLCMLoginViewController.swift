@@ -214,7 +214,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         let pageTwo = OnboardPage(title: "Security",
                                   imageName: "lock",
                                   description: "We use state of the art security practices to ensure that only you have control of your data. By continuing further, you agree to our privacy policy",
-                                  advanceButtonTitle: "Next",
+                                  advanceButtonTitle: "I agree",
                                   actionButtonTitle: "Enable " + biometricType(),
                                   action: { [weak self] completion in
                                     
@@ -285,10 +285,12 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UserDefaults.standard.bool(forKey: "firstTime") == false {
-             onboard()
-            UserDefaults.standard.set(true, forKey: "firstTime")
-        }
+        onboard()
+        
+//        if UserDefaults.standard.bool(forKey: "firstTime") == false {
+//
+//            UserDefaults.standard.set(true, forKey: "firstTime")
+//        }
     
         mode()
     
@@ -314,28 +316,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         
         if checkForBiometric() {
             
-            print("biometric is enabled")
-            
-            let _ = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
-            var laTypeString: String
-            
-            switch context.biometryType {
-                
-            case .none:
-                laTypeString = ""
-                
-            case .faceID:
-                laTypeString = "Face ID is enabled"
-                
-            case .touchID:
-                laTypeString = "Touch ID is enabled"
-                
-            default:
-                laTypeString = ""
-                
-            }
-            
-            biometricLabel.text = laTypeString
+            biometricLabel.text = biometricType() + " enabled"
             
             if #available(iOS 13, *) {
                 biometricLabel.textColor = .tertiaryLabel
@@ -456,8 +437,15 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
             
             UserDefaults.standard.set(registration, forKey: "registration")
             
-            try! Locksmith.saveData(data: ["registration": registration, "password": password], forUserAccount: registration)
+            print("Crashing here")
+            
+            if let _ = Locksmith.loadDataForUserAccount(userAccount: registration) {
+                print("Existing user found")
                 
+            } else {
+                try! Locksmith.saveData(data: ["registration": registration, "password": password], forUserAccount: registration)
+            }
+            
             print("Registration and password stored in Locksmith")
             
             
@@ -509,8 +497,6 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
     
     func loadSLCMData(registration: String, password: String, completion: @escaping (CALLBACK) -> ()) {
         
-        var success = false
-        
         print("registration is \(registration)")
         print("password is \(password)")
         
@@ -538,8 +524,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
             } else {
         
                 print("Credentials are right..")
-                success = true
-                
+               
                 guard let _subjects = groupData(data: data["academicDetails"][0]) else {
                     print("Failing to group")
                     return
@@ -628,19 +613,6 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         }
         
     }
-    
-//    //MARK: FOR HERO
-//    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning)
-//        -> UIViewControllerInteractiveTransitioning? {
-//        return heroTransition.navigationController(navigationController, interactionControllerFor: animationController)
-//    }
-//
-//    func navigationController(_ navigationController: UINavigationController,
-//                              animationControllerFor operation: UINavigationController.Operation,
-//                              from fromVC: UIViewController,
-//                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        return heroTransition.navigationController(navigationController, animationControllerFor: operation, from: fromVC, to: toVC)
-//    }
     
     //MARK:- TextFieldDelegate methods
     
@@ -771,16 +743,21 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         passwordTextfield.isEnabled = true
         signInButton.isEnabled = false
         
+        if let registration = UserDefaults.standard.string(forKey: DEFAULTS.REGISTRATION) {
+            try! Locksmith.deleteDataForUserAccount(userAccount: registration)
+        }
+        
     }
     
     //MARK: SIGN IN FUNCTIONS
     
     func signIn_biometryFailed() {
         
-        print("FACE ID failed to recognize")
-        
         let banner = NotificationBanner(title: "Snap!", subtitle: "Sorry, we could not recognize you", style: .warning)
         banner.show()
+        
+        let banner2 = NotificationBanner(title: "Check " + biometricType(), subtitle: "The app does not have access to " + biometricType(), style: .warning)
+        banner2.show(bannerPosition: .bottom)
         
         self.stopActivityIndicator()
         
