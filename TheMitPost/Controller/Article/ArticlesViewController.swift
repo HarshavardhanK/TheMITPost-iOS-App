@@ -65,10 +65,11 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
                                    advanceButtonTitle: "Next",
                                    actionButtonTitle: "Enable notifications",
                                    action: { [weak self] completion in
+                                    
+                                    print("Enable notifications tapped")
                                        
                                        //check if push notifcations is turned, regardless ask for it once more
-                                       
-                                   }
+                                    }
                                 )
         
         let pageFive = OnboardPage(title: "Thank you",
