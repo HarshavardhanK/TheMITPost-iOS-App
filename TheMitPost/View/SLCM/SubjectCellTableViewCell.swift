@@ -147,6 +147,11 @@ class SubjectCellTableViewCell: FoldingCell {
                     sessional1.textColor = .secondaryLabel
                     sessional2.textColor = .secondaryLabel
                     
+                    assmnt12Label.textColor = .secondaryLabel
+                    assmnt34Label.textColor = .secondaryLabel
+                    sess1Label.textColor = .secondaryLabel
+                    sess2Label.textColor = .secondaryLabel
+                    
                 }
             
         }
@@ -226,11 +231,22 @@ class SubjectCellTableViewCell: FoldingCell {
                 
                 timeLabel.text = attendance.attendanceUpdatedAt
                 
+                //MARK: Handle Lab Marks
                 
+                if let lab = _subject._marks?.isLab {
+                    
+                    if lab {
+                        assmnt12Label.text = "Labs support soon"
+                        assmnt34Label.text = "Labs support soon"
+                        sess1Label.text = "Labs support soon"
+                        sess2Label.text = "Labs support soon"
+                    }
+                    
+                }
             }
             
-            
         }
+        
     }
     
     

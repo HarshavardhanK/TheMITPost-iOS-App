@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationCenter
 
 import Hero
 import NotificationBannerSwift
@@ -22,6 +23,14 @@ class SLCMTableViewController: UITableViewController, UINavigationControllerDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let userIsRegisteredForNotifications = UIApplication.shared.isRegisteredForRemoteNotifications
+        
+        if !userIsRegisteredForNotifications {
+            
+            let notificationCenter = NotificationCenter.default
+            notificationCenter.post(name: Notification.Name("notificationRequest"), object: nil)
+        }
         
         mode()
         

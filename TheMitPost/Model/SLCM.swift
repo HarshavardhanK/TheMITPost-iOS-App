@@ -114,6 +114,7 @@ class Marks {
     
     var sessionalMarks: [String]? = nil
     var assignmentMarks: [String]? = nil
+    var isLab: Bool = false
     
     init(data_: JSON?) {
         
@@ -138,8 +139,7 @@ class Marks {
                 
                 
             } else {
-                assignmentMarks?[0] = "Lab not yet supported"
-                sessionalMarks?[0] = "Lab not yet supported"
+                isLab = true
             }
             
         }

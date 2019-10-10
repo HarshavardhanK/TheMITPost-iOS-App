@@ -8,6 +8,7 @@
 
 import UIKit
 import LocalAuthentication
+import NotificationCenter
 
 import OnboardKit
 import Alamofire
@@ -21,6 +22,7 @@ import MaterialComponents
 
 class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate, UNUserNotificationCenterDelegate , NVActivityIndicatorViewable {
     
+    let notificationCenter = NotificationCenter.default
     
     let SLCMAPI: String = "https://app.themitpost.com/values"
     let FCMTokenAPI: String = "https://app.themitpost.com/credential"
@@ -202,6 +204,27 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
                 signInButton.isEnabled = false
             }
         }
+        
+    }
+    
+    @objc func requestForNotification() {
+        
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        
+        UNUserNotificationCenter.current().requestAuthorization (
+            
+            options: authOptions,
+            completionHandler: {granted, error in
+                
+                if granted {
+                    
+                    print("Successfully granted notification permission")
+                    
+                } else {
+                    
+                    print("Notification permission denied")
+                }
+        })
     }
     
     //MARK: Onboarding
@@ -352,6 +375,8 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         //        }
         
         mode()
+        
+        notificationCenter.addObserver(self, selector: #selector(requestForNotification), name: NSNotification.Name("notificationRequest"), object: nil)
         
         stackView.autoresizingMask = .flexibleBottomMargin
         stackView.autoresizingMask = .flexibleTopMargin
