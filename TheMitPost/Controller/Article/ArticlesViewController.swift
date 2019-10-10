@@ -20,7 +20,7 @@ import Lottie
 import SDWebImage
 
 
-class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate {
+class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate, UNUserNotificationCenterDelegate {
     
     var notificationCenter = NotificationCenter.default
     
@@ -69,6 +69,35 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
                                     print("Enable notifications tapped")
                                        
                                        //check if push notifcations is turned, regardless ask for it once more
+                                    
+                                    if #available(iOS 10.0, *) {
+                                      // For iOS 10 display notification (sent via APNS)
+                                        UNUserNotificationCenter.current().delegate = self
+
+                                      let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+                                        
+                                      UNUserNotificationCenter.current().requestAuthorization (
+                                        
+                                        options: authOptions,
+                                        completionHandler: {granted, error in
+                                            
+                                            if granted {
+                                                print("Successfully granted notification permission")
+
+                                            } else {
+                                                print("Notification permission denied")
+                                            }
+                                      })
+                                        
+                                    } else {
+                                        
+                                      let settings: UIUserNotificationSettings =
+                                      UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+                                        UIApplication.shared.registerUserNotificationSettings(settings)
+                                    }
+
+                                    UIApplication.shared.registerForRemoteNotifications()
+                                    
                                     }
                                 )
         
@@ -120,7 +149,19 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
                                                             textFont: mediumTextFont)
         
         let onboardingVC = OnboardViewController(pageItems: onboardingPages, appearanceConfiguration: appearanceConfiguration ,completion: {
+            
             print("onboarding complete")
+            
+            let isRegisteredForRemoteNotifications = UIApplication.shared.isRegisteredForRemoteNotifications
+            
+            if isRegisteredForRemoteNotifications {
+                 let banner = NotificationBanner(title: "Great!", subtitle: "All set for the best app experience", style: .success)
+                 banner.show()
+                
+            } else {
+                 let banner = NotificationBanner(title: "Ugh!", subtitle: "Please enable push notifications for a better experience", style: .warning)
+                 banner.show()
+            }
             
         })
         
