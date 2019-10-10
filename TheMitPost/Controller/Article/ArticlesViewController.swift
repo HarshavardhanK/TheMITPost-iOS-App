@@ -159,7 +159,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
                  banner.show()
                 
             } else {
-                 let banner = NotificationBanner(title: "Ugh!", subtitle: "Please enable push notifications for a better experience", style: .warning)
+                 let banner = NotificationBanner(title: "Ugh!", subtitle: "Please enable push notifications in iPhone settings for a better experience", style: .warning)
                  banner.show()
             }
             

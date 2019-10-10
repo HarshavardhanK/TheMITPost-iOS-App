@@ -19,16 +19,16 @@ import NVActivityIndicatorView
 import Locksmith
 import MaterialComponents
 
-class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate, NVActivityIndicatorViewable {
+class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate, UNUserNotificationCenterDelegate , NVActivityIndicatorViewable {
     
     
     let SLCMAPI: String = "https://app.themitpost.com/values"
     let FCMTokenAPI: String = "https://app.themitpost.com/credential"
-
+    
     @IBOutlet weak var registrationTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     
-     @IBOutlet weak var biometricLabel: UILabel!
+    @IBOutlet weak var biometricLabel: UILabel!
     
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var logoutButton: UIBarButtonItem!
@@ -82,17 +82,17 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
     func authenticateWithBiometric(completion: @escaping (Bool) -> ())  {
         
         print("Authenticating")
-
+        
         var error: NSError?
-
+        
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             let reason = "slcm login"
-
+            
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
                 [weak self] success, authenticationError in
-
+                
                 DispatchQueue.main.async {
-
+                    
                     if success {
                         print("Successfully authenticated")
                         completion(true)
@@ -103,7 +103,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
                     }
                 }
                 
-               
+                
             }
         } else {
             print("Couldnt find biometry")
@@ -222,11 +222,62 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
                                     let banner = NotificationBanner(title: "Great!", subtitle: "You have enabled " + (self?.biometricType())! + " for fast login", style: .success)
                                     banner.show()
                                     
-                                })
+        })
         
-        let pageThree = OnboardPage(title: "Stay up to date",
+        var pageThree: OnboardPage
+        
+        let isRegisteredForNotifications = UIApplication.shared.isRegisteredForRemoteNotifications
+        
+        if isRegisteredForNotifications {
+            
+            pageThree = OnboardPage(title: "Stay up to date",
                                     imageName: "notification",
                                     description: "We send push notifications when your attendance and marks are uploaded so you don't miss a thing!", advanceButtonTitle: "Done")
+            
+        } else {
+            
+            pageThree = OnboardPage(title: "Stay up to date",
+                                    imageName: "notification",
+                                    description: "We send push notifications when your attendance and marks are uploaded so you don't miss a thing!", advanceButtonTitle: "Done",
+                                    actionButtonTitle: "Enable Notifications",
+                                    action: { [weak self] completion in
+                                        
+                                        print("Enable notifications tapped")
+                                        
+                                        if #available(iOS 10.0, *) {
+                                            // For iOS 10 display notification (sent via APNS)
+                                            UNUserNotificationCenter.current().delegate = self
+                                            
+                                            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+                                            
+                                            UNUserNotificationCenter.current().requestAuthorization (
+                                                
+                                                options: authOptions,
+                                                completionHandler: {granted, error in
+                                                    
+                                                    if granted {
+                                                        print("Successfully granted notification permission")
+                                                        
+                                                    } else {
+                                                        print("Notification permission denied")
+                                                    }
+                                            })
+                                            
+                                        } else {
+                                            
+                                            let settings: UIUserNotificationSettings =
+                                                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+                                            UIApplication.shared.registerUserNotificationSettings(settings)
+                                        }
+                                        
+                                        UIApplication.shared.registerForRemoteNotifications()
+            })
+            
+        }
+        
+        
+        
+        
         
         return [pageOne, pageTwo, pageThree]
         
@@ -240,14 +291,14 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         if #available(iOS 13, *) {
             
             labelColor = .secondaryLabel
-           
+            
             if traitCollection.userInterfaceStyle == .dark {
                 backgroundColor = .background
                 
-                 
+                
             } else {
                 backgroundColor = .white
-    
+                
             }
             
         } else {
@@ -255,19 +306,30 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
             backgroundColor = .white
         }
         
-        let tintColor: UIColor = .systemBlue//UIColor(red: 1.00, green: 0.52, blue: 0.40, alpha: 1.00)
+        let tintColor: UIColor = .systemBlue
         let titleColor = UIColor(red: 1.00, green: 0.35, blue: 0.43, alpha: 1.00)
         let boldTitleFont = UIFont.systemFont(ofSize: 32.0, weight: .bold)
         let mediumTextFont = UIFont.systemFont(ofSize: 17.0, weight: .semibold)
         let appearanceConfiguration = OnboardViewController.AppearanceConfiguration(tintColor: tintColor,
                                                                                     titleColor: titleColor,
-                                                            textColor: labelColor,
-                                                            backgroundColor: backgroundColor,
-                                                            titleFont: boldTitleFont,
-                                                            textFont: mediumTextFont)
+                                                                                    textColor: labelColor,
+                                                                                    backgroundColor: backgroundColor,
+                                                                                    titleFont: boldTitleFont,
+                                                                                    textFont: mediumTextFont)
         
         let onboardingVC = OnboardViewController(pageItems: onboardingPages, appearanceConfiguration: appearanceConfiguration ,completion: {
             print("onboarding complete")
+            
+            let isRegisteredForRemoteNotifications = UIApplication.shared.isRegisteredForRemoteNotifications
+            
+            if isRegisteredForRemoteNotifications {
+                 let banner = NotificationBanner(title: "Great!", subtitle: "All set for the best SLCM experience", style: .success)
+                 banner.show()
+                
+            } else {
+                 let banner = NotificationBanner(title: "Ugh!", subtitle: "Please enable push notifications in iPhone settings for the best SLCM experience", style: .warning)
+                 banner.show()
+            }
             
         })
         
@@ -275,22 +337,22 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         onboardingVC.presentFrom(self, animated: true)
         
     }
-
+    
     //MARK: VIEW DID LOAD
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         onboard()
         
-//        if UserDefaults.standard.bool(forKey: "firstTime") == false {
-//
-//            UserDefaults.standard.set(true, forKey: "firstTime")
-//        }
-    
+        //        if UserDefaults.standard.bool(forKey: "firstTime") == false {
+        //
+        //            UserDefaults.standard.set(true, forKey: "firstTime")
+        //        }
+        
         mode()
-    
+        
         stackView.autoresizingMask = .flexibleBottomMargin
         stackView.autoresizingMask = .flexibleTopMargin
         stackView.autoresizingMask = .flexibleLeftMargin
@@ -377,7 +439,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
-       mode()
+        mode()
     }
     
     func resetInvalidLock() -> Bool {
@@ -519,9 +581,9 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
                 completion(.login)
                 
             } else {
-        
+                
                 print("Credentials are right..")
-               
+                
                 guard let _subjects = groupData(data: data["academicDetails"][0]) else {
                     print("Failing to group")
                     return
@@ -532,7 +594,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
                 _subjects[0].display()
                 
                 self.subjects = _subjects
-            
+                
             }
             
             print("Completed POST request")
@@ -559,18 +621,18 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
             
             Alamofire.request(FCMTokenAPI, method: .post, parameters:["regNumber":registration, "pass":password, "fcm_token": fcmToken, "action": action], encoding: JSONEncoding.default).responseJSON { response in
                 
-            
+                
                 print("calling fcm post request")
-            
+                
                 guard let resultValue = response.result.value else {
                     print("Failing in website")
-                
-                
-                //sendinf false would mean invalid login. Change it
-                //code to send error alert
+                    
+                    
+                    //sendinf false would mean invalid login. Change it
+                    //code to send error alert
                     return
                 }
-            
+                
                 let data = JSON(resultValue)
                 //print(data)
                 
@@ -644,16 +706,16 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "slcmDetail" {
-                
+            
             print("Passed subjects..")
-                
+            
             print("Segueing to SLCM Detail")
             
             
             let destination = segue.destination as! SLCMTableViewController
             destination.subjects = self.subjects
-                
-                
+            
+            
         } else if segue.identifier == "settingsSegue" {
             
             let settingsController = segue.destination as! SLCMSettingsViewController
@@ -680,7 +742,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
             if let password = getPassword() {
                 fcmAction(registration: registration, password: password, action: "delete")
             }
-        
+            
             try! Locksmith.deleteDataForUserAccount(userAccount: registration)
             
             clearUserCache()
@@ -695,7 +757,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
     }
     
     //MARK: Bottom Settings View
-   
+    
     func presentBottomSettings() {
         
         if #available(iOS 13.0, *) {
@@ -712,7 +774,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
             
             
         } else {
-           
+            
             guard let settingsController = storyboard?.instantiateViewController(withIdentifier: "slcmSettings") as? SLCMSettingsViewController else {
                 return
             }
@@ -780,7 +842,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
                     
                     self.stopActivityIndicator()
                     self.performSegue(withIdentifier: "slcmDetail", sender: self)
-                   
+                    
                 } else if result == .login {
                     
                     self.stopActivityIndicator()
@@ -807,7 +869,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         guard let registration = registrationTextfield.text else {
             return
         }
-
+        
         guard let password = passwordTextfield.text else {
             return
         }
@@ -816,29 +878,29 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         self.registrationTextfield.text = nil
         
         loadSLCMData (registration: registration, password: password) { (result) in
-                
+            
             if result == .success {
-                    
-                    self.stopActivityIndicator()
-                    
-                    print("Storing \(registration)")
-                    print("Storing \(password)")
-                    
-                    self.showAlertForSaveCredentials(registration: registration, password: password)
-                    
+                
+                self.stopActivityIndicator()
+                
+                print("Storing \(registration)")
+                print("Storing \(password)")
+                
+                self.showAlertForSaveCredentials(registration: registration, password: password)
+                
             } else if result == .login {
-                    
-                    self.showAlertForInvalidCredentials()
-                   
-                    self.count += 1
-                    
-                    UserDefaults.standard.set(self.count, forKey: ERROR_CODES.INVALID_ATTEMPT)
-                    
-                    self.stopActivityIndicator()
-                    
-        //            if self.count == 2 {
-        //                UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
-        //            }
+                
+                self.showAlertForInvalidCredentials()
+                
+                self.count += 1
+                
+                UserDefaults.standard.set(self.count, forKey: ERROR_CODES.INVALID_ATTEMPT)
+                
+                self.stopActivityIndicator()
+                
+                //            if self.count == 2 {
+                //                UserDefaults.standard.set(Date(), forKey: ERROR_CODES.TIME_OF_INVALID)
+                //            }
                 
             } else {
                 
@@ -855,7 +917,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         }
         
     }
-
+    
     
     func checkForBiometric() -> Bool {
         return UserDefaults.standard.bool(forKey: DEFAULTS.BIOMETRIC_ENABLED)
@@ -895,7 +957,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         return nil
     }
     
-
+    
 }
 
 
