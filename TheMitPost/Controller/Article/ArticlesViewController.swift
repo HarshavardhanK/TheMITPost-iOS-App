@@ -67,43 +67,43 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
                                    action: { [weak self] completion in
                                     
                                     print("Enable notifications tapped")
-                                       
-                                       //check if push notifcations is turned, regardless ask for it once more
+                                    
+                                    //check if push notifcations is turned, regardless ask for it once more
                                     
                                     if #available(iOS 10.0, *) {
-                                      // For iOS 10 display notification (sent via APNS)
+                                        // For iOS 10 display notification (sent via APNS)
                                         UNUserNotificationCenter.current().delegate = self
-
-                                      let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
                                         
-                                      UNUserNotificationCenter.current().requestAuthorization (
+                                        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
                                         
-                                        options: authOptions,
-                                        completionHandler: {granted, error in
+                                        UNUserNotificationCenter.current().requestAuthorization (
                                             
-                                            if granted {
-                                                print("Successfully granted notification permission")
-
-                                            } else {
-                                                print("Notification permission denied")
-                                            }
-                                      })
+                                            options: authOptions,
+                                            completionHandler: {granted, error in
+                                                
+                                                if granted {
+                                                    print("Successfully granted notification permission")
+                                                    
+                                                } else {
+                                                    print("Notification permission denied")
+                                                }
+                                        })
                                         
                                     } else {
                                         
-                                      let settings: UIUserNotificationSettings =
-                                      UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+                                        let settings: UIUserNotificationSettings =
+                                            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
                                         UIApplication.shared.registerUserNotificationSettings(settings)
                                     }
-
+                                    
                                     UIApplication.shared.registerForRemoteNotifications()
                                     
-                                    }
-                                )
+            }
+        )
         
         let pageFive = OnboardPage(title: "Thank you",
-        imageName: "success",
-        description: "We hope you enjoy your experience with our app", advanceButtonTitle: "Done")
+                                   imageName: "success",
+                                   description: "We hope you enjoy your experience with our app", advanceButtonTitle: "Done")
         
         return [pageOne, pageTwo, pageThree, pageFour, pageFive]
         
@@ -120,16 +120,16 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
         if #available(iOS 13, *) {
             
             labelColor = .secondaryLabel
-           
+            
             if traitCollection.userInterfaceStyle == .dark {
                 backgroundColor = .background
                 titleColor = .white
                 
-                 
+                
             } else {
                 backgroundColor = .white
                 titleColor = .darkText
-    
+                
             }
             
         } else {
@@ -141,12 +141,12 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
         let boldTitleFont = UIFont.systemFont(ofSize: 32.0, weight: .bold)
         let mediumTextFont = UIFont.systemFont(ofSize: 17.0, weight: .semibold)
         let appearanceConfiguration = OnboardViewController.AppearanceConfiguration(
-                                                            tintColor: .systemBlue,
-                                                            titleColor: titleColor,
-                                                            textColor: labelColor,
-                                                            backgroundColor: backgroundColor,
-                                                            titleFont: boldTitleFont,
-                                                            textFont: mediumTextFont)
+            tintColor: .systemBlue,
+            titleColor: titleColor,
+            textColor: labelColor,
+            backgroundColor: backgroundColor,
+            titleFont: boldTitleFont,
+            textFont: mediumTextFont)
         
         let onboardingVC = OnboardViewController(pageItems: onboardingPages, appearanceConfiguration: appearanceConfiguration ,completion: {
             
@@ -155,12 +155,12 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
             let isRegisteredForRemoteNotifications = UIApplication.shared.isRegisteredForRemoteNotifications
             
             if isRegisteredForRemoteNotifications {
-                 let banner = NotificationBanner(title: "Great!", subtitle: "All set for the best app experience", style: .success)
-                 banner.show()
+                let banner = NotificationBanner(title: "Great!", subtitle: "All set for the best app experience", style: .success)
+                banner.show()
                 
             } else {
-                 let banner = NotificationBanner(title: "Ugh!", subtitle: "Please enable push notifications in iPhone settings for a better experience", style: .warning)
-                 banner.show()
+                let banner = NotificationBanner(title: "Ugh!", subtitle: "Please enable push notifications in iPhone settings for a better experience", style: .warning)
+                banner.show()
             }
             
         })
@@ -174,7 +174,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
         super.viewWillAppear(animated)
         
     }
-
+    
     var percentDrivenInteractiveTransition: UIPercentDrivenInteractiveTransition!
     var panGestureRecognizer: UIPanGestureRecognizer!
     
@@ -187,7 +187,10 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        onboard()
+        if UserDefaults.standard.bool(forKey: "firstTimeApp") == false {
+            onboard()
+            UserDefaults.standard.set(true, forKey: "firstTimeApp")
+        }
         
         setupNotificationCenter()
         
@@ -208,7 +211,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
         tabBarController?.delegate = self
         
         refreshControl.addTarget(self, action: #selector(refreshArticles), for: .valueChanged)
-      
+        
         retrieveArticles { (success) in
             
             if !success {
@@ -276,8 +279,8 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
             self.view.addSubview(refreshButton)
             
         }
-        
-        
+            
+            
         else if action == "remove" {
             
             print("removing empty views")
@@ -379,7 +382,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
             
             
             articlesList.append(article)
-        
+            
         }
         
         
@@ -390,7 +393,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
         retrieveArticles{ (sucess) in
             
             if(sucess) {
-            
+                
                 self.articlesShown = [Bool](repeating: false, count: self.articlesList.count)
                 print("Finished refreshing..")
                 
@@ -402,8 +405,8 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
     
     //MARK:- Configue UI
     /*override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
-    }*/
+     return .default
+     }*/
     
     func mode() {
         
@@ -414,7 +417,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
                 print("dark mode detected")
                 self.navigationController?.navigationBar.barTintColor = .background
                 self.tabBarController?.tabBar.barTintColor = .background
-
+                
                 self.view.backgroundColor = .background
                 articleCollectionView.backgroundColor = .background
                 
@@ -434,9 +437,9 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
-       mode()
+        mode()
     }
-
+    
     
     //MARK:- UICOLLECTIONVIEW DATASOURCE AND DELEGATE METHODS
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -463,17 +466,17 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
     
     //MARK:- UICOLLECTIONVIEWDELEGATEFLOWLAYOUT METHODS
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+        
         return CGSize(width: view.bounds.width - (ArticleCollectionViewCell.cellPadding * 2), height: ArticleCollectionViewCell.cellHeight)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-
+        
         return UIEdgeInsets(top: ArticleCollectionViewCell.cellPadding + 15, left: 30.0, bottom: 30.0, right: 30.0)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-
+        
         return ArticleCollectionViewCell.cellPadding + 10  // need to trial and test this number to suit all iOS devices (iPhone 5S and upwards). This worked good on iPhone X
     }
     
@@ -519,9 +522,9 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
     //MARK: FOR HERO
     func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning)
         -> UIViewControllerInteractiveTransitioning? {
-        return heroTransition.navigationController(navigationController, interactionControllerFor: animationController)
+            return heroTransition.navigationController(navigationController, interactionControllerFor: animationController)
     }
-
+    
     func navigationController(_ navigationController: UINavigationController,
                               animationControllerFor operation: UINavigationController.Operation,
                               from fromVC: UIViewController,
@@ -534,7 +537,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "articleViewSegue" {
-           
+            
             if let destinationViewController = segue.destination as? ArticleWebViewController {
                 
                 let selectedCell = sender as? ArticleCollectionViewCell
@@ -568,7 +571,7 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
     }
     
     //MARK: Bottom Settings View
-   
+    
     func presentBottomMenu() {
         
         if #available(iOS 13, *) {
@@ -595,6 +598,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
         
         
     }
-
+    
 }
 

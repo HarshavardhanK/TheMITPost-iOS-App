@@ -240,6 +240,12 @@ class SubjectCellTableViewCell: FoldingCell {
                         assmnt34Label.text = "Labs support soon"
                         sess1Label.text = "Labs support soon"
                         sess2Label.text = "Labs support soon"
+                        
+                    } else {
+                        assmnt12Label.text = "ASSIGNMENT 1-2"
+                        assmnt34Label.text = "ASSIGNMENT 3-4"
+                        sess1Label.text = "SESSIONAL 1"
+                        sess2Label.text = "SESSIONAL 2"
                     }
                     
                 }
@@ -263,8 +269,6 @@ class SubjectCellTableViewCell: FoldingCell {
         
         subjectName.numberOfLines = 0
         subjectName.lineBreakMode = .byWordWrapping
-        
-        //backgroundColor = .systemBackground
         
     }
 

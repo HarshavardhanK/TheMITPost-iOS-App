@@ -367,12 +367,10 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        onboard()
-        
-        //        if UserDefaults.standard.bool(forKey: "firstTime") == false {
-        //
-        //            UserDefaults.standard.set(true, forKey: "firstTime")
-        //        }
+        if UserDefaults.standard.bool(forKey: "firstTime") == false {
+            onboard()
+            UserDefaults.standard.set(true, forKey: "firstTime")
+        }
         
         mode()
         

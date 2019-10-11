@@ -60,9 +60,9 @@ class SLCMTableViewController: UITableViewController, UINavigationControllerDele
         if traitCollection.userInterfaceStyle == .dark {
             
             self.navigationController?.navigationBar.barTintColor = .background
-            self.tableView.backgroundColor = .background
+            self.tableView.backgroundColor = .foreground
             self.tabBarController?.tabBar.barTintColor = .background
-            self.view.backgroundColor = .background
+            self.view.backgroundColor = .foreground
             
         } else {
             self.navigationController?.navigationBar.barTintColor = .systemOrange
