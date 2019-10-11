@@ -9,7 +9,6 @@
 import UIKit
 import NotificationCenter
 
-import Hero
 import NotificationBannerSwift
 import FoldingCell
 

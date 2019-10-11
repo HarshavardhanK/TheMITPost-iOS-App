@@ -13,7 +13,6 @@ import NotificationCenter
 import OnboardKit
 import Alamofire
 import SwiftyJSON
-import Hero
 import Lottie
 import NotificationBannerSwift
 import NVActivityIndicatorView

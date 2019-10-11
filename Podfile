@@ -19,7 +19,6 @@ pod 'RAMAnimatedTabBarController'
 pod 'Locksmith'
 pod 'NotificationBannerSwift', :git => 'https://github.com/Daltron/NotificationBanner', :branch => 'ios13'
 pod 'lottie-ios'
-pod 'Hero'
 
 #onboarding
 pod 'OnboardKit'
