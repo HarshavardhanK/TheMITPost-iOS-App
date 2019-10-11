@@ -14,7 +14,7 @@ class Attendance {
     var totalClasses: String?
     var classesPresent: String?
     var classesAbsent: String?
-    var updatedAt: Double?
+    var updatedAt: Double = -1.0
     
     init(data: JSON?) {
         
@@ -37,7 +37,7 @@ class Attendance {
         
         guard let _totClasses = totalClasses else {
             print("problem with _totalClassses")
-          return -1
+            return -1
         }
         
         guard let _classesPresent = classesPresent else {
@@ -55,11 +55,11 @@ class Attendance {
             return -1
         }
         
-       // print("Classes present int convert \(classesPresentInt)")
+        // print("Classes present int convert \(classesPresentInt)")
         
         let percent: Int = Int((Double(classesPresentInt) / Double(totalClassesInt)) * 100)
         
-      //  print("Percent \(percent)")
+        //  print("Percent \(percent)")
         
         return percent
         
@@ -67,21 +67,15 @@ class Attendance {
     
     var attendanceUpdatedAt: String {
         
-        if let updatedAt_ = updatedAt {
-            
-            if updatedAt_ == -1 {
-                return "__"
-            }
-        
-            let strUpdatedAt = Date.unixTimeStampToDate(unixTime: updatedAt_)
-            
-            print("\(updatedAt_) -> \(strUpdatedAt)")
-            
-            return strUpdatedAt
-            
-        } else {
+        if updatedAt == -1 {
             return "__"
         }
+        
+        let strUpdatedAt = Date.unixTimeStampToDate(unixTime: updatedAt)
+        
+        print("\(updatedAt) -> \(strUpdatedAt)")
+        
+        return strUpdatedAt
     }
     
     var attendancePercentString: String {
@@ -106,7 +100,7 @@ class Attendance {
         }
         
     }
-
+    
     
 }
 
@@ -115,11 +109,20 @@ class Marks {
     var sessionalMarks: [String]? = nil
     var assignmentMarks: [String]? = nil
     var isLab: Bool = false
+    var updatedAt: Double = -1.0
     
     init(data_: JSON?) {
         
+        if let data = data_ {
+            updatedAt = data["updatedAt"].doubleValue
+        }
+        
         guard let data = data_ else {
             return
+        }
+        
+        if updatedAt == 0.0 {
+            updatedAt = -1
         }
         
         if data["status"].boolValue {
@@ -146,6 +149,19 @@ class Marks {
         
     }
     
+    var marksUpdatedAt: String {
+        
+        if updatedAt == -1 {
+            return "__"
+        }
+        
+        let strUpdatedAt = Date.unixTimeStampToDate(unixTime: updatedAt)
+        
+        print("\(updatedAt) -> \(strUpdatedAt)")
+        
+        return strUpdatedAt
+    }
+    
 }
 
 class Subject {
@@ -154,6 +170,7 @@ class Subject {
     
     var _attendance: Attendance?
     var _marks: Marks?
+    var updatedAt: String?
     
     init(marks: JSON?, attendance: JSON?) {
         
@@ -173,6 +190,24 @@ class Subject {
     func display() {
         print("Subject name \(subjectName!)")
         print("Total classes \(_attendance?.totalClasses!)")
+    }
+    
+    var attendanceUpdatedAt: String {
+        
+        if let marks = _marks {
+            if let attendance = _attendance {
+                
+                if marks.updatedAt > attendance.updatedAt {
+                    return marks.marksUpdatedAt
+                }
+                
+                return attendance.attendanceUpdatedAt
+            }
+            
+        }
+        
+        return "__"
+        
     }
     
 }

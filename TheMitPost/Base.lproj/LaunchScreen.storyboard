@@ -16,17 +16,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post_main_logo" translatesAutoresizingMaskIntoConstraints="NO" id="RkJ-DX-Ztd">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post_logo" translatesAutoresizingMaskIntoConstraints="NO" id="RkJ-DX-Ztd">
                                 <rect key="frame" x="82" y="323" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="XVS-bY-2on"/>
                                     <constraint firstAttribute="height" constant="250" id="npm-Ps-BEF"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Official Media Body of MIT Manipal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8M-Ek-TUF">
+                                <rect key="frame" x="51" y="581" width="312" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ipS-n8-LWU"/>
+                                    <constraint firstAttribute="width" constant="312" id="wrq-di-Idc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="F8M-Ek-TUF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="60D-by-f1M"/>
                             <constraint firstItem="RkJ-DX-Ztd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YiP-ML-pVp"/>
+                            <constraint firstItem="F8M-Ek-TUF" firstAttribute="top" secondItem="RkJ-DX-Ztd" secondAttribute="bottom" constant="8" id="dun-4Q-t5M"/>
                             <constraint firstItem="RkJ-DX-Ztd" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-5" id="mo2-Mb-6Gp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -34,10 +46,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="post_main_logo" width="350" height="350"/>
+        <image name="post_logo" width="384" height="384"/>
     </resources>
 </document>

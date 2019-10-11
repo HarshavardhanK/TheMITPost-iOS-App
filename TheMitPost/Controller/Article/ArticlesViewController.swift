@@ -10,7 +10,6 @@ import UIKit
 import NotificationCenter
 
 import OnboardKit
-import Hero
 import NotificationBannerSwift
 import MaterialComponents
 import NVActivityIndicatorView
@@ -20,11 +19,9 @@ import Lottie
 import SDWebImage
 
 
-class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate, UNUserNotificationCenterDelegate {
+class ArticlesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate, UNUserNotificationCenterDelegate {
     
     var notificationCenter = NotificationCenter.default
-    
-    fileprivate let heroTransition = HeroTransition()
     
     @IBAction func menuButtonAction(_ sender: Any) {
         
@@ -198,11 +195,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
         startActivityIndicator()
         
         //MARK: Hero Setup
-        
-        self.hero.isEnabled = true
-        self.navigationController?.delegate = self
-        
-        self.navigationController?.hero.navigationAnimationType = .selectBy(presenting: .zoomOut, dismissing: .zoomSlide(direction: .right))
         
         articleCollectionView.dataSource = self
         articleCollectionView.delegate = self
@@ -514,22 +506,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UINavi
             self.articleCollectionView.setContentOffset(CGPoint.zero, animated: true)
         }
         
-    }
-    
-    //MARK: Navigation Controller Delegate
-    
-    
-    //MARK: FOR HERO
-    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning)
-        -> UIViewControllerInteractiveTransitioning? {
-            return heroTransition.navigationController(navigationController, interactionControllerFor: animationController)
-    }
-    
-    func navigationController(_ navigationController: UINavigationController,
-                              animationControllerFor operation: UINavigationController.Operation,
-                              from fromVC: UIViewController,
-                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return heroTransition.navigationController(navigationController, animationControllerFor: operation, from: fromVC, to: toVC)
     }
     
     //MARK:- SEGUES

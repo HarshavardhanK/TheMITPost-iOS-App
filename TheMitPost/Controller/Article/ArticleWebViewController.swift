@@ -10,10 +10,9 @@ import UIKit
 import WebKit
 import SafariServices
 
-import Hero
 import NVActivityIndicatorView
 
-class ArticleWebViewController: UIViewController, UINavigationControllerDelegate, WKNavigationDelegate, UIWebViewDelegate {
+class ArticleWebViewController: UIViewController, WKNavigationDelegate, UIWebViewDelegate {
     
     let API = "https://app.themitpost.com/posts/render/"
     var url: String?
@@ -30,15 +29,9 @@ class ArticleWebViewController: UIViewController, UINavigationControllerDelegate
     
     var activityIndicator: NVActivityIndicatorView?
     
-    fileprivate let heroTransition = HeroTransition()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.hero.isEnabled = true
-        //self.navigationController?.delegate = self
-        //self.navigationController?.hero.navigationAnimationType = .selectBy(presenting: .zoomSlide(direction: .left), dismissing: .zoomSlide(direction: .right))
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
         
         if let category_ = category {
             self.title = String.init(htmlEncodedString: category_)
@@ -77,19 +70,6 @@ class ArticleWebViewController: UIViewController, UINavigationControllerDelegate
         
         
         // Do any additional setup after loading the view.
-    }
-    
-    //MARK: FOR HERO
-    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning)
-        -> UIViewControllerInteractiveTransitioning? {
-        return heroTransition.navigationController(navigationController, interactionControllerFor: animationController)
-    }
-
-    func navigationController(_ navigationController: UINavigationController,
-                              animationControllerFor operation: UINavigationController.Operation,
-                              from fromVC: UIViewController,
-                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return heroTransition.navigationController(navigationController, animationControllerFor: operation, from: fromVC, to: toVC)
     }
     
     //MARK:- UI MODE

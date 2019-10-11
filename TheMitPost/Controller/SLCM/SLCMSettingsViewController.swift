@@ -97,7 +97,7 @@ class SLCMSettingsViewController: UIViewController {
         var names: [String]
         
         if traitCollection.userInterfaceStyle == .dark {
-            names = ["particle-explosion", "astronaut", "vui", "force", "batman"]
+            names = ["particle-explosion", "vui", "force", "batman"]
             
             let animation = Animation.named("settings-gear")
             lottieSettingsView.animation = animation

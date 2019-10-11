@@ -1419,7 +1419,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post_logo" translatesAutoresizingMaskIntoConstraints="NO" id="dZV-no-VJz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post_logo_small" translatesAutoresizingMaskIntoConstraints="NO" id="dZV-no-VJz">
                                 <rect key="frame" x="45" y="44" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="fZO-7J-9X8"/>
@@ -3284,7 +3284,7 @@ AAEs2QABLOEAAAAAAAAEAQAAAAAAAABuAAAAAAAAAAAAAAAAAAEs5A
         <image name="maps" width="21.333333969116211" height="21.333333969116211"/>
         <image name="megaphone" width="21.333333969116211" height="21.333333969116211"/>
         <image name="menu-button" width="21.333333969116211" height="21.333333969116211"/>
-        <image name="post_logo" width="256" height="256"/>
+        <image name="post_logo_small" width="128" height="128"/>
         <image name="posttabicon" width="21.333333969116211" height="21.333333969116211"/>
         <image name="purge_account" width="270" height="40"/>
         <image name="share" width="64" height="64"/>
