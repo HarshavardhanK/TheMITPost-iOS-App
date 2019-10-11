@@ -207,26 +207,6 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         
     }
     
-    @objc func requestForNotification() {
-        
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        
-        UNUserNotificationCenter.current().requestAuthorization (
-            
-            options: authOptions,
-            completionHandler: {granted, error in
-                
-                if granted {
-                    
-                    print("Successfully granted notification permission")
-                    
-                } else {
-                    
-                    print("Notification permission denied")
-                }
-        })
-    }
-    
     //MARK: Onboarding
     lazy var onboardingPages: [OnboardPage] = {
         
@@ -375,6 +355,8 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         mode()
         
         notificationCenter.addObserver(self, selector: #selector(requestForNotification), name: NSNotification.Name("notificationRequest"), object: nil)
+        
+        notificationCenter.addObserver(self, selector: #selector(fcmTokenChange), name: NSNotification.Name("FCMTokenChange"), object: nil)
         
         stackView.autoresizingMask = .flexibleBottomMargin
         stackView.autoresizingMask = .flexibleTopMargin
@@ -674,6 +656,46 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         
     }
     
+    //MARK: Notifications
+    
+    @objc func requestForNotification() {
+        
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        
+        UNUserNotificationCenter.current().requestAuthorization (
+            
+            options: authOptions,
+            completionHandler: {granted, error in
+                
+                if granted {
+                    
+                    print("Successfully granted notification permission")
+                    
+                } else {
+                    
+                    print("Notification permission denied")
+                }
+        })
+    }
+    
+    @objc func fcmTokenChange() {
+        
+        if isUserSaved() {
+            
+            guard let registration = getRegistration() else {
+                return
+            }
+            
+            guard let password = getPassword() else {
+                return
+            }
+            
+            fcmAction(registration: registration, password: password, action: "update")
+            
+        }
+        
+    }
+    
     //MARK: ANIMATION
     func animateBottomConstraint(direction: Int) {
         
@@ -847,7 +869,9 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         
     }
     
-    func signIn_Saved() {
+    @objc func signIn_Saved() {
+        
+        print("Signing in saved")
         
         if let savedRegistration = UserDefaults.standard.string(forKey: "registration") {
             

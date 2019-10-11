@@ -61,9 +61,7 @@ class SLCMSettingsViewController: UIViewController {
         
         mode()
         
-        self.view.layer.cornerRadius = 20
-        
-        setupLottieViews()
+        self.view.layer.cornerRadius = 15
         
         let value = UserDefaults.standard.bool(forKey: DEFAULTS.BIOMETRIC_ENABLED)
         
@@ -99,10 +97,20 @@ class SLCMSettingsViewController: UIViewController {
         var names: [String]
         
         if traitCollection.userInterfaceStyle == .dark {
-            names = ["particle-explosion", "astronaut", "vui", "force"]
+            names = ["particle-explosion", "astronaut", "vui", "force", "batman"]
+            
+            let animation = Animation.named("settings-gear")
+            lottieSettingsView.animation = animation
+            lottieSettingsView.loopMode = .loop
+            lottieSettingsView.play()
             
         } else {
-            names = ["bear", "biking", "fat-cat", "doggie", "funky-chicken", "jumping_girl", "karam", "jumbo-typing", "lumberjack"]
+            names = ["bear", "biking", "fat-cat", "doggie", "funky-chicken", "jumping_girl", "jumbo-typing"]
+            
+            let animation = Animation.named("gears2", subdirectory: "Lottie-Files")
+            lottieSettingsView.animation = animation
+            lottieSettingsView.loopMode = .loop
+            lottieSettingsView.play()
         }
         
         let name = names[Int(arc4random()) % names.count]
@@ -161,9 +169,14 @@ class SLCMSettingsViewController: UIViewController {
                 view.backgroundColor = .background
                 lottieSettingsView.backgroundColor = .background
                 biometricLottieView.backgroundColor = .background
+                
+                setupLottieViews()
+                
                 lottieView.backgroundColor = .background
                 
             } else {
+                
+                setupLottieViews()
                 
                 topThing.image = UIImage(named: "topThingGray")
                 view.backgroundColor = .white
@@ -173,8 +186,9 @@ class SLCMSettingsViewController: UIViewController {
                 
             }
             
+        } else {
+            setupLottieViews()
         }
-        
         
     }
     

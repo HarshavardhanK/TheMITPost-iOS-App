@@ -125,6 +125,7 @@ class AboutViewController: UIViewController {
                 developerImageView.layer.borderColor = UIColor.lightGray.cgColor
                 developerImageView.backgroundColor = .background
                 clubImageView.layer.borderColor = UIColor.lightGray.cgColor
+                devGitHub.backgroundColor = .background
                 clubImageView.backgroundColor = .background
                 privacyPolicyButton.backgroundColor = .background
                 
@@ -137,6 +138,7 @@ class AboutViewController: UIViewController {
                 developerImageView.backgroundColor = .white
                 clubImageView.layer.borderColor = UIColor.lightGray.cgColor
                 clubImageView.backgroundColor = .white
+                devGitHub.backgroundColor = .white
                 privacyPolicyButton.backgroundColor = .white
                 
             }

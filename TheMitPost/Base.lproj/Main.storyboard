@@ -1419,7 +1419,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post_icon" translatesAutoresizingMaskIntoConstraints="NO" id="dZV-no-VJz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post_logo" translatesAutoresizingMaskIntoConstraints="NO" id="dZV-no-VJz">
                                 <rect key="frame" x="45" y="44" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="fZO-7J-9X8"/>
@@ -1493,7 +1493,7 @@
                                                     <constraint firstAttribute="width" constant="28" id="tkf-Th-Nfg"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github-logo" translatesAutoresizingMaskIntoConstraints="NO" id="y0i-ZB-1RY">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github" translatesAutoresizingMaskIntoConstraints="NO" id="y0i-ZB-1RY">
                                                 <rect key="frame" x="69" y="0.0" width="25" height="25"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -1687,7 +1687,7 @@
                                     <constraint firstAttribute="width" constant="45" id="UVf-Kh-0a9"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="settings-gear"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="Lottie-Files/gears2"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -3276,7 +3276,7 @@ AAEs2QABLOEAAAAAAAAEAQAAAAAAAABuAAAAAAAAAAAAAAAAAAEs5A
         <image name="calendar" width="21.333333969116211" height="21.333333969116211"/>
         <image name="event_tab_bar" width="21.333333969116211" height="21.333333969116211"/>
         <image name="facebook" width="42.666667938232422" height="42.666667938232422"/>
-        <image name="github-logo" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="github" width="42.666667938232422" height="42.666667938232422"/>
         <image name="graduation" width="21.333333969116211" height="21.333333969116211"/>
         <image name="harsha1" width="1160" height="1160"/>
         <image name="instagram" width="42.666667938232422" height="42.666667938232422"/>
@@ -3284,7 +3284,7 @@ AAEs2QABLOEAAAAAAAAEAQAAAAAAAABuAAAAAAAAAAAAAAAAAAEs5A
         <image name="maps" width="21.333333969116211" height="21.333333969116211"/>
         <image name="megaphone" width="21.333333969116211" height="21.333333969116211"/>
         <image name="menu-button" width="21.333333969116211" height="21.333333969116211"/>
-        <image name="post_icon" width="1024" height="585"/>
+        <image name="post_logo" width="256" height="256"/>
         <image name="posttabicon" width="21.333333969116211" height="21.333333969116211"/>
         <image name="purge_account" width="270" height="40"/>
         <image name="share" width="64" height="64"/>

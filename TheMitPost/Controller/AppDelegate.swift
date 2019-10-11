@@ -105,12 +105,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print(remoteMessage.appData)
         print("Notification receivedRemoteMessage")
     }
+    
+    //MARK: Token Change
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+      print("Firebase registration token: \(fcmToken)")
+
+      let dataDict:[String: String] = ["token": fcmToken]
+      NotificationCenter.default.post(name: Notification.Name("FCMTokenChange"), object: nil, userInfo: dataDict)
+      // TODO: If necessary send token to application server.
+      // Note: This callback is fired at each app startup and whenever a new token is generated.
+        
+        //Store token in storage for fast retrieval for SLCM
+        //Change this method in the next update
+        
+        UserDefaults.standard.set(fcmToken, forKey: "token")
+        
+        
+    }
 
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
     
         completionHandler(UNNotificationPresentationOptions.alert)
     }
@@ -129,6 +145,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             print(type)
             
             if type == "slcm" {
+                
                 (window?.rootViewController as? UITabBarController)?.selectedIndex = 1
                 
             } else if type == "notice" {

@@ -214,9 +214,20 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             
                 print("Successfully loaded data")
                 
-                self.noticesShown = [Bool](repeating: false, count: self.notices.count)
+                if self.notices.count == 0 {
+                    completion(false)
+                    
+                } else {
+                    
+                    self.noticesShown = [Bool](repeating: false, count: self.notices.count)
+                    
+                    completion(true)
+                    
+                    self.notices.reverse()
+                    
+                }
                 
-                completion(true)
+                
                 
             }
             
