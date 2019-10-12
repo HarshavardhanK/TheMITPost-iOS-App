@@ -80,7 +80,13 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         }
     }
     
-    func authenticateWithBiometric(completion: @escaping (Bool) -> ())  {
+    enum BIOMETRY_TYPE: Int {
+        case success = 1
+        case notRecognized = 2
+        case notEnabled = 0
+    }
+    
+    func authenticateWithBiometric(completion: @escaping (BIOMETRY_TYPE) -> ())  {
         
         print("Authenticating")
         
@@ -89,27 +95,29 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             let reason = "slcm login"
             
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
-                [weak self] success, authenticationError in
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) {
                 
-                DispatchQueue.main.async {
+                 success, authenticationError in
+                
+                if success {
                     
-                    if success {
+                    DispatchQueue.main.async { [unowned self] in
                         print("Successfully authenticated")
-                        completion(true)
-                    } else {
-                        //invalid authentication error
-                        print("Could not authenticate")
-                        completion(false)
+                        completion(.success)
                     }
+                    
+                } else {
+                    //invalid authentication error
+                    print("Could not authenticate")
+                    completion(.notRecognized)
                 }
                 
-                
             }
+            
         } else {
             print("Couldnt find biometry")
             // no biometry
-            completion(false)
+            completion(.notEnabled)
             
         }
         
@@ -130,23 +138,23 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         if checkForBiometric() && isUserSaved() {
             print("Signing in with biometry")
             
-            authenticateWithBiometric { (success) in
+            authenticateWithBiometric { (response) in
                 
-                if success {
+                if response == .success {
                     
                     if self.isUserSaved() {
                         print("User saved")
                         self.signIn_Saved()
                         
-                    } else {
-                        print("User not saved")
-                        self.signIn_NotSaved()
-                        
                     }
                     
-                } else {
+                } else if response == .notRecognized {
                     self.signIn_biometryFailed()
                     
+                } else {
+                    
+                    let banner = NotificationBanner(title: "Oops!", subtitle: "Please enable " + self.biometricType() + " in settings", style: .warning)
+                    banner.show()
                 }
             }
             
