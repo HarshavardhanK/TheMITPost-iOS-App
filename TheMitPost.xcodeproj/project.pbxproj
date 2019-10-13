@@ -47,6 +47,7 @@
 		D64B590A233D10A00096CF74 /* PDFLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64B5909233D10A00096CF74 /* PDFLoadViewController.swift */; };
 		D64B590B233D10A00096CF74 /* PDFLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64B5909233D10A00096CF74 /* PDFLoadViewController.swift */; };
 		D64B590C233D10A00096CF74 /* PDFLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64B5909233D10A00096CF74 /* PDFLoadViewController.swift */; };
+		D65036692352F1740023D826 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65036682352F1730023D826 /* SnapshotHelper.swift */; };
 		D662420C23015E9F00261081 /* ArticleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662420B23015E9F00261081 /* ArticleWebViewController.swift */; };
 		D662420D23015E9F00261081 /* ArticleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662420B23015E9F00261081 /* ArticleWebViewController.swift */; };
 		D662420E23015E9F00261081 /* ArticleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662420B23015E9F00261081 /* ArticleWebViewController.swift */; };
@@ -162,6 +163,7 @@
 		D64008FA2336A5DD0086064E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6400902233781500086064E /* ImagePresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresentViewController.swift; sourceTree = "<group>"; };
 		D64B5909233D10A00096CF74 /* PDFLoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFLoadViewController.swift; sourceTree = "<group>"; };
+		D65036682352F1730023D826 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		D662420B23015E9F00261081 /* ArticleWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWebViewController.swift; sourceTree = "<group>"; };
 		D664F31C22AF9F62002D6E0F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D664F32622B0FA2D002D6E0F /* Notices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notices.swift; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 		D6D6A22F21ECC5A500B822F8 /* TheMitPostUITests */ = {
 			isa = PBXGroup;
 			children = (
+				D65036682352F1730023D826 /* SnapshotHelper.swift */,
 				D6D6A23021ECC5A500B822F8 /* TheMitPostUITests.swift */,
 				D6D6A23221ECC5A500B822F8 /* Info.plist */,
 			);
@@ -777,6 +780,7 @@
 			files = (
 				D6FA299A23326CEF00703DE7 /* NoticesCollectionViewController.swift in Sources */,
 				D6D6A23121ECC5A500B822F8 /* TheMitPostUITests.swift in Sources */,
+				D65036692352F1740023D826 /* SnapshotHelper.swift in Sources */,
 				D61D3A9721EE494B006DDD6B /* ArticleCollectionViewCell.swift in Sources */,
 				D61C44DD223E74DF00DF5DAA /* SLCM.swift in Sources */,
 				D614E7E1233CD6F200377DC8 /* SLCMSettingsViewController.swift in Sources */,
@@ -1044,18 +1048,19 @@
 			baseConfigurationReference = 34F4459B5E9732FCC19261CF /* Pods-TheMitPostUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Z34Y633MA;
+				DEVELOPMENT_TEAM = N7MCZ8UJRF;
 				INFOPLIST_FILE = TheMitPostUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarsha.apps.TheMitPostUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ramathmika.ThePost.TheMitPostUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = TheMitPost;
 			};
 			name = Debug;
@@ -1065,18 +1070,19 @@
 			baseConfigurationReference = 08182739F20003F58C569534 /* Pods-TheMitPostUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Z34Y633MA;
+				DEVELOPMENT_TEAM = N7MCZ8UJRF;
 				INFOPLIST_FILE = TheMitPostUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Tsarsha.apps.TheMitPostUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ramathmika.ThePost.TheMitPostUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = TheMitPost;
 			};
 			name = Release;

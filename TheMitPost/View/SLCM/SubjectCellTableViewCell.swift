@@ -27,9 +27,7 @@ class SubjectCellTableViewCell: FoldingCell {
     
     @IBOutlet weak var totalContainerView: UIView!
     @IBOutlet weak var secondContainerView: RotatedView!
-    
     @IBOutlet weak var thirdContainerView: RotatedView!
-    
     @IBOutlet weak var bottomContainerView: RotatedView!
     
     @IBOutlet weak var assignment1: UILabel!
@@ -172,6 +170,11 @@ class SubjectCellTableViewCell: FoldingCell {
             
             if let _subject = subject {
                 
+                let images = ["slcm1", "slcm2", "slcm3"]
+                let name = images[Int(arc4random()) % images.count]
+                
+                slcmHeaderImage.image = UIImage(named: name)
+                
                 subjectName.text = _subject.subjectName
                 detailLabel.text = _subject.subjectName
                 
@@ -262,7 +265,8 @@ class SubjectCellTableViewCell: FoldingCell {
         super.awakeFromNib()
         
         mode()
-        slcmHeaderImage.layer.cornerRadius = 15
+        
+        totalContainerView.layer.cornerRadius = 15
         layer.cornerRadius = 15
         foregroundView.layer.cornerRadius = 15
         foregroundView.layer.masksToBounds = true

@@ -189,6 +189,9 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
             UserDefaults.standard.set(true, forKey: "firstTimeApp")
         }
         
+        self.tabBarController?.accessibilityLabel = "tabBar"
+        self.tabBarController?.isAccessibilityElement = true
+        
         setupNotificationCenter()
         
         mode()
