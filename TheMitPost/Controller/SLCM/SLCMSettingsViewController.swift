@@ -9,7 +9,8 @@
 import UIKit
 import LocalAuthentication
 
-
+import SwiftyJSON
+import Alamofire
 import Lottie
 import NotificationBannerSwift
 import Locksmith
@@ -46,6 +47,43 @@ class SLCMSettingsViewController: UIViewController {
             biometricLabel?.text = biometricType() + " enabled"
         }
         
+        
+    }
+    
+    
+    @IBAction func purgeAccountAction(_ sender: Any) {
+        
+        let url = "https://app.themitpost.com/slcm/purge"
+        
+        guard let registration = UserDefaults.standard.string(forKey: DEFAULTS.REGISTRATION) else {
+            return
+        }
+        
+        Alamofire.request(url, method: .post, parameters: ["regNumber": registration], encoding: JSONEncoding.default).responseJSON { (response) in
+            
+            if let resp = response.result.value {
+                
+                let data = JSON(resp)
+                
+                if data["status"] == "OK" {
+                    //success
+                    let banner = NotificationBanner(title: "Deleted", subtitle: "Successfully deleted your account from our server", style: .success)
+                    banner.show()
+                    
+                } else {
+                    
+                    let banner = NotificationBanner(title: "Uh oh", subtitle: "There was an error trying to delete your account", style: .warning)
+                    banner.show()
+                }
+                
+            } else {
+                
+                let banner = NotificationBanner(title: "Try again", subtitle: "There was an error trying to delete your account", style: .warning)
+                banner.show()
+                
+            }
+            
+        }
         
     }
     
