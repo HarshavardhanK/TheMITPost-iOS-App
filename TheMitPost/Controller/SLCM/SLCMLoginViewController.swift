@@ -332,13 +332,11 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
             
             let isRegisteredForRemoteNotifications = UIApplication.shared.isRegisteredForRemoteNotifications
             
-            if isRegisteredForRemoteNotifications {
-                 let banner = NotificationBanner(title: "Great!", subtitle: "All set for the best SLCM experience", style: .success)
-                 banner.show()
+            if !isRegisteredForRemoteNotifications {
                 
-            } else {
-                 let banner = NotificationBanner(title: "Ugh!", subtitle: "Please enable push notifications in iPhone settings for the best SLCM experience", style: .warning)
-                 banner.show()
+                let banner = NotificationBanner(title: "Ugh!", subtitle: "Please enable push notifications for the best SLCM experience", style: .warning)
+                banner.show()
+                
             }
             
         })
@@ -486,7 +484,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
             //add code to limit the number of invalid attempts
         }))
         
-        let banner = NotificationBanner(title: "Oops!", subtitle: "Ah, here we go again", style: .danger)
+        let banner = NotificationBanner(title: "Oops!", subtitle: "We could not recognize you", style: .danger)
         banner.show()
         
         self.present(invalidAlert, animated: true, completion: nil)
@@ -499,7 +497,7 @@ class SLCMLoginViewController: UIViewController, UINavigationControllerDelegate,
         
         saveLoginAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) in
             
-            let banner = NotificationBanner(title: "Saved!", subtitle: "Like the North, we always remember", style: .success)
+            let banner = NotificationBanner(title: "Saved!", style: .success)
             banner.show()
             
             self.fcmAction(registration: registration, password: password, action: "insert")

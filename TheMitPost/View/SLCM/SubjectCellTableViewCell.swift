@@ -170,7 +170,7 @@ class SubjectCellTableViewCell: FoldingCell {
             
             if let _subject = subject {
                 
-                let images = ["slcm1", "slcm2", "slcm3"]
+                let images = ["slcm5", "slcm6", "slcm7", "slcm8", "slcm9", "slcm10"]
                 let name = images[Int(arc4random()) % images.count]
                 
                 slcmHeaderImage.image = UIImage(named: name)

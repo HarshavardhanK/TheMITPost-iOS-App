@@ -148,18 +148,6 @@ class ArticlesViewController: UIViewController, UICollectionViewDelegate, UIColl
         let onboardingVC = OnboardViewController(pageItems: onboardingPages, appearanceConfiguration: appearanceConfiguration ,completion: {
             
             print("onboarding complete")
-            
-            let isRegisteredForRemoteNotifications = UIApplication.shared.isRegisteredForRemoteNotifications
-            
-            if isRegisteredForRemoteNotifications {
-                let banner = NotificationBanner(title: "Great!", subtitle: "All set for the best app experience", style: .success)
-                banner.show()
-                
-            } else {
-                let banner = NotificationBanner(title: "Ugh!", subtitle: "Please enable push notifications in iPhone settings for a better experience", style: .warning)
-                banner.show()
-            }
-            
         })
         
         onboardingVC.modalPresentationStyle = .formSheet
