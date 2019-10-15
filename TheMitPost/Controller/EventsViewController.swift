@@ -289,6 +289,12 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
                 
                 let data = response["data"].arrayValue
                 
+                if data.count <= 0 {
+                    completion(false)
+                    self.stopActivityIndicator()
+                    return
+                }
+                
                 for event in data {
                     self.events.append(Events(data: event))
                 }

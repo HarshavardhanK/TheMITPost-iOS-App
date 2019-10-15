@@ -205,6 +205,8 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
             
             if value["status"] != "OK" {
                 completion(false)
+                self.stopActivityIndicator()
+                return
                 
             } else {
                 
@@ -226,8 +228,6 @@ class NoticesCollectionViewController: UIViewController, UICollectionViewDelegat
                     self.notices.reverse()
                     
                 }
-                
-                
                 
             }
             
