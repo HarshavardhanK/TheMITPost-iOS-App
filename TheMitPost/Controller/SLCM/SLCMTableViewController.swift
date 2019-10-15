@@ -33,19 +33,15 @@ class SLCMTableViewController: UITableViewController, UINavigationControllerDele
         
         mode()
         
-        print("View loaded")
-        
         if !UserDefaults.standard.bool(forKey: "notFirstTime") {
             
-            let banner = NotificationBanner(title: "Knock knock", subtitle: "Tap on a cell to view more details", style: .info)
+            let banner = NotificationBanner(title: "Tap on a cell to view more details", style: .info)
             banner.show(bannerPosition: .bottom)
             
             UserDefaults.standard.set(true, forKey: "notFirstTime")
         }
         
         setup()
-        print("View loaded..")
-        print(subjects.count)
         
         // SET UP ALL VARIABLES
         cellsAnimated = Array(repeating: false, count: subjects.count)
@@ -228,8 +224,7 @@ class SLCMTableViewController: UITableViewController, UINavigationControllerDele
             cell.alpha = 1.0
             
         }) {    (true) in
-            
-            print("Animation completed..")
+        
         }
     }
     

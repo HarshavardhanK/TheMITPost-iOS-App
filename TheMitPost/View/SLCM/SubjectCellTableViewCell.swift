@@ -7,7 +7,7 @@
 //
 
 import FoldingCell
-
+import SDWebImage
 // The summary view of the SLCM subject will be displayed in the FoldingCell property foregroundView
 // The detail view of the SLCm subject will be displayed in the FoldingCell property containerView
 
@@ -170,10 +170,11 @@ class SubjectCellTableViewCell: FoldingCell {
             
             if let _subject = subject {
                 
-                let images = ["slcm5", "slcm6", "slcm7", "slcm8", "slcm9", "slcm10"]
+                let images = ["https://i.ibb.co/GVt831t/IMG-20190903-140659.jpg", "https://i.ibb.co/Y7d2pyS/IMG-20190903-134223.jpg", "https://i.ibb.co/TP2rZ1C/IMG-20190903-134917-01-20190903143135832.jpg"]
+                
                 let name = images[Int(arc4random()) % images.count]
                 
-                slcmHeaderImage.image = UIImage(named: name)
+                slcmHeaderImage.sd_setImage(with: URL(string: name), completed: nil)
                 
                 subjectName.text = _subject.subjectName
                 detailLabel.text = _subject.subjectName
