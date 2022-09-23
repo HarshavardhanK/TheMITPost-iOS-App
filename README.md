@@ -5,7 +5,7 @@ Available on [App Store!](https://apps.apple.com/in/app/mit-post/id1482139053)
 
 #### Blazing fast Swift app that delivers The MIT Post articles, MIT's notices, events, and the fastest SLCM engine
 
-<img src = "https://drive.google.com/uc?export=view&id=1htBtc5jgQ0jyspKop8EArgLd8EfJbzge" width="300" height="550">&nbsp;&nbsp;&nbsp;&nbsp;![image](https://drive.google.com/uc?export=view&id=1Fk5psnQgs5QZ4jYdiAojVFgukAfCZBRD){: height="500px" width="550px"}
+<img src = "https://drive.google.com/uc?export=view&id=1htBtc5jgQ0jyspKop8EArgLd8EfJbzge" width="300" height="550">&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://drive.google.com/uc?export=view&id=1Fk5psnQgs5QZ4jYdiAojVFgukAfCZBRD" width="300" height="550">
 
 
 ## Contributing
