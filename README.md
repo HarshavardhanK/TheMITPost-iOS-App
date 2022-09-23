@@ -5,7 +5,7 @@ Available on [App Store!](https://apps.apple.com/in/app/mit-post/id1482139053)
 
 #### Blazing fast Swift app that delivers The MIT Post articles, MIT's notices, events, and the fastest SLCM engine
 
-![iPhone 8 app screenshot](https://drive.google.com/uc?export=view&id=1htBtc5jgQ0jyspKop8EArgLd8EfJbzge)
+![iPhone 8 app screenshot](https://drive.google.com/uc?export=view&id=1htBtc5jgQ0jyspKop8EArgLd8EfJbzge =300x450)
 
 
 ## Contributing
