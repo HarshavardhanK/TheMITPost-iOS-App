@@ -11,5 +11,8 @@ Available on [App Store!](https://apps.apple.com/in/app/mit-post/id1482139053)
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+## UPDATE
+This app has been deprecated. No longer available on the App Store
+
 
 
