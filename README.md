@@ -15,7 +15,9 @@ The MIT Post app will keep you updated! We send notifications when your attendan
 
 #### Find all MIT events in a single place and register! 🥳
 
-<img src = "https://drive.google.com/uc?export=view&id=1azs-SwudsRIUHGhirpbaGmTNrHdkTi5Q" width="300" height="550">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src = "https://drive.google.com/uc?export=view&id=1azs-SwudsRIUHGhirpbaGmTNrHdkTi5Q" width="300" height="550">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 #### Never miss a single update from college! 
 Get access to all notices and communications ✌🏻
